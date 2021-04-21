@@ -1,0 +1,175 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro cliente</title>
+    <link rel="stylesheet" href="registro_cliente.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Librerias/petsworld.css">
+    <link rel="stylesheet" href="../../Librerias/navLandingPageProducto/nav_landing_producto.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+
+</head>
+
+<body>
+
+    <div class="container-nav">
+        <div class="box-logo container-nav ">
+            <a href="../../index.html"><img src="../../img/logoPets.png" /></a>
+        </div>
+        <div class="box-anchors container-nav">
+            <a href="#">SERVICIOS</a>
+            <a href="../../General/landingPageEquipo/landing_page_equipo.html">SOBRE NOSOTROS</a>
+            <a href="../../General/contacto/contacto.html">CONTACTO</a>
+            <div>
+                <a href="../../General/login/login.html" class="button-sesion-landing">INICIAR SESIÓN</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="titulo-registro">
+        <p>Registrese como Cliente</p>
+
+    </div>
+
+    <div class="registro-cliente">
+        <img src="../img/gatos.PNG" />
+        <div class="info-izquierda">
+            <div class="pw-form info">
+                <p>Nombre</p>
+                <input type="text" name="nombre" class="form-validate" id="nombre">
+            </div>
+            <div class="pw-form info">
+                <p>Primer apellido</p>
+                <input type="text" name="apellido1" class="form-validate" id="apellido1">
+            </div>
+            <div class="pw-form info">
+                <p>Segundo apellido</p>
+                <input type="text" name="apellido2" class="form-validate" id="apellido2">
+            </div>
+            <div class="pw-form info">
+                <p>Correo electrónico</p>
+                <input type="email" name="correo" class="form-validate" id="correo">
+            </div>
+            <div class="pw-form tipo-identificacion" class="form-validate">
+                <p>Tipo de identificación</p>
+                <select name="identificacion" class="form-validate" id="tipo_identificacion">
+                    <option value="Cédula Física" selected>Cédula física</option>
+                    <option value="Cédula Jurídica">Cédula jurídica</option>
+                    <option value="DIMEX">DIMEX</option>
+                </select>
+            </div>
+            <div class="pw-form info">
+                <p>No. Identificación</p>
+                <input type="text" name="identificacion" class="form-validate" id="identificacion">
+            </div>
+            <div class="pw-form info">
+                <p>Fecha Nacimiento</p>
+                <input type="date" id="fecha_nacimiento" name="fecha" value="" min="1900-01-01" max="2020-12-31">
+            </div>
+            <div class="pw-form info">
+                <p>Teléfono</p>
+                <input type="number" name="telefono" class="form-validate" id="telefono">
+            </div>
+
+            <div class="pw-form info">
+                <a id="revisarCliente">Siguiente</a>
+            </div>
+
+        </div>
+        <div class="info-derecha">
+            <div class="pw-form info-radio">
+                <p>Género</p>
+                <label class="container">Femenino
+                    <input type="radio" checked="checked" name="gender"  value="Femenino">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Masculino
+                    <input type="radio" name="gender" value="Masculino">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Otro
+                    <input type="radio" name="gender" value="Otro">
+                    <span class="checkmark"></span>
+                </label>
+
+            </div>
+            <div class="pw-form info">
+                <p>Cantidad de Mascotas</p>
+                <input type="number" name="cantidadMascotas" class="form-validate" id="cantidad_mascotas">
+            </div>
+            <div class="pw-form provincia">
+                <p>Provincia</p>
+                <select name="provincia" class="form-validate" id="provincia" onclick="cargarProvincias()">
+
+                </select>
+            </div>
+            <div class="pw-form canton">
+                <p>Cantón</p>
+                <select name="canton" class="form-validate" id="canton" onclick="cargarCanton()">
+
+                </select>
+
+            </div>
+            <div class="pw-form distrito">
+                <p>Distrito</p>
+                <select name="distrito" class="form-validate" id="distrito" onclick="cargarDistrito()">
+
+                </select>
+            </div>
+            <div class="pw-form info">
+                <p>Ingrese su dirección</p>
+                <div class="text-area">
+                    <textarea name="" id="direccion" cols="30" rows="6" class="form-validate"></textarea>
+                </div>
+            </div>
+            <div class="mapa-servicio pw-form">
+                <p>Indique su ubicación</p>
+                <div id="map"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+        async></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+    <script src="./registro_cliente.js"></script>
+
+</body>
+
+</html>

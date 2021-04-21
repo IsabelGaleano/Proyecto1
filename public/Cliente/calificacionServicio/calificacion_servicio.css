@@ -1,0 +1,74 @@
+
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.proveedor {
+    text-align: center;
+    padding-top: 30px;
+    align-items: center;
+}
+
+.estrellas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+
+}
+
+.columna {
+    padding: 30px;
+    text-align: center;
+}
+
+.comentario {
+    padding-top: 50px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.avatar-proveedor {
+    width: 100%;
+    text-align: center;
+}
+
+.avatar-proveedor img {
+    width: 150px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #5bb1bf;
+}
+
+.estrellas {
+    padding-top: 5px;
+}
+
+.fa-star {
+    margin: 6px;
+    font-size: 30px;
+    color: rgb(245, 232, 48);
+}
+
+
+.titulo-info {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 2px;
+    padding: 10px;
+}
+

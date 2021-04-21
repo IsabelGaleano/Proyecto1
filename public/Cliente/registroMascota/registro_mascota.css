@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.titulo-registro {
+    text-align: center;
+    color: #1A535C;
+    font-size: 30px;
+
+}
+
+.registro-cliente {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.info-registro {
+    display: flex;
+    justify-content: center;
+
+}
+
+.info-izquierda, .info-derecha {
+    /* margin: 50px; */
+    width: 100%;
+    padding: 60px;
+
+}
+
+
+.registro-cliente img {
+    width: 100%;
+    
+}
+
+
+.avatar {
+    width: 50%;
+    text-align: center;
+}
+
+.avatar img {
+    border-radius: 100%;
+    border-style: solid;
+    border-color: #bebebe;
+}
+
+.vacunas, .padecimientos {
+    overflow-y: auto;
+    max-height: 150px;
+    margin: 30px 0;
+}
+
+
+
+
+

@@ -1,0 +1,174 @@
+div{
+    box-sizing: border-box;
+}
+
+.wrapper{
+    overflow: auto;
+}
+
+body{
+    margin: 0;
+}
+
+.info-principal, .info, .services, .proveedor, .cliente, .info-button, .cantidad-usuarios {
+    display: flex;
+    align-items: center;
+    
+}
+
+.info, .button-user, .cantidad {
+    display: flex;
+}
+
+.info-principal {
+    justify-content: center;
+}
+
+.info {
+    order: 1;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imagen-principal{
+    padding-top: 5px;
+    order: 2;
+}
+.button-user {
+    padding-right: 90px;
+    padding-top: 30px;
+    align-items: center;
+}
+
+.descripcion-info h2 {
+    font-size: 40px;
+
+}
+
+.margin-botton {
+    margin-bottom: 0;
+}
+
+.margin-top {
+    margin-top: 2px;
+}
+
+.h2-mascotas, .h2-servicios {
+    font-style: italic;
+}
+
+
+.imagen-principal img {
+    width: 100%;
+    object-fit: fill;
+}
+
+.services {
+    justify-content: center;
+    text-align: center;
+    
+}
+.categoria {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.img-categoria {
+    width: 25%;
+    border: 1px dashed #bebebe;
+}
+
+.img-categoria {
+    width: 100%;
+}
+
+.categorias {
+    text-align: center;
+    padding-top: 80px;
+}
+
+.categorias h2 {
+    padding: 30px;
+}
+
+.titulo-usuarios {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(205, 237, 246, 0.4);
+}
+
+.proveedor,.cliente {
+    justify-content: center;
+}
+
+.image-proveedor {
+    width: 20%;
+    padding-right: 100px;
+}
+
+.image-proveedor img, .image-cliente img {
+    width: 100%;
+}
+.cliente {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.info-proveedor, .info-cliente {
+    width: 20%;
+}
+
+.image-cliente {
+    width: 20%;
+    padding-left: 100px;
+}
+
+
+.proveedor {
+    padding-top: 30px;
+}
+
+.cantidad-usuarios {
+    justify-content: center;
+    padding: 100px;
+}
+
+.cantidad {
+    padding: 50px;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 2rem;
+    color: #fff;
+}
+
+.cantidad h2 {
+    margin-bottom: 0;
+
+}
+.cantidad h3 {
+    margin-top: 10;
+    text-align: center;
+}
+
+.cantidad h2 {
+    font-size: 50px;
+}
+
+.bg-proveedor {
+    background-color: rgba(26, 83, 92, 0.7);
+}
+
+.bg-cliente {
+    background-color: rgba(91, 177, 191, 0.7);
+}
+
+
+
+.center {
+    margin: 2rem auto;
+}
+
+.carousel {
+    padding-left: 350px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}

@@ -1,0 +1,191 @@
+<html>
+
+<head>
+    <title>Listado de razas</title>
+    <link rel="stylesheet" href="../../Librerias/navAdministrador/nav_administrador.css">
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="listado_razas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--Navegador-->
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageAdministrador/landing_page_administrador.html">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Registros</span>
+                <div class="final-dropdown-menu">
+                    <a href="../listadoRazas/listado_razas.html">Razas</a>
+                    <a href="../listadoPadecimientos/listado_padecimientos.html">Padecimientos</a>
+                    <a href="../listadoVacunas/listado_vacunas.html">Vacunas</a>
+                    <a href="../listadoCategoriaServicios/listado_categorias_servicios.html">Categorías de servicios</a>
+                    <a href="../listadoCategoriaAnimales/listado_categorias_animales.html">Categorías de mascotas</a>
+                </div>
+            </div>
+            <div class="final-dropdown margin-a">
+                <span href="opcion2" class="final-dropdown-hover">Reportes</span>
+                <div class="final-dropdown-menu">
+                    <a href="../reporteUsuariosRegistrados/reporte_usuarios_registrados.html">Reporte usuarios</a>
+                    <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
+                    <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
+                    <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores calificados</a>
+                </div>
+            </div>
+            <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html"
+                class="final-dropdown-hover">Solicitudes</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/adriana.jpeg" /></a>
+            </div>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Adriana</span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
+                    <a href="../listadoClientes/listado_clientes.html">Clientes</a>
+                    <a href="../listadoProveedores/listado_proveedores.html">Proveedores</a>
+                    <a href="../anuncios/anuncios.html">Anuncios</a>
+                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--Navegador-->
+
+    <!--Body-->
+    <div class="pw-titulo-categoria">
+        <h2>Razas</h2>
+    </div>
+    <div class="input-search">
+        <div class="search-icons">
+            <input type="text" class="pw-form-search" placeholder="Buscar razas" />
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+    <div class="filtro pw-form">
+        <label for="usuario">Seleccione el tipo </label>
+        <select>
+            <option value="proveedor">Gato</option>
+            <option value="cliente">Perro</option>
+        </select>
+    </div>
+
+    <div class="listado-general">
+        <div class="listado">
+            <div class="info-listado">
+                <div class="img-categoria">
+                    <img src="../../img/MaineCoon.jpg" />
+                </div>
+                <div class="descripcion-info">
+                    <h4 class="titulo-categoria">Maine Coon</h4>
+                    <p>Tipo: Gato</p>
+                </div>
+                <div class="button-accion">
+                    <a href="../actualizarRaza/actualizar_raza.html"><i class="fas fa-edit"></i></a>
+                </div>
+                <div class="button-accion">
+                    <a href="#"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+            <div class="info-listado">
+                <div class="img-categoria">
+                    <img src="../../img/persa.jpg" />
+                </div>
+                <div class="descripcion-info">
+                    <h4 class="titulo-categoria">Gato Persa</h4>
+                    <p>Tipo: Gato</p>
+                </div>
+                <div class="button-accion">
+                    <a href="../actualizarRaza/actualizar_raza.html"><i class="fas fa-edit"></i></a>
+                </div>
+                <div class="button-accion">
+                    <a href="#"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="listado">
+            <div class="info-listado">
+                <div class="img-categoria">
+                    <img src="../../img/husky.jpg" />
+                </div>
+                <div class="descripcion-info">
+                    <h4 class="titulo-categoria">Husky Siberiano</h4>
+                    <p>Tipo: Perro</p>
+                </div>
+                <div class="button-accion">
+                    <a href="../actualizarRaza/actualizar_raza.html"><i class="fas fa-edit"></i></a>
+                </div>
+                <div class="button-accion">
+                    <a href="#"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+            <div class="info-listado">
+                <div class="img-categoria">
+                    <img src="../../img/pastorAleman.jpg" />
+                </div>
+                <div class="descripcion-info">
+                    <h4 class="titulo-categoria">Pastor Alemán</h4>
+                    <p>Tipo: Perro</p>
+                </div>
+                <div class="button-accion">
+                    <a href="../actualizarRaza/actualizar_raza.html"><i class="fas fa-edit"></i></a>
+                </div>
+                <div class="button-accion">
+                    <a href="#"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+    <div class="button-padding">
+        <div class="pw-form-inverse">
+            <a href="../registroRazas/registro_razas.html">Registrar raza</a>
+        </div>
+    </div>
+
+
+
+    <!--Body-->
+
+    <!--Footer-->
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+</body>
+
+</html>

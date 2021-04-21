@@ -1,0 +1,97 @@
+    div{
+        box-sizing: border-box;
+    }
+
+
+    body{
+        margin: 0;
+        font-family: "Raleway", sans-serif;
+    }
+
+/* Nav */
+
+    .wrapper {
+        overflow: auto;
+    }
+
+    .container-nav {
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .box-logo-nav {
+        flex: 2;
+        order: 1;
+    }
+
+    .box-anchors-nav {
+        flex: 1;
+        order: 2;
+        padding-top: 12px;
+    }
+
+    .box-anchors-nav a {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: black;
+        font-size: 15px;
+    }
+    .box-logo-nav img {
+        width: 240px;
+    }
+
+/* Img Perro y Gato */
+
+.inicio-sesion {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.img-mascotas-login img, .logo-pets img {
+    width: 80%;
+}
+
+.img-mascotas-login {
+    margin: 0 3rem;
+    width: 40%;
+    
+}
+
+.input-login {
+    width: 25%;
+    margin: 0 2rem;
+}
+
+.crear-cuenta {
+   text-decoration: none;
+   text-align: center;
+}
+
+.crear-cuenta a:last-child {
+    
+    color: rgb(27, 61, 27);
+}
+
+.inputs {
+    margin-top: -9%;
+}
+
+.links {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+
+
+
+
+
+    
+
+ 
+

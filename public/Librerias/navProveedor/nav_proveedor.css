@@ -1,0 +1,125 @@
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.wrapper{
+    overflow: auto;
+}
+
+.container-nav {
+    display: flex;
+    align-items: center;
+    background-color: #1a535c;
+}
+
+
+
+.box-logo img {
+    width: 200px;
+}
+.user {
+    border: 2px solid #1a535c;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+}
+
+.user a img {
+    width: 100%;
+}
+
+.fa-bell {
+    font-size: 25px;
+    padding-right: 20px;
+}
+
+.final-dropdown{
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+}
+.final-dropdown-hover{
+    display: inline-block;
+    padding: 20px;
+    color: #fff;
+    border:0 solid #323b40;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+.final-dropdown-menu{
+    position: absolute;
+    display: none;
+    top: 100%;
+    right: 5px;
+    min-width: 200px;
+    background-color: #fafafa;
+    color: #323b40;
+    box-shadow: 0 3px 2px rgba(0,0,0,0.3);
+}
+
+
+.final-dropdown:hover .final-dropdown-menu{
+    display: block;}
+      
+.final-dropdown-menu a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    border-width: 0;
+    border-top: 1px solid #e0e0e0;
+    font-size: 16px;
+    color: #000;
+}
+
+.final-dropdown-menu a:hover{
+    background-color:#f0f0f0;
+    color: #323b40;
+}
+
+
+
+.box-anchors > a {
+    transition: color 0.3s ease-out;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 0.0125rem;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 1px;
+    text-decoration: none;
+    transition: color 400ms cubic-bezier(0.7, 0, 0.3, 1);
+    margin: 0 1rem;
+}
+
+.box-anchors a:hover::after {
+    width: 100%;
+    opacity: 1;
+}
+
+.box-anchors a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 2px;
+    background: currentColor;
+    width: 0;
+    opacity: 0;
+    transition: width 400ms cubic-bezier(0.29, 0.29, 0.42, 1.01), opacity 600ms ease-in-out;
+}
+

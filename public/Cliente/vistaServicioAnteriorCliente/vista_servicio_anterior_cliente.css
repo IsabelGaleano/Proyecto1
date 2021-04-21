@@ -1,0 +1,130 @@
+
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.titulo-categoría {
+    padding: 15px;
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+
+}
+
+.estrellas {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+
+.cliente {
+    text-align: center;
+}
+
+.center {
+    margin: 2rem auto;
+}
+
+.titulo-servicio {
+    padding: 10px 0;
+}
+
+.estrellas {
+    padding-top: 5px;
+}
+
+.fa-star {
+    margin: 4px;
+    font-size: 20px;
+    color: rgb(245, 232, 48);
+}
+
+
+
+
+.info-servicio {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.info-servicio {
+    padding: 50px;
+}
+
+
+.info-columna {
+    width: 25%;
+    margin: 0 3rem;
+}
+
+
+.info-perfil{
+    padding-bottom: 20px;
+}
+
+.button-contratar {
+    padding: 30px;
+}
+
+
+.avatar-cliente {
+    width: 100%;
+    text-align: center;
+}
+
+.avatar-cliente img {
+    width: 150px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #5bb1bf;
+}
+
+
+.titulo-info {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+.text-area {
+    width: 100%;
+}
+
+.avatar-cliente p {
+    padding-top: 10px;
+}
+
+.fa-envelope, .fa-phone, .fa-venus-mars, .fa-map-marked-alt, .fa-paw {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.pw-form {
+    margin-top: 11px;
+
+}
+
+.pw-form p {
+    letter-spacing: 0px !important;
+    font-weight: bold;
+}
+
+.pw-form a {
+    font-size: 13px;
+}

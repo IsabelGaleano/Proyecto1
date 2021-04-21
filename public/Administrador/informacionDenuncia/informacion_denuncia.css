@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.titulo-info {
+    padding: 10px;
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+
+}
+
+.denuncia {
+    margin-top: -30px;
+}
+
+
+.denuncia, .info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.info-registro {
+    display: flex;
+    justify-content: center;
+
+}
+
+.info-izquierda, .info-derecha {
+    /* margin: 50px; */
+    width: 40%;
+    padding: 60px;
+
+}
+
+.imagen img {
+    width: 100%;
+    
+}
+
+.button-info {
+    padding: 0px 30px;
+}
+
+
+.info-titulos p {
+    padding: 15px 0px;
+    font-size: 16px;
+}
+
+
+
+.p-font {
+    font-weight: bold;
+}
+

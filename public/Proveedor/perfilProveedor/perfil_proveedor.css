@@ -1,0 +1,112 @@
+
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.titulo-categoría {
+    padding: 15px;
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+
+}
+
+.proveedor {
+    text-align: center;
+}
+
+.center {
+    margin: 2rem auto;
+}
+
+
+
+.info-servicio {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.estrellas {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+
+
+.info-servicio {
+    padding: 50px;
+}
+
+
+.info-columna {
+    width: 25%;
+    margin: 0 3rem;
+}
+
+
+.info-perfil{
+    padding: 3px 0;
+}
+
+.button-contratar {
+    padding: 30px;
+}
+
+
+
+.avatar-proveedor {
+    width: 100%;
+    text-align: center;
+}
+
+.avatar-proveedor img {
+    width: 150px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #5bb1bf;
+}
+
+.estrellas {
+    padding-top: 5px;
+}
+
+.fa-star {
+    margin: 4px;
+    font-size: 20px;
+    color: rgb(245, 232, 48);
+}
+
+
+.titulo-info {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.titulo-star {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    padding: 10px;
+    margin: 2px;
+
+}
+
+
+
+

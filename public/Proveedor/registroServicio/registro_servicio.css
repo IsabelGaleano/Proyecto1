@@ -1,0 +1,133 @@
+
+/* Formulario */
+    .titulo {
+        text-align: center;
+        color: #000;
+        padding-top: 30px;
+    }
+
+    .invalido {
+        color: #F55;
+        text-align: center;
+    }
+
+    .mostrar {
+        display: inline;
+    }
+
+    .ocultar {
+        display: none;
+    }
+
+    .formulario {
+        margin: 40px 300px;
+    }
+
+    .float {
+        float: left;
+    }
+
+    .pw-form input, .pw-form select {
+        width: 50%;
+    }
+
+/* Izquierda */
+    .form-izquierda {
+        width: 65%;
+    }
+
+    .espaciar-1 {
+        margin-bottom: 20px;
+    }
+
+    .espaciar-2 {
+        margin: 10px 0px;
+    }
+
+    .descripcion {
+        width: 40%;
+        height: 100px;
+    }
+
+    .costo {
+        width: 30%;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .anadir {
+        width: 30%;
+        margin-right: 280px;
+    }
+
+/* Derecha */
+    .dias {
+        width: 15%;
+        margin-top: 9px;
+    }
+
+    .nombre-dia {
+        width: 29%;
+        margin-top: 8px;
+    }
+
+    .pw-form-hora {
+        margin: 0px;
+    }
+
+    .hora {
+        width: 56%;
+        margin-top: -10px;
+        padding: 10px 0px;
+    }
+
+    .hora input {
+        width: 100%;
+    }
+
+    .form-derecha {
+        width: 35%;
+    }
+
+    .logo-form {
+        width: 10%;
+        margin-right: 10px;
+        margin-top: 11px;
+    }
+
+    .logo-form img {
+        width: 100%;
+    }
+
+    .input-redes {
+        width: 75%;
+        height: 30px;
+        margin-top: -2px;
+        padding: 10px 0px;
+    }
+
+    .input-redes input {
+        width: 100%;
+    }
+
+    .espaciar-3 {
+        margin-bottom: 40px;
+    }
+
+    .guardar {
+        text-align: center;
+    }
+
+
+.form-derecha p {
+        margin: 1;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 1px;
+}
+
+.text-area {
+    width: 50% !important;
+}

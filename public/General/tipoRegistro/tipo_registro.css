@@ -1,0 +1,31 @@
+div{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.registro {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    object-fit: cover;
+    width: 100%;
+  
+}
+
+.registro img {
+    width: 500px;
+}
+
+
+.columna {
+    text-align: center;
+    margin: 3rem;
+}
+
+.button-user {
+    padding-top: 20px;
+}
+

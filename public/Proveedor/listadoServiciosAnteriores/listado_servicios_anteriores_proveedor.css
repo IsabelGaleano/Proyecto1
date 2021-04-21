@@ -1,0 +1,125 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+
+.listado, .info-listado, .estrellas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.final-dropdown-hover {
+    color: #fff !important; 
+}
+
+
+.box-anchors > a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+.box-logo img {
+    width: 200px;
+}
+.user, .img-categoria {
+    border: 2px solid #1a535c;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+}
+
+
+.user img, .img-categoria img {
+    width: 100%;
+}
+
+.container-nav {
+    background-color: #1A535C;
+}
+
+
+.final-dropdown-hover {
+    color: #fff; 
+}
+
+  
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.info-listado {
+    border: 1px solid #bebebe;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: rgba(91, 177, 191, 0.4);
+}
+
+.descripcion-info, .button-ver {
+    padding: 20px;
+}
+
+.descripcion-info h4{
+    font-size: 18px;
+
+}
+
+.descripcion-info p {
+    font-size: 15px;
+}
+
+.margin-top {
+    margin-top: 3px;
+}
+
+.margin-bottom {
+    margin-bottom: 0;
+
+}
+
+.buscar {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.input-buscar {
+   padding: 5px;
+   width: 30%;
+}
+.estrellas {
+    margin-top: -6%;
+}
+
+.estrellas p {
+    padding-left: 4px;
+}
+
+
+.input-search {
+    text-align: center;
+}
+
+
+.fa-search {
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    color: #bebebe;
+    transition: color, .2s ease-in-out;
+}
+
+.search-icons {
+    width: 50%;
+    position: relative;
+    display: inline-block;
+}

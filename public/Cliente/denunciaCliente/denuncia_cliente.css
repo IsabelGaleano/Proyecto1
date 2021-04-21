@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.titulo-registro {
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+    padding-top: 20px;
+
+}
+
+.buttons {
+    display: flex;
+}
+
+.margin {
+    margin-right: 20px;
+}
+
+.registro {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.info-registro {
+    display: flex;
+    justify-content: center;
+
+}
+
+.info-izquierda, .info-derecha {
+    /* margin: 50px; */
+    width: 50%;
+    padding: 60px;
+
+}
+
+.registro img {
+    width: 400px;
+}
+
+
+
+
+
+
+
+

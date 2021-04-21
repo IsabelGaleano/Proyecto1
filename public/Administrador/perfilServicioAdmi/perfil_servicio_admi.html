@@ -1,0 +1,246 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratación Servicio</title>
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../Librerias/navAdministrador/nav_administrador.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <link rel="stylesheet" href="../../Librerias/Carousel/carousel.css">
+    <link rel="stylesheet" href="perfil_servicio_admi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageAdministrador/landing_page_administrador.html">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Registros</span>
+                <div class="final-dropdown-menu">
+                    <a href="../listadoRazas/listado_razas.html">Razas</a>
+                    <a href="../listadoPadecimientos/listado_padecimientos.html">Padecimientos</a>
+                    <a href="../listadoVacunas/listado_vacunas.html">Vacunas</a>
+                    <a href="../listadoCategoriaServicios/listado_categorias_servicios.html">Categorías de servicios</a>
+                    <a href="../listadoCategoriaAnimales/listado_categorias_animales.html">Categorías de mascotas</a>
+                </div>
+            </div>
+            <div class="final-dropdown margin-a">
+                <span href="opcion2" class="final-dropdown-hover">Reportes</span>
+                <div class="final-dropdown-menu">
+                    <a href="../reporteUsuariosRegistrados/reporte_usuarios_registrados.html">Reporte usuarios</a>
+                    <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
+                    <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
+                    <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores calificados</a>
+                </div>
+            </div>
+            <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/adriana.jpeg" /></a>
+            </div>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Adriana</span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
+                    <a href="../listadoClientes/listado_clientes.html">Clientes</a>
+                    <a href="../listadoProveedores/listado_proveedores.html">Proveedores</a>
+                    <a href="../anuncios/anuncios.html">Anuncios</a>
+                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="pw-titulo-categoria">
+        <h2>Perfil servicio</h2>
+    </div>
+
+    <div class="info-servicio">
+        <div class="proveedor">
+            
+            <div class="carousel">
+                <h3>Fotos del servicio</h3>
+                <div class="swiper-container center" style="width:400px;height:200px;border:1px solid #BEBEBE;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../img/estetica1.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../img/estetica2.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../img/estetica1.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="titulo-servicio">
+                <p class="titulo-info">Descripción del servicio</p>
+                <textarea name="descripcion" rows="6" cols="50" readonly>Peluquería exclusivamente para perros y gatos
+                </textarea>
+            </div>
+            <div class="ubicacion-servicio">
+                <p class="titulo-info">Ubicación del servicio</p>
+                <textarea name="w3review" rows="6" cols="50" readonly>Del parque de Vargas Araya 50 mts Noroeste
+                </textarea>
+            </div>
+
+            <div class="mapa-servicio">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15720.318124809437!2d-84.0484498!3d9.9273345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scr!4v1615836128481!5m2!1ses!2scr"
+                    width="375" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            </div>
+
+        </div>
+
+        <div class="info-izquierda">
+            <div class="titulo-servicio">
+                <p><span class="titulo-info">Nombre del servicio: </span> <span>Peluquería Cariñosita</span></p>
+            </div>
+            
+            <div class="titulo-servicio">
+                <p><span class="titulo-info">Costo del servicio: </span> <span>$15.00</span></p>
+            </div>
+            <div class="titulo-servicio">
+                <p><span class="titulo-info">Categoría del servicio: </span> <span>Estética</span></p>
+            </div>
+            
+            <div class="nivel-nacional">
+                <p class="titulo-info">El servicio lo provee a nivel: </p>
+                <p><input type="radio" name="nivel" value="Nacional" checked disabled> Nacional</p>
+                <p><input type="radio" name="nivel" value="Cantón" disabled> Cantón</p>
+                <p><input type="radio" name="nivel" value="Distrito" disabled> Distrito</p>
+            </div>
+            <div class="redes-servicio">
+                <p class="titulo-info">Medios de Contacto</p>
+                <div class="icon-servicio">
+                    <img src="../img/instagram.png" />
+                    <p>Peluquería Cariñosita</p>
+                </div>
+                <div class="icon-servicio">
+                    <img src="../img/facebook.png" />
+                    <p>Peluquería Cariñosita</p>
+                </div>
+                <div class="icon-servicio">
+                    <img src="../img/whatsapp.png" />
+                    <p>+506 8564-5324</p>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="info-derecha">
+            <p class="titulo-info">Horario del servicio</p>
+            <div class="horario">
+                <div class="horario-servicio pw-">
+                    <div class="checkbox-dia">
+                        <p><input type="checkbox" name="dia1" value="Lunes" checked disabled> Lunes</p>
+                    </div>
+                    <div class="valor-horario">
+                        <p>9:00 AM a 5:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="horario-servicio">
+                    <div class="checkbox-dia">
+                        <p><input type="checkbox" name="dia2" value="Martes" checked disabled> Martes</p>
+                    </div>
+                    <div class="valor-horario">
+                        <p>9:00 AM a 5:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="horario-servicio">
+                    <div class="checkbox-dia">
+                        <p><input type="checkbox" name="dia3" value="Miercoles" checked disabled> Miércoles</p>
+                    </div>
+                    <div class="valor-horario">
+                        <p>9:00 AM a 5:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="horario-servicio">
+                    <div class="checkbox-dia">
+                        <p><input type="checkbox" name="dia4" value="Jueves" checked disabled> Jueves</p>
+                    </div>
+                    <div class="valor-horario">
+                        <p>9:00 AM a 5:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="horario-servicio">
+                    <div class="checkbox-dia">
+                        <p><input type="checkbox" name="dia5" value="Viernes" checked disabled> Viernes</p>
+                    </div>
+                    <div class="valor-horario">
+                        <p>9:00 AM a 5:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="horario-servicio">
+                    <div class="checkbox-dia">
+                        <p><input type="checkbox" name="dia6" value="Sábado" checked disabled> Sábado</p>
+                    </div>
+                    <div class="valor-horario">
+                        <p>9:00 AM a 5:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="horario-servicio">
+                    <div class="checkbox-dia">
+                        <p><input type="checkbox" name="dia7" value="Domingo" disabled> Domingo</p>
+                    </div>
+                    <div class="valor-horario">
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    
+
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
+    <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
+    <script src="perfil_servicio_admi.js"></script>
+
+</body>
+
+</html>

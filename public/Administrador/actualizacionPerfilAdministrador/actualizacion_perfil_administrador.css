@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.avatar-administrador img {
+    width: 150px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #5bb1bf;
+}
+
+.titulo-info {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.perfil-administrador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-perfil {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+
+}
+
+.administrador, .info-administrador {
+    padding: 50px;
+}
+
+.administrador {
+    text-align: center;
+}
+
+.perfil-administrador {
+    margin: 50px auto;
+    width: 50%;
+    border: 1px solid #1a535c;
+    padding: 3rem;
+}
+.administrador p{
+    padding: 10px;
+
+}
+
+.info-admi {
+    width: 40%;
+    margin-left: 3rem;
+}
+
+.info-admi span {
+    font-weight: bold;
+}
+
+.fa-envelope, .fa-phone {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.fa-sign-out-alt {
+    margin: 0 10px;
+}
+
+.font {
+    font-size: 13px;
+}

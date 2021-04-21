@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isa Carousel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .center {
+            margin: 2rem auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container center" style="width:800px;height:150px;border:1px solid #BEBEBE;">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./1.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="./2.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="./3.png">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
+    <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".swiper-container", {
+            speed: 1500,
+            loop: true,
+            // autoplay: {
+            //     delay: 500
+            // },
+            plugins: [SwiperPluginAutoPlay]
+        });
+    </script>>
+</body>
+
+</html>

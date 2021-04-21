@@ -1,0 +1,31 @@
+div{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.contrasenna {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: -3%;
+    border: 1px solid #fff;
+}
+
+.columna {
+    
+    margin: 3rem;
+}
+
+
+
+.img-logo img{
+    width: 300px;
+}
+
+.columna h3 {
+    text-align: center;
+    margin-top: -20px;
+}

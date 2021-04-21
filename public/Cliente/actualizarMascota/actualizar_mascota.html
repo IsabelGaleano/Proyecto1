@@ -1,0 +1,177 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Mascota</title>
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../Librerias/navCliente/nav_cliente.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <link rel="stylesheet" href="../../Librerias/Carousel/carousel.css">
+    <link rel="stylesheet" href="actualizar_mascota.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageCliente/landing_page_cliente.html">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+            <a href="#">Servicios</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/diana.jpg" /></a>
+            </div>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Diana</span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilCliente/perfil_cliente.html">Perfil</a>
+                    <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
+                    <a href="../listadoSolicitudesPendientesCliente/listado_solicitudes_pendientes_cliente.html">Solicitudes
+                        pendientes</a>
+                    <a href="../listadoServiciosCursoCliente/listado_servicios_curso_cliente.html">Servicios en curso</a>
+                    <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes anteriores</a>
+                    <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
+                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="pw-titulo-categoria">
+        <h2>Actualizar Mascota</h2>
+    </div>
+    
+    <div class="info-servicio">
+        <div class="proveedor">
+            <div class="avatar-proveedor">
+                <a href="#"><img src="../img/puyo1.jpg" /></a>
+            </div>
+            <div class="pw-form-inverse">
+                <div class="upload-btn-wrapper">
+                    <button class="btn">Agregar imagen</button>
+                    <input type="file" name="myfile" />
+                  </div>
+            </div>
+
+        </div>
+
+        <div class="info-columna  left">
+
+            <div class="pw-form info">
+                <p>Nombre</p>
+                <input type="text" name="nombre" class="form-validate">
+            </div>
+            <div class="pw-form tipo" class="form-validate">
+                <p>Categoría animal</p>
+                <select name="tipo" class="form-validate">
+                    <option value="tipo" selected>Seleccionar tipo</option>
+                    <option value="tipo1">Gato</option>
+                    <option value="tipo2">Perro</option>
+                </select>
+            </div>
+            <div class="pw-form raza" class="form-validate">
+                <p>Raza</p>
+                <select name="raza" class="form-validate">
+                    <option value="raza" selected>Seleccionar raza</option>
+                    <option value="raza1">MaineCoon</option>
+                    <option value="raza2">Pastor Alemán</option>
+                    <option value="raza3">Husky</option>
+                    <option value="raza4">Siamés</option>
+                </select>
+            </div>
+            <div class="pw-form">
+                <p>Vacunas al día</p>
+                <label class="container">Sí
+                    <input type="radio" checked="checked" name="vacuna">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">No
+                    <input type="radio" name="vacuna">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            
+
+        </div>
+        <div class="info-columna">
+            <div class="vacunas pw-form-checkbox">
+                <p class="titulo-info">Vacunas: </p>
+                <p><input type="checkbox" value="vacuna"> Pentavalente</p>
+                <p><input type="checkbox" value="vacuna"> Parovirus</p>
+                <p><input type="checkbox" value="vacuna"> Moquillo</p>
+                <p><input type="checkbox" value="vacuna"> Rabia</p>
+                <p><input type="checkbox" value="vacuna"> Hepatitis</p>
+                <p><input type="checkbox" value="vacuna"> Parainfluenza</p>
+                <p><input type="checkbox" value="vacuna"> Trivalente Felina</p>
+                <p><input type="checkbox" value="vacuna"> Leucemia Felina</p>
+                <p><input type="checkbox" value="vacuna"> Triple Vírica</p>
+                <p><input type="checkbox" value="vacuna"> PIF</p>
+
+            </div>
+      
+            <div class="padecimientos pw-form-checkbox">
+                <p class="titulo-info">Padecimientos: </p>
+                <p><input type="checkbox" value="padecimientos"> Insuficiencia renal</p>
+                <p><input type="checkbox" value="padecimientos"> Hipertiroidismo</p>
+                <p><input type="checkbox" value="padecimientos"> Diabetes Mellitus</p>
+                <p><input type="checkbox" value="padecimientos"> Leucemia felina</p>
+                <p><input type="checkbox" value="padecimientos"> Infección por retrovirus</p>
+                <p><input type="checkbox" value="padecimientos"> Cancér felino</p>
+                <p><input type="checkbox" value="padecimientos"> Hepatitis canina</p>
+                <p><input type="checkbox" value="padecimientos"> Rabia</p>
+
+            </div>
+
+            <div class="pw-form">
+                <p>Características especiales</p>
+                <textarea name="" id="" cols="60" rows="6" class="form-validate"></textarea>
+            </div>
+           
+            <div class="pw-form-inverse">
+                <a id="revisarMascota">Actualizar perfil</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+    <script src="./actualizar_mascota.js"></script>
+
+</body>
+
+</html>

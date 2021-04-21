@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.titulo-categoría {
+    padding: 15px;
+    text-align: center;
+    color: #000;
+    font-size: 25px;
+
+}
+
+.reporte {
+    margin: 0 auto;
+    width: 50%;
+    padding-bottom: 30px;
+}
+
+
+.fa-file-excel, .fa-file-pdf {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    color: #bebebe;
+    font-weight: 200px;
+    transition: color, .2s ease-in-out;
+}
+
+.button-icon {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+}
+
+
+.buttons-export {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.titulo-exportar {
+    text-align: right;
+    padding-right: 19.5%;
+    
+}
+
+.titulo-exportar h4 {
+    margin: 0;
+}

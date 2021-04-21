@@ -1,0 +1,136 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información denuncia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Librerias/petsworld.css">
+    <link rel="stylesheet" href="../../Librerias/navAdministrador/nav_administrador.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <link rel="stylesheet" href="informacion_denuncia.css">
+
+</head>
+
+<body onload="cargarDenuncia()">
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageAdministrador/landing_page_administrador.html">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Registros</span>
+                <div class="final-dropdown-menu">
+                    <a href="../listadoRazas/listado_razas.html">Razas</a>
+                    <a href="../listadoPadecimientos/listado_padecimientos.html">Padecimientos</a>
+                    <a href="../listadoVacunas/listado_vacunas.html">Vacunas</a>
+                    <a href="../listadoCategoriaServicios/listado_categorias_servicios.html">Categorías de servicios</a>
+                    <a href="../listadoCategoriaAnimales/listado_categorias_animales.html">Categorías de mascotas</a>
+                </div>
+            </div>
+            <div class="final-dropdown margin-a">
+                <span href="opcion2" class="final-dropdown-hover">Reportes</span>
+                <div class="final-dropdown-menu">
+                    <a href="../reporteUsuariosRegistrados/reporte_usuarios_registrados.html">Reporte usuarios</a>
+                    <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
+                    <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
+                    <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores
+                        calificados</a>
+                </div>
+            </div>
+            <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html"
+                class="final-dropdown-hover">Solicitudes</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/adriana.jpeg" /></a>
+            </div>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Adriana</span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
+                    <a href="../listadoClientes/listado_clientes.html">Clientes</a>
+                    <a href="../listadoProveedores/listado_proveedores.html">Proveedores</a>
+                    <a href="#">Anuncios</a>
+                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="pw-titulo-categoria">
+        <h2>Información denuncia</h2>
+    </div>
+
+    <div class="denuncia">
+        <div class="imagen">
+            <img src="../../img/procesoDenuncia.jpg" />
+        </div>
+
+        <div class="info-izquierda">
+            <div class="pw-form info-titulos">
+                <p><span class="p-font">Nombre: </span><span id="nombre"></span></p>
+            </div>
+            <div class="pw-form info-titulos">
+                <p><span  class="p-font">Primer apellido: </span><span id="apellido1"></span> </p>
+            </div>
+            <div class="pw-form info-titulos">
+                <p><span  class="p-font">Segundo apellido: </span> <span id="apellido2"></span> </p>
+            </div>
+            <div class="pw-form info-titulos">
+                <p><span  class="p-font">Correo electrónico: </span><span id="correo"></span></p>
+            </div>
+
+        </div>
+        <div class="info-derecha">
+
+            <div class="pw-form info-titulos">
+                <p><span  class="p-font">Tipo de usuario: </span> <span id="tipo_usuario"></span></p>
+            </div>
+            <div class="pw-form info-titulos">
+                <p><span  class="p-font">Motivo de la denuncia</span></p>
+                <textarea name="ubicacion" cols="30" rows="5" readonly id="motivo"></textarea>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+    <script src="./informacion_denuncia.js"></script>
+</body>
+
+</html>

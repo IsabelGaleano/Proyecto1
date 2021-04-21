@@ -1,0 +1,92 @@
+div{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.registro, .info-denuncia {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    border: 1px solid #fff;
+}
+
+.button-categoria {
+    display: flex;
+    align-items: flex-start;
+    margin-top: -10%;
+    border: 1px solid #fff;
+}
+
+
+.pw-form button {
+    margin-right: 1rem;
+}
+.columna-info {
+    padding: 20px;
+}
+
+.columna-info {
+    margin-right: 2rem;
+}
+
+.columna > h2, .columna > p {
+    text-align: center;
+}
+
+.text-area{
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.registro {
+    padding-top: 50px;
+}
+.left {
+    padding-left: 20px;
+}
+
+.img-agregar img{
+    width: 300px;
+
+}
+
+.info-radio {
+    margin-top: -1%;
+}
+
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: -5%;
+  }
+  
+.btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .button-margin {
+    margin-right: 20px;
+    font-size: 12px;
+}

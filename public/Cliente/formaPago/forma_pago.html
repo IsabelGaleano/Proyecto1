@@ -1,0 +1,144 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../Librerias/navCliente/nav_cliente.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <link rel="stylesheet" href="forma_pago.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="#">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+            <a href="#">Servicios</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/diana.jpg" /></a>
+            </div>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Diana</span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilCliente/perfil_cliente.html">Perfil</a>
+                    <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
+                    <a href="../listadoSolicitudesPendientesCliente/listado_solicitudes_pendientes_cliente.html">Solicitudes
+                        pendientes</a>
+                    <a href="../listadoServiciosCursoCliente/listado_servicios_curso_cliente.html">Servicios en
+                        curso</a>
+                    <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes
+                        anteriores</a>
+                    <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
+                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pw-titulo-categoria">
+        <h2>Pago</h2>
+    </div>
+
+    <div class="pago">
+        <div class="cards">
+            <div class="credit-card pw-form">
+                <img src="../../img/creditCard.png" />
+                <p>Tarjeta de crédito</p>
+            </div>
+            <div class="debit-card pw-form">
+                <img src="../../img/debitCard.png" />
+                <p>Tarjeta de débito</p>
+
+            </div>
+
+        </div>
+        <div class="datos-pago">
+            <div class="pw-form">
+                <p>Nombre en la tarjeta</p>
+                <input type="text" name="nombreTarjeta" class="form-validate">
+            </div>
+            <div class="input-card">
+                <div class="card-icons pw-form">
+                    <p>Número de la tarjeta</p>
+                    <input type="number" name="numero" class="form-validate padding-card"
+                        placeholder="1111 1111 1111 1111" id="number" />
+                    <i class="fas fa-credit-card" id="iconCard"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="date-expire">
+                <div class="pw-form">
+                    <p>Mes de expiración</p>
+                    <input type="text" name="mes" class="form-validate">
+                </div>
+                <div class="pw-form">
+                    <p>Año de expiración</p>
+                    <input type="text" name="año" class="form-validate">
+                </div>
+            </div>
+            <div class="date-expire">
+                <div class="pw-form">
+                    <p>CVC</p>
+                    <input type="number" name="cvc" class="form-validate">
+                </div>
+                <div class="pw-form">
+                    <p>Código postal</p>
+                    <input type="number" name="codigo" class="form-validate">
+                </div>
+            </div>
+            <div class="pw-form">
+                <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html" id="revisar" onclick="enviarEmailFactura()">Ejecutar pago</a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+    <script src="./forma_pago.js"></script>
+
+
+
+</body>
+
+</html>

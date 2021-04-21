@@ -1,0 +1,146 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+
+.titulo {
+    
+    padding: 20px;
+    text-align: center;
+    color:black;
+
+}
+.buscar {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.input-buscar {
+   padding: 5px;
+   width: 30%;
+}
+
+.listado, .info-listado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-listado {
+    border: 1px solid #bebebe;
+    padding: 20px;
+    width: 25%;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: rgba(91, 177, 191, 0.4);
+}
+
+.listado-general {
+    padding-top: 20px;
+}
+
+.descripcion-info {
+    padding: 20px;
+}
+
+
+.descripcion-info p {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.user {
+    border: 2px solid #1a535c;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+}
+.img-categoria {
+    border: 2px solid #1a535c;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+}
+
+.user a img, .img-categoria img {
+    width: 100%;
+}
+ .button-accion, .fa-edit, .fa-trash{
+    margin: 10px;
+    color:black;
+ }
+
+ .linea{
+    border-color: #1A535C;
+    border-style: solid;
+    height: 1px;
+    width: 97%;
+    
+}
+
+.espacio {
+    margin: 30px;
+}
+.boton-registrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+.fa-eye {
+    color: #000;
+    font-size: 15px;
+}
+
+.search {
+    margin: 0 auto;
+}
+
+.input-search {
+    text-align: center;
+}
+
+
+.fa-search {
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    color: #bebebe;
+    transition: color, .2s ease-in-out;
+}
+
+.search-icons {
+    width: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+.titulo-categoria {
+    font-size: 15px;
+}
+
+.fa-user-times {
+    color: #000;
+}
+
+.listado-general {
+    overflow-y: auto;
+    max-height: 400px;
+    margin:  20px 0;
+}

@@ -1,0 +1,150 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Cliente</title>
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../Librerias/navCliente/nav_cliente.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <link rel="stylesheet" href="../../Librerias/Carousel/carousel.css">
+    <link rel="stylesheet" href="perfil_cliente.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body onload="cargarPerfil()">
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageCliente/landing_page_cliente.html">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+            <a href="#">Servicios</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/diana.jpg" /></a>
+            </div>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Diana</span>
+                <div class="final-dropdown-menu">
+                    <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
+                    <a href="../listadoSolicitudesPendientesCliente/listado_solicitudes_pendientes_cliente.html">Solicitudes pendientes</a>
+                    <a href="../listadoServiciosCursoCliente/listado_servicios_curso_cliente.html">Servicios en curso</a>
+                    <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes anteriores</a>
+                    <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
+                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pw-titulo-categoria">
+        <h2>Perfil cliente</h2>
+    </div>
+
+
+    <div class="info-servicio">
+        <div class="cliente">
+            <div class="avatar-cliente">
+                <a href="#"><img id="imagen_usuario" /></a>
+                <p class="titulo-info" id="nombre"></p>
+            </div>
+
+        </div>
+
+        <div class="info-columna">
+
+            <div class="info-perfil">
+                <p><span class="titulo-info"><i class="far fa-envelope"></i>Correo electrónico: </span> <span id="correo"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info"><i class="far fa-id-badge"></i>Tipo de identificación: </span> <span id="tipo_identificacion"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info"><i class="fas fa-hashtag"></i>No. identificación: </span> <span id="identificacion"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span id="telefono"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info"><i class="fas fa-venus-mars"></i>Género: </span> <span id="genero"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info"><i class="fas fa-paw"></i>Cantidad de Mascotas: </span> <span id="cantidad_mascotas"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info"><i class="far fa-calendar-alt"></i>Fecha de nacimiento: </span> <span id="fecha_nacimiento"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info">Provincia: </span> <span id="provincia"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info">Cantón: </span> <span id="canton"></span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info">Distrito: </span> <span id="distrito"></span></p>
+            </div>
+            <div class="pw-form-inverse">
+                <a href="../actualizarPerfilCliente/actualizar_perfil_cliente.html">Actualizar perfil</a>
+            </div>
+            <div class="pw-form-inverse">
+                <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
+            </div>
+            
+
+        </div>
+        <div class="info-columna">
+            <div class="info-perfil">
+                <p><span class="titulo-info"><i class="fas fa-map-marked-alt"></i>Dirección: </p>
+                <span><textarea class="text-area" readonly id="direccion"></textarea>
+            </div>
+            <div class="info-perfil">
+                <div id="map"></div>
+            </div>
+
+           
+
+
+        </div>
+    </div>
+
+
+
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+        async></script>
+    <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
+    <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
+    <script src="./perfil_cliente.js"></script>
+
+</body>
+
+</html>

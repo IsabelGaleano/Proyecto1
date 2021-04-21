@@ -1,0 +1,54 @@
+body {
+    font-family: 'Roboto', sans-serif !important; 
+}
+
+.button-sesion{
+    padding: 10px 12px;
+    background-color: #1A535C;
+    border: 1px solid #1A535C;
+
+}
+
+.button-usuario{
+    padding: 12px 20px;
+    background-color: #1A535C;
+    border: 1px solid #1A535C;
+}
+
+.button-registrarse {
+    padding: 10px 12px;
+    background-color: #1A535C;
+    border: 1px solid #1A535C;
+}
+
+.button {
+    border-radius: 25px;
+    color: white;
+    transition: all 1s ease;
+    font-family: 'Roboto', sans-serif;
+
+}
+.button:hover, .button-pago:hover {
+    background-color: #000;
+}
+.button-aceptar {
+    padding: 8px 15px;
+    background-color: #1A535C;
+    border: 1px solid #1A535C;
+}
+
+.button-cancelar {
+    padding: 8px 15px;
+    background-color: #D84727;
+    border: 1px solid #D84727;
+}
+
+.button-pago {
+    padding: 8px 10px;
+    transition: all 1s ease;
+    color: white;
+    background-color: #1A535C;
+    border: 1px solid #1A535C;
+}
+
+

@@ -1,0 +1,276 @@
+div{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.container-nav, .introduccion {
+    display: flex;
+    align-items: center;
+    background-color: #1A535C;
+    
+}
+
+.fila-integrantes, .vision-mision, .valor, .producto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-logo {
+    flex: 3;
+    order: 1;
+}
+
+.box-anchors {
+    flex: 1;
+    order: 2;
+    padding-top: 3px;
+}
+
+
+.box-logo img {
+    width: 240px;
+}
+
+
+.box-anchors > a {
+    transition: color 0.3s ease-out;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 0.0125rem;
+    font-weight: 200;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 1px;
+    text-decoration: none;
+    transition: color 400ms cubic-bezier(0.7, 0, 0.3, 1);
+    margin: 0 1rem;
+}
+
+.box-anchors a:hover::after {
+    width: 100%;
+    opacity: 1;
+}
+
+.box-anchors a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 2px;
+    background: currentColor;
+    width: 0;
+    opacity: 0;
+    transition: width 400ms cubic-bezier(0.29, 0.29, 0.42, 1.01), opacity 600ms ease-in-out;
+}
+
+
+.introduccion {
+    justify-content: center;
+    padding: 50px;
+    background-color: #1A535C;
+    
+}
+
+.introduccion h2 {
+    font-size: 35px;
+    color: #fff;
+
+}
+
+.italic {
+    color: #fff;
+    font-style: italic;
+}
+
+.introduccion img {
+    width: 100%;
+}
+
+.titulo {
+    background-color: #eff2f3;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+}
+
+
+.historia {
+    text-align: center;
+}
+
+.historia img {
+    width: 80%;
+}
+
+.persona {
+    padding: 20px 50px;
+    text-align: center;
+}
+
+
+
+.integrantes {
+    transition: all 1s ease;
+    border: 1px solid #bebebe;
+    border-radius: 3px;
+    margin: 30px;
+    width: 20%;
+}
+
+.margin-top {
+    margin-top: 2px;
+}
+
+
+.margin-bottom{
+    margin-bottom: 0;
+}
+
+.persona img, .vision-mision img {
+    width: 100%;
+}
+
+.integrantes:hover {
+    background-color: rgba(26, 83, 92, 0.3);
+}
+
+.vision {
+    padding: 43px;
+    background-color: rgba(167, 191, 196, 0.7);
+}
+
+.mision {
+    padding: 58px;
+    background-color: rgba(154, 209, 218, 0.7);
+}
+
+.vision, .mision {
+    border: 1px solid #bebebe;
+    border-radius: 3px;
+    margin: 30px;
+    width: 25%;
+}
+
+.vision p, .mision p {
+    font-size: 15px;
+    padding: 20px;
+    text-align: justify;
+    color: #000;
+}
+
+
+.icon-valor, .info-valor {
+    padding: 20px;
+    margin: 10px;
+}
+
+.info-valor p {
+    text-align: justify;
+}
+
+.icon-valor img {
+    width: 100%;
+}
+
+.padding-rigth {
+    padding-right: 80px;
+}
+
+.info-producto h2{
+    font-size: 50px;
+
+}
+
+.info-producto p {
+    text-align: justify;
+    padding-bottom: 20px;
+
+}
+
+.color-cyan {
+    color: #1A535C;
+}
+
+.color-orange {
+    color: #D84727;
+
+}
+
+
+.container-footer {
+    display: flex;
+    background-color: #1A535C;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo, .links, .info-redes, .redes, .icon-footer{
+    display: flex;
+}
+.logo {
+    padding: 30px;
+    flex: 1;
+    order: 1;
+}
+
+.logo img{
+    width: 400px;
+}
+
+.links {
+    flex-direction: column;
+    flex: 1;
+    order: 2;
+}
+
+
+.links a {
+    padding: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.redes {
+    justify-content: center;
+    flex: 2;
+    order: 3;
+    flex-direction: column;
+}
+
+.icon-footer {
+    align-items: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+.icon-footer img {
+    width: 30px;
+}
+
+.icon-footer p {
+    padding: 10px;
+}
+
+.text-decoration {
+    text-decoration: none;
+}
+
+.parrafo {
+    font-size: 18x;
+    font-weight: bold;
+}
+
+.persona p {
+    font-weight: bold;
+}

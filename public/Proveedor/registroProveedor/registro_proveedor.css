@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.titulo-proveedor {
+    padding: 20px;
+    text-align: center;
+    color: #1A535C;
+    font-size: 30px;
+
+}
+
+.registro-proveedor {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.info-registro {
+    display: flex;
+    justify-content: center;
+
+}
+
+.info-izquierda, .info-derecha {
+    /* margin: 50px; */
+    width: 100%;
+    padding: 60px;
+
+}
+
+
+.registro-proveedor img {
+    width: 100%;
+    
+}
+
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+  
+

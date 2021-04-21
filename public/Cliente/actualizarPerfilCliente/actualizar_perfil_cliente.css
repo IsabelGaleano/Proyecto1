@@ -1,0 +1,100 @@
+
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.titulo {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.titulo-categoría {
+    padding: 15px;
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+
+}
+
+.cliente {
+    text-align: center;
+}
+
+.center {
+    margin: 2rem auto;
+}
+
+
+
+.info-servicio {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.info-servicio {
+    padding: 50px;
+}
+
+
+.info-columna {
+    width: 25%;
+    margin: 0 3rem;
+}
+
+
+.info-perfil{
+    padding: 3px;
+}
+
+.button-contratar {
+    padding: 30px;
+}
+
+
+.avatar-cliente {
+    width: 100%;
+    text-align: center;
+}
+
+.avatar-cliente img {
+    width: 150px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #5bb1bf;
+}
+
+
+.titulo-info {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.text-area {
+    width: 100%;
+}
+
+.avatar-cliente p {
+    padding: 10px;
+}
+
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 200px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+  
+
+
+

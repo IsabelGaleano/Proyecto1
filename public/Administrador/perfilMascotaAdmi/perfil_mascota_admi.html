@@ -1,0 +1,171 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Cliente</title>
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../Librerias/navAdministrador/nav_administrador.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <link rel="stylesheet" href="../../Librerias/Carousel/carousel.css">
+    <link rel="stylesheet" href="perfil_mascota_admi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageAdministrador/landing_page_administrador.html">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Registros</span>
+                <div class="final-dropdown-menu">
+                    <a href="../listadoRazas/listado_razas.html">Razas</a>
+                    <a href="../listadoPadecimientos/listado_padecimientos.html">Padecimientos</a>
+                    <a href="../listadoVacunas/listado_vacunas.html">Vacunas</a>
+                    <a href="../listadoCategoriaServicios/listado_categorias_servicios.html">Categorías de servicios</a>
+                    <a href="../listadoCategoriaAnimales/listado_categorias_animales.html">Categorías de mascotas</a>
+                </div>
+            </div>
+            <div class="final-dropdown margin-a">
+                <span href="opcion2" class="final-dropdown-hover">Reportes</span>
+                <div class="final-dropdown-menu">
+                    <a href="../reporteUsuariosRegistrados/reporte_usuarios_registrados.html">Reporte usuarios</a>
+                    <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
+                    <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
+                    <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores calificados</a>
+                </div>
+            </div>
+            <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/adriana.jpeg" /></a>
+            </div>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Adriana</span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
+                    <a href="../listadoClientes/listado_clientes.html">Clientes</a>
+                    <a href="../listadoProveedores/listado_proveedores.html">Proveedores</a>
+                    <a href="../anuncios/anuncios.html">Anuncios</a>
+                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="pw-titulo-categoria">
+        <h2>Perfil Mascota</h2>
+    </div>
+
+
+    <div class="info-servicio">
+        <div class="proveedor">
+            <div class="avatar-proveedor">
+                <a href="../../index.html"><img src="../../img/puyo1.jpg" /></a>
+            </div>
+
+        </div>
+
+        <div class="info-columna  left">
+
+            <div class="info-perfil">
+                <p><span class="titulo-info">Nombre: </span> <span>Puyú</span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info">Raza: </span> <span>MaineCoon</span></p>
+            </div>
+            <div class="info-perfil">
+                <p><span class="titulo-info">Tipo: </span> <span>Gato</span></p>
+            </div>
+            <div class="info-perfil">
+                <div>
+                    <p class="titulo-info">Vacunas al día: </p>
+                    <p><input type="radio" name="vacuna" value="si" checked disabled> Sí</p>
+                    <p><input type="radio" name="vacuna" value="no" disabled> No</p>
+                </div>
+            </div>
+            <div class="vacunas">
+                <p class="titulo-info">Vacunas: </p>
+                <p><input type="checkbox" value="vacuna" checked disabled> Pentavalente</p>
+                <p><input type="checkbox" value="vacuna" checked disabled> Parovirus</p>
+                <p><input type="checkbox" value="vacuna" checked disabled> Moquillo</p>
+                <p><input type="checkbox" value="vacuna" checked disabled> Rabia</p>
+                <p><input type="checkbox" value="vacuna" checked disabled> Hepatitis</p>
+                <p><input type="checkbox" value="vacuna" checked disabled> Parainfluenza</p>
+                <p><input type="checkbox" value="vacuna" checked disabled> Trivalente Felina</p>
+                <p><input type="checkbox" value="vacuna" disabled> Leucemia Felina</p>
+                <p><input type="checkbox" value="vacuna" disabled> Triple Vírica</p>
+                <p><input type="checkbox" value="vacuna" disabled> PIF</p>
+
+            </div>
+
+        </div>
+        
+        <div class="info-columna">
+           
+            <div class="info-perfil">
+                <p><span class="titulo-info">Características especiales:</p>
+            </div>
+            <div class="text-area">
+                <textarea name="" id="" cols="46" rows="6" readonly>Ninguno</textarea>
+            </div>
+            <div class="padecimientos">
+                <p class="titulo-info">Padecimientos: </p>
+                <p><input type="checkbox" value="padecimientos" checked disabled> Insuficiencia renal crónica</p>
+                <p><input type="checkbox" value="padecimientos" checked disabled> Hipertiroidismo</p>
+                <p><input type="checkbox" value="padecimientos" disabled> Diabetes Mellitus</p>
+                <p><input type="checkbox" value="padecimientos" disabled> Leucemia felina</p>
+                <p><input type="checkbox" value="padecimientos" disabled> Infección por retrovirus</p>
+                <p><input type="checkbox" value="padecimientos" disabled> Cancér felino</p>
+                <p><input type="checkbox" value="padecimientos" disabled> Hepatitis canina</p>
+                <p><input type="checkbox" value="padecimientos" disabled> Rabia</p>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
+    <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
+    <script src="../contratacionServicios/contratacion_servicios.js"></script>
+
+</body>
+
+</html>

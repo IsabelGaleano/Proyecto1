@@ -1,0 +1,61 @@
+.pw-form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.pw-form p {
+    margin: 1;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.pw-form input, .pw-form select {
+    background-color: transparent;
+    border: 1px solid #bebebe;
+    width: 100%;
+    color: #666;
+    padding: 10px;
+    transition: background-color, .2s ease-in-out;
+}
+
+.pw-form input:focus {
+    outline: 0;
+    border-color: #1e87f0;
+}
+
+.pw-form button {
+    background-color: #15191B;
+    border: 1px solid #15191B;
+    width: 100%;
+    color: #FFF;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .1s ease-in-out;
+    transition-property: background-color, color;
+}
+
+.pw-form button:hover {
+    background-color: #FFF;
+    color: #15191B;
+}
+
+.pw-form--error {
+   border-color: red !important;
+
+}
+
+.pw-button-editar {
+    border: 1px solid #15191B;
+    width: 100%;
+    color: #000;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: 100;
+    transition: .1s ease-in-out;
+    transition-property: background-color, color;
+}
