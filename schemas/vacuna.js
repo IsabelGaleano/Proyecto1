@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var vacunaSchema= mongoose.Schema({
+const vacunaSchema= mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     nombre: {
         type: String, require: true, unique:true
@@ -14,11 +14,6 @@ var vacunaSchema= mongoose.Schema({
     categoria: {
         type: String
     }
-
-    
 });
 
-
-
 module.exports = mongoose.model('Vacuna', vacunaSchema, 'Vacunas');
-

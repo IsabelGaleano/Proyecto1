@@ -1,13 +1,17 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt')
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
 
-var usuarioSchema= mongoose.Schema({
+const usuarioSchema= mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId, 
     correo: {
-        type: String, require: true, unique:true
+        type: String, 
+        require: true, 
+        unique:true
     },
     tipo_usuario: {
-        type: String, require: true
+        type: String,
+        require: true,
+        default: 'cliente'
     }, 
     nombre: {
         type: String, require: true
@@ -63,12 +67,11 @@ var usuarioSchema= mongoose.Schema({
     promedio_calificacion: {
         type: Number
     },
-    estado: {
-        type: String
+    estado: { 
+        type: String, 
+        default: 'pendiente'
     }
-    
 });
-
 
 usuarioSchema.pre('save', function(next){
     bcrypt.genSalt(10).then(salts =>{
@@ -79,5 +82,17 @@ usuarioSchema.pre('save', function(next){
     }).catch(error => next(error));
 });
 
-module.exports = mongoose.model('Usuario', usuarioSchema, 'Usuarios');
+usuarioSchema.pre('findOneAndUpdate', function (next) {
+    if (this._update.contrasenna) {
+        bcrypt.genSalt(10).then(salts => {
+            bcrypt.hash(this._update.contrasenna, salts).then(hash =>{
+                this._update.contrasenna = hash;
+                next();
+            }).catch(error => next(error));
+        }).catch(error => next(error));
+    } else {
+        next();
+    }
+});
 
+module.exports = mongoose.model('Usuario', usuarioSchema, 'Usuarios');

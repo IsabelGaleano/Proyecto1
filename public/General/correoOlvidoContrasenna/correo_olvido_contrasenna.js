@@ -1,65 +1,58 @@
-document.querySelector('#revisar').addEventListener('click', e => {
-    let revisar = document.getElementById("revisar");
-    let error = revisarForm();
-    let correo = document.getElementById("correo");
-    let validar = validarEmail(correo.value);
-    if (!error) {
+const enviarEmail = async () => {
+    try {
+        const correo = document.getElementById("correo").value;
+        const { data } = await axios.post('http://localhost:5000/usuarios/send_email_restablecer', { correo });
+        return data;
+    } catch (error) {
+        return error;   
+    }
+};
 
-        if (validar) {
-            enviarEmail();
-            Swal.fire({
-                title: 'Éxito!',
-                text: 'Enviado',
-                icon: 'success',
-                confirmButtonText: 'Aceptar'
-            })
+document.querySelector('#revisar').addEventListener('click', async (e) => {
+    try {
+        const error = revisarForm();
+        const correo = document.getElementById("correo");
+        const validar = validarEmail(correo.value);
 
-            revisar.setAttribute("href", "../login/login.html")
+        if (!error) {
+            if (validar) {
+                await enviarEmail();
+                Swal.fire({
+                    title: 'Éxito!',
+                    text: 'Enviado',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                }).then(({ isConfirmed }) => {
+                    if (isConfirmed) {
+                        window.location.href = `${location.origin}/General/login/login.html`;
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Correo incorrecto',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+
+            }
         } else {
             Swal.fire({
                 title: 'Error!',
-                text: 'Correo incorrecto',
+                text: 'Campo vacío',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
-            })
-
+            });
         }
-
-    } else {
+    } catch (error) {
         Swal.fire({
             title: 'Error!',
-            text: 'Campo vacío',
+            text: error.message,
             icon: 'error',
             confirmButtonText: 'Aceptar'
-        })
-
-    }
-
-
-
-});
-
-
-const enviarEmail = () => {
-    let datos = {
-        correo: document.getElementById("correo").value,
-
-    }
-    fetch("http://localhost:5000/usuarios/send_email_restablecer", {
-        method: 'POST',
-        body: JSON.stringify(datos),
-        headers: { 'Content-Type': 'application/json' }
-    })
-        .then(
-            response => {
-                return response.json();
-            }
-        )
-        .catch(err => {
-            response.json({ message: err })
         });
-
-}
+    }
+});
 
 
 

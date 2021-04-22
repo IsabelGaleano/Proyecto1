@@ -58,7 +58,7 @@
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
                     <a href="../listadoProveedores/listado_proveedores.html">Proveedores</a>
                     <a href="../anuncios/anuncios.html">Anuncios</a>
-                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                    <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -74,12 +74,12 @@
                 <div class="columna-info">
                     <div class="pw-form">
                         <p>Nombre de la vacuna</p>
-                        <input type="text" name="correo" class="form-validate" id="correo">
+                        <input type="text" name="nombre" class="form-validate" id="nombre">
                     </div>
                     <div class="pw-form">
                         <p>Descripción de la vacuna</p>
                         <div class="text-area">
-                            <textarea name="" id="" cols="30" rows="6" class="form-validate"></textarea>
+                            <textarea name="" id="descripcion" cols="30" rows="6" class="form-validate"></textarea>
                         </div>
                     </div>
                     <div class="button-categoria">
@@ -88,7 +88,7 @@
                             <a href="../listadoPadecimientos/listado_padecimientos.html">Cancelar</a>
                         </div>
                         <div class="pw-form button-margin">
-                            <a id="revisarVacuna">Actualizar</a>
+                            <a id="actualizarVacuna">Actualizar</a>
                         </div>
         
                     </div>
@@ -97,11 +97,11 @@
                 <div class="pw-form columna-info">
                     <div class="img-agregar">
                         <p>Imagen vacuna</p>
-                        <img src="../../img/agregarImg.jpg"/>
+                        <img  id="imgVacuna"/>
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
-                                <input type="file" name="myfile" />
+                                <input type="file" name="myfile" id="imagenInput" accept="image/x-png,image/jpeg" />
                               </div>
                         </div>
                     </div>
@@ -109,11 +109,11 @@
                     <div class="pw-form info-radio">
                         <p>Categoría animal</p>
                         <label class="container">Gato
-                            <input type="radio" checked="checked" name="gender">
+                            <input type="radio" name="categoriaAnimal" id="gato" value="gato" />
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">Perro
-                            <input type="radio" name="gender">
+                            <input type="radio" name="categoriaAnimal" id="perro" value="perro" />
                             <span class="checkmark"></span>
                         </label>
         
@@ -157,9 +157,15 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
-    "></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+
+    <!-- Usar en este mismo order -->
+    <script src="../../Librerias/General/cerrarSesion.js"></script>
+    <script src="../../Librerias/jwt-decode.js"></script>
+    <script src="../../Librerias/General/utils.js"></script>
+
     <script src="./actualizar_vacuna.js"></script>
 
 </body>
