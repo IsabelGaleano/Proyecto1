@@ -1,14 +1,12 @@
 const cargarListado = () => {
-    
-
-    fetch("http://localhost:5000/categorias_mascotas")
-    
+    fetch("http://localhost:5000/categorias_servicios")
        
         .then(
             response => {
                 return response.json();
             }
         )
+
         .then(
             json => {
                 let contListado = "";
@@ -26,7 +24,7 @@ const cargarListado = () => {
                             <h5 class="titulo-categoria">${json[i].nombre}</h5>
                         </div>
                         <div class="button-accion">
-                            <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                            <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html" data-nombre-categoria = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
                         </div>
                         <div class="button-accion">
                             <a href="#"><i class="fas fa-user-times"></i></i></a>
@@ -41,7 +39,7 @@ const cargarListado = () => {
                             <h5 class="titulo-categoria">${json[i+1].nombre}</h5>
                         </div>
                         <div class="button-accion">
-                            <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${json[i+1].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                            <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html" data-nombre-categoria = "${json[i+1].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
                         </div>
                         <div class="button-accion">
                             <a href="#"><i class="fas fa-user-times"></i></i></a>
@@ -49,7 +47,6 @@ const cargarListado = () => {
                     </div>
                 </div>`;
                       
-
                     } else {
                         contListado += `<div class="listado">
                         <div class="info-listado">
@@ -60,24 +57,19 @@ const cargarListado = () => {
                                 <h5 class="titulo-categoria">${json[i].nombre}</h5>
                             </div>
                             <div class="button-accion">
-                                <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                                <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html" data-nombre-categoria = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
                             </div>
                             <div class="button-accion">
                                 <a href="#"><i class="fas fa-user-times"></i></i></a>
                             </div>
                         </div>
-                    </div>`;
-
-
+                    </div>`
                     }
 
-
                     document.getElementById('listado').innerHTML = contListado;
-
                 }
             }
         )
-
 }
 
 
@@ -86,7 +78,7 @@ const buscar = () => {
     let letrasBusqueda = busqueda.split('');
     listado = document.getElementById('listado');
 
-    fetch("http://localhost:5000/categorias_mascotas")
+    fetch("http://localhost:5000/categorias_servicios")
        
         .then(
             response => {
@@ -143,7 +135,7 @@ const buscar = () => {
                                 <h5 class="titulo-categoria">${nombres[l]}</h5>
                             </div>
                             <div class="button-accion">
-                                <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${nombres[l]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                                <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html" data-nombre-categoria = "${nombres[l]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
                             </div>
                             <div class="button-accion">
                                 <a href="#"><i class="fas fa-user-times"></i></i></a>
@@ -158,7 +150,7 @@ const buscar = () => {
                                 <h5 class="titulo-categoria">${nombres[l + 1]}</h5>
                             </div>
                             <div class="button-accion">
-                                <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${nombres[l+1]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                                <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html" data-nombre-categoria = "${nombres[l+1]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
                             </div>
                             <div class="button-accion">
                                 <a href="#"><i class="fas fa-user-times"></i></i></a>
@@ -175,7 +167,7 @@ const buscar = () => {
                                     <h5 class="titulo-categoria">${nombres[l]}</h5>
                                 </div>
                                 <div class="button-accion">
-                                    <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${nombres[l]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                                    <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html" data-nombre-categoria= "${nombres[l]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
                                 </div>
                                 <div class="button-accion">
                                     <a href="#"><i class="fas fa-user-times"></i></i></a>
@@ -191,10 +183,9 @@ const buscar = () => {
         )
 }
 
-
 const ver = (element) => {
-    const nombre = element.getAttribute('data-nombre');
-    localStorage.setItem('data-nombre', nombre);
+    const nombre = element.getAttribute('data-nombre-categoria');
+    localStorage.setItem('data-nombre-categoria', nombre);
 console.log(nombre)
   
 }

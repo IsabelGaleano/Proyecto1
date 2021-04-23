@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarListado()">
     <!--Navegador-->
     <nav class="container-nav">
         <div class="box-logo container-nav">
@@ -66,7 +66,7 @@
     </div>
     <div class="input-search">
         <div class="search-icons">
-            <input type="text" class="pw-form-search" placeholder="Buscar padecimientos" />
+            <input type="text" class="pw-form-search" placeholder="Buscar padecimientos" id="buscar" onkeyup="buscar()"/>
             <i class="fas fa-search"></i>
         </div>
     </div>
@@ -78,82 +78,8 @@
         </select>
     </div>
 
-    <div class="listado-general">
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/padecimiento4.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Insuficiencia renal</h4>
-                    <p>Tipo: Perro</p>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/padecimiento1.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Diabetes Mellitus</h4>
-                    <p>Tipo: Gato</p>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/padecimiento3.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Infección retrovirus</h4>
-                    <p>Tipo: Perro</p>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/padecimiento2.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Cáncer en felinos</h4>
-                    <p>Tipo: Gato</p>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    </div>
-    </div>
-    <div class="button-padding">
-        <div class="pw-form-inverse">
-            <a href="../registroPadecimiento/registro_padecimiento.html">Registrar padecimiento</a>
-        </div>
+    <div class="listado-general" id="listado">
+        
     </div>
 
 
@@ -186,6 +112,7 @@
         </div>
     </div>
     <!--Footer-->
+    <script src="./listado_padecimientos.js"></script>
 </body>
 
 </html>

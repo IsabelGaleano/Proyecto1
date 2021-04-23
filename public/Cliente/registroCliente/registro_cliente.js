@@ -16,6 +16,7 @@ document.querySelector('#revisarCliente').addEventListener('click', e => {
                 if (validacionCedula) {
 
                     registrarCliente();
+                    localMascota();
                     revisar.setAttribute("href", "../registroMascota/registro_mascota.html")
 
 
@@ -285,4 +286,17 @@ function generatePasswordRand(length, type) {
         }
     }
     return contrasenna;
+}
+
+
+const localMascota = () => {
+    let correo = document.getElementById("correo").value;
+    let cantidadMascotas = document.getElementById("cantidad_mascotas").value
+    let mascotas = {
+        correo: correo,
+        cantidadMascotas: cantidadMascotas
+    }
+    let jsonDatos = JSON.stringify(mascotas);
+
+    localStorage.setItem('key-data-mascotas', jsonDatos);
 }

@@ -11,7 +11,6 @@ const pdfkit = require('pdfkit');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 
-
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.set('useNewUrlParser', true);

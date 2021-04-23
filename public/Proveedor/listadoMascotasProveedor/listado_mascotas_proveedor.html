@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarListado()">
     <!--Navegador-->
     <nav class="container-nav">
         <div class="box-logo container-nav">
@@ -47,62 +47,13 @@
     </div>
     <div class="input-search">
         <div class="search-icons">
-            <input type="text" class="pw-form-search" placeholder="Buscar mascotas"/>
+            <input type="text" class="pw-form-search" placeholder="Buscar mascotas" id="buscar" onkeyup="buscar()"/>
             <i class="fas fa-search"></i>
         </div>
     </div>
 
-    <div class="listado-general">
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/puyo1.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Puyu</h4>
-                </div>
-                <div class="button-accion">
-                    <a href="../perfilMascotaProveedor/perfil_mascota_proveedor.html"><i class="far fa-eye"></i></a>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/buddy.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Buddy</h4>
-                </div>
-                <div class="button-accion">
-                    <a href="../perfilMascotaProveedor/perfil_mascota_proveedor.html"><i class="far fa-eye"></i></a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="listado">
-        <div class="info-listado">
-            <div class="img-categoria">
-                <img src="../../img/minos.jpg" />
-            </div>
-            <div class="descripcion-info">
-                <h4 class="titulo-categoria">Minos</h4>
-            </div>
-            <div class="button-accion">
-                <a href="../perfilMascotaProveedor/perfil_mascota_proveedor.html"><i class="far fa-eye"></i></a>
-            </div>
-        </div>
-        <div class="info-listado">
-            <div class="img-categoria">
-                <img src="../../img/keo.jpg" />
-            </div>
-            <div class="descripcion-info">
-                <h4 class="titulo-categoria">Keo</h4>
-            </div>
-            <div class="button-accion">
-                <a href="../perfilMascotaProveedor/perfil_mascota_proveedor.html"><i class="far fa-eye"></i></a>
-            </div>
-        </div>
+    <div class="listado-general" id="listado">
+       
 
     </div>
 
@@ -134,6 +85,7 @@
         </div>
     </div>
     <!--Footer-->
+    <script src="./listado_mascotas_proveedor.js"></script>
 </body>
 
 </html>

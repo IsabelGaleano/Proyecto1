@@ -273,7 +273,6 @@ const setDistrito = nameDistrito => {
 
 
 const buscarGenero = genero => {
-  let radios = document.getElementsByName('gender');
   let femenino = document.getElementById('femenino');
   let masculino = document.getElementById('masculino');
   let otro = document.getElementById('otro');

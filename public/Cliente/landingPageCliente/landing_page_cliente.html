@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="cargarNotificacionesUsuario();cargarListado()">
 
     <nav class="container-nav">
         <div class="box-logo container-nav">
@@ -26,7 +26,17 @@
         </div>
         <div class="container-nav box-anchors">
             <a href="#">Servicios</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt"></i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+                        
+
+                    </div>
+                   
+
+                </div>
+            </div>
             <div class="user">
                 <a href="#"><img src="../img/diana.jpg" /></a>
             </div>
@@ -51,90 +61,12 @@
 
     <div class="input-search">
         <div class="search-icons">
-            <input type="text" class="pw-form-search" placeholder="Buscar categorías, servicios"/>
+            <input type="text" class="pw-form-search" placeholder="Buscar categorías, servicios" id="buscar" onkeyup="buscar()"/>
             <i class="fas fa-search"></i>
         </div>
     </div>
-    <div class="categorias">
-        <div class="services" data-aos="fade-right">
-            <div class="categoria">
-                <div class="img-categoria">
-                    <p>Bienestar Emocional</p>
-                    <img src="../../img/bienestarEmocional.jpg" />
-                    <div class="capa-transparente">
-                        <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
-                    </div>
-                </div>
-            </div>
-            <div class="categoria">
-                <div class="img-categoria">
-                    <p>Bienestar Fisico</p>
-                    <img src="../../img/bienestarFisico.jpg" />
-                    <div class="capa-transparente">
-                        <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="categoria">
-                <div class="img-categoria">
-                    <p>Estética</p>
-                    <img src="../../img/esteticaMascota.jpg" />
-                    <div class="capa-transparente">
-                        <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
-                    </div>
-                </div>
-            </div>
-            <div class="categoria">
-                <div class="img-categoria">
-                    <p>Bisutería</p>
-                    <img src="../../img/bisuteriaMascotas.jpg" />
-                    <div class="capa-transparente">
-                        <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="services" data-aos="fade-left">
-            <div class="categoria">
-                <div class="img-categoria">
-                    <p>Hospedaje y Guardería</p>
-                    <img src="../../img/guarderiaMascota.jpg" />
-                    <div class="capa-transparente">
-                        <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
-                    </div>
-                </div>
-            </div>
-            <div class="categoria">
-                <div class="img-categoria">
-                    <p>Pet Shop</p>
-                    <img src="../../img/petshop.jpg" />
-                    <div class="capa-transparente">
-                        <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="categoria">
-                <div class="img-categoria">
-                    <p>Servicio Médico</p>
-                    <img src="../../img/servicioMedico.jpg" />
-                    <div class="capa-transparente">
-                        <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
-                    </div>
-                </div>
-            </div>
-            <div class="categoria">
-                <div class="img-categoria">
-                    <p>Servicio funerario</p>
-                    <img src="../../img/servicioFunerario.jpg" />
-                    <div class="capa-transparente">
-                        <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="categorias" id="listado">
+        
     </div>
 
     <div class="info-principal">
@@ -197,6 +129,7 @@
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="./landing_page_cliente.js"></script>
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
 </body>
 
 </html>

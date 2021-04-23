@@ -1,6 +1,6 @@
-
 const cargarListado = () => {
-    let duenno = localStorage.getItem('data-correo-duenno');
+    let duenno = localStorage.getItem('data-correo-cliente');
+    console.log(duenno);
     var datos = {
         duenno: duenno
     }
@@ -53,7 +53,7 @@ const cargarListado = () => {
                                     <a href="#"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
-                            </div>`
+                            </div>`;
 
                     } else {
                         contListado += `<div class="listado">
@@ -88,7 +88,7 @@ const buscar = () => {
     let busqueda = document.getElementById('buscar').value;
     let letrasBusqueda = busqueda.split('');
     listado = document.getElementById('listado');
-    let duenno = localStorage.getItem('data-correo-duenno');
+    let duenno = localStorage.getItem('data-correo-cliente');
     var datos = {
         duenno: duenno
     }
@@ -147,7 +147,38 @@ const buscar = () => {
                         if (nombres[l + 1] != undefined) {
 
                             contListado += `<div class="listado">
-                                    <div class="info-listado">
+                                <div class="info-listado">
+                                    <div class="img-categoria">
+                                        <img src="${imagenes[l]}" />
+                                    </div>
+                                    <div class="descripcion-info">
+                                        <h4 class="titulo-categoria">${nombres[l]}</h4>
+                                    </div>
+                                    <div class="button-accion">
+                                        <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
+                                    </div>
+                                    <div class="button-accion">
+                                        <a href="#"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                </div>
+                            <div class="info-listado">
+                                <div class="img-categoria">
+                                    <img src="${imagenes[l + 1]}" />
+                                </div>
+                                <div class="descripcion-info">
+                                    <h4 class="titulo-categoria">${nombres[l + 1]}</h4>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="#"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                            </div>`;
+                        } else {
+                            contListado += `<div class="listado">
+                                <div class="info-listado">
                                         <div class="img-categoria">
                                             <img src="${imagenes[l]}" />
                                         </div>
@@ -160,38 +191,7 @@ const buscar = () => {
                                         <div class="button-accion">
                                             <a href="#"><i class="fas fa-trash"></i></a>
                                         </div>
-                                    </div>
-                                <div class="info-listado">
-                                    <div class="img-categoria">
-                                        <img src="${imagenes[l + 1]}" />
-                                    </div>
-                                    <div class="descripcion-info">
-                                        <h4 class="titulo-categoria">${nombres[l + 1]}</h4>
-                                    </div>
-                                    <div class="button-accion">
-                                        <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
-                                    </div>
-                                    <div class="button-accion">
-                                        <a href="#"><i class="fas fa-trash"></i></a>
-                                    </div>
-                                </div>
-                                </div>`;
-                        } else {
-                            contListado += `<div class="listado">
-                                    <div class="info-listado">
-                                            <div class="img-categoria">
-                                                <img src="${imagenes[l]}" />
-                                            </div>
-                                            <div class="descripcion-info">
-                                                <h4 class="titulo-categoria">${nombres[l]}</h4>
-                                            </div>
-                                            <div class="button-accion">
-                                                <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
-                                            </div>
-                                            <div class="button-accion">
-                                                <a href="#"><i class="fas fa-trash"></i></a>
-                                            </div>
-                                        </div>`
+                                    </div>`
                         }
                     }
 
