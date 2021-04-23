@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-let router = express.Router();
+const router = express.Router();
 
-let Servicio = require('../schemas/servicio');
+const Servicio = require('../schemas/servicio');
+const Usuario  = require('../schemas/usuario');
 
 router.get('/', (req, res) => {
     Servicio.find().exec()
@@ -17,78 +18,68 @@ router.get('/', (req, res) => {
         
 });
 
-
-router.post('/insertar', (req, res) => {
-    var servicioNuevo = new Servicio({
-        _id: new mongoose.Types.ObjectId(),
-        proveedor: req.body.proveedor,
-        nombre_servicio: req.body.nombre_servicio,
-        latitud_servicio: req.body.latitud_servicio,
-        longitud_servicio: req.body.longitud_servicio,
-        nivel_servicio: req.body.nivel_servicio,
-        descripcion: req.body.descripcion,
-        costo: req.body.costo,
-        dias_servicio: req.body.dias_servicio,
-        horario_servicio: req.body.horario_servicio,
-        imagenes_servicio: req.body.imagenes_servicio,
-        whatsapp: req.body.whatsapp,
-        instagram: req.body.instagram,
-        facebook: req.body.facebook,
-        estado: req.body.estado,
-        categoria_servicio: req.body.categoria_servicio
-
-    });
-
-    servicioNuevo.save()
-        .then(
-            result => {
-                res.json(result);
-            }
-        )
-        .catch(err => {
-            res.json({ message: err })
-        });
-
+router.get('/categoria/:categoria', async (req, res) => {
+    try {
+        const { categoria } = req.params;
+        const servicios = await Servicio.find({ categoria_servicio: categoria });
+        res.json(servicios);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
 });
 
+router.post('/buscar', async (req, res) => {
+    try {
+        if (!['proveedor'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
 
+        const proveedor = await Servicio.findOne({ proveedor : req.body.proveedor });
 
-
-
-
-router.post('/buscar', (req, res) => {
-    Servicio.find({ proveedor: req.body.proveedor }).exec()
-        .then(
-            result => {
-                res.json(result);
-            }
-        )
-        .catch(err => {
-            res.json({ message: err })
-        });
-        
-
+        res.json({ proveedor });
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
 });
 
+router.post('/insertar', async (req, res) => {
+    try {
+        if (!['proveedor'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+      
+        const usuario = await Usuario.findById(req.userId);
 
-
-router.post('/buscar_servicio_solicitudes', (req, res) => {
-    Servicio.find({proveedor:  { $in: req.body.proveedor}}).exec()
-        .then(
-            result => {
-                
-                res.json(result);
-              
-            }
-
-        )
-        .catch(err => {
-            res.json({ message: err })
-        });
-        
-
+        if (usuario?.estado === 'aprobado') {
+            const servicioNuevo = new Servicio({
+                _id: new mongoose.Types.ObjectId(),
+                proveedor: req.body.proveedor,
+                nombre_servicio: req.body.nombre_servicio,
+                latitud_servicio: req.body.latitud_servicio,
+                longitud_servicio: req.body.longitud_servicio,
+                nivel_servicio: req.body.nivel_servicio,
+                descripcion: req.body.descripcion,
+                costo: req.body.costo,
+                dias_servicio: req.body.dias_servicio,
+                horario_servicio: req.body.horario_servicio,
+                imagenes_servicio: req.body.imagenes_servicio,
+                whatsapp: req.body.whatsapp,
+                instagram: req.body.instagram,
+                facebook: req.body.facebook,
+                categoria_servicio: req.body.categoria_servicio,
+            });
+          
+            const servicio = await servicioNuevo.save();
+            res.json({ servicio });
+        } else {
+            res.status(403).json({ message: 'request no autorizado' });
+        }
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
 });
-
 
 router.delete('/eliminar', (req, res) => {
     Servicio.findOneAndDelete({ proveedor: req.body.proveedor }).exec()
@@ -100,11 +91,7 @@ router.delete('/eliminar', (req, res) => {
         .catch(err => {
             res.json({ message: err })
         });
-        
-
 });
-
-
 
 router.put('/actualizar', (req, res) => {
     let proveedor = req.body.proveedor;
@@ -139,7 +126,7 @@ router.put('/actualizar', (req, res) => {
             instagram:instagram,
             facebook:facebook,
             estado:estado,
-            categoria_servicio:categoria_servicio
+            categoria_servicio:categoria_servicio,
         }
     }, 
         {useFindAndModify: false, new: true},  (err, doc) =>{
@@ -151,5 +138,21 @@ router.put('/actualizar', (req, res) => {
     
   });
 
+router.post('/buscar_servicio_solicitudes', (req, res) => {
+    Servicio.find({proveedor:  { $in: req.body.proveedor}}).exec()
+        .then(
+            result => {
+                
+                res.json(result);
+              
+            }
+
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+        
+
+});
 
 module.exports = router;

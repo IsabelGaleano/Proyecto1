@@ -4,6 +4,16 @@ let router = express.Router();
 
 let Vacuna = require('../schemas/vacuna');
 
+router.get('/listar/:categoria', async (req, res) => {
+    try {
+        const { categoria } = req.params;
+        const vacunas = await Vacuna.find({ categoria });
+        res.json(vacunas);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
+
 router.get('/', (req, res) => {
     Vacuna.find().exec()
         .then(
@@ -16,7 +26,6 @@ router.get('/', (req, res) => {
         });
         
 });
-
 
 router.post('/insertar', (req, res) => {
     var vacunaNueva = new Vacuna({
@@ -40,9 +49,6 @@ router.post('/insertar', (req, res) => {
 
 });
 
-
-
-
 router.post('/buscar', (req, res) => {
     Vacuna.find({ nombre: req.body.nombre }).exec()
         .then(
@@ -53,12 +59,23 @@ router.post('/buscar', (req, res) => {
         .catch(err => {
             res.json({ message: err })
         });
-        
-
 });
 
+router.get('/buscar/:id', async (req, res) => {
+    try {
+        if (!['administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
 
+        const { id } = req.params;
+        const vacuna = await Vacuna.findById(id);
 
+        res.json(vacuna);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
 
 router.delete('/eliminar', (req, res) => {
     Vacuna.findOneAndDelete({ nombre: req.body.nombre }).exec()
@@ -70,37 +87,33 @@ router.delete('/eliminar', (req, res) => {
         .catch(err => {
             res.json({ message: err })
         });
-        
-
 });
 
-
-
-
-
-router.put('/actualizar', (req, res) => {
-    let nombre = req.body.nombre;
-    let descripcion = req.body.descripcion;
-    let imagen = req.body.imagen;
-    let categoria = req.body.categoria;
-   
-
-    // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
-    Vacuna.findOneAndUpdate(
-        {nombre: nombre}, {$set:{
-            descripcion:descripcion,
-            imagen:imagen,
-            categoria:categoria
+router.put('/actualizar', async (req, res) => {
+    try {
+        if (!['administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
         }
-    }, 
-        {useFindAndModify: false, new: true},  (err, doc) =>{
-      res.json(doc);
-    })
-    .catch(err => {
-        res.json({ message: err })
-    });
-    
-  });
 
+        const { _id, nombre, descripcion, imagen, categoria } = req.body;
+
+        const vacunaActualizada = await Vacuna.findOneAndUpdate({ _id }, {
+            nombre,
+            descripcion,
+            imagen,
+            categoria
+        }, { new: true });
+
+        if (!vacunaActualizada) {
+            res.status(404).json({ message: "reques invalido", success: false });
+            return;
+        }
+
+        res.json(vacunaActualizada);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
 
 module.exports = router;

@@ -40,7 +40,7 @@
                         <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes
                             anteriores</a>
                         <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
-                        <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                        <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -179,102 +179,9 @@
                     </div>
                 </div>
             </div>
-            
-            
-
         </div>
 
-       
-
-        <div class="listado-general">
-            <div class="listado">
-                <div class="info-listado">
-                    <div class="img-categoria">
-                        <img src="../img/estetica4.PNG" />
-                    </div>
-                    <div class="descripcion-info">
-                        <h4 class="margin-bottom">Cariñosita</h4>
-                        <p class="margin-top">Corte de pelo</p>
-                        <div class="estrellas">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="button-ver">
-                        <a class="button button-aceptar" href="../contratacionServicios/contratacion_servicio.html">
-                            Ver más</a>
-                    </div>
-                </div>
-                <div class="info-listado">
-                    <div class="img-categoria">
-                        <img src="../img/estetica5.jpg" />
-                    </div>
-                    <div class="descripcion-info">
-                        <h4 class="margin-bottom">PetsLove</h4>
-                        <p class="margin-top">Corte de pelo</p>
-                        <div class="estrellas">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="button-ver">
-                        <a class="button button-aceptar" href="../contratacionServicios/contratacion_servicio.html"> Ver
-                            más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="listado">
-                <div class="info-listado">
-                    <div class="img-categoria">
-                        <img src="../img/estetica6.jpg" />
-                    </div>
-                    <div class="descripcion-info">
-                        <h4 class="margin-bottom">Grooming</h4>
-                        <p class="margin-top">Corte de pelo</p>
-                        <div class="estrellas">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="button-ver">
-                        <a class="button button-aceptar" href="../contratacionServicios/contratacion_servicio.html"> Ver
-                            más</a>
-                    </div>
-                </div>
-                <div class="info-listado">
-                    <div class="img-categoria">
-                        <img src="../img/estetica7.jpg" />
-                    </div>
-                    <div class="descripcion-info">
-                        <h4 class="margin-bottom">Luva Pets</h4>
-                        <p class="margin-top">Corte de pelo</p>
-                        <div class="estrellas">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="button-ver">
-                        <a class="button button-aceptar" href="../contratacionServicios/contratacion_servicio.html"> Ver
-                            más</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
+        <div class="listado-general" id="listadoServicios"></div>
 
         <div class="container-footer">
             <div class="logo">
@@ -304,13 +211,20 @@
         <!-- Development version -->
         <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
 
+        <!-- Java Script -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+
+        <!-- Usar en este mismo order -->
+        <script src="../../Librerias/General/cerrarSesion.js"></script>
+        <script src="../../Librerias/jwt-decode.js"></script>
+        <script src="../../Librerias/General/utils.js"></script>
+
         <!-- Production version -->
         <script src="https://unpkg.com/@popperjs/core@2"></script>
       
-
-
-
-
+        <script src="./listado_servicios.js"></script>
     </body>
 
 </html>

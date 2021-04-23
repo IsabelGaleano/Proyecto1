@@ -126,19 +126,12 @@ div{
     display: inline-block;
 }
 
-
-.listado-general {
-    padding-top: 30px;
-}
-
 .filtro {
     text-align: center;
     margin: 0 auto;
     padding: 15px 0px;
     width: 10%;
 }
-
-
 .listado-general {
     overflow-y: auto;
     max-height: 400px;
