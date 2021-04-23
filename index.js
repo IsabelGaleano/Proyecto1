@@ -9,7 +9,6 @@ const bcrypt = require('bcrypt')
 const pdfkit = require('pdfkit');
 const fs = require('fs');
 
-
 mongoose.connect('mongodb+srv://isabel_galeano:petsworldApp@database.0yilc.mongodb.net/PetsWorld?retryWrites=true&w=majority',
 {useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useNewUrlParser', true);

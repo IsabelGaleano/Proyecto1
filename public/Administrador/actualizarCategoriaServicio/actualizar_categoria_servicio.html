@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body onload="cargarCategoria()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -74,12 +74,12 @@
                 <div class="columna-info">
                     <div class="pw-form">
                         <p>Nombre de la categoría</p>
-                        <input type="text" name="nombre" class="form-validate">
+                        <input type="text" name="nombre" class="form-validate" id="nombre">
                     </div>
                     <div class="pw-form">
                         <p>Descripción de la categoría</p>
                         <div class="text-area">
-                            <textarea name="" id="" cols="30" rows="6" class="form-validate"></textarea>
+                            <textarea name="" id="descripcion" cols="30" rows="6" class="form-validate"></textarea>
                         </div>
                     </div>
                     <div class="button-categoria">
@@ -101,7 +101,7 @@
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
-                                <input type="file" name="myfile" />
+                                <input type="file" name="myfile" id="imagen_nueva"/>
                               </div>
                         </div>
                     </div>

@@ -137,3 +137,10 @@ div{
     padding: 15px 0px;
     width: 10%;
 }
+
+
+.listado-general {
+    overflow-y: auto;
+    max-height: 400px;
+    margin:  20px 0;
+}

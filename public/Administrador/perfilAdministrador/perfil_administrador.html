@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarPerfil()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -75,9 +75,9 @@
             </div>
         </div>
         <div class="info-admi">
-            <p class="titulo-info">Adriana Corrales Figueroa</p>
-            <p><span><i class="far fa-envelope"></i>Correo electrónico:</span> acorralesf@gmail.com</p>
-            <p><span><i class="fas fa-phone"></i>Teléfono: </span> +506 8734-2345</p>
+            <p class="titulo-info" id="nombre"></p>
+            <p><span><i class="far fa-envelope"></i>Correo electrónico:</span> <span id="correo"></span></p>
+            <p><span><i class="fas fa-phone"></i>Teléfono: </span> <span id="telefono"></span></p>
         </div>
 
     </div>
@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-
+    <script src="./perfil_administrador.js"></script>
 </body>
 
 </html>

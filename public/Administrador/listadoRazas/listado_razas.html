@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarListado()">
     <!--Navegador-->
     <nav class="container-nav">
         <div class="box-logo container-nav">
@@ -78,73 +78,8 @@
         </select>
     </div>
 
-    <div class="listado-general">
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/MaineCoon.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Maine Coon</h4>
-                    <p>Tipo: Gato</p>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarRaza/actualizar_raza.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/persa.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Gato Persa</h4>
-                    <p>Tipo: Gato</p>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarRaza/actualizar_raza.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/husky.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Husky Siberiano</h4>
-                    <p>Tipo: Perro</p>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarRaza/actualizar_raza.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/pastorAleman.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Pastor Alemán</h4>
-                    <p>Tipo: Perro</p>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarRaza/actualizar_raza.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-
-        </div>
+    <div class="listado-general" id="listado">
+        
     </div>
 
 
@@ -186,6 +121,7 @@
         </div>
     </div>
     <!--Footer-->
+    <script src="./listado_razas.js"></script>
 </body>
 
 </html>

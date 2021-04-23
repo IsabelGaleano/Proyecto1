@@ -131,3 +131,14 @@ div{
 .listado-general {
     padding-top: 30px;
 }
+
+.fa-user-times {
+    color: black;
+}
+
+
+.listado-general {
+    overflow-y: auto;
+    max-height: 400px;
+    margin:  20px 0;
+}

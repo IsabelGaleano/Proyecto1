@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarListado()">
     <!--Navegador-->
     <nav class="container-nav">
         <div class="box-logo container-nav">
@@ -73,71 +73,8 @@
         </div>
     </div>
 
-    <div class="listado-general">
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/mujer5.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h5 class="titulo-categoria">Daniela Peréz Salas</h5>
-                </div>
-                <div class="button-accion">
-                    <a href="../perfilProveedorAdmi/perfil_proveedor_admi.html"><i class="far fa-eye"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-user-times"></i></i></a>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/man5.jfif" />
-                </div>
-                <div class="descripcion-info">
-                    <h5 class="titulo-categoria">Andrés Montero Vargas</h5>
-                </div>
-                <div class="button-accion">
-                    <a href="../perfilProveedorAdmi/perfil_proveedor_admi.html"><i class="far fa-eye"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-user-times"></i></i></a>
-                </div>
-            </div>
-        </div>
-
-
-        </div>
-    </div>
-
-    <div class="listado">
-        <div class="info-listado">
-            <div class="img-categoria">
-                <img src="../../img/mujer6.jpg" />
-            </div>
-            <div class="descripcion-info">
-                <h5 class="titulo-categoria">Mia Castillo Suárez</h5>
-            </div>
-            <div class="button-accion">
-                <a href="../perfilProveedorAdmi/perfil_proveedor_admi.html"><i class="far fa-eye"></i></a>
-            </div>
-            <div class="button-accion">
-                <a href="#"><i class="fas fa-user-times"></i></i></a>
-            </div>
-        </div>
-        <div class="info-listado">
-            <div class="img-categoria">
-                <img src="../../img/mujer7.jpg" />
-            </div>
-            <div class="descripcion-info">
-                <h4 class="titulo-categoria">Victoria Arana Galeano</h4>
-            </div>
-            <div class="button-accion">
-                <a href="../perfilProveedorAdmi/perfil_proveedor_admi.html"><i class="far fa-eye"></i></i></a>
-            </div>
-            <div class="button-accion">
-                <a href="#"><i class="fas fa-user-times"></i></i></a>
-            </div>
-        </div>
+    <div class="listado-general" id="listado">
+        
 
     </div>
   
@@ -170,6 +107,9 @@
         </div>
     </div>
     <!--Footer-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="./listado_proveedores.js"></script>
 </body>
 
 </html>

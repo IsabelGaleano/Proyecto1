@@ -142,3 +142,10 @@ div{
 .fa-user-times {
     color: #000;
 }
+
+
+.listado-general {
+    overflow-y: auto;
+    max-height: 400px;
+    margin:  20px 0;
+}

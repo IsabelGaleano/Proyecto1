@@ -72,6 +72,23 @@ router.post('/buscar', (req, res) => {
 
 
 
+router.post('/buscar_servicio_solicitudes', (req, res) => {
+    Servicio.find({proveedor:  { $in: req.body.proveedor}}).exec()
+        .then(
+            result => {
+                
+                res.json(result);
+              
+            }
+
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+        
+
+});
+
 
 router.delete('/eliminar', (req, res) => {
     Servicio.findOneAndDelete({ proveedor: req.body.proveedor }).exec()

@@ -39,7 +39,6 @@ const cargarListado = (correo, fechas) => {
     let datos = {
         correo: correo
     }
-    
 
     fetch("http://localhost:5000/usuarios/buscar_usuarios_solicitudes",
         {
