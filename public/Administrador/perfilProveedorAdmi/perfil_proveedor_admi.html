@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarProveedor()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -68,8 +68,8 @@
     <div class="info-servicio">
         <div class="proveedor">
             <div class="avatar-proveedor">
-                <a href="../../index.html"><img src="../../img/mujer2.jpg" /></a>
-                <p class="titulo-info">Daniela Peréz Salas</p>
+                <a href="../../index.html"><img id="imagen_usuario"/></a>
+                <p class="titulo-info" id="nombre">Daniela Peréz Salas</p>
                 <p class="titulo-info">Excelente</p>
             </div>
             <div class="estrellas">
@@ -86,16 +86,16 @@
         <div class="info-columna">
 
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-envelope"></i>Correo electrónico: </span> <span>dperezs@ucenfotec.ac.cr</span></p>
+                <p><span class="titulo-info"><i class="far fa-envelope"></i>Correo electrónico: </span> <span id="correo"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-id-badge"></i>Tipo identificación: </span> <span>Cédula</span></p>
+                <p><span class="titulo-info"><i class="far fa-id-badge"></i>Tipo identificación: </span> <span id="tipo_identificacion"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-hashtag"></i>No. identificación: </span> <span>1-13844-1168</span></p>
+                <p><span class="titulo-info"><i class="fas fa-hashtag"></i>No. identificación: </span> <span id="identificacion"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span>+506 8371-6935</span></p>
+                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span id="telefono"></span></p>
             </div>
             <div class="pw-form-inverse">
                 <a href="../perfilServicioAdmi/perfil_servicio_admi.html">Servicio</a>
@@ -105,16 +105,16 @@
         <div class="info-columna">
 
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-calendar-alt"></i>Fecha nacimiento: </span> <span>27/10/2002</span></p>
+                <p><span class="titulo-info"><i class="far fa-calendar-alt"></i>Fecha nacimiento: </span> <span id="fecha_nacimiento"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info">Provincia: </span> <span>San José</span></p>
+                <p><span class="titulo-info">Provincia: </span> <span id="provincia"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info">Cantón: </span> <span>Montes de Oca</span></p>
+                <p><span class="titulo-info">Cantón: </span> <span id="canton"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info">Distrito: </span> <span>San Pedro</span></p>
+                <p><span class="titulo-info">Distrito: </span> <span id="distrito"></span></p>
             </div>
             <div class="pw-form-inverse">
                 <a href="../bitacoraAcciones/bitacora_acciones.html">Bitácora de acciones</a>
@@ -156,6 +156,7 @@
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="../contratacionServicios/contratacion_servicios.js"></script>
+    <script src="./perfil_proveedor_admi.js"></script>
 
 </body>
 

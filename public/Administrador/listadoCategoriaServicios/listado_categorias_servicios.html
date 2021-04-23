@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarListado()">
     <!--Navegador-->
     <nav class="container-nav">
         <div class="box-logo container-nav">
@@ -66,105 +66,13 @@
     </div>
     <div class="input-search">
         <div class="search-icons">
-            <input type="text" class="pw-form-search" placeholder="Buscar categorías" />
+            <input type="text" class="pw-form-search" placeholder="Buscar categorías" id="buscar" onkeyup="buscar()"/>
             <i class="fas fa-search"></i>
         </div>
     </div>
 
-    <div class="listado-general">
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/esteticaMascota.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Estética</h4>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/petshop.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Pet Shop</h4>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/servicioMedico.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Servicio médico</h4>
-                </div>
-                <div class="button-accion">
-                    <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-categoria">
-                    <img src="../../img/guarderiaMascota.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="titulo-categoria">Guardería</h4>
-                </div>
-                <div class="button-accion">
-                    <a href=../actualizarCategoriaServicio/actualizar_categoria_servicio.html"><i class="fas fa-edit"></i></a>
-                </div>
-                <div class="button-accion">
-                    <a href="#"><i class="fas fa-trash"></i></a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="listado">
-        <div class="info-listado">
-            <div class="img-categoria">
-                <img src="../../img/bienestarFisico.jpg" />
-            </div>
-            <div class="descripcion-info">
-                <h4 class="titulo-categoria">Bienestar físico</h4>
-            </div>
-            <div class="button-accion">
-                <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html"><i class="fas fa-edit"></i></a>
-            </div>
-            <div class="button-accion">
-                <a href="#"><i class="fas fa-trash"></i></a>
-            </div>
-        </div>
-        <div class="info-listado">
-            <div class="img-categoria">
-                <img src="../../img/bienestarEmocional.jpg" />
-            </div>
-            <div class="descripcion-info">
-                <h4 class="titulo-categoria">Bienestar emocional</h4>
-            </div>
-            <div class="button-accion">
-                <a href="../actualizarCategoriaServicio/actualizar_categoria_servicio.html"><i class="fas fa-edit"></i></a>
-            </div>
-            <div class="button-accion">
-                <a href="#"><i class="fas fa-trash"></i></a>
-            </div>
-        </div>
+    <div class="listado-general" id="listado">
+        
 
     </div>
     <div class="button-padding">
@@ -203,6 +111,7 @@
         </div>
     </div>
     <!--Footer-->
+    <script src="./listado_categorias_servicios.js"></script>
 </body>
 
 </html>

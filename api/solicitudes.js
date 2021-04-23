@@ -79,6 +79,26 @@ router.post('/buscar_solicitudes_pendientes_proveedor', (req, res) => {
 
 });
 
+router.post('/buscar_solicitudes_pendientes_cliente', (req, res) => {
+    Solicitud.find({ $and: 
+        [
+            {tipo: req.body.tipo},
+            { cliente: req.body.cliente}, 
+            { estado: req.body.estado}
+        ]
+    }).exec()
+        .then(
+            result => {
+                res.json(result);
+            }
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+        
+
+});
+
 
 router.post('/buscar', (req, res) => {
     Solicitud.find({ tipo: req.body.tipo}).exec()

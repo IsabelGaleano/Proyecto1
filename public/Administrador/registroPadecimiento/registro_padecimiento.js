@@ -12,7 +12,7 @@ document.querySelector('#revisarPadecimiento').addEventListener('click', e => {
         });
 
         insertarPadecimiento();
-        //revisar.setAttribute("href", "../listadoPadecimientos/listado_padecimientos.html")
+        revisar.setAttribute("href", "../listadoPadecimientos/listado_padecimientos.html")
 
 
     } else {
@@ -49,3 +49,5 @@ const insertarPadecimiento = () => {
         );
 
 }
+
+

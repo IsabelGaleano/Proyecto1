@@ -71,6 +71,12 @@ const obtenerFecha = (fechaNacimiento) => {
 }
 
 
+const mascotas = () => {
+  let correo = localStorage.getItem('data-correo');
+  localStorage.setItem('data-correo-cliente', correo);
+}
+
+
 
 
 

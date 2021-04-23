@@ -117,3 +117,12 @@ div{
     display: inline-block;
 }
 
+
+
+.categorias {
+    overflow-y: auto;
+    max-height: 400px;
+    margin:  20px 0;
+}
+
+

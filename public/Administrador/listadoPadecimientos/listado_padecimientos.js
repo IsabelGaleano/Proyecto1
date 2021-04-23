@@ -1,92 +1,91 @@
 const cargarListado = () => {
-    
+    fetch("http://localhost:5000/padecimientos/", {
+        method:'GET'
+    })
 
-    fetch("http://localhost:5000/categorias_mascotas")
-    
-       
         .then(
             response => {
                 return response.json();
             }
         )
+
         .then(
             json => {
                 let contListado = "";
 
-                for (let i = 0; i < json.length; i+=2) {
+                for (let i = 0; i < json.length; i += 2) {                         
 
-                    if (json[i+1] !== undefined) {
-                        
+
+                    if (json[i + 1] !== undefined) {
+
                         contListado += `<div class="listado">
                     <div class="info-listado">
                         <div class="img-categoria">
                             <img src="${json[i].imagen}" />
-                        </div> 
+                        </div>
                         <div class="descripcion-info">
-                            <h5 class="titulo-categoria">${json[i].nombre}</h5>
+                            <h4 class="titulo-categoria">${json[i].nombre}</h4>
+                            <p>Tipo: ${json[i].categoria}</p>
                         </div>
                         <div class="button-accion">
-                            <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                            <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
                         </div>
                         <div class="button-accion">
-                            <a href="#"><i class="fas fa-user-times"></i></i></a>
+                            <a href="#"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
-
                     <div class="info-listado">
                         <div class="img-categoria">
-                            <img src="${json[i+1].imagen}" />
+                            <img src="${json[i + 1].imagen}" />
                         </div>
                         <div class="descripcion-info">
-                            <h5 class="titulo-categoria">${json[i+1].nombre}</h5>
+                            <h4 class="titulo-categoria">${json[i + 1].nombre}</h4>
+                            <p>Tipo:${json[i +1].categoria}</p>
                         </div>
                         <div class="button-accion">
-                            <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${json[i+1].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                            <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
                         </div>
                         <div class="button-accion">
-                            <a href="#"><i class="fas fa-user-times"></i></i></a>
+                            <a href="#"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
                 </div>`;
-                      
 
                     } else {
                         contListado += `<div class="listado">
                         <div class="info-listado">
-                            <div class="img-categoria">
-                                <img src="${json[i].imagen}" />
-                            </div>
-                            <div class="descripcion-info">
-                                <h5 class="titulo-categoria">${json[i].nombre}</h5>
-                            </div>
-                            <div class="button-accion">
-                                <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-edit"></i></a>
-                            </div>
-                            <div class="button-accion">
-                                <a href="#"><i class="fas fa-user-times"></i></i></a>
-                            </div>
+                        <div class="img-categoria">
+                            <img src="${json[i].imagen}" />
                         </div>
-                    </div>`;
+                        <div class="descripcion-info">
+                            <h4 class="titulo-categoria">${json[i].nombre}</h4>
+                            <p>Tipo: ${json[i].categoria}</p>
+                        </div>
+                        <div class="button-accion">
+                            <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
+                        </div>
+                        <div class="button-accion">
+                            <a href="#"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>`
 
 
                     }
-
-
+                    
+                    //document.getElementById('listado').insertAdjacentHTML("beforeend", listado);
                     document.getElementById('listado').innerHTML = contListado;
 
                 }
             }
         )
-
 }
-
 
 const buscar = () => {
     let busqueda = document.getElementById('buscar').value;
     let letrasBusqueda = busqueda.split('');
     listado = document.getElementById('listado');
 
-    fetch("http://localhost:5000/categorias_mascotas")
+    fetch("http://localhost:5000/padecimientos/")
        
         .then(
             response => {
@@ -101,6 +100,7 @@ const buscar = () => {
                 let i = 0;
                 let nombres = [];
                 let imagenes = [];
+                let categorias = [];
                 let checkNoBuscado = false;
                 
                 if (busqueda == "") {
@@ -125,6 +125,7 @@ const buscar = () => {
                             
                             nombres.push(json[i].nombre)
                             imagenes.push(json[i].imagen)
+                            categorias.push(json[i].categoria)
                             
                         } else {
                             listado.innerHTML = "";
@@ -135,36 +136,37 @@ const buscar = () => {
                         if (nombres[l+1] != undefined) {
 
                             contListado += `<div class="listado">
-                        <div class="info-listado">
-                            <div class="img-categoria">
-                                <img src="${imagenes[l]}" />
-                            </div> 
-                            <div class="descripcion-info">
-                                <h5 class="titulo-categoria">${nombres[l]}</h5>
+                            <div class="info-listado">
+                                <div class="img-categoria">
+                                    <img src="${imagenes[l]}" />
+                                </div>
+                                <div class="descripcion-info">
+                                    <h4 class="titulo-categoria">${nombres[l]}</h4>
+                                    <p>Tipo: ${categorias[l]}</p>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="#"><i class="fas fa-trash"></i></a>
+                                </div>
                             </div>
-                            <div class="button-accion">
-                                <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${nombres[l]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                            <div class="info-listado">
+                                <div class="img-categoria">
+                                    <img src="${imagenes[l + 1]}" />
+                                </div>
+                                <div class="descripcion-info">
+                                    <h4 class="titulo-categoria">${nombres[l + 1]}</h4>
+                                    <p>Tipo:${categorias[l +1]}</p>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="#"><i class="fas fa-trash"></i></a>
+                                </div>
                             </div>
-                            <div class="button-accion">
-                                <a href="#"><i class="fas fa-user-times"></i></i></a>
-                            </div>
-                        </div>
-                        
-                        <div class="info-listado">
-                            <div class="img-categoria">
-                                <img src="${imagenes[l + 1]}" />
-                            </div>
-                            <div class="descripcion-info">
-                                <h5 class="titulo-categoria">${nombres[l + 1]}</h5>
-                            </div>
-                            <div class="button-accion">
-                                <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${nombres[l+1]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
-                            </div>
-                            <div class="button-accion">
-                                <a href="#"><i class="fas fa-user-times"></i></i></a>
-                            </div>
-                        </div>
-                    </div>`;
+                        </div>`;
                         } else {
                             contListado += `<div class="listado">
                             <div class="info-listado">
@@ -172,16 +174,16 @@ const buscar = () => {
                                     <img src="${imagenes[l]}" />
                                 </div>
                                 <div class="descripcion-info">
-                                    <h5 class="titulo-categoria">${nombres[l]}</h5>
+                                    <h4 class="titulo-categoria">${nombres[l]}</h4>
+                                    <p>Tipo: ${categorias[l]}</p>
                                 </div>
                                 <div class="button-accion">
-                                    <a href="../actualizacionCategoriaAnimal/actualizacion_categoria_animal.html" data-nombre = "${nombres[l]}" onclick="ver(this)"><i class="far fa-edit"></i></a>
+                                    <a href="../actualizarPadecimiento/actualizar_padecimiento.html"><i class="fas fa-edit"></i></a>
                                 </div>
                                 <div class="button-accion">
-                                    <a href="#"><i class="fas fa-user-times"></i></i></a>
+                                    <a href="#"><i class="fas fa-trash"></i></a>
                                 </div>
-                            </div>
-                        </div>`
+                            </div>`
                         }
                     }
                     
@@ -189,12 +191,4 @@ const buscar = () => {
                 }
             }
         )
-}
-
-
-const ver = (element) => {
-    const nombre = element.getAttribute('data-nombre');
-    localStorage.setItem('data-nombre', nombre);
-console.log(nombre)
-  
 }

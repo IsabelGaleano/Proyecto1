@@ -15,6 +15,12 @@ div{
     justify-content: center;
 }
 
+.estrellas{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .final-dropdown-hover {
     color: #fff !important; 
 }
