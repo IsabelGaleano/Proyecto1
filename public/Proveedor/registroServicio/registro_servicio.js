@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const descripcionServicio =  document.getElementById('descripcionServicio'); 
     const costoServicio = document.getElementById('costo');
     const nivelServicio = document.querySelector('input[name="nivelServicio"]:checked');
-    const contactoWhatsapp = document.getElementById('whatsapp');
+    const contactoWhatsapp =    document.getElementById('whatsapp');
     const contactoInstagram = document.getElementById('instagram');
     const contactoFacebook = document.getElementById('facebook');
     const fotoServicio = document.getElementById('fotoServicio');

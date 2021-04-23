@@ -77,16 +77,19 @@ router.get('/buscar/:id', async (req, res) => {
     }
 });
 
-router.delete('/eliminar', (req, res) => {
-    Vacuna.findOneAndDelete({ nombre: req.body.nombre }).exec()
-        .then(
-            result => {
-                res.json(result);
-            }
-        )
-        .catch(err => {
-            res.json({ message: err })
-        });
+router.delete('/eliminar/:id', async (req, res) => {
+    try {
+        if (!['administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+
+        const vacuna = await Vacuna.findOneAndDelete({ _id : req.params.id });
+
+        res.json(vacuna);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
 });
 
 router.put('/actualizar', async (req, res) => {

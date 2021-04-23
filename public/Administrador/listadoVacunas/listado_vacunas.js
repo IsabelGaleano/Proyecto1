@@ -1,6 +1,22 @@
+
+const api = axios.create({
+    baseURL: 'http://localhost:5000/',
+    timeout: 10000,
+    headers: { authorization: localStorage.getItem('token') }
+});
+
 const listarVacunas = async (categoria) => {
     try {
-        const { data } = await axios.get(`http://localhost:5000/vacunas/listar/${categoria}`);
+        const { data } = await api.get(`vacunas/listar/${categoria}`);
+        return data;
+    } catch (e) {
+        return e.message;
+    }
+}
+
+const eliminarVacuna = async (id) => {
+    try {
+        const { data } = await api.delete(`vacunas/eliminar/${id}`);
         return data;
     } catch (e) {
         return e.message;
@@ -23,7 +39,7 @@ const vacunaHtml = (imagen, nombre, categoria, id) => {
                 </a>
             </div>
             <div class="button-accion">
-                <a href="#"><i class="fas fa-trash"></i></a>
+                <a><i class="fas fa-trash" id="eliminarVacuna" vacuna-id="${id}"></i></a>
             </div>
         </div>
     `;
@@ -48,7 +64,7 @@ const renderVacunas = async (categoria) => {
 
         return true;
     } catch (e) {
-        return e.message;
+        throw e.message;
     }
 }
 
@@ -64,9 +80,22 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         await renderVacunas(categoriaDefault);
+        
+        document.addEventListener('click', async (e) => {
+            if(e.target && e.target.id== 'eliminarVacuna'){
+                const id = e.target.getAttribute('vacuna-id');
+                
+                await eliminarVacuna(id);
+                await renderVacunas(categoriaDefault);
+            }
+         });
 
         categoria.addEventListener('change', async (e) => {
-            await renderVacunas(e.target.value);
+            try {
+                await renderVacunas(e.target.value);   
+            } catch (e) {
+                throw e;
+            }
         });
     } catch (e) {
         Swal.fire({
@@ -77,5 +106,3 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 });
-
-
