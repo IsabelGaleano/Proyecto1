@@ -59,7 +59,7 @@
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
                     <a href="../listadoProveedores/listado_proveedores.html">Proveedores</a>
                     <a href="../anuncios/anuncios.html">Anuncios</a>
-                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                    <a  id="cerrarSesion" href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -78,12 +78,12 @@
                 <div class="columna-info">
                     <div class="pw-form">
                         <p>Nombre de la vacuna</p>
-                        <input type="text" name="correo" class="form-validate" id="nombre">
+                        <input type="text" name="correo" class="form-validate" id="nombreVacuna">
                     </div>
                     <div class="pw-form">
                         <p>Descripción de la vacuna</p>
-                        <div class="text-area">
-                            <textarea name="" id="descripcion" cols="30" rows="6" class="form-validate"></textarea>
+                        <div class="text-descripcion">
+                            <textarea name="" id="descripcionVacuna" cols="30" rows="6" class="form-validate"></textarea>
                         </div>
                     </div>
                    
@@ -91,20 +91,20 @@
                 <div class="pw-form columna-info">
                     <div class="img-agregar">
                         <p>Imagen vacuna</p>
-                        <img src="../../img/agregarImg.jpg"/>
+                        <img id="fotoVacuna" src="../../img/agregarImg.jpg"/>
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
-                                <input type="file" name="myfile" id="imagen" />
+                                <input type="file" name="myfile" id="agregarFoto" />
                               </div>
                         </div>
                     </div>
 
                     <div class="pw-form">
                         <p>Seleccione la categoría:</p>
-                        <select id="categoria">
-                            <option value="proveedor">Gato</option>
-                            <option value="cliente">Perro</option>
+                        <select id="tipoAnimal">
+                            <option value="gato">Gato</option>
+                            <option value="perro">Perro</option>
                         </select>
                     </div>
     
@@ -114,7 +114,7 @@
                             <a href="../listadoPadecimientos/listado_padecimientos.html">Cancelar</a>
                         </div>
                         <div class="pw-form button-margin">
-                            <a id="revisarVacuna">Registrar</a>
+                            <a id="registrarVacuna">Registrar</a>
                         </div>
         
                     </div>
@@ -156,9 +156,15 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
-    "></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+
+    <!-- Usar en este mismo order -->
+    <script src="../../Librerias/General/cerrarSesion.js"></script>
+    <script src="../../Librerias/jwt-decode.js"></script>
+    <script src="../../Librerias/General/utils.js"></script>
+
     <script src="./registro_vacuna.js"></script>
 
 </body>
