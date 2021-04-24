@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-let router = express.Router();
+const router = express.Router();
 
-let Solicitud = require('../schemas/solicitud');
+const Solicitud = require('../schemas/solicitud');
+const Servicios = require('../schemas/servicio');
 
 router.get('/', (req, res) => {
     Solicitud.find().exec()
@@ -51,6 +52,28 @@ router.post('/insertar', (req, res) => {
             res.json({ message: err })
         });
 });*/
+
+router.post('/cliente/solicitudes', async (req, res) => {
+    try {
+        if (!['cliente', 'administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+        const { criterioBusqueda } = req.body;
+        const servicios = await Servicios.find({ nombre_servicio: { '$regex': criterioBusqueda, '$options': 'i' }});
+        // const { tipo, estado, cliente, proveedor } = req.body;
+        /*const solicitudes = await Solicitud.find({ 
+            tipo, 
+            estado,
+            proveedor,
+            cliente: { '$regex': cliente, '$options': 'i' } 
+        });*/
+        
+        res.json(servicios);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
 
 
 router.post('/buscar', async (req, res) => {

@@ -22,7 +22,7 @@ var solicitudSchema= mongoose.Schema({
     },
     fechaFin: {
         type: Date
-    }
+    },
 });
 
 module.exports = mongoose.model('Solicitud', solicitudSchema, 'Solicitudes');
