@@ -1,37 +1,3 @@
-const cargarListadoUsuario = () => {
-    let proveedor = localStorage.getItem('correo');
-    var datos = {
-        tipo: "proveedor",
-        proveedor: proveedor,
-        estado: "pendiente"
-    }
-
-    fetch("http://localhost:5000/solicitudes/buscar_solicitudes_pendientes_proveedor", {
-        method: 'POST',
-        body: JSON.stringify(datos),
-        headers: { 'Content-Type': 'application/json' }
-    })
-        .then(
-            response => {
-                return response.json();
-            }
-        )
-        .then(
-            json => {
-                let correo = [];
-                let fechas = [];
-                for (let i = 0; i < json.length; i++) {
-
-                    correo[i] = json[i].cliente;
-                    fechas[i] = json[i].fecha;
-                }
-
-                cargarListado(correo, fechas);
-         
-            }
-        )
-}
-
 
 const cargarListado = (correo, fechas) => {
 
@@ -55,8 +21,11 @@ const cargarListado = (correo, fechas) => {
         )
         .then(
             json => {
+            
                 let listado;
                 for (let i = 0; i < json.length; i += 2) {
+
+
                     if (json[i + 1] !== undefined) {
                         let hours = new Date(fechas[i]).getHours();
                         let finalHour = hours >= 13 ? hours - 12 : hours;
@@ -119,7 +88,7 @@ const cargarListado = (correo, fechas) => {
                                     <p class="margin-top">${finalHourFormatted}:${new Date(fechas[i]).getMinutes()} ${(new Date(fechas[i]).getHours() >= 12 && new Date(fechas[i]).getHours() <= 23) ? 'PM' : 'AM'}</p>
                                 </div>
                                 <div class="button-ver">
-                                    <a class="button button-aceptar" href="#" onclick="enviar('${json[i].correo}')"> Aceptar</a>
+                                    <a class="button button-aceptar" onclick="ver('${json[i].correo}')">Ver</a>
                                 </div>
         
                         </div>
@@ -135,73 +104,6 @@ const cargarListado = (correo, fechas) => {
         )
 
 }
-
-
-const enviar = cliente => {
-    pagosPendientes(cliente);
-    notificaciones(cliente);
-    Swal.fire({
-        title: 'Success',
-        text: 'Servicio contratado',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-    });
-}
-
-
-
-const pagosPendientes = cliente => {
-    let proveedor = localStorage.getItem('correo');
-    var datos = {
-        proveedor: proveedor,
-        cliente: cliente,
-        estado: "pago_pendiente",
-       
-    }
-  
-    fetch("http://localhost:5000/solicitudes/actualizar_solicitudes", {
-        method: 'PUT',
-        body: JSON.stringify(datos),
-        headers: { 'Content-Type': 'application/json' }
-    })
-        .then(
-            response => {
-                return response.json();
-            }
-        )
-        .catch(err => {
-            response.json({ message: err })
-        });
-  
-  }
-  
-
-const notificaciones = cliente => {
-
-    let proveedor = localStorage.getItem('correo');
-    var datos = {
-        receptor: cliente,
-        descripcion: "Aceptó su solicitud de servicio, tiene un pago pendiente",
-        fecha: new Date(),
-        emisor: proveedor,
-       
-    }
-  
-    fetch("http://localhost:5000/notificaciones/insertar", {
-        method: 'POST',
-        body: JSON.stringify(datos),
-        headers: { 'Content-Type': 'application/json' }
-    })
-        .then(
-            response => {
-                return response.json();
-            }
-        )
-        .catch(err => {
-            response.json({ message: err })
-        });
-  
-  }
 
 const ver = (element) => {
     const correo = element.getAttribute('data-correo');
@@ -234,8 +136,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const autorizado = verificarAcceso(['proveedor']);
         const buscar = document.getElementById('inputBuscar');
 
-        cargarListadoUsuario();
-
         let timeout = null;
 
         if (!autorizado) {
@@ -253,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const listadoContainer = document.getElementById('listado');
                 const clientes = await buscarClientes(busqueda);
 
-                const fechas = clientes.map(({ fecha }) => fecha);
+                const fechas = clientes.map(({ fechaFin }) => fechaFin);
                 const correos = clientes.map(({ cliente }) => cliente);
 
                 listadoContainer.innerHTML = '';

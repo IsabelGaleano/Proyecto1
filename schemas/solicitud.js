@@ -16,7 +16,13 @@ var solicitudSchema= mongoose.Schema({
     },
     fecha: {
         type: Date
-    } 
+    },
+    fechaInicio: {
+        type: Date
+    },
+    fechaFin: {
+        type: Date
+    }
 });
 
 module.exports = mongoose.model('Solicitud', solicitudSchema, 'Solicitudes');
