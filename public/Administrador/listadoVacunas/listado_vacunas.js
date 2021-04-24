@@ -1,4 +1,3 @@
-
 const api = axios.create({
     baseURL: 'http://localhost:5000/',
     timeout: 10000,
@@ -34,7 +33,6 @@ const buscarVacuna = async (nombre) => {
     }
 }
 
-
 const vacunaHtml = (imagen, nombre, categoria, id) => {
     return `
         <div class="info-listado">
@@ -66,8 +64,8 @@ const renderVacunas = async (categoria) => {
         for (let i = 0; i < vacunas.length; i += 2) {
             const listado = `
                 <div class="listado">
-                    ${ vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id)}
-                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) : ''}
+                    ${ vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) }
+                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) : '' }
                 </div>
             `;
 
@@ -95,19 +93,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         await renderVacunas(categoriaDefault);
-
+        
         document.addEventListener('click', async (e) => {
             if (e.target && e.target.id == 'eliminarVacuna') {
                 const id = e.target.getAttribute('vacuna-id');
-
+                
                 await eliminarVacuna(id);
                 await renderVacunas(categoriaDefault);
             }
-        });
+         });
 
         categoria.addEventListener('change', async (e) => {
             try {
-                await renderVacunas(e.target.value);
+                await renderVacunas(e.target.value);   
             } catch (e) {
                 throw e;
             }
@@ -142,8 +140,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             } catch (e) {
                 throw e;
             }
-        });
-
+        });    
     } catch (e) {
         Swal.fire({
             title: 'Error!',

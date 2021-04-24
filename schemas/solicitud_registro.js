@@ -8,8 +8,6 @@ var solicitudRegistroSchema= mongoose.Schema({
     fecha: {
         type: Date
     },
-   
-    
 });
 
 
