@@ -16,11 +16,7 @@ var solicitudSchema= mongoose.Schema({
     },
     fecha: {
         type: Date
-    }
-
-    
+    } 
 });
-
-
 
 module.exports = mongoose.model('Solicitud', solicitudSchema, 'Solicitudes');

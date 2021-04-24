@@ -1,4 +1,3 @@
-
 const cargarListadoUsuario = () => {
     let proveedor = localStorage.getItem('correo');
     var datos = {
@@ -134,7 +133,6 @@ const cargarListado = (correo, fechas) => {
 
 
                     document.getElementById('listado').insertAdjacentHTML("beforeend", listado);
-
                 }
             }
         )
@@ -211,8 +209,105 @@ const notificaciones = cliente => {
 
 const ver = (element) => {
     const correo = element.getAttribute('data-correo');
-    console.log(correo);
     localStorage.setItem('data-correo', correo);
-
-
 }
+
+const vacunaHtml = (imagen, nombre, categoria, id) => {
+    return `
+        <div class="info-listado">
+            <div class="img-categoria">
+                <img src="${imagen || '../../img/vacuna_rabia.png'}" />
+            </div>
+            <div class="descripcion-info">
+                <h4 class="titulo-categoria">${nombre}</h4>
+                <p>Tipo: ${categoria}</p>
+            </div>
+            <div class="button-accion">
+                <a href="../actualizarVacuna/actualizar_vacuna.html?id=${id}">
+                    <i class="fas fa-edit"></i>
+                </a>
+            </div>
+            <div class="button-accion">
+                <a><i class="fas fa-trash" id="eliminarVacuna" vacuna-id="${id}"></i></a>
+            </div>
+        </div>
+
+        <div class="info-listado">
+            <div class="img-categoria">
+                <a href="../perfilClienteProveedor/perfil_cliente_proveedor.html" data-correo = "${json[i].correo}" onclick="ver(this)"> <img src="../../img/man1.jpg" /></a>
+            </div>
+            <div class="descripcion-info">
+                <h4 class="margin-bottom">${imagen} ${json[i].apellido1}</h4>
+                <p>${new Date(fechas[i]).getUTCFullYear()}-${new Date(fechas[i]).getUTCMonth() + 1}-${new Date(fechas[i]).getUTCDate()}</p>
+                <p class="margin-top">${finalHourFormatted}:${new Date(fechas[i]).getMinutes()} ${(new Date(fechas[i]).getHours() >= 12 && new Date(fechas[i]).getHours() <= 23) ? 'PM' : 'AM'}</p>
+            </div>
+            
+            <div class="button-ver">
+                <a class="button button-aceptar" href="#" onclick="enviar('${json[i].correo}')"> Aceptar</a>
+            </div>
+        </div>
+    `;
+}
+
+const api = axios.create({
+    baseURL: 'http://localhost:5000/',
+    timeout: 10000,
+    headers: { authorization: localStorage.getItem('token') }
+});
+
+const buscarClientes = async (cliente) => {
+    try {
+        const { data } = await api.post('solicitudes/buscar', {
+            cliente,
+            tipo: 'cliente',
+            estado: 'pendiente',
+            proveedor: localStorage.getItem('correo')
+        });
+
+        return data;
+    } catch (e) {
+        throw e;
+    }
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const autorizado = verificarAcceso(['proveedor']);
+        const buscar = document.getElementById('inputBuscar');
+
+        cargarListadoUsuario();
+
+        let timeout = null;
+
+        if (!autorizado) {
+            sinAutorizacionMsj('Usuario no esta autorizado');
+        }
+
+        buscar.addEventListener('input', async (e) => {
+            const busqueda = e.target.value;
+
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+
+            timeout = window.setTimeout(async () => {
+                const listadoContainer = document.getElementById('listado');
+                const clientes = await buscarClientes(busqueda);
+
+                const fechas = clientes.map(({ fecha }) => fecha);
+                const correos = clientes.map(({ cliente }) => cliente);
+
+                listadoContainer.innerHTML = '';
+
+                cargarListado(correos, fechas);
+            }, 1500);
+        });
+    } catch (e) {
+        Swal.fire({
+            title: 'Error!',
+            text: e.message,
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        });
+    }
+});

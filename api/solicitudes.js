@@ -41,9 +41,6 @@ router.post('/insertar', (req, res) => {
 
 });
 
-
-
-
 router.post('/buscar', (req, res) => {
     Solicitud.find({ tipo: req.body.tipo}).exec()
         .then(
@@ -54,10 +51,28 @@ router.post('/buscar', (req, res) => {
         .catch(err => {
             res.json({ message: err })
         });
-        
-
 });
 
+
+router.post('/buscar', async (req, res) => {
+    try {
+        if (!['provedor', 'administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+        const { tipo, estado, cliente, proveedor } = req.body;
+        const solicitudes = await Solicitud.find({ 
+            tipo, 
+            estado,
+            proveedor,
+            cliente: {'$regex': cliente, '$options': 'i'} 
+        });
+        
+        res.json(solicitudes);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
 
 router.post('/buscar_solicitudes_pendientes_proveedor', (req, res) => {
     Solicitud.find({ $and: 
@@ -114,9 +129,6 @@ router.post('/buscar', (req, res) => {
 
 });
 
-
-
-
 router.delete('/eliminar', (req, res) => {
     Solicitud.findOneAndDelete({ tipo: req.body.tipo }).exec()
         .then(
@@ -131,14 +143,10 @@ router.delete('/eliminar', (req, res) => {
 
 });
 
-
-
-
-
 router.put('/actualizar', (req, res) => {
     let cliente = req.body.cliente;
     let proveedor = req.body.proveedor;
-    let tipo = req.body.tipo;
+    let  = req.body.tipo;
     let estado = req.body.estado;
     let fecha = req.body.fecha;
    

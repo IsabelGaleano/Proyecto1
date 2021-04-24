@@ -78,6 +78,22 @@ router.post('/buscar', (req, res) => {
 });
 
 
+router.post('/buscar/:campo', async (req, res) => {
+    try {
+        if (!['provedor', 'administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+        const { tipo, estado, cliente } = req.body;
+        const usuarios = await Usuario.find({ tipo_usuario: tipo, estado, cliente: {'$regex': cliente, '$options': 'i'} });
+        
+        res.json(usuarios);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
+
+
 router.post('/buscar_usuarios_solicitudes', (req, res) => {
     Usuario.find({correo:  { $in: req.body.correo}}).exec()
         .then(
