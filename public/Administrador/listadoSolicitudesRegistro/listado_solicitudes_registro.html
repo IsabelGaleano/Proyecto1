@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarListadoRegistro()">
     <!--Navegador-->
     <nav class="container-nav">
         <div class="box-logo container-nav">
@@ -67,82 +67,14 @@
     </div>
     <div class="input-search">
         <div class="search-icons">
-            <input type="text" class="pw-form-search" placeholder="Buscar usuarios" />
+            <input type="text" class="pw-form-search" placeholder="Buscar usuarios" id="buscar" onkeyup="buscar()"/>
             <i class="fas fa-search"></i>
         </div>
     </div>
 
-    <div class="listado-general">
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-user">
-                    <img src="../../img/man1.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="margin-bottom">Guillermo Parini Miranda</h4>
-                    <p class="margin-top">15/02/2021</p>
-                    <p class="margin-top">04:30 pm</p>
-                </div>
-                <div class="button-ver">
-                    <a href="../vistaRegistroProveedor/vista_registro_proveedor.html" class="button button-aceptar">Continuar</a>
-                </div>
-                <div class="button-ver">
-                    <button type="button" class=" button button-cancelar">Rechazar</button>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-user">
-                    <img src="../../img/mujer1.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="margin-bottom">Naomy Lu Murillo</h4>
-                    <p class="margin-top">15/03/2021</p>
-                    <p class="margin-top">03:30 pm</p>
-                </div>
-                <div class="button-ver">
-                    <a href="../vistaRegistroProveedor/vista_registro_proveedor.html" class="button button-aceptar">Continuar</a>
-                </div>
-                <div class="button-ver">
-                    <button type="button" class=" button button-cancelar">Rechazar</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="listado">
-            <div class="info-listado">
-                <div class="img-user">
-                    <img src="../../img/man2.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="margin-bottom">William Monge Huertas</h4>
-                    <p class="margin-top">15/03/2021</p>
-                    <p class="margin-top">03:30 pm</p>
-                </div>
-                <div class="button-ver">
-                    <a href="../vistaRegistroProveedor/vista_registro_proveedor.html" class="button button-aceptar">Continuar</a>
-                </div>
-                <div class="button-ver">
-                    <button type="button" class=" button button-cancelar">Rechazar</button>
-                </div>
-            </div>
-            <div class="info-listado">
-                <div class="img-user">
-                    <img src="../../img/man3.jpg" />
-                </div>
-                <div class="descripcion-info">
-                    <h4 class="margin-bottom">Eduardo Rojas Marenco</h4>
-                    <p class="margin-top">15/03/2021</p>
-                    <p class="margin-top">03:30 pm</p>
-                </div>
-                <div class="button-ver">
-                    <a href="../vistaRegistroProveedor/vista_registro_proveedor.html" class="button button-aceptar">Continuar</a>
-                </div>
-                <div class="button-ver">
-                    <button type="button" class=" button button-cancelar">Rechazar</button>
-                </div>
-            </div>
-
-        </div>
+    <div class="listado-general" id="listado">
+       
+    
     </div>
 
     </div>
@@ -174,6 +106,9 @@
         </div>
     </div>
     <!--Footer-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="./listado_solicitudes_registro.js"></script>
 </body>
 
 </html>

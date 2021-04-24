@@ -17,7 +17,7 @@
 
 </head>
 
-<body onload="cargarInfo()">
+<body onload="cargarProveedorInfo()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -69,84 +69,54 @@
     <div class="registro-proveedor">
             <div class="info-izquierda">
                 <div class="pw-form info-titulos">
-                    <p><span>Nombre: </span> Guillermo</p>
+                    <p><span class="span">Nombre: </span> <span id="nombre"></span></p>
                 </div>
                 <div class="pw-form info-titulos">
-                    <p><span>Primer apellido: </span> Parini</p>
+                    <p><span class="span">Primer apellido: </span> <span id="apellido1"></span></p>
                 </div>
                 <div class="pw-form info-titulos">
-                    <p><span>Segundo apellido: </span> Miranda</p>
+                    <p><span class="span">Segundo apellido: </span> <span id="apellido2"></span></p>
                 </div>
                 <div class="pw-form info-titulos">
-                    <p><span>Correo electrónico: </span> gparinim@ucenfotec.ac.cr</p>
-                </div>
-                <div class="pw-form tipo-identificacion info-titulos" class="form-validate">
-                    <p>Tipo de identificación</p>
-                    <select name="identificacion" class="form-validate" disabled>
-                        <option value="identificacion1" selected>Cédula</option>
-                        <option value="identificacion2">Cédula Jurídica</option>
-                        <option value="identificacion3">DIMEX</option>
-                        <option value="identificacion4">NITE</option>
-                    </select>
+                    <p><span class="span">Correo electrónico: </span> <span id="correo"></span></p>
                 </div>
                 <div class="pw-form info-titulos">
-                    <p><span>No. Identificación: </span> 1-18788976</p>
+                    <p><span class="span">Tipo de identificación: </span> <span id="tipo_identificacion"></span></p>
                 </div>
                 <div class="pw-form info-titulos">
-                    <p><span>Fecha de nacimiento: </span> 02/03/1998</p>
+                    <p><span class="span">No. Identificación: </span> <span id="identificacion"></span></p>
+                </div>
+                <div class="pw-form info-titulos">
+                    <p><span class="span">Fecha de nacimiento: </span> <span id="fecha_nacimiento"></span></p>
                 </div>
 
                 <div class="info">
                     <div class="pw-form-inverse button-info">
-                        <button type="button" onclick="enviarEmailRechazo()">Rechazar</button>
+                        <a onclick="eliminar()" id="eliminar">Rechazar</a>
                     </div>
                     <div class="pw-form-inverse button-info right">
-                        <button type="button" onclick="enviarEmail()">Aceptar</button>
+                        <a onclick="aceptarProveedor()" id="aceptar">Aceptar</a>
                     </div>
                    
                 </div>
 
             </div>
             <div class="info-derecha">
-                <div class="pw-form provincia info-titulos">
-                    <p>Provincia</p>
-                    <select name="provincia" class="form-validate" disabled>
-                        <option value="provincia1" selected>San José</option>
-                        <option value="provincia2">Cartago</option>
-                        <option value="provincia3">Puntarenas</option>
-                        <option value="provincia4">Alajuela</option>
-                        <option value="provincia5">Guanacaste</option>
-                        <option value="provincia6">Heredia</option>
-                        <option value="provincia7">Limón</option>
-                    </select>
-                </div>
-                <div class="pw-form canton info-titulos">
-                    <p>Cantón</p>
-                    <select name="canton" class="form-validate" disabled>
-                        <option value="canton1"selected>Alajuelita</option>
-                        <option value="canton2">Aserrí</option>
-                        <option value="canton3">Atenas</option>
-                    </select>
-
-                </div>
-                <div class="pw-form distrito info-titulos">
-                    <p>Distrito</p>
-                    <select name="distrito" class="form-validate" disabled>
-                        <option value="distrito1"selected>Carmén</option>
-                        <option value="distrito2">Zapote</option>
-                        <option value="distrito3">San Pedro</option>
-                        <option value="distrito4">Sabanilla</option>
-                        <option value="distrito5">Hatillo</option>
-                        <option value="distrito6">Escazú</option>
-                    </select>
-                </div>
-                <h3>Servicio</h3>
                 <div class="pw-form info-titulos">
-                    <p><span>Nombre del servicio: </span> Peluquería cariñosita</p>
+                    <p><span class="span">Provincia: </span> <span id="provincia"></span></p>
+                </div>
+                <div class="pw-form info-titulos">
+                    <p><span class="span">Canton: </span> <span id="canton"></span></p>
+                </div>
+                <div class="pw-form info-titulos">
+                    <p><span class="span">Distrito: </span> <span id="distrito"></span></p>
+                </div>
+                <div class="pw-form info-titulos">
+                    <p><span class="span">Nombre del servicio: </span> Peluquería cariñosita</p>
                 </div>
                 <div class="pw-form info-titulos">
                     <p>Ubicación del servicio</p>
-                    <textarea name="ubicacion" cols="30" rows="4" readonly>Del parque de vargas araya 50 mts noroeste</textarea>
+                    <textarea name="ubicacion" cols="30" rows="4" readonly id="direccion"></textarea>
                 </div>
                 <div class="mapa-servicio pw-form">
                     <p>Ubicación del servicio</p>

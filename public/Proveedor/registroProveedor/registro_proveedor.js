@@ -88,7 +88,7 @@ const registrarProveedor = () => {
         longitud: "",
         contrasenna: "",
         tipo_usuario: tipo_usuario,
-        imagen_usuario, imagen_usuario,
+        imagen_usuario: imagen_usuario,
         promedio_calificacion: "",
         estado: "pendiente"
     }

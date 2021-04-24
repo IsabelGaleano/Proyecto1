@@ -143,9 +143,9 @@ const registrarCliente = () => {
         longitud: positions.lng,
         contrasenna: contrasenna,
         tipo_usuario: tipo_usuario,
-        imagen_usuario, imagen_usuario,
-        promedio_calificacion: null,
-        estado: null
+        imagen_usuario: imagen_usuario,
+        promedio_calificacion: "",
+        estado: "",
     }
 
     fetch("http://localhost:5000/usuarios/insertar", {

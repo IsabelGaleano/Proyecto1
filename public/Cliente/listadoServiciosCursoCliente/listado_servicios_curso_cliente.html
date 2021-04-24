@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarListadoUsuario()">
     <body>
         <nav class="container-nav">
             <div class="box-logo container-nav">
@@ -51,91 +51,8 @@
             </div>
         </div>
 
-        <div class="listado-general">
-            <div class="listado">
-                <div class="info-listado">
-                    <div class="img-categoria">
-                        <img src="../img/estetica4.PNG" />
-                    </div>
-                    <div class="descripcion-info">
-                        <h4 class="margin-bottom">Cariñosita</h4>
-                        <p class="margin-top">Corte de pelo</p>
-                        <div class="estrellas">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="button-ver">
-                        <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html">
-                            Ver más</a>
-                    </div>
-                </div>
-                <div class="info-listado">
-                    <div class="img-categoria">
-                        <img src="../img/estetica5.jpg" />
-                    </div>
-                    <div class="descripcion-info">
-                        <h4 class="margin-bottom">PetsLove</h4>
-                        <p class="margin-top">Corte de pelo</p>
-                        <div class="estrellas">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="button-ver">
-                        <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html"> Ver
-                            más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="listado">
-                <div class="info-listado">
-                    <div class="img-categoria">
-                        <img src="../img/estetica6.jpg" />
-                    </div>
-                    <div class="descripcion-info">
-                        <h4 class="margin-bottom">Grooming</h4>
-                        <p class="margin-top">Corte de pelo</p>
-                        <div class="estrellas">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="button-ver">
-                        <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html"> Ver
-                            más</a>
-                    </div>
-                </div>
-                <div class="info-listado">
-                    <div class="img-categoria">
-                        <img src="../img/estetica7.jpg" />
-                    </div>
-                    <div class="descripcion-info">
-                        <h4 class="margin-bottom">Luva Pets</h4>
-                        <p class="margin-top">Corte de pelo</p>
-                        <div class="estrellas">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="button-ver">
-                        <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html"> Ver
-                            más</a>
-                    </div>
-                </div>
-            </div>
+        <div class="listado-general" id="listado">
+            
 
         </div>
 
@@ -166,7 +83,7 @@
 
 
 
-
+    <script src="./listado_servicios_curso_cliente.js"></script>
     </body>
 
 </html>

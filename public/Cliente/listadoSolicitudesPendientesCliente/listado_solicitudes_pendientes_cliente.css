@@ -127,3 +127,10 @@ div{
 .fa-star {
     color: #FDC800;
 }
+
+
+.listado-general {
+    overflow-y: auto;
+    max-height: 400px;
+    margin:  20px 0;
+}
