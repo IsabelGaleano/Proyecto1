@@ -50,7 +50,7 @@ router.post('/insertar', (req, res) => {
 });
 
 router.post('/buscar', (req, res) => {
-    Vacuna.find({ nombre: req.body.nombre }).exec()
+    Vacuna.find({ nombre: {'$regex': req.body.nombre, '$options': 'i'}}).exec()
         .then(
             result => {
                 res.json(result);

@@ -23,6 +23,18 @@ const eliminarVacuna = async (id) => {
     }
 }
 
+const buscarVacuna = async (nombre) => {
+    try {
+        const { data } = await api.post('vacunas/buscar/', {
+            nombre,
+        });
+        return data;
+    } catch (e) {
+        return e;
+    }
+}
+
+
 const vacunaHtml = (imagen, nombre, categoria, id) => {
     return `
         <div class="info-listado">
@@ -54,8 +66,8 @@ const renderVacunas = async (categoria) => {
         for (let i = 0; i < vacunas.length; i += 2) {
             const listado = `
                 <div class="listado">
-                    ${ vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) }
-                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) : '' }
+                    ${ vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id)}
+                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) : ''}
                 </div>
             `;
 
@@ -74,29 +86,64 @@ document.addEventListener("DOMContentLoaded", async () => {
         const autorizado = verificarAcceso(['administrador']);
         const categoria = document.getElementById('tipoMascota');
         const categoriaDefault = document.getElementById('tipoMascota').value;
+        const vacunasBuscar = document.getElementById('nombre');
+
+        let timeout = null;
 
         if (!autorizado) {
             sinAutorizacionMsj('Usuario no esta autorizado');
         }
 
         await renderVacunas(categoriaDefault);
-        
+
         document.addEventListener('click', async (e) => {
-            if(e.target && e.target.id== 'eliminarVacuna'){
+            if (e.target && e.target.id == 'eliminarVacuna') {
                 const id = e.target.getAttribute('vacuna-id');
-                
+
                 await eliminarVacuna(id);
                 await renderVacunas(categoriaDefault);
             }
-         });
+        });
 
         categoria.addEventListener('change', async (e) => {
             try {
-                await renderVacunas(e.target.value);   
+                await renderVacunas(e.target.value);
             } catch (e) {
                 throw e;
             }
         });
+
+        vacunasBuscar.addEventListener('input', async (e) => {
+            try {
+                if (timeout) {
+                    clearTimeout(timeout);
+                }
+
+                timeout = window.setTimeout(async () => {
+                    if (e.target.value) {
+                            const vacunas = await buscarVacuna(e.target.value);
+                            document.getElementById('listadoVacunas').innerHTML = '';
+
+                            for (let i = 0; i < vacunas.length; i += 2) {
+                                const listado = `
+                                <div class="listado">
+                                    ${ vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id)}
+                                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) : ''}
+                                </div>
+                            `;
+
+                            document.getElementById('listadoVacunas').insertAdjacentHTML("beforeend", listado);
+                        }
+                    } else {
+                        const categoriaDefault = document.getElementById('tipoMascota').value;
+                        await renderVacunas(categoriaDefault);
+                    }
+                }, 1500);
+            } catch (e) {
+                throw e;
+            }
+        });
+
     } catch (e) {
         Swal.fire({
             title: 'Error!',
