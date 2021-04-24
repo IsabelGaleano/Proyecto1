@@ -55,11 +55,8 @@ const cargarListado = (correo, fechas) => {
         )
         .then(
             json => {
-            
                 let listado;
                 for (let i = 0; i < json.length; i += 2) {
-
-
                     if (json[i + 1] !== undefined) {
                         let hours = new Date(fechas[i]).getHours();
                         let finalHour = hours >= 13 ? hours - 12 : hours;

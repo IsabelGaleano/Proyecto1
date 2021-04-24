@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const listadoContainer = document.getElementById('listado');
                 const clientes = await buscarClientes(busqueda);
 
-                const fechas = clientes.map(({ fecha }) => fecha);
+                const fechas = clientes.map(({ fechaFin }) => fechaFin);
                 const correos = clientes.map(({ cliente }) => cliente);
 
                 listadoContainer.innerHTML = '';
