@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 let Usuario = require('../schemas/usuario');
-//const { json } = require('express');
 const TOKEN_SECRET = 'w@veRabbit88316452!';
 
 router.get('/', (req, res) => {
@@ -62,8 +61,6 @@ router.post('/insertar', (req, res) => {
 
 });
 
-
-
 router.post('/buscar', (req, res) => {
     Usuario.find({ correo: req.body.correo }).exec()
         .then(
@@ -74,7 +71,21 @@ router.post('/buscar', (req, res) => {
         .catch(err => {
             res.json({ message: err })
         });
+});
+
+router.post('/buscar/:campo', async (req, res) => {
+    try {
+        if (!['proveedor', 'administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+        const { tipo, estado, cliente } = req.body;
+        const usuarios = await Usuario.find({ tipo_usuario: tipo, estado, cliente: {'$regex': cliente, '$options': 'i'} });
         
+        res.json(usuarios);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
 });
 
 

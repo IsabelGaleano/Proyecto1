@@ -26,7 +26,6 @@ router.post('/insertar', (req, res) => {
         tipo: req.body.tipo,
         estado: req.body.estado,
         fecha: req.body.fecha
-
     });
 
     solicitudNueva.save()
@@ -41,10 +40,7 @@ router.post('/insertar', (req, res) => {
 
 });
 
-
-
-
-router.post('/buscar', (req, res) => {
+/*router.post('/buscar', (req, res) => {
     Solicitud.find({ tipo: req.body.tipo}).exec()
         .then(
             result => {
@@ -54,10 +50,29 @@ router.post('/buscar', (req, res) => {
         .catch(err => {
             res.json({ message: err })
         });
+});*/
+
+
+router.post('/buscar', async (req, res) => {
+    try {
+        if (!['proveedor', 'administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+
+        const { tipo, estado, cliente, proveedor } = req.body;
+        const solicitudes = await Solicitud.find({ 
+            tipo, 
+            estado,
+            proveedor,
+            cliente: { '$regex': cliente, '$options': 'i' } 
+        });
         
-
+        res.json(solicitudes);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
 });
-
 
 router.post('/buscar_solicitudes_pendientes_proveedor', (req, res) => {
     Solicitud.find({ $and: 
@@ -114,9 +129,6 @@ router.post('/buscar', (req, res) => {
 
 });
 
-
-
-
 router.delete('/eliminar', (req, res) => {
     Solicitud.findOneAndDelete({ tipo: req.body.tipo }).exec()
         .then(
@@ -131,18 +143,13 @@ router.delete('/eliminar', (req, res) => {
 
 });
 
-
-
-
-
 router.put('/actualizar', (req, res) => {
     let cliente = req.body.cliente;
     let proveedor = req.body.proveedor;
-    let tipo = req.body.tipo;
+    let  = req.body.tipo;
     let estado = req.body.estado;
     let fecha = req.body.fecha;
    
-
     // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
     Solicitud.findOneAndUpdate(
         {cliente: cliente}, {$set:{
@@ -157,26 +164,17 @@ router.put('/actualizar', (req, res) => {
     })
     .catch(err => {
         res.json({ message: err })
-    });
-    
-  });
+    });    
+});
 
-  
 router.put('/actualizar_solicitudes', (req, res) => {
     let cliente = req.body.cliente;
     let proveedor = req.body.proveedor;
     let estado = req.body.estado;
 
-   
-
     // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
-    Solicitud.updateMany(
-        {cliente: cliente, proveedor:proveedor}, {$set:{
-            estado:estado
-         
-        }
-    }, 
-        {useFindAndModify: false, new: true},  (err, doc) =>{
+    Solicitud.updateMany({ cliente: cliente, proveedor:proveedor }, { $set:{ estado:estado }}, 
+        {useFindAndModify: false, new: true}, (err, doc) =>{
       res.json(doc);
     })
     .catch(err => {
@@ -184,7 +182,5 @@ router.put('/actualizar_solicitudes', (req, res) => {
     });
     
   });
-
-
 
 module.exports = router;
