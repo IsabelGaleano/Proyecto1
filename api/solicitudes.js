@@ -26,7 +26,6 @@ router.post('/insertar', (req, res) => {
         tipo: req.body.tipo,
         estado: req.body.estado,
         fecha: req.body.fecha
-
     });
 
     solicitudNueva.save()
@@ -41,7 +40,7 @@ router.post('/insertar', (req, res) => {
 
 });
 
-router.post('/buscar', (req, res) => {
+/*router.post('/buscar', (req, res) => {
     Solicitud.find({ tipo: req.body.tipo}).exec()
         .then(
             result => {
@@ -51,21 +50,22 @@ router.post('/buscar', (req, res) => {
         .catch(err => {
             res.json({ message: err })
         });
-});
+});*/
 
 
 router.post('/buscar', async (req, res) => {
     try {
-        if (!['provedor', 'administrador'].includes(req.userRole)) {
+        if (!['proveedor', 'administrador'].includes(req.userRole)) {
             res.status(403).json({ message: 'request no autorizado' });
             return;
         }
+
         const { tipo, estado, cliente, proveedor } = req.body;
         const solicitudes = await Solicitud.find({ 
             tipo, 
             estado,
             proveedor,
-            cliente: {'$regex': cliente, '$options': 'i'} 
+            cliente: { '$regex': cliente, '$options': 'i' } 
         });
         
         res.json(solicitudes);
@@ -150,7 +150,6 @@ router.put('/actualizar', (req, res) => {
     let estado = req.body.estado;
     let fecha = req.body.fecha;
    
-
     // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
     Solicitud.findOneAndUpdate(
         {cliente: cliente}, {$set:{
@@ -165,26 +164,17 @@ router.put('/actualizar', (req, res) => {
     })
     .catch(err => {
         res.json({ message: err })
-    });
-    
-  });
+    });    
+});
 
-  
 router.put('/actualizar_solicitudes', (req, res) => {
     let cliente = req.body.cliente;
     let proveedor = req.body.proveedor;
     let estado = req.body.estado;
 
-   
-
     // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
-    Solicitud.updateMany(
-        {cliente: cliente, proveedor:proveedor}, {$set:{
-            estado:estado
-         
-        }
-    }, 
-        {useFindAndModify: false, new: true},  (err, doc) =>{
+    Solicitud.updateMany({ cliente: cliente, proveedor:proveedor }, { $set:{ estado:estado }}, 
+        {useFindAndModify: false, new: true}, (err, doc) =>{
       res.json(doc);
     })
     .catch(err => {
@@ -192,7 +182,5 @@ router.put('/actualizar_solicitudes', (req, res) => {
     });
     
   });
-
-
 
 module.exports = router;
