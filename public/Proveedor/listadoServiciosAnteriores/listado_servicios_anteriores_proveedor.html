@@ -1,157 +1,95 @@
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Listado Servicios anteriores</title>
-        <link rel="stylesheet" href="listado_servicios_anteriores_proveedor.css">
-        <link rel="stylesheet" href="../../pwcomponentes.css">
-        <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../../Librerias/navProveedor/nav_proveedor.css">
-        <link rel="stylesheet" href="../../Librerias/footer/footer.css">
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap"
-            rel="stylesheet">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado Servicios anteriores</title>
+    <link rel="stylesheet" href="listado_servicios_anteriores_proveedor.css">
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../Librerias/navProveedor/nav_proveedor.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+</head>
 
-    <body>
-        <nav class="container-nav">
-            <div class="box-logo container-nav">
-                <a href="../landingPageProveedor/landing_page_proveedor.html">
-                    <img src="../img/logoPets.png" />
-                </a>
-            </div>
-            <div class="container-nav box-anchors">
-                <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
-                <a href="#"><i class="far fa-bell"></i></a>
-                <div class="user">
-                    <a href="#"><img src="../img/andres.jpeg" /></a>
-                </div>
-                <div class="final-dropdown">
-                    <span href="opcion2" class="final-dropdown-hover">Andrés</span>
-                    <div class="final-dropdown-menu">
-                        <a href="../perfilProveedor/perfil_proveedor.html">Perfil</a>
-                        <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes
-                            pendientes</a>
-                        <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
-                        <a href="../listadoPagosPendientes/listado_pagos_pendientes.html">Pagos pendientes</a>
-                        <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div class="pw-titulo-categoria">
-            <h2>Servicios anteriores</h2>
+<body onload="cargarListadoUsuario()">
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageProveedor/landing_page_proveedor.html">
+                <img src="../img/logoPets.png" />
+            </a>
         </div>
-        <div class="input-search">
-            <div class="search-icons">
-                <input id="inputBuscar" type="text" class="pw-form-search" placeholder="Buscar clientes" />
-                <i class="fas fa-search"></i>
+        <div class="container-nav box-anchors">
+            <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/andres.jpeg" /></a>
             </div>
-        </div>
-        
-        <div class="listado-general">
-            <div class="listado-general" id="listado">
-                <div class="listado">
-                    <div class="info-listado">
-                        <div class="img-categoria">
-                            <img src="../../img/man7.jpeg" />
-                        </div>
-                        <div class="descripcion-info">
-                            <h4 class="margin-bottom">Andrés Palma</h4>
-                            <p>09/03/2021</p>
-                            <p class="margin-top">1:00 PM</p>
-                        </div>
-                        <div class="button-ver">
-                            <a class="button button-aceptar"
-                                href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html">
-                                Ver</a>
-                        </div>
-
-                    </div>
-                    <div class="info-listado">
-                        <div class="img-categoria">
-                            <img src="../../img/mujer7.jpg" />
-                        </div>
-                        <div class="descripcion-info">
-                            <h4 class="margin-bottom">Dalia Vargas</h4>
-                            <p>10/03/2021</p>
-                            <p class="margin-top">2:00 PM</p>
-                        </div>
-                        <div class="button-ver">
-                            <a class="button button-aceptar" href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html">Ver</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="listado">
-                    <div class="info-listado">
-                        <div class="img-categoria">
-                            <img src="../../img/man8.jpg" />
-                        </div>
-                        <div class="descripcion-info">
-                            <h4 class="margin-bottom">Esteban Mora</h4>
-                            <p>23/03/2021</p>
-                            <p class="margin-top">10:00 PM</p>
-                        </div>
-                        <div class="button-ver">
-                            <a class="button button-aceptar"
-                                href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html">
-                                Ver</a>
-                        </div>
-                    </div>
-                    <div class="info-listado">
-                        <div class="img-categoria">
-                            <img src="../../img/mujer8.jpeg" />
-                        </div>
-                        <div class="descripcion-info">
-                            <h4 class="margin-bottom">Abigail Araya</h4>
-                            <p>27/03/2021</p>
-                            <p class="margin-top">4:00 PM</p>
-                        </div>
-                        <div class="button-ver">
-                            <a class="button button-aceptar"
-                                href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html">
-                                Ver</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="container-footer">
-            <div class="logo">
-                <img src="../img/mundoLogo.png" />
-            </div>
-            <div class="links">
-                <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
-                <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
-                <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
-            </div>
-            <div class="redes">
-                <div class="icon">
-                    <img src="../img/facebook.png" />
-                    <p>Pets World</p>
-                </div>
-                <div class="icon">
-                    <img src="../img/instagram.png" />
-                    <p>Pets World</p>
-                </div>
-                <div class="icon">
-                    <img src="../img/whatsapp.png" />
-                    <p>+506 8564-5324</p>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Andrés</span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilProveedor/perfil_proveedor.html">Perfil</a>
+                    <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes
+                        pendientes</a>
+                    <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
+                    <a href="../listadoPagosPendientes/listado_pagos_pendientes.html">Pagos pendientes</a>
+                    <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
+    </nav>
+    <div class="pw-titulo-categoria">
+        <h2>Servicios anteriores</h2>
+    </div>
+    <div class="input-search">
+        <div class="search-icons">
+            <input id="inputBuscar" type="text" class="pw-form-search" placeholder="Buscar clientes" />
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-        <!-- Usar en este mismo order -->
-        <script src="../../Librerias/General/cerrarSesion.js"></script>
-        <script src="../../Librerias/jwt-decode.js"></script>
-        <script src="../../Librerias/General/utils.js"></script>
+    <div class="listado-general" id="listado">
+       
 
-        <script src="./listado_servicios_anteriores_proveedor.js"></script>
-    </body>
+    </div>
+
+
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Usar en este mismo order -->
+    <script src="../../Librerias/General/cerrarSesion.js"></script>
+    <script src="../../Librerias/jwt-decode.js"></script>
+    <script src="../../Librerias/General/utils.js"></script>
+
+    <script src="./listado_servicios_anteriores_proveedor.js"></script>
+</body>
+
 </html>

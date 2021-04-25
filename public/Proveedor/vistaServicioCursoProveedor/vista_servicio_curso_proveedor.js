@@ -1,8 +1,8 @@
 
 let correo;
+
 const cargarPerfil = () => {
   let infoCurso = localStorage.getItem('data-cliente-curso');
-  console.log(infoCurso)
   let infoCursoForm = JSON.parse(infoCurso);
   correo = infoCursoForm.correo;
   let fecha = infoCursoForm.fecha;

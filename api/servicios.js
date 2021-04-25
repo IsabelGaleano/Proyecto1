@@ -155,4 +155,16 @@ router.post('/buscar_servicio_solicitudes', (req, res) => {
 
 });
 
+router.post('/buscar_servicios_proveedores', (req, res) => {
+    Servicio.findOne({ proveedor: req.body.proveedor }).exec()
+        .then(
+            result => {
+                res.json(result);
+            }
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+});
+
 module.exports = router;
