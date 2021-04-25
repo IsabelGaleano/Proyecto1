@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
     <body>
         <nav class="container-nav">
             <div class="box-logo container-nav">
@@ -38,7 +37,7 @@
                         <a href="../listadoServiciosCursoCliente/listado_servicios_curso_cliente.html">Servicios en
                             curso</a>
                         <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
-                        <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                        <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -48,12 +47,12 @@
         </div>
         <div class="input-search">
             <div class="search-icons">
-                <input type="text" class="pw-form-search" placeholder="Buscar servicios" />
+                <input id="inputBuscar" type="text" class="pw-form-search" placeholder="Buscar servicios" />
                 <i class="fas fa-search"></i>
             </div>
         </div>
 
-        <div class="listado-general">
+        <div class="listado-general" id="listado">
             <div class="listado">
                 <div class="info-listado">
                     <div class="img-categoria">
@@ -140,9 +139,14 @@
             </div>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+        <!-- Usar en este mismo order -->
+        <script src="../../Librerias/General/cerrarSesion.js"></script>
+        <script src="../../Librerias/jwt-decode.js"></script>
+        <script src="../../Librerias/General/utils.js"></script>
 
-
+        <script src="./listado_solicitudes_anteriores_cliente.js"></script>
     </body>
-
 </html>
