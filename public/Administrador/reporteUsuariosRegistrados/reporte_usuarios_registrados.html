@@ -68,15 +68,19 @@
     </div>
 
     <div class="buttons-export">
+        <div class="pw-form tipo-identificacion" class="form-validate">
+            <p>Año</p>
+            <select name="year" class="form-validate" id="select_year">
+            </select>
+        </div>
+
         <div class="button-icon pw-form-export">
-            <button type="button">Descargar Excel</button>
+            <button type="button" id="descargarExcel">Descargar Excel</button>
             <i class="far fa-file-excel"></i>
         </div>
-        <div class="button-icon pw-form-export">
-            <button type="button">Descargar PDF</button>
-            <i class="far fa-file-pdf"></i>
-        </div>
     </div>
+
+    
 
     <div class="reporte-usuarios">
         <canvas id="line-chart" width="600" height="400"></canvas>
@@ -112,6 +116,9 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <script src="../../Librerias/ExportFile/exportExcel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js" integrity="sha512-wBcFatf7yQavHQWtf4ZEjvtVz4XkYISO96hzvejfh18tn3OrJ3sPBppH0B6q/1SHB4OKHaNNUKqOmsiTGlOM/g==" crossorigin="anonymous"></script>
     <script src="./reporte_usuarios_registrados.js"></script>
 
     

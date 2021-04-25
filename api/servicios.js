@@ -155,4 +155,27 @@ router.post('/buscar_servicio_solicitudes', (req, res) => {
 
 });
 
+router.get('/buscar_categoria', (req, res) => {
+  Servicio.find()
+    .exec()
+    .then(function (result) {
+      let filteredServicesByCategory = [];
+
+      result.forEach(resService => {
+        if (
+            filteredServicesByCategory.some(
+            service => service.categoria_servicio === resService.categoria_servicio && service.cantidad++
+          )
+        )
+          return;
+          filteredServicesByCategory.push({ categoria_servicio: resService.categoria_servicio, cantidad: 1 });
+      });
+
+      res.json(filteredServicesByCategory);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
+});
+
 module.exports = router;
