@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-let router = express.Router();
+const router = express.Router();
 
-let Solicitud = require('../schemas/solicitud');
+const Solicitud = require('../schemas/solicitud');
+const Servicios = require('../schemas/servicio');
 
 router.get('/', (req, res) => {
     Solicitud.find().exec()
@@ -52,6 +53,48 @@ router.post('/insertar', (req, res) => {
         });
 });*/
 
+router.post('/cliente/buscar', async (req, res) => {
+    try {
+        if (!['cliente', 'administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+
+        const { criterioBusqueda, tipo, estado, cliente } = req.body;
+        const solicitudes = await Solicitud.find({ tipo, estado, cliente });
+        const proveedores = solicitudes.map(({ proveedor }) => proveedor);
+        const servicios = await Servicios.find({ 
+            nombre_servicio: { '$regex': criterioBusqueda, '$options': 'i' },
+            proveedor: { $in: proveedores}
+        });
+        
+        res.json(servicios);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
+
+router.post('/proveedor/buscar', async (req, res) => {
+    try {
+        if (!['proveedor', 'administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+        
+        const { criterioBusqueda, tipo, estado, proveedor } = req.body;
+        const solicitudes = await Solicitud.find({ tipo, estado, proveedor });
+        const proveedores = solicitudes.map(({ proveedor }) => proveedor);
+        const servicios = await Servicios.find({ 
+            nombre_servicio: { '$regex': criterioBusqueda, '$options': 'i' },
+            proveedor: { $in: proveedores}
+        });
+        
+        res.json(servicios);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
+
 
 router.post('/buscar', async (req, res) => {
     try {
@@ -97,7 +140,7 @@ router.post('/buscar_solicitudes_pendientes_proveedor', (req, res) => {
 router.post('/buscar_solicitudes_pendientes_cliente', (req, res) => {
     Solicitud.find({ $and: 
         [
-            {tipo: req.body.tipo},
+            { tipo: req.body.tipo },
             { cliente: req.body.cliente}, 
             { estado: req.body.estado}
         ]
@@ -110,8 +153,6 @@ router.post('/buscar_solicitudes_pendientes_cliente', (req, res) => {
         .catch(err => {
             res.json({ message: err })
         });
-        
-
 });
 
 

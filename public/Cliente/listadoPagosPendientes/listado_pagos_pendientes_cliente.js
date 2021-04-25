@@ -137,12 +137,8 @@ const cargarListado = (correo, fechas) => {
 
 }
 
-
-
 const ver = (element) => {
     const correo = element.getAttribute('data-correo-pago');
     console.log(correo);
     localStorage.setItem('data-correo-pago', correo);
-
-
 }
