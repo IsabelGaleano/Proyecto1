@@ -65,7 +65,51 @@ router.post('/buscar', (req, res) => {
 
 });
 
+router.get('/buscar_tipo', (req, res) => {
+  Mascota.find()
+    .exec()
+    .then(function (result) {
+      let filteredPetsByType = [];
 
+      result.forEach(resPet => {
+        if (
+          filteredPetsByType.some(
+            pet => pet.tipo === resPet.tipo && pet.cantidad++
+          )
+        )
+          return;
+        filteredPetsByType.push({ tipo: resPet.tipo, cantidad: 1 });
+      });
+
+      res.json(filteredPetsByType);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
+});
+
+router.get('/buscar_raza', (req, res) => {
+  Mascota.find()
+    .exec()
+    .then(function (result) {
+      let filteredPetsByRace = [];
+
+      result.forEach(resPet => {
+        if (
+          filteredPetsByRace.some(
+            pet => pet.raza === resPet.raza && pet.cantidad++
+          )
+        )
+          return;
+        filteredPetsByRace.push({ raza: resPet.raza, cantidad: 1 });
+      });
+
+      res.json(filteredPetsByRace);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
+});
 
 
 router.delete('/eliminar', (req, res) => {
