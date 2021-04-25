@@ -109,6 +109,21 @@ router.post('/buscar_usuarios_solicitudes', (req, res) => {
 
 
 
+router.post('/buscar_tipo_usuario_registro', (req, res) => {
+    Usuario.find({ tipo_usuario: req.body.tipo_usuario, estado: req.body.estado }).exec()
+        .then(
+            result => {
+                res.json(result);
+            }
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+        
+
+});
+  
+
 
 router.post('/buscar_tipo_usuario', (req, res) => {
     Usuario.find({ tipo_usuario: req.body.tipo_usuario }).exec()
@@ -193,6 +208,27 @@ router.put('/actualizar', (req, res) => {
     
   });
 
+  
+  router.put('/actualizar_estado', (req, res) => {
+    
+    let correo = req.body.correo;
+    let estado = req.body.estado;
+    // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
+    Usuario.findOneAndUpdate(
+        {correo: correo}, {$set:{
+            estado:estado
+        }
+    }, 
+        {useFindAndModify: false, new: true},  (err, doc) =>{
+      res.json(doc);
+    })
+    .catch(err => {
+        res.json({ message: err })
+    });
+    
+  });
+
+
 
   
 router.post('/buscar_usuario', function(req, res) {
@@ -238,7 +274,11 @@ router.post('/login', async (req, res) => {
             const contrasennaValida = await compararContrasenna(contrasenna, usuario.contrasenna);
 
             if (contrasennaValida) {
-                const token = jwt.sign({ role: usuario.tipo_usuario }, TOKEN_SECRET);
+                const token = jwt.sign({ 
+                    role: usuario.tipo_usuario,  
+                    userId: usuario._id,
+                    correo: usuario.correo
+                }, TOKEN_SECRET);
 
                 res.json({
                     token,

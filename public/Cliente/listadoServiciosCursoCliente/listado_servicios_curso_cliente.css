@@ -13,6 +13,11 @@ div{
     align-items: center;
     justify-content: center;
 }
+.estrellas{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 
 .final-dropdown-hover {
     color: #fff !important; 
@@ -118,4 +123,11 @@ div{
 
 .fa-star {
     color: #FDC800;
+}
+
+
+.listado-general {
+    overflow-y: auto;
+    max-height: 400px;
+    margin:  20px 0;
 }

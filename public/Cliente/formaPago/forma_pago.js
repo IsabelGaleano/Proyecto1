@@ -17,8 +17,10 @@ document.querySelector('#revisar').addEventListener('click', e => {
                 text: 'Pago éxitoso',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
-            })
-
+            });
+            estadoPago();
+            enviarEmailFactura();
+            revisar.setAttribute("href", "../listadoPagosPendientes/listado_pagos_pendientes_cliente.html")
         }
 
     } else {
@@ -66,9 +68,36 @@ document.querySelector('#number').addEventListener('keyup', e =>{
 
 
 
+const estadoPago = () => {
+    let cliente = localStorage.getItem('correo');
+    let proveedor = localStorage.getItem('data-correo-pago');
+    var datos = {
+        proveedor: proveedor,
+        cliente: cliente,
+        estado: "curso",
+       
+    }
+  
+    fetch("http://localhost:5000/solicitudes/actualizar_solicitudes", {
+        method: 'PUT',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .catch(err => {
+            response.json({ message: err })
+        });
+  
+  }
+
+
 const enviarEmailFactura = () => {
-    let proveedor = 'isagaleano9@gmail.com';
-    let cliente = 'luwiisabel@gmail.com';
+    let cliente = localStorage.getItem('correo');
+    let proveedor = localStorage.getItem('data-correo-pago');
     let datos = {
         proveedor: proveedor,
         cliente: cliente,

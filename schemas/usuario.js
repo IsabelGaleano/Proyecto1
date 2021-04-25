@@ -64,13 +64,18 @@ const usuarioSchema= mongoose.Schema({
     direccion: {
         type: String
     },
+    fecha_registro: {
+        type: Date,
+        default: new Date()
+    },
     promedio_calificacion: {
         type: Number
     },
     estado: { 
         type: String, 
         default: 'pendiente'
-    }
+    },
+   
 });
 
 usuarioSchema.pre('save', function(next){
