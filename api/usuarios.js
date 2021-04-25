@@ -274,7 +274,11 @@ router.post('/login', async (req, res) => {
             const contrasennaValida = await compararContrasenna(contrasenna, usuario.contrasenna);
 
             if (contrasennaValida) {
-                const token = jwt.sign({ role: usuario.tipo_usuario }, TOKEN_SECRET);
+                const token = jwt.sign({ 
+                    role: usuario.tipo_usuario,  
+                    userId: usuario._id,
+                    correo: usuario.correo
+                }, TOKEN_SECRET);
 
                 res.json({
                     token,

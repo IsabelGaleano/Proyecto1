@@ -1,7 +1,6 @@
-
 const cargarListadoUsuario = () => {
     let cliente = localStorage.getItem('correo');
-    console.log(cliente);
+
     var datos = {
         tipo: "cliente",
         cliente: cliente,
@@ -140,4 +139,3 @@ const cargarListado = (correo, fechas) => {
         )
 
 }
-
