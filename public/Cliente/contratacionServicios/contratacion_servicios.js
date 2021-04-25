@@ -22,6 +22,8 @@ const contratarServicio = () => {
       tipo: "proveedor",
       estado: "pendiente",
       fecha: new Date(),
+      fechaInicio: new Date(),
+      fechaFin: new Date()
      
   }
 
