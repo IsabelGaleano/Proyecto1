@@ -1,21 +1,21 @@
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado Pagos Pendientes</title>
-    <link rel="stylesheet" href="listado_pagos_pendientes_cliente.css">
-    <link rel="stylesheet" href="../../pwcomponentes.css">
-    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../Librerias/navCliente/nav_cliente.css">
-    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
-</head>
-
-<body onload="cargarListadoUsuario()">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listado Pagos Pendientes</title>
+        <link rel="stylesheet" href="listado_pagos_pendientes_cliente.css">
+        <link rel="stylesheet" href="../../pwcomponentes.css">
+        <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../../Librerias/navCliente/nav_cliente.css">
+        <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap"
+            rel="stylesheet">
+    </head>
 
     <body>
+
         <nav class="container-nav">
             <div class="box-logo container-nav">
                 <a href="../landingPageCliente/landing_page_cliente.html">
@@ -37,7 +37,8 @@
                             pendientes</a>
                         <a href="../listadoServiciosCursoCliente/listado_servicios_curso_cliente.html">Servicios en
                             curso</a>
-                        <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes anteriores</a>
+                        <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes
+                            anteriores</a>
                         <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>
@@ -48,13 +49,13 @@
         </div>
         <div class="input-search">
             <div class="search-icons">
-                <input type="text" class="pw-form-search" placeholder="Buscar servicios" />
+                <input id="inputBuscar" type="text" class="pw-form-search" placeholder="Buscar servicios" />
                 <i class="fas fa-search"></i>
             </div>
         </div>
 
         <div class="listado-general" id="listado">
-           
+
         </div>
 
 
@@ -83,9 +84,15 @@
             </div>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="./listado_pagos_pendientes_cliente.js"></script>
+        <!-- Usar en este mismo order -->
+        <script src="../../Librerias/General/cerrarSesion.js"></script>
+        <script src="../../Librerias/jwt-decode.js"></script>
+        <script src="../../Librerias/General/utils.js"></script>
 
+        <script src="./listado_pagos_pendientes_cliente.js"></script>
     </body>
 
 </html>
