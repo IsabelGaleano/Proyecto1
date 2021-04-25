@@ -119,7 +119,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             timeout = window.setTimeout(async () => {
                 const listadoContainer = document.getElementById('listado');
                 const servicios = await buscarClientes(busqueda);
-                console.log(servicios);
                 listadoContainer.innerHTML = '';
 
                 servicioHTML(servicios)

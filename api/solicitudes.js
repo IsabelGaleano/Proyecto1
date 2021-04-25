@@ -4,6 +4,7 @@ const router = express.Router();
 
 const Solicitud = require('../schemas/solicitud');
 const Servicios = require('../schemas/servicio');
+const { compareSync } = require('bcrypt');
 
 router.get('/', (req, res) => {
     Solicitud.find().exec()
@@ -61,14 +62,19 @@ router.post('/cliente/buscar', async (req, res) => {
         }
 
         const { criterioBusqueda, tipo, estado, cliente } = req.body;
-        const solicitudes = await Solicitud.find({ tipo, estado, cliente });
+        const solicitudes = await Solicitud.find({ tipo, estado, cliente }).lean();
         const proveedores = solicitudes.map(({ proveedor }) => proveedor);
         const servicios = await Servicios.find({ 
             nombre_servicio: { '$regex': criterioBusqueda, '$options': 'i' },
             proveedor: { $in: proveedores}
+        }).lean();
+
+        const fullServicios = servicios.map((servicio) => {
+            const solicitud = solicitudes.find((solicitud) => solicitud.proveedor === servicio.proveedor);            
+            return { ...servicio, ...solicitud };
         });
         
-        res.json(servicios);
+        res.json(fullServicios);
     } catch (e) {
         res.status(500).json({ message: e.message });
     }
