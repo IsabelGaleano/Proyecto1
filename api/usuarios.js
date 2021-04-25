@@ -301,7 +301,62 @@ router.post('/login', async (req, res) => {
     } 
 });
 
+router.post('/buscar_tipo', (req, res) => {
+  Usuario.find()
+    .exec()
+    .then(function (result) {
+      const year = req.body.year;
 
+      let finalRes = [
+        {
+          tipo: 'cliente',
+          data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        },
+        {
+          tipo: 'proveedor',
+          data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        },
+      ];
+
+      result.forEach(user => {
+        let userDate = new Date(user.fecha_registro);
+        let currentMonth = userDate.getUTCMonth();
+        let currentYear = userDate.getUTCFullYear();
+        if (year === currentYear) {
+          if (user.tipo_usuario === 'cliente') {
+            finalRes[0].data[currentMonth] += 1;
+          } else if (user.tipo_usuario === 'proveedor') {
+            finalRes[1].data[currentMonth] += 1;
+          }
+        }
+      });
+
+      res.json(finalRes);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
+});
+
+router.get('/buscar_tipo_min_year', (req, res) => {
+  Usuario.find()
+    .exec()
+    .then(function (result) {
+      let finalRes = { minYear: new Date().getUTCFullYear() };
+
+      result.forEach(user => {
+        let userDate = new Date(user.fecha_registro);
+        let currentYear = userDate.getUTCFullYear();
+        finalRes.minYear =
+          currentYear < finalRes.minYear ? currentYear : finalRes.minYear;
+      });
+
+      res.json(finalRes);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
+});
 
 
 module.exports = router;
