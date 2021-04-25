@@ -59,9 +59,30 @@ router.post('/cliente/buscar', async (req, res) => {
             res.status(403).json({ message: 'request no autorizado' });
             return;
         }
-        
+
         const { criterioBusqueda, tipo, estado, cliente } = req.body;
         const solicitudes = await Solicitud.find({ tipo, estado, cliente });
+        const proveedores = solicitudes.map(({ proveedor }) => proveedor);
+        const servicios = await Servicios.find({ 
+            nombre_servicio: { '$regex': criterioBusqueda, '$options': 'i' },
+            proveedor: { $in: proveedores}
+        });
+        
+        res.json(servicios);
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
+
+router.post('/proveedor/buscar', async (req, res) => {
+    try {
+        if (!['proveedor', 'administrador'].includes(req.userRole)) {
+            res.status(403).json({ message: 'request no autorizado' });
+            return;
+        }
+        
+        const { criterioBusqueda, tipo, estado, proveedor } = req.body;
+        const solicitudes = await Solicitud.find({ tipo, estado, proveedor });
         const proveedores = solicitudes.map(({ proveedor }) => proveedor);
         const servicios = await Servicios.find({ 
             nombre_servicio: { '$regex': criterioBusqueda, '$options': 'i' },
