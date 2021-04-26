@@ -5,7 +5,7 @@ document.querySelector('#revisarMascota').addEventListener('click', e => {
     if (!error) {
         Swal.fire({
             title: 'Éxito!',
-            text: 'Registro éxitoso',
+            text: 'Registro éxitoso, revise su correo',
             icon: 'success',
             confirmButtonText: 'Aceptar'
         })
@@ -41,7 +41,7 @@ const registroMascotas = () => {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Su mascota se haa registrado',
+            title: 'Su mascota se ha registrado',
             showConfirmButton: false,
             timer: 1500
         })

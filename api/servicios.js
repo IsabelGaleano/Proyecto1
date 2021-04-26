@@ -45,10 +45,10 @@ router.post('/buscar', async (req, res) => {
 
 router.post('/insertar', async (req, res) => {
     try {
-        if (!['proveedor'].includes(req.userRole)) {
-            res.status(403).json({ message: 'request no autorizado' });
-            return;
-        }
+        // //if (!['proveedor'].includes(req.userRole)) {
+        //     res.status(403).json({ message: 'request no autorizado' });
+        //     return;
+        // }
 
         const usuario = await Usuario.findById(req.userId);
 
