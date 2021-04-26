@@ -91,7 +91,7 @@ const registrarProveedor = () => {
         tipo_usuario: tipo_usuario,
         imagen_usuario: imagen_usuario,
         promedio_calificacion: "",
-        estado: "activo"
+        estado: "pendiente"
     }
 
     fetch("http://localhost:5000/usuarios/insertar", {
