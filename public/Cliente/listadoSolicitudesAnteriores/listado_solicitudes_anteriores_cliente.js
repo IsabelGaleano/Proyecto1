@@ -86,7 +86,7 @@ const cargarListado = (correo, fechas) => {
                                 <p class="margin-top">${finalHourFormatted}:${new Date(fechas[i]).getMinutes()} ${(new Date(fechas[i]).getHours() >= 12 && new Date(fechas[i]).getHours() <= 23) ? 'PM' : 'AM'}</p>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../vistaServicioAnteriorCliente/vista_servicio_anterior_cliente.html" data-correo-servicio-fin = "${json[i].proveedor}" onclick="ver(this, ${fechas[i]})"> Ver</a>
+                                <a class="button button-aceptar" href="../vistaServicioAnteriorCliente/vista_servicio_anterior_cliente.html" data-solicitudFin = "${json[i].proveedor}" onclick="ver(this)"> Ver</a>
                             </div>
         
                         </div>
@@ -100,7 +100,7 @@ const cargarListado = (correo, fechas) => {
                                 <p class="margin-top">${finalHourFormatted2}:${new Date(fechas[i + 1]).getMinutes()} ${(new Date(fechas[i + 1]).getHours() >= 12 && new Date(fechas[i + 1]).getHours() <= 23) ? 'PM' : 'AM'}</p>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../vistaServicioAnteriorCliente/vista_servicio_anterior_cliente.html" data-correo-servicio-fin = "${json[i].proveedor}" onclick="ver(this, ${fechas[i + 1]})"> Ver</a>
+                                <a class="button button-aceptar" href="../vistaServicioAnteriorCliente/vista_servicio_anterior_cliente.html" data-solicitudFin = "${json[i + 1].proveedor}" onclick="ver(this)"> Ver</a>
                             </div>
                         </div>
                     </div>`;
@@ -122,7 +122,7 @@ const cargarListado = (correo, fechas) => {
                                 <p class="margin-top">${finalHourFormatted}:${new Date(fechas[i]).getMinutes()} ${(new Date(fechas[i]).getHours() >= 12 && new Date(fechas[i]).getHours() <= 23) ? 'PM' : 'AM'}</p>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../vistaServicioAnteriorCliente/vista_servicio_anterior_cliente.html" data-correo-servicio-fin = "${json[i].proveedor}" onclick="ver(this, ${fechas[i]})"> Ver</a>
+                                <a class="button button-aceptar" href="../vistaServicioAnteriorCliente/vista_servicio_anterior_cliente.html" data-solicitudFin = "${json[i].proveedor}" onclick="ver(this)"> Ver</a>
                             </div>
                         </div>
                     </div>`
@@ -140,13 +140,8 @@ const cargarListado = (correo, fechas) => {
 }
 
 const ver = (element, fecha) => {
-    const correo = element.getAttribute('data-correo-servicio-fin');
-    let infoFinalizado = {
-        correo: correo,
-        fecha: fecha
-    }
-    let jsonInfo = JSON.stringify(infoFinalizado);
-    localStorage.setItem('data-servicio-fin', jsonInfo);
+    const correo = element.getAttribute('data-solicitudFin');
+    localStorage.setItem('data-solicitudFin', correo);
 
 }
 

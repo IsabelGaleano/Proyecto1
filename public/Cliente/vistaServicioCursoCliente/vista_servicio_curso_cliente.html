@@ -95,9 +95,7 @@
                         readonly></textarea>
             </div>
             <div class="info-perfil">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0916822369386!2d-85.40955498548082!3d10.727411792354768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f75659924aa77ed%3A0xa9c4debff1e0d724!2sCatarata%20la%20L%C3%A9ona!5e0!3m2!1ses!2scr!4v1616132802236!5m2!1ses!2scr"
-                    width="350" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div id="map"></div>
             </div>
         </div>
     </div>
@@ -130,7 +128,8 @@
     </div>
 
 
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+    async></script>
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="./vista_servicio_curso_cliente.js"></script>

@@ -18,6 +18,7 @@ const cargarListadoUsuario = () => {
         )
         .then(
             json => {
+                console.log(json)
                 let correo = [];
                 let fechas = [];
                 for (let i = 0; i < json.length; i++) {

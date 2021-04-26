@@ -87,7 +87,7 @@ const cargarListado = (correo, fechas) => {
                             </div>
                             <div class="button-ver">
                                 <a class="button button-aceptar"
-                                    href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html">
+                                    href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html" data-correo-servicio-fin = "${json[i].correo}"  data-fecha-servicioFin = "${fechas[i]}" onclick="ver(this)">
                                     Ver</a>
                             </div>
             
@@ -103,7 +103,7 @@ const cargarListado = (correo, fechas) => {
                             </div>
                             <div class="button-ver">
                                 <a class="button button-aceptar"
-                                    href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html">Ver</a>
+                                    href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html" data-correo-servicio-fin = "${json[i + 1].correo}" data-fecha-servicioFin = "${fechas[i + 1]}" onclick="ver(this)">Ver</a>
                             </div>
                         </div>
                     </div>`;
@@ -126,7 +126,7 @@ const cargarListado = (correo, fechas) => {
                             </div>
                             <div class="button-ver">
                                 <a class="button button-aceptar"
-                                    href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html">
+                                    href="../vistaServicioFinalizadoProveedor/vista_servicio_finalizado_proveedor.html" data-correo-servicio-fin = "${json[i].correo}" data-fecha-servicioFin = "${fechas[i]}" onclick="ver(this)">
                                     Ver</a>
                             </div>
                         </div>
@@ -146,10 +146,14 @@ const cargarListado = (correo, fechas) => {
 
 
 const ver = (element) => {
-    const correo = element.getAttribute('data-correo');
-    console.log(correo);
-    localStorage.setItem('data-correo', correo);
-
+    const correo = element.getAttribute('data-correo-servicio-fin');
+    let fecha = element.getAttribute('data-fecha-servicioFin ');
+    let infoFinalizado = {
+        correo: correo,
+        fecha: fecha
+    }
+    let jsonInfo = JSON.stringify(infoFinalizado);
+    localStorage.setItem('data-fin', jsonInfo);
 
 }
 
