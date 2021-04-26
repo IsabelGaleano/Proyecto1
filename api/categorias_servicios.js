@@ -99,16 +99,21 @@ const upload = multer({
 router.put('/actualizar', upload.single('imagen'), (req, res) => {
   let nombre = req.body.nombre;
   let descripcion = req.body.descripcion;
-  let imagen = req.file.filename;
+  
+
+  let toUpdate = {
+    descripcion: descripcion
+  }
+  if (req.file !== undefined) {
+    toUpdate.imagen = req.file.filename;
+  }
+  
 
   // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
   Categoria_Servicio.findOneAndUpdate(
     { nombre: nombre },
     {
-      $set: {
-        descripcion: descripcion,
-        imagen: imagen,
-      },
+      $set: toUpdate
     },
     { useFindAndModify: false, new: true },
     (err, doc) => {
