@@ -36,8 +36,8 @@ const listadoServiciosHtml = (imagen, nombre, descripcion) => {
 document.addEventListener("DOMContentLoaded", async () => {
   try {
       // const categoria = document.getElementById('categoria_servicio');
-      const idCategoria= '607381b228c8fc2b98c03970';
-
+      const urlParams = new URLSearchParams(window.location.search);
+      const idCategoria = urlParams.get('id');
       const servicios = await listarServicio(idCategoria);
       console.log(servicios);
       

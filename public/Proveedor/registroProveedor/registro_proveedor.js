@@ -136,7 +136,6 @@ function initMap() {
 }
 
 
-
 const getPosition = () => {
 
     let lat = marker.getPosition().lat();
@@ -146,7 +145,6 @@ const getPosition = () => {
     }
 
 }
-
 
 
 const getProvincia = idProvincia => {
@@ -196,7 +194,6 @@ const getDistrito = idDistito => {
 
 
 }
-
 
 
 const registrarServicio = () => {
