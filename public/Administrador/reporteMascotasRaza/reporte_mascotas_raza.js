@@ -57,8 +57,6 @@ document.getElementById('descargarPDF').addEventListener('click', e => {
       return response.json();
     })
     .then(json => {
-      console.log(json);
-
       fetch(
         'http://localhost:5000/exportar_pdf/download_pdf/' + json.filename,
         {
