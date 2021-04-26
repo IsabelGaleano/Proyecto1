@@ -199,7 +199,6 @@ const getDistrito = idDistito => {
 }
 
 
-
 const registrarServicio = () => {
     let positions = getPosition();
     var datos = {
