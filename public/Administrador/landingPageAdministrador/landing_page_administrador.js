@@ -1,3 +1,21 @@
+const cargarReportes = () => {
+  fetch('http://localhost:5000/usuarios/reporte_administrador').then(res => {
+    res.json().then(data => {
+      document.getElementById('reporte_usuarios_registrados').innerText = data.usuarios;
+      document.getElementById('reporte_clientes_registrados').innerText = data.clientes;
+      document.getElementById('reporte_proveedores_registrados').innerText = data.proveedores;
+    })
+  });
+
+  fetch('http://localhost:5000/mascotas/cantidad_total').then(res => {
+    res.json().then(data => {
+      document.getElementById('reporte_mascotas_registrados').innerText = data.cantidad;
+    })
+  });
+}
+
+cargarReportes();
+
 var densityCanvas = document.getElementById("densityChart");
 
 Chart.defaults.global.defaultFontFamily = "Lato";
