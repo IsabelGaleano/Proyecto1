@@ -14,7 +14,7 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
                 if (validacionCedula) {
                     registrarProveedor();
                     registrarServicio();
-                   // revisar.setAttribute("href", "../../General/login/login.html")
+                    revisar.setAttribute("href", "../../General/login/login.html")
 
                 } else {
                     Swal.fire({

@@ -15,7 +15,7 @@
     
 </head>
 
-<body>
+<body onload="cargarPerfil()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -66,13 +66,13 @@
     <div class="perfil-administrador">
         <div class="administrador">
             <div class="avatar-administrador">
-                <a href=""><img src="../img/adriana.jpeg" /></a>
+                <a href=""><img id="imagen_usuario" /></a>
             </div>
             <div class="img-agregar">
                 <div class="pw-form-inverse">
                     <div class="upload-btn-wrapper">
                         <button class="btn">Agregar imagen</button>
-                        <input type="file" name="myfile" />
+                        <input type="file" name="myfile" id="imagen_nueva" />
                       </div>
                 </div>
             </div>
@@ -81,15 +81,15 @@
         <div class="info-admi">
             <div class="pw-form info">
                 <p>Nombre</p>
-                <input type="text" name="nombre" class="form-validate">
+                <input type="text" name="nombre" class="form-validate" id="nombre">
             </div>
             <div class="pw-form info">
                 <p>Primer apellido</p>
-                <input type="text" name="apellido1" class="form-validate">
+                <input type="text" name="apellido1" class="form-validate" id="apellido1">
             </div>
             <div class="pw-form info">
                 <p>Segundo apellido</p>
-                <input type="text" name="apellido2" class="form-validate">
+                <input type="text" name="apellido2" class="form-validate" id="apellido2">
             </div>
             <div class="pw-form info">
                 <p>Correo electrónico</p>
@@ -97,7 +97,7 @@
             </div>
             <div class="pw-form info">
                 <p>Teléfono</p>
-                <input type="number" name="correo" class="form-validate" id="correo">
+                <input type="number" name="correo" class="form-validate" id="telefono">
             </div>
             <div class="pw-form-inverse font">
                 <a href="../cambiarContrasennaAdmin/cambiar_contrasenna_admin.html">Cambiar contraseña</a>
