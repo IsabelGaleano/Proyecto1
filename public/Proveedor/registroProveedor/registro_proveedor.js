@@ -9,12 +9,13 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
     let validacionCedula = getCedula(cedula, tipo);
     if (!error) {
         let fechaNacimiento = calcularEdad();
-        if(fechaNacimiento >= 18) {
-            if(validar) {
-                if(validacionCedula) {
+        if (fechaNacimiento >= 18) {
+            if (validar) {
+                if (validacionCedula) {
                     registrarProveedor();
-                   revisar.setAttribute("href", "../../General/login/login.html")
-    
+                    registrarServicio();
+                    revisar.setAttribute("href", "../../General/login/login.html")
+
                 } else {
                     Swal.fire({
                         title: 'Error!',
@@ -22,8 +23,8 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     })
-    
-    
+
+
                 }
             } else {
                 Swal.fire({
@@ -33,8 +34,8 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
                     confirmButtonText: 'Aceptar'
                 })
 
-            }     
-            
+            }
+
         } else {
             Swal.fire({
                 title: 'Error!',
@@ -42,7 +43,7 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             })
-    
+
         }
 
     } else {
@@ -83,7 +84,7 @@ const registrarProveedor = () => {
         provincia: provincia,
         canton: canton,
         distrito: distrito,
-        direccion: document.getElementById("direccion").value,
+        direccion: "",
         latitud: "",
         longitud: "",
         contrasenna: "",
@@ -135,7 +136,6 @@ function initMap() {
 }
 
 
-
 const getPosition = () => {
 
     let lat = marker.getPosition().lat();
@@ -147,17 +147,16 @@ const getPosition = () => {
 }
 
 
-
 const getProvincia = idProvincia => {
 
     let provincias = document.getElementById('provincia').childNodes;
     for (let i = 0; i < provincias.length; i++) {
         if (provincias[i].tagName === 'OPTION') {
             if (provincias[i].value == idProvincia) {
-               return provincias[i].innerText;
-            }  
+                return provincias[i].innerText;
+            }
         }
-    }   
+    }
 }
 
 
@@ -167,33 +166,69 @@ const getCanton = idCanton => {
     for (let i = 0; i < cantones.length; i++) {
         if (cantones[i].tagName === 'OPTION') {
             if (cantones[i].value == idCanton) {
-               return cantones[i].innerText;
+                return cantones[i].innerText;
             }
-            
+
         }
 
-        
+
     }
-    
-        
+
+
 }
 
 
 
 const getDistrito = idDistito => {
-
     let distritos = document.getElementById('distrito').childNodes;
     for (let i = 0; i < distritos.length; i++) {
         if (distritos[i].tagName === 'OPTION') {
             if (distritos[i].value == idDistito) {
-               return distritos[i].innerText;
+                return distritos[i].innerText;
             }
-            
+
         }
 
-        
+
     }
-    
-        
+
+
+}
+
+
+const registrarServicio = () => {
+    let positions = getPosition();
+    var datos = {
+        proveedor: document.getElementById("correo").value,
+        nombre_servicio: document.getElementById("nombreServicio").value,
+        latitud: positions.lat,
+        longitud: positions.lng,
+        direccion: document.getElementById("direccion").value,
+        nivel_servicio: "",
+        descripcion: "",
+        costo: "",
+        dias_servicio: "",
+        horario_servicio: "",
+        imagenes_servicio: "",
+        whatsapp: "",
+        instagram: "",
+        facebook: "",
+        categoria_servicio: "",
+    }
+    console.log(datos)
+    fetch("http://localhost:5000/servicios/insertar", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .catch(err => {
+            response.json({ message: err })
+        });
+
 }
 

@@ -20,7 +20,7 @@ const cargarListado = () => {
       .then(
           json => {
               let contListado = "";
-
+                console.log(json);
               for (let i = 0; i < json.length; i+=4) {
                       contListado += `<div class="services" data-aos="fade-right">
                       <div class="categoria">
@@ -28,7 +28,7 @@ const cargarListado = () => {
                               <p>${json[i].nombre}</p>
                               <img src="${json[i].imagen}" />
                               <div class="capa-transparente">
-                                  <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
+                                  <a href="../listadoServicios/listado_servicios.html?id=${json[i]._id}" class="button-crear--cuenta">Ver</a>
                               </div>
                           </div>
                       </div>`;
@@ -38,7 +38,7 @@ const cargarListado = () => {
                               <p>${json[i+1].nombre}</p>
                               <img src="${json[i+1].imagen}" />
                               <div class="capa-transparente">
-                                  <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
+                                  <a href="../listadoServicios/listado_servicios.html?id=${json[i + 1]._id}" class="button-crear--cuenta">Ver</a>
                               </div>
                           </div>
                       </div>`;
@@ -54,7 +54,7 @@ const cargarListado = () => {
                               <p>${json[i+2].nombre}</p>
                               <img src="${json[i+2].imagen}" />
                               <div class="capa-transparente">
-                                  <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
+                                  <a href="../listadoServicios/listado_servicios.html?id=${json[i + 2]._id}" class="button-crear--cuenta">Ver</a>
                               </div>
                           </div>
                       </div>`;
@@ -70,7 +70,7 @@ const cargarListado = () => {
                               <p>${json[i+3].nombre}</p>
                               <img src="${json[i+3].imagen}" />
                               <div class="capa-transparente">
-                                  <a href="../listadoServicios/listado_servicios.html" class="button-crear--cuenta">Ver</a>
+                                  <a href="../listadoServicios/listado_servicios.html?id=${json[i + 3]._id}" class="button-crear--cuenta">Ver</a>
                               </div>
                           </div>
                       </div>`;

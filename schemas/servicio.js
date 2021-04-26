@@ -16,7 +16,8 @@ const servicioSchema= mongoose.Schema({
     facebook: { type: String },
     instagram: { type: String },
     estado: { type: String, default: 'pendiente' }, 
-    categoria_servicio: { type: mongoose.Schema.Types.ObjectId, ref: 'Categoria_Servicio' }
+    categoria_servicio: { type: String},
+    direccion: { type: String}
 });
 
 module.exports = mongoose.model('Servicio', servicioSchema, 'Servicios');

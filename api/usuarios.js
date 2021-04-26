@@ -21,6 +21,18 @@ router.get('/', (req, res) => {
 });
 
 
+router.get('/actual', (req, res) => {
+    Usuario.findById(req.userId).exec()
+        .then(
+            function (result) {
+                res.json(result);
+            }
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+        
+});
 
 router.post('/insertar', (req, res) => {
     let usuarioNuevo = new Usuario({
@@ -250,7 +262,6 @@ router.post('/buscar_usuario', function(req, res) {
 
 });
 
-
 const compararContrasenna = (contrasenna, hash) => {
     return new Promise((resolve, reject) => {
         bcrypt.compare(contrasenna, hash, (err, res) => {
@@ -358,6 +369,25 @@ router.get('/buscar_tipo_min_year', (req, res) => {
     });
 });
 
+
+router.post('/cambiar_contrasenna', async (req, res) => {
+    try {
+        const { contrasenna, token } = req.body;
+        const decoded = jwt.verify(token, TOKEN_SECRET);
+        const doc = await Usuario.findOneAndUpdate({ correo: decoded.email }, { contrasenna }, { new: true});
+
+        if (!doc) {
+            res.status(401).json({ message: "usuario invalido", success: false });
+            return;
+        }
+
+        res.json({ message: "contraseña actualizad con exito", success: true });
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
+});
+
+
 router.get('/reporte_administrador', (req, res) => {
     Usuario.find().exec()
         .then(
@@ -388,5 +418,6 @@ router.get('/reporte_administrador', (req, res) => {
         });
         
 });
+
 
 module.exports = router;
