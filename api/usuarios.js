@@ -369,6 +369,7 @@ router.get('/buscar_tipo_min_year', (req, res) => {
     });
 });
 
+
 router.post('/cambiar_contrasenna', async (req, res) => {
     try {
         const { contrasenna, token } = req.body;
@@ -384,6 +385,38 @@ router.post('/cambiar_contrasenna', async (req, res) => {
     } catch (e) {
         res.status(500).json({ message: e.message });
     }
+});
+
+
+router.get('/reporte_administrador', (req, res) => {
+    Usuario.find().exec()
+        .then(
+            function (result) {
+                
+
+                let finalRes = {
+                    usuarios: 0,
+                    proveedores: 0,
+                    clientes: 0
+                }
+
+                finalRes.usuarios = result.length;
+                result.forEach(v => {
+                    if (v.tipo_usuario === 'cliente') {
+                        finalRes.clientes++;
+                    }
+                    if (v.tipo_usuario === 'proveedor') {
+                        finalRes.proveedores++;
+                    }
+                });
+
+                res.json(finalRes);
+            }
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+        
 });
 
 

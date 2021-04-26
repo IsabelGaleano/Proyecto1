@@ -495,7 +495,12 @@ body {
 .final-dropdown-nt:hover .final-dropdown-menu-nt{
     display: block;}
       
-
+.loading_animation {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+}
 
 
 
