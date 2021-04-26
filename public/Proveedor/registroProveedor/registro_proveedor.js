@@ -90,7 +90,7 @@ const registrarProveedor = () => {
         tipo_usuario: tipo_usuario,
         imagen_usuario: imagen_usuario,
         promedio_calificacion: "",
-        estado: "pendiente"
+        estado: "activo"
     }
 
     fetch("http://localhost:5000/usuarios/insertar", {
@@ -181,7 +181,6 @@ const getCanton = idCanton => {
 
 
 const getDistrito = idDistito => {
-
     let distritos = document.getElementById('distrito').childNodes;
     for (let i = 0; i < distritos.length; i++) {
         if (distritos[i].tagName === 'OPTION') {
@@ -192,8 +191,6 @@ const getDistrito = idDistito => {
         }
 
         
-    }
-    
-        
+    } 
 }
 
