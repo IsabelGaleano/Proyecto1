@@ -1,4 +1,3 @@
-
 const api = axios.create({
     baseURL: 'http://localhost:5000/',
     timeout: 10000,
@@ -25,7 +24,7 @@ const cargarCategoriaServicio = async () => {
 
 const registrarServicio = async (servicio) => {
     try {
-        const { data } = await api.post('servicios/insertar', servicio);
+        const { data } = await api.put('servicios/actualizar', servicio);
         return data;
     } catch (e) {
         return e;
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         categoriaServicio.insertAdjacentHTML("beforeend", categoria);
     }
 
-    if (usuarioActual?.estado !== 'aprobado') {
+    if (usuarioActual?.estado !== 'activo') {
         sinAutorizacionMsj('Su solicitud aun esta pendiente');
     }
     
@@ -80,9 +79,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (dias.length > 0 && horario.length > 0) {
                     await registrarServicio({
                         proveedor: proveedor,
-                        nombre_servicio: 'por definir',
-                        latitud_servicio: '',
-                        longitud_servicio: '',
+                        //nombre_servicio: 'por definir',
+                        // latitud_servicio: '',
+                        //longitud_servicio: '',
                         nivel_servicio: nivelServicio.value,
                         descripcion: descripcionServicio.value,
                         costo: costoServicio.value,
@@ -92,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         whatsapp: contactoWhatsapp.value,
                         instagram: contactoInstagram.value,
                         facebook: contactoFacebook.value,
-                        categoria_servicio: categoriaServicio.value
+                        // categoria_servicio: categoriaServicio.value
                     });
                     
                     Swal.fire({

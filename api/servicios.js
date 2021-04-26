@@ -4,6 +4,7 @@ const router = express.Router();
 
 const Servicio = require('../schemas/servicio');
 const Usuario = require('../schemas/usuario');
+const Categoria = require('../schemas/categoria_servicio');
 
 router.get('/', (req, res) => {
     Servicio.find().exec()
@@ -21,7 +22,9 @@ router.get('/', (req, res) => {
 router.get('/categoria/:categoria', async (req, res) => {
     try {
         const { categoria } = req.params;
-        const servicios = await Servicio.find({ categoria_servicio: categoria });
+        const cat = await Categoria.findById(categoria);
+        console.log(cat);
+        const servicios = await Servicio.find({ categoria_servicio: cat.nombre });
         res.json(servicios);
     } catch (e) {
         res.status(500).json({ message: e.message });
@@ -52,7 +55,7 @@ router.post('/insertar', async (req, res) => {
 
         const usuario = await Usuario.findById(req.userId);
 
-        if (usuario?.estado === 'aprobado') {
+        //if (usuario?.estado === 'aprobado') {
             const servicioNuevo = new Servicio({
                 _id: new mongoose.Types.ObjectId(),
                 proveedor: req.body.proveedor,
@@ -73,9 +76,9 @@ router.post('/insertar', async (req, res) => {
 
             const servicio = await servicioNuevo.save();
             res.json({ servicio });
-        } else {
-            res.status(403).json({ message: 'request no autorizado' });
-        }
+        // } else {
+        //    res.status(403).json({ message: 'request no autorizado' });
+        // }
     } catch (e) {
         res.status(500).json({ message: e.message });
     }
@@ -93,50 +96,37 @@ router.delete('/eliminar', (req, res) => {
         });
 });
 
-router.put('/actualizar', (req, res) => {
-    let proveedor = req.body.proveedor;
-    let nombre_servicio = req.body.nombre_servicio;
-    let latitud_servicio = req.body.latitud_servicio;
-    let longitud_servicio = req.body.longitud_servicio;
-    let nivel_servicio = req.body.nivel_servicio;
-    let descripcion = req.body.descripcion;
-    let costo = req.body.costo;
-    let dias_servicio = req.body.dias_servicio;
-    let horario_servicio = req.body.horario_servicio;
-    let imagenes_servicio = req.body.imagenes_servicio;
-    let whatsapp = req.body.whatsapp;
-    let instagram = req.body.instagram;
-    let facebook = req.body.facebook;
-    let estado = req.body.estado;
-    let categoria_servicio = req.body.categoria_servicio;
+router.put('/actualizar', async (req, res) => {
+    try {
+        let proveedor = req.body.proveedor;
 
-    // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
-    Servicio.findOneAndUpdate(
-        { proveedor: proveedor }, {
+        // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
+        const servicio = await Servicio.findOne({ proveedor });
+        
+        Servicio.findOneAndUpdate({ proveedor: proveedor }, {
             $set: {
-                nombre_servicio: nombre_servicio,
-                latitud_servicio: latitud_servicio,
-                longitud_servicio: longitud_servicio,
-                nivel_servicio: nivel_servicio,
-                descripcion: descripcion,
-                costo: costo,
-                dias_servicio: dias_servicio,
-                horario_servicio: horario_servicio,
-                imagenes_servicio: imagenes_servicio,
-                whatsapp: whatsapp,
-                instagram: instagram,
-                facebook: facebook,
-                estado: estado,
-                categoria_servicio: categoria_servicio,
+                latitud_servicio: servicio.latitud_servicio,
+                longitud_servicio:servicio.longitud_servicio,
+                nivel_servicio: req.body.nivel_servicio,
+                descripcion: req.body.descripcion,
+                costo: req.body.costo,
+                dias_servicio: req.body.dias_servicio,
+                horario_servicio: req.body.horario_servicio,
+                imagenes_servicio: req.body.imagenes_servicio,
+                whatsapp: req.body.whatsapp,
+                instagram: req.body.instagram,
+                facebook: req.body.facebook,
+                categoria_servicio: servicio.categoria_servicio,
             }
-    },
-        { useFindAndModify: false, new: true }, (err, doc) => {
+        }, { useFindAndModify: false, new: true }, (err, doc) => {
             res.json(doc);
         })
         .catch(err => {
             res.json({ message: err })
         });
-
+    } catch (e) {
+        res.status(500).json({ message: e.message });
+    }
 });
 
 router.post('/buscar_servicio_solicitudes', (req, res) => {
