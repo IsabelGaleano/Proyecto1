@@ -4,7 +4,7 @@ const router = express.Router();
 
 const Servicio = require('../schemas/servicio');
 const Usuario = require('../schemas/usuario');
-const { findOne } = require('../schemas/usuario');
+const Categoria = require('../schemas/categoria_servicio');
 
 router.get('/', (req, res) => {
     Servicio.find().exec()
@@ -22,7 +22,9 @@ router.get('/', (req, res) => {
 router.get('/categoria/:categoria', async (req, res) => {
     try {
         const { categoria } = req.params;
-        const servicios = await Servicio.find({ categoria_servicio: categoria });
+        const cat = await Categoria.findById(categoria);
+        console.log(cat);
+        const servicios = await Servicio.find({ categoria_servicio: cat.nombre });
         res.json(servicios);
     } catch (e) {
         res.status(500).json({ message: e.message });
