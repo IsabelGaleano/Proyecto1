@@ -1,7 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-let router = express.Router();
 const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
+
+let router = express.Router();
+
+const TOKEN_SECRET = process.env.JWT_SECRET;
 
 router.post('/send_email_autorizacion', (req, res) => {
     let { correo } = req.body;
@@ -14,6 +18,7 @@ router.post('/send_email_autorizacion', (req, res) => {
         }
     });
 
+    const token = jwt.sign({ email: correo }, TOKEN_SECRET);
 
     var mailOptions = {
         from: 'AppPetsWorld@gmail.com',
@@ -29,7 +34,7 @@ router.post('/send_email_autorizacion', (req, res) => {
             <p style="margin: 30px; font-size: 16px;">Ha introducido ${correo} <br /> como la dirección de correo
                 electrónico de su cuenta.</p>
             <p style="margin: 40px 10px; font-size: 15px;">Verifique su cuenta haciendo clic en el botón a continuación.</p>
-            <a href="http://localhost:5000/General/restablecerContrasenna/restablecer_contrasenna.html"
+            <a href="http://localhost:5000/General/restablecerContrasenna/restablecer_contrasenna.html?token=${token}"
                 style="text-decoration: none; padding: 13px 120px; background-color: #005CE4; color: #fff; margin: 40px;">Verifique
                 su cuenta</a>
     

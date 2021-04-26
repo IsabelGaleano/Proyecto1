@@ -180,7 +180,6 @@ const getCanton = idCanton => {
 
 
 const getDistrito = idDistito => {
-
     let distritos = document.getElementById('distrito').childNodes;
     for (let i = 0; i < distritos.length; i++) {
         if (distritos[i].tagName === 'OPTION') {
