@@ -75,28 +75,49 @@ router.delete('/eliminar', (req, res) => {
 
 
 
-router.put('/actualizar', (req, res) => {
-    let nombre = req.body.nombre;
-    let descripcion = req.body.descripcion;
-    let imagen = req.body.imagen;
-   
-   
+// --- Multer ---
+const multer = require('multer');
 
-    // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
-    Categoria_Servicio.findOneAndUpdate(
-        {nombre: nombre}, {$set:{
-            descripcion:descripcion,
-            imagen:imagen
-        }
-    }, 
-        {useFindAndModify: false, new: true},  (err, doc) =>{
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './public/uploads');
+  },
+  filename: (req, file, cb) => {
+    const fileExtension = file.mimetype.split('/')[1];
+    cb(null, Math.random().toString().substring(2) + '.' + fileExtension);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fieldSize: 1024 * 1024 * 3,
+  },
+});
+// -------------------------------------------------------
+
+router.put('/actualizar', upload.single('imagen'), (req, res) => {
+  let nombre = req.body.nombre;
+  let descripcion = req.body.descripcion;
+  let imagen = req.file.filename;
+
+  // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
+  Categoria_Servicio.findOneAndUpdate(
+    { nombre: nombre },
+    {
+      $set: {
+        descripcion: descripcion,
+        imagen: imagen,
+      },
+    },
+    { useFindAndModify: false, new: true },
+    (err, doc) => {
       res.json(doc);
-    })
-    .catch(err => {
-        res.json({ message: err })
-    });
-    
+    }
+  ).catch(err => {
+    res.json({ message: err });
   });
+});
 
 
 module.exports = router;
