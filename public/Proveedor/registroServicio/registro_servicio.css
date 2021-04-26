@@ -1,140 +1,133 @@
-body{
-    margin: 0;
-    height: 100vh;
+
+/* Formulario */
+.titulo {
+    text-align: center;
+    color: #000;
+    padding-top: 30px;
 }
 
-div{
-    box-sizing: border-box;
+.invalido {
+    color: #F55;
+    text-align: center;
 }
 
-
-.listado, .info-listado, .estrellas, .proveedores-calificados{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.mostrar {
+    display: inline;
 }
 
-.proveedores-calificados {
-    padding: 20px ;
-}
-.final-dropdown-hover {
-    color: #fff !important; 
+.ocultar {
+    display: none;
 }
 
+.formulario {
+    margin: 40px 300px;
+}
 
-.box-anchors > a {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
+.float {
+    float: left;
 }
-.box-logo img {
-    width: 200px;
+
+.pw-form input, .pw-form select {
+    width: 50%;
 }
-.user, .img-categoria {
-    border: 2px solid #1a535c;
-    width: 100px;
+
+/* Izquierda */
+.form-izquierda {
+    width: 65%;
+}
+
+.espaciar-1 {
+    margin-bottom: 20px;
+}
+
+.espaciar-2 {
+    margin: 10px 0px;
+}
+
+.descripcion {
+    width: 40%;
     height: 100px;
-    border-radius: 20%;
-    overflow: hidden;
-    display: flex;
 }
 
-.user img, .img-categoria img {
+.costo {
+    width: 30%;
+}
+
+.center {
+    text-align: center;
+}
+
+.anadir {
+    width: 30%;
+    margin-right: 280px;
+}
+
+/* Derecha */
+.dias {
+    width: 15%;
+    margin-top: 9px;
+}
+
+.nombre-dia {
+    width: 29%;
+    margin-top: 8px;
+}
+
+.pw-form-hora {
+    margin: 0px;
+}
+
+.hora {
+    width: 56%;
+    margin-top: -10px;
+    padding: 10px 0px;
+}
+
+.hora input {
     width: 100%;
 }
 
-.container-nav {
-    background-color: #1A535C;
+.form-derecha {
+    width: 35%;
 }
 
-
-.final-dropdown-hover {
-    color: #fff; 
+.logo-form {
+    width: 10%;
+    margin-right: 10px;
+    margin-top: 11px;
 }
 
-  
-.titulo {
-    padding: 20px;
-    text-align: center;
-    color: #000;
+.logo-form img {
+    width: 100%;
 }
 
-.info-listado {
-    border: 1px solid #bebebe;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 5px;
-    background-color: rgba(91, 177, 191, 0.4);
+.input-redes {
+    width: 75%;
+    height: 30px;
+    margin-top: -2px;
+    padding: 10px 0px;
 }
 
-.descripcion-info, .button-ver {
-    padding: 20px;
-    margin-top: -6%;
+.input-redes input {
+    width: 100%;
 }
 
-.descripcion-info h4{
-    font-size: 18px;
-
+.espaciar-3 {
+    margin-bottom: 40px;
 }
 
-.descripcion-info p {
-    font-size: 15px;
-}
-
-.margin-top {
-    margin-top: 3px;
-}
-
-.margin-bottom {
-    margin-bottom: 0;
-
-}
-
-.buscar {
-    padding-top: 20px;
-    text-align: center;
-}
-
-.input-buscar {
-   padding: 5px;
-   width: 30%;
-}
-
-
-.input-search {
+.guardar {
     text-align: center;
 }
 
 
-.fa-search {
-    position: absolute;
-    right: 20px;
-    top: 18px;
-    color: #bebebe;
-    transition: color, .2s ease-in-out;
+.form-derecha p {
+    margin: 1;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
-.search-icons {
-    width: 50%;
-    position: relative;
-    display: inline-block;
-}
-
-.fa-star {
-    color: #FDC800;
-}
-
-
-
-  
-.avatar-cliente {
-    width: 8%;
-    text-align: center;
-}
-
-.avatar-cliente img {
-    width: 50px;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: #5bb1bf;
+.text-area {
+width: 50% !important;
 }
