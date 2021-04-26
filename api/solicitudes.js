@@ -230,4 +230,22 @@ router.put('/actualizar_solicitudes', (req, res) => {
     
   });
 
+  
+router.put('/actualizar_solicitudes_curso', (req, res) => {
+    let cliente = req.body.cliente;
+    let proveedor = req.body.proveedor;
+    let estado = req.body.estado;
+    let fechaInicio = req.body.fechaInicio;
+    let fechaFin = req.body.fechaFin
+    // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
+    Solicitud.updateMany({ cliente: cliente, proveedor:proveedor}, { $set:{ fechaInicio: fechaInicio, fechaFin:fechaFin, estado: estado}}, 
+        {useFindAndModify: false, new: true}, (err, doc) =>{
+      res.json(doc);
+    })
+    .catch(err => {
+        res.json({ message: err })
+    });
+    
+  });
+
 module.exports = router;

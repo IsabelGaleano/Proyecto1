@@ -19,22 +19,25 @@ const cargarListadoUsuario = () => {
         )
         .then(
             json => {
-                console.log(json);
                 let correo = [];
                 let fechas = [];
+                let fechasInicio = [];
+                let fechasFin = [];
                 for (let i = 0; i < json.length; i++) {
 
                     correo[i] = json[i].proveedor;
                     fechas[i] = json[i].fecha;
+                    fechasInicio = json[i].fechaInicio;
+                    fechasFin = json[i].fechaFin;
+                    
                 }
-
-                cargarListado(correo, fechas);
+                cargarListado(correo, fechas, fechasInicio, fechasFin);
             }
         )
 }
 
 
-const cargarListado = (correo, fechas) => {
+const cargarListado = (correo, fechas, fechasInicio, fechasFin) => {
     let datos = {
         proveedor: correo
     }
@@ -55,7 +58,6 @@ const cargarListado = (correo, fechas) => {
         )
         .then(
             json => {
-
                 let listado;
                 for (let i = 0; i < json.length; i += 2) {
 
@@ -77,7 +79,7 @@ const cargarListado = (correo, fechas) => {
                                 </div>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html" data-proveedor-curso = "${json[i].proveedor}" onclick="ver(this)"> Ver
+                                <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html" data-cursoServicio = "${json[i].proveedor}"  data-fechaCurso = "${fechas[i]}" onclick="ver(this)"> Ver
                                     más</a>
                             </div>
                         </div>
@@ -96,7 +98,7 @@ const cargarListado = (correo, fechas) => {
                                 </div>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html" data-proveedor-curso = "${json[i + 1].proveedor}" onclick="ver(this)"> Ver
+                                <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html" data-cursoServicio = "${json[i + 1].proveedor}"  data-fechaCurso = "${fechas[i + 1]}" onclick="ver(this)"> Ver
                                     más</a>
                             </div>
                         </div>
@@ -120,7 +122,7 @@ const cargarListado = (correo, fechas) => {
                                 </div>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html" data-proveedor-curso = "${json[i].proveedor}" onclick="ver(this)"> Ver
+                                <a class="button button-aceptar" href="../vistaServicioCursoCliente/vista_servicio_curso_cliente.html" data-cursoServicio = "${json[i].proveedor}" data-fechaCurso = "${fechas[i]}" onclick="ver(this)"> Ver
                                     más</a>
                             </div>
                         </div>
@@ -137,9 +139,15 @@ const cargarListado = (correo, fechas) => {
 }
 
 const ver = (element) => {
-    const correo = element.getAttribute('data-proveedor-curso');
-    console.log(correo);
-    localStorage.setItem('data-proveedor-curso', correo);
+    const correo = element.getAttribute('data-cursoServicio');
+    let fechas = document.getElementById('data-fechaCurso')
+    let infoCurso = {
+        correo: correo,
+        fecha: fechas
+    }
+    console.log(infoCurso);
+    let jsonInfo = JSON.stringify(infoCurso);
+    localStorage.setItem('data-cursoServicio', jsonInfo);
 }
 
 const servicioHTML = (json) => {

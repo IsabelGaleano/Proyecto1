@@ -14,80 +14,80 @@
 </head>
 
 <body>
-    <body>
-        <nav class="container-nav">
-            <div class="box-logo container-nav">
-                <a href="../landingPageCliente/landing_page_cliente.html">
-                    <img src="../img/logoPets.png" />
-                </a>
-            </div>
-            <div class="container-nav box-anchors">
-                <a href="#">Servicios</a>
-                <a href="#"><i class="far fa-bell"></i></a>
-                <div class="user">
-                    <a href="#"><img src="../img/diana.jpg" /></a>
-                </div>
-                <div class="final-dropdown">
-                    <span href="opcion2" class="final-dropdown-hover">Diana</span>
-                    <div class="final-dropdown-menu">
-                        <a href="../perfilCliente/perfil_cliente.html">Perfil</a>
-                        <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
-                        <a href="../listadoSolicitudesPendientesCliente/listado_solicitudes_pendientes_cliente.html">Solicitudes
-                            pendientes</a>
-                        <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes anteriores</a>
-                        <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
-                        <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div class="pw-titulo-categoria">
-            <h2>Servicios en curso</h2>
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageCliente/landing_page_cliente.html">
+                <img src="../img/logoPets.png" />
+            </a>
         </div>
-        <div class="input-search">
-            <div class="search-icons">
-                <input id="inputBuscar" type="text" class="pw-form-search" placeholder="Buscar servicios"/>
-                <i class="fas fa-search"></i>
+        <div class="container-nav box-anchors">
+            <a href="#">Servicios</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img src="../img/diana.jpg" /></a>
             </div>
-        </div>
-
-        <div class="listado-general" id="listado"></div>
-
-        <div class="container-footer">
-            <div class="logo">
-                <img src="../img/mundoLogo.png"/>
-            </div>
-            <div class="links">
-                <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
-                <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
-                <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
-            </div>
-            <div class="redes">
-                <div class="icon">
-                    <img src="../img/facebook.png"/>
-                    <p>Pets World</p>
-                </div>
-                <div class="icon">
-                    <img src="../img/instagram.png"/>
-                    <p>Pets World</p>
-                </div>
-                <div class="icon">
-                    <img src="../img/whatsapp.png"/>
-                    <p>+506 8564-5324</p>
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Diana</span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilCliente/perfil_cliente.html">Perfil</a>
+                    <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
+                    <a href="../listadoSolicitudesPendientesCliente/listado_solicitudes_pendientes_cliente.html">Solicitudes
+                        pendientes</a>
+                    <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes
+                        anteriores</a>
+                    <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
+                    <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
-    
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </nav>
+    <div class="pw-titulo-categoria">
+        <h2>Servicios en curso</h2>
+    </div>
+    <div class="input-search">
+        <div class="search-icons">
+            <input id="inputBuscar" type="text" class="pw-form-search" placeholder="Buscar servicios" />
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
 
-        <!-- Usar en este mismo order -->
-        <script src="../../Librerias/General/cerrarSesion.js"></script>
-        <script src="../../Librerias/jwt-decode.js"></script>
-        <script src="../../Librerias/General/utils.js"></script>
+    <div class="listado-general" id="listado"></div>
+
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Usar en este mismo order -->
+    <script src="../../Librerias/General/cerrarSesion.js"></script>
+    <script src="../../Librerias/jwt-decode.js"></script>
+    <script src="../../Librerias/General/utils.js"></script>
 
 
-        <script src="./listado_servicios_curso_cliente.js"></script>
-    </body>
+    <script src="./listado_servicios_curso_cliente.js"></script>
+</body>
 
 </html>
