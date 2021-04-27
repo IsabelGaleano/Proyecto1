@@ -4,7 +4,7 @@ document.querySelector('#revisarRaza').addEventListener('click', e => {
   if (!error) {
       Swal.fire({
           title: 'Éxito!',
-          text: 'Registro éxitoso',
+          text: 'Actualizar éxitoso',
           icon: 'success',
           confirmButtonText: 'Aceptar'
       })
