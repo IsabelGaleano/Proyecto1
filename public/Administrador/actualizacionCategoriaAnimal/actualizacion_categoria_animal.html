@@ -74,7 +74,7 @@
                 <div class="columna-info">
                     <div class="pw-form">
                         <p>Nombre de la categoría</p>
-                        <input type="text" name="nombre" class="form-validate" id="nombre">
+                        <input type="text" name="nombre" class="form-validate" id="nombre" disabled>
                     </div>
                     <div class="pw-form">
                         <p>Descripción de la categoría</p>
@@ -97,11 +97,11 @@
                 <div class="pw-form columna-info">
                     <div class="img-agregar">
                         <p>Imagen de la categoría</p>
-                        <img src="../../img/agregarImg.jpg"/>
+                        <img id="img_categoria_servicio" src="../../img/agregarImg.jpg"/>
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
-                                <input type="file" name="myfile"  id="imagen_nueva"/>
+                                <input type="file" name="myfile" id="imagen_nueva" onchange="loadImagePreview(this)"/>
                               </div>
                         </div>
                     </div>

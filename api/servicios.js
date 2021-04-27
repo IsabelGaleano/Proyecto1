@@ -173,6 +173,7 @@ router.get('/buscar_categoria', (req, res) => {
                     )
                 )
                     return;
+                if (resService.categoria_servicio.trim() === '') return;
                 filteredServicesByCategory.push({ categoria_servicio: resService.categoria_servicio, cantidad: 1 });
             });
 

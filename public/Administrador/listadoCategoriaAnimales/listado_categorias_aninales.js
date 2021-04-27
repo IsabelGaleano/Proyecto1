@@ -17,7 +17,7 @@ const cargarListado = () => {
                             contListado += `<div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="${json[i].imagen}" />
+                                <img src="./../../uploads/${json[i].imagen}" />
                             </div> 
                             <div class="descripcion-info">
                                 <h5 class="titulo-categoria">${json[i].nombre}</h5>
@@ -32,7 +32,7 @@ const cargarListado = () => {
     
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="${json[i + 1].imagen}" />
+                                <img src="./../../uploads/${json[i + 1].imagen}" />
                             </div>
                             <div class="descripcion-info">
                                 <h5 class="titulo-categoria">${json[i + 1].nombre}</h5>
@@ -49,7 +49,7 @@ const cargarListado = () => {
                             contListado += `<div class="listado">
                             <div class="info-listado">
                                 <div class="img-categoria">
-                                    <img src="${json[i].imagen}" />
+                                    <img src="./../../uploads/${json[i].imagen}" />
                                 </div>
                                 <div class="descripcion-info">
                                     <h5 class="titulo-categoria">${json[i].nombre}</h5>
@@ -134,7 +134,7 @@ const buscar = () => {
                                 contListado += `<div class="listado">
                             <div class="info-listado">
                                 <div class="img-categoria">
-                                    <img src="${imagenes[l]}" />
+                                    <img src="./../../uploads/${imagenes[l]}" />
                                 </div> 
                                 <div class="descripcion-info">
                                     <h5 class="titulo-categoria">${nombres[l]}</h5>
@@ -149,7 +149,7 @@ const buscar = () => {
                             
                             <div class="info-listado">
                                 <div class="img-categoria">
-                                    <img src="${imagenes[l + 1]}" />
+                                    <img src="./../../uploads/${imagenes[l + 1]}" />
                                 </div>
                                 <div class="descripcion-info">
                                     <h5 class="titulo-categoria">${nombres[l + 1]}</h5>
@@ -166,7 +166,7 @@ const buscar = () => {
                                 contListado += `<div class="listado">
                                 <div class="info-listado">
                                     <div class="img-categoria">
-                                        <img src="${imagenes[l]}" />
+                                        <img src="./../../uploads/${imagenes[l]}" />
                                     </div>
                                     <div class="descripcion-info">
                                         <h5 class="titulo-categoria">${nombres[l]}</h5>

@@ -11,26 +11,27 @@ div{
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    gap: 15rem;
 }
 
 .categoria {
-    flex-grow: 1;
     padding: 30px;
 }
 
 .img-categoria:hover .capa-transparente {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .capa-transparente {
     position: absolute;
-    bottom:  0;
+    top: 0;
     left: 0;
-    padding: 168px 150px;
     display: none;
     width: 100%;
-    background-color: rgba(119, 175, 184, 0.4);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.075);
 }
 
 .img-categoria {
