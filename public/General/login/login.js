@@ -23,7 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const role = data.role.toLowerCase();
 
                 if (role == 'proveedor') {
-                    const servicio = await api.post('servicios/buscar', { proveedor: data.correo });
+                    const servicio = await api.post('servicios/buscar', 
+                    { proveedor: data.correo },
+                    { headers: { 
+                        authorization: data.token
+                    }});
 
                     if (servicio.data.proveedor.estado === 'pendiente') {
                         window.location.href = `${location.origin}/Proveedor/registroServicio/registro_servicio.html`;
