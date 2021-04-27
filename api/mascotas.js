@@ -155,4 +155,24 @@ router.get('/cantidad_total', (req, res) => {
     });
 });
 
+
+router.post('/buscar_mascotas_duenno', (req, res) => {
+  Mascota.find({ $and: 
+      [
+          { duenno: req.body.duenno },
+          { nombre: req.body.nombre}
+      ]
+  }).exec()
+      .then(
+          result => {
+              res.json(result);
+          }
+      )
+      .catch(err => {
+          res.json({ message: err })
+      });
+});
+
+
+
 module.exports = router;

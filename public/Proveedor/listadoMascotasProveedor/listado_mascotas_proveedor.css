@@ -130,3 +130,9 @@ div{
 .listado-general {
     padding-top: 30px;
 }
+
+.listado-general {
+    overflow-y: auto;
+    max-height: 400px;
+    margin:  20px 0;
+}

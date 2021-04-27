@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="perfil_mascota_proveedor.css">
 </head>
 
-<body>
+<body onload="cargarPerfil()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="#">
@@ -30,9 +30,11 @@
                 <span href="opcion2" class="final-dropdown-hover">Andrés</span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilProveedor/perfil_proveedor.html">Perfil</a>
-                    <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes pendientes</a>
+                    <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes
+                        pendientes</a>
                     <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
-                    <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios anteriores</a>
+                    <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios
+                        anteriores</a>
                     <a href="../listadoPagosPendientes/listado_pagos_pendientes.html">Pagos pendientes</a>
                     <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
@@ -54,13 +56,13 @@
         <div class="info-columna  left">
 
             <div class="info-perfil">
-                <p><span class="titulo-info">Nombre: </span> <span>Puyú</span></p>
+                <p><span class="titulo-info">Nombre: </span> <span id="nombre"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info">Raza: </span> <span>MaineCoon</span></p>
+                <p><span class="titulo-info">Raza: </span> <span id="raza"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info">Tipo: </span> <span>Gato</span></p>
+                <p><span class="titulo-info">Tipo: </span> <span id="tipo"></span></p>
             </div>
             <div class="info-perfil">
                 <div>
@@ -69,39 +71,22 @@
                     <p><input type="radio" name="vacuna" value="no" disabled> No</p>
                 </div>
             </div>
-            <div class="vacunas">
+            <div class="vacunas pw-form-checkbox" id="vacunas">
                 <p class="titulo-info">Vacunas: </p>
-                <p><input type="checkbox" value="vacuna" checked disabled> Pentavalente</p>
-                <p><input type="checkbox" value="vacuna" checked disabled> Parovirus</p>
-                <p><input type="checkbox" value="vacuna" checked disabled> Moquillo</p>
-                <p><input type="checkbox" value="vacuna" checked disabled> Rabia</p>
-                <p><input type="checkbox" value="vacuna" checked disabled> Hepatitis</p>
-                <p><input type="checkbox" value="vacuna" checked disabled> Parainfluenza</p>
-                <p><input type="checkbox" value="vacuna" checked disabled> Trivalente Felina</p>
-                <p><input type="checkbox" value="vacuna" disabled> Leucemia Felina</p>
-                <p><input type="checkbox" value="vacuna" disabled> Triple Vírica</p>
-                <p><input type="checkbox" value="vacuna" disabled> PIF</p>
 
             </div>
         </div>
         <div class="info-columna">
-           
+
             <div class="info-perfil">
                 <p><span class="titulo-info">Características especiales:</p>
             </div>
             <div class="text-area">
-                <textarea name="" id="" cols="46" rows="4" readonly>Ninguno</textarea>
+                <textarea name="" id="caracteristicas" cols="46" rows="4" readonly></textarea>
             </div>
-            <div class="padecimientos">
+           
+            <div class="padecimientos pw-form-checkbox" id="padecimientos">
                 <p class="titulo-info">Padecimientos: </p>
-                <p><input type="checkbox" value="padecimientos" checked disabled> Insuficiencia renal crónica</p>
-                <p><input type="checkbox" value="padecimientos" checked disabled> Hipertiroidismo</p>
-                <p><input type="checkbox" value="padecimientos" disabled> Diabetes Mellitus</p>
-                <p><input type="checkbox" value="padecimientos" disabled> Leucemia felina</p>
-                <p><input type="checkbox" value="padecimientos" disabled> Infección por retrovirus</p>
-                <p><input type="checkbox" value="padecimientos" disabled> Cancér felino</p>
-                <p><input type="checkbox" value="padecimientos" disabled> Hepatitis canina</p>
-                <p><input type="checkbox" value="padecimientos" disabled> Rabia</p>
 
             </div>
 
@@ -110,7 +95,7 @@
         </div>
     </div>
 
-</div>
+    </div>
     <div class="container-footer">
         <div class="logo">
             <img src="../img/mundoLogo.png" />
@@ -141,7 +126,7 @@
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="../contratacionServicios/contratacion_servicios.js"></script>
-
+    <script src="./perfil_mascota_proveedor.js"></script>
 </body>
 
 </html>
