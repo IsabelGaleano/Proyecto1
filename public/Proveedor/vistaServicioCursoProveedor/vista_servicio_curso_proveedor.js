@@ -45,6 +45,8 @@ const cargarPerfil = () => {
     )
 }
 
+
+
 const obtenerFecha = (fechaNacimiento) => {
 
   fechaNacimientoNueva = new Date(fechaNacimiento);
@@ -83,6 +85,7 @@ function initMap(lat, lng) {
 const enviar = () => {
   actualizarEstado();
   notificaciones();
+  cargarServicio();
   Swal.fire({
     position: 'top-end',
     icon: 'success',
@@ -141,6 +144,57 @@ const notificaciones = cliente => {
   }
 
   fetch("http://localhost:5000/notificaciones/insertar", {
+      method: 'POST',
+      body: JSON.stringify(datos),
+      headers: { 'Content-Type': 'application/json' }
+  })
+      .then(
+          response => {
+              return response.json();
+          }
+      )
+      .catch(err => {
+          response.json({ message: err })
+      });
+
+}
+
+
+
+const cargarServicio = () => {
+  let correo = localStorage.getItem('data-correo');
+  var datos = {
+    proveedor: correo
+  }
+  fetch("http://localhost:5000/servcio/buscar_servicios_proveedores", {
+    method: 'POST',
+    body: JSON.stringify(datos),
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(
+      response => {
+        return response.json();
+      }
+    )
+    .then(
+      json => {
+        
+        let nombreServicio = json.nombre_servicio;
+        let proveedor = json.proveedor;
+        enviarEmail(proveedor, nombreServicio);
+      
+      }
+    )
+}
+
+const enviarEmail = (proveedor, nombreServicio) => {
+  let datos = {
+      correo: correo,
+      proveedor: proveedor,
+      nombreServicio: nombreServicio
+
+  }
+  fetch("http://localhost:5000/usuarios/send_email_calificar", {
       method: 'POST',
       body: JSON.stringify(datos),
       headers: { 'Content-Type': 'application/json' }

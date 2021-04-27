@@ -1,3 +1,9 @@
+const api = axios.create({
+    baseURL: 'http://localhost:5000/',
+    timeout: 10000,
+    headers: { authorization: localStorage.getItem('token') }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const iniciarSessionBtn = document.getElementById("iniciarSesion");
     const correo = document.getElementById("correo");
@@ -6,17 +12,28 @@ document.addEventListener("DOMContentLoaded", () => {
     iniciarSessionBtn.addEventListener("click", async (e) => {
         try {
             if (correo.value && contrasenna.value) {
-                const { data } = await axios.post('http://localhost:5000/usuarios/login', {
+                const { data } = await api.post('usuarios/login', {
                     correo: correo.value,
                     contrasenna: contrasenna.value
                 });
 
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('correo', data.correo);
+
                 const role = data.role.toLowerCase();
 
                 if (role == 'proveedor') {
-                    window.location.href = `${location.origin}/Proveedor/landingPageProveedor/landing_page_proveedor.html`;
+                    const servicio = await api.post('servicios/buscar', 
+                    { proveedor: data.correo },
+                    { headers: { 
+                        authorization: data.token
+                    }});
+
+                    if (servicio.data.proveedor.estado === 'pendiente') {
+                        window.location.href = `${location.origin}/Proveedor/registroServicio/registro_servicio.html`;
+                    } else {
+                        window.location.href = `${location.origin}/Proveedor/landingPageProveedor/landing_page_proveedor.html`;
+                    }
                 } else if (role == 'cliente') {
                     window.location.href = `${location.origin}/Cliente/landingPageCliente/landing_page_cliente.html`;
                 } else if (role == 'administrador') {
@@ -26,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             Swal.fire({
                 title: 'Error!',
-                text: 'Contraseña o correo electrónico incorrectos',
+                text: error.message,
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
               });

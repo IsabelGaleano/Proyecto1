@@ -33,6 +33,7 @@ router.get('/categoria/:categoria', async (req, res) => {
 
 router.post('/buscar', async (req, res) => {
     try {
+        console.log(req.userRole);
         if (!['proveedor'].includes(req.userRole)) {
             res.status(403).json({ message: 'request no autorizado' });
             return;

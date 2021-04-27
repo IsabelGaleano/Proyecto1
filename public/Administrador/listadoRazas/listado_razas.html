@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarListado()">
+<body onload="cargarSeleccion()">
     <!--Navegador-->
     <nav class="container-nav">
         <div class="box-logo container-nav">
@@ -36,8 +36,7 @@
                     <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
                     <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
                     <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
-                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores
-                        calificados</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores calificados</a>
                 </div>
             </div>
             <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
@@ -67,22 +66,16 @@
     </div>
     <div class="input-search">
         <div class="search-icons">
-            <input type="text" class="pw-form-search" placeholder="Buscar razas" />
+            <input id="buscar" type="text" class="pw-form-search" placeholder="Buscar razas" onkeyup="buscar()" />
             <i class="fas fa-search"></i>
         </div>
     </div>
     <div class="filtro pw-form">
         <label for="usuario">Seleccione el tipo </label>
-        <select>
-            <option value="proveedor">Gato</option>
-            <option value="cliente">Perro</option>
-        </select>
+        <select id="seleccion" onclick="obtenerTipos()"></select>
     </div>
 
-    <div class="listado-general" id="listado">
-
-    </div>
-
+    <div class="listado-general" id="listado"></div>
 
     <div class="button-padding">
         <div class="pw-form-inverse">
@@ -119,8 +112,11 @@
             </div>
         </div>
     </div>
+
+    <script src="listado_razas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
+    "></script>
     <!--Footer-->
-    <script src="./listado_razas.js"></script>
 </body>
 
 </html>

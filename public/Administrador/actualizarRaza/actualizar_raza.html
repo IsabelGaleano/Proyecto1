@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="cargarSelect()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -73,12 +73,12 @@
                 <div class="columna-info">
                     <div class="pw-form">
                         <p>Nombre de la raza</p>
-                        <input type="text" name="correo" class="form-validate" id="correo">
+                        <input type="text" name="correo" class="form-validate" id="nombre">
                     </div>
                     <div class="pw-form">
                         <p>Descripción de la raza</p>
                         <div class="text-area">
-                            <textarea name="" id="" cols="30" rows="6" class="form-validate"></textarea>
+                            <textarea name="" id="descripcion" cols="30" rows="6" class="form-validate"></textarea>
                         </div>
                     </div>
                     <div class="button-raza">
@@ -96,7 +96,7 @@
                 <div class="pw-form columna-info">
                     <div class="img-agregar">
                         <p>Imagen raza</p>
-                        <img src="../../img/agregarImg.jpg"/>
+                        <img id="imagen_nueva"/>
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
@@ -105,16 +105,8 @@
                         </div>
                     </div>
                     <div class="pw-form info-radio">
-                        <p>Categoría animal</p>
-                        <label class="container">Gato
-                            <input type="radio" checked="checked" name="gender">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">Perro
-                            <input type="radio" name="gender">
-                            <span class="checkmark"></span>
-                        </label>
-        
+                        <p>Categoría mascota</p>
+                        <select id="seleccion"></select>
                     </div>
 
                     

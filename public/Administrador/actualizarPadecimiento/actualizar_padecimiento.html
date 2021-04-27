@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="cargarSelect()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -73,12 +73,12 @@
                 <div class="columna-info">
                     <div class="pw-form">
                         <p>Nombre del padecimiento</p>
-                        <input type="text" name="correo" class="form-validate" id="correo">
+                        <input id="nombre" type="text" name="correo" class="form-validate" id="correo" disabled="true">
                     </div>
                     <div class="pw-form">
                         <p>Descripción del padecimiento</p>
                         <div class="text-area">
-                            <textarea name="" id="" cols="30" rows="6" class="form-validate"></textarea>
+                            <textarea name="" id="descripcion" cols="30" rows="6" class="form-validate"></textarea>
                         </div>
                     </div>
                     <div class="button-categoria">
@@ -87,7 +87,7 @@
                             <a href="../listadoPadecimientos/listado_padecimientos.html">Cancelar</a>
                         </div>
                         <div class="pw-form button-margin">
-                            <a id="revisarPadecimiento">Actualizar</a>
+                            <a id="revisarPadecimiento" onclick="actualizarPadecimiento()">Actualizar</a>
                         </div>
         
                     </div>
@@ -100,35 +100,19 @@
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
-                                <input type="file" name="myfile" />
+                                <input type="file" id="imagen_nueva" name="myfile" />
                               </div>
                         </div>
                     </div>
 
                     <div class="pw-form info-radio">
                         <p>Categoría animal</p>
-                        <label class="container">Gato
-                            <input type="radio" checked="checked" name="gender">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">Perro
-                            <input type="radio" name="gender">
-                            <span class="checkmark"></span>
-                        </label>
-        
+                        <select id="seleccion"></select>
                     </div>
-
-
-
                 </div>
-
             </div>
-            
-
         </div>
-
     </div>
-
 
     <div class="elFooter">
         <div class="container-footer">
