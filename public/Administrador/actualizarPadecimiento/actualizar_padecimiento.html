@@ -96,11 +96,11 @@
                 <div class="pw-form columna-info">
                     <div class="img-agregar">
                         <p>Imagen padecimiento</p>
-                        <img src="../../img/agregarImg.jpg"/>
+                        <img id="img_categoria_servicio" src="../../img/agregarImg.jpg"/>
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
-                                <input type="file" id="imagen_nueva" name="myfile" />
+                                <input type="file" name="myfile" id="imagen_nueva" onchange="loadImagePreview(this)"/>
                               </div>
                         </div>
                     </div>
