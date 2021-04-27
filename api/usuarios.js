@@ -420,4 +420,44 @@ router.get('/reporte_administrador', (req, res) => {
 });
 
 
+router.put('/actualizar_proveedor', (req, res) => {
+    let correo = req.body.correo;
+    let nombre = req.body.nombre;
+    let apellido1 = req.body.apellido1;
+    let apellido2 = req.body.apellido2;
+    let provincia = req.body.provincia;
+    let canton = req.body.canton;
+    let distrito = req.body.distrito;
+    let imagen_usuario = req.body.imagen_usuario;   
+    let tipo_identificacion = req.body.tipo_identificacion;
+    let identificacion = req.body.identificacion;
+    let fecha_nacimiento = req.body.fecha_nacimiento;
+    let telefono = req.body.telefono;
+    // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
+    Usuario.findOneAndUpdate(
+        {correo: correo}, {$set:{
+            nombre:nombre, 
+            apellido1:apellido1, 
+            apellido2:apellido2, 
+            provincia:provincia,
+            canton:canton,
+            distrito:distrito,
+            imagen_usuario:imagen_usuario,
+            tipo_identificacion:tipo_identificacion,
+            identificacion:identificacion,
+            fecha_nacimiento:fecha_nacimiento,
+            telefono:telefono
+        }
+    }, 
+        {useFindAndModify: false, new: true},  (err, doc) =>{
+      res.json(doc);
+    })
+    .catch(err => {
+        res.json({ message: err })
+    });
+    
+  });
+
+
+
 module.exports = router;
