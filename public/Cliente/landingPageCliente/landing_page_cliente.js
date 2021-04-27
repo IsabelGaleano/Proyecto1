@@ -19,8 +19,8 @@ const cargarListado = () => {
       )
       .then(
           json => {
+            console.log(json);
               let contListado = "";
-                console.log(json);
               for (let i = 0; i < json.length; i+=4) {
                       contListado += `<div class="services" data-aos="fade-right">
                       <div class="categoria">
