@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body onload="cargarCategoriasMascotas()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -101,10 +101,10 @@
                     </div>
 
                     <div class="pw-form">
-                        <p>Seleccione la categoría:</p>
-                        <select id="tipoAnimal">
-                            <option value="Gato">Gato</option>
-                            <option value="Perro">Perro</option>
+                        <p>Selecciona la categoría: </p>
+                        <select name="tipo" class="form-validate" id="tipoAnimal">
+                            <option value="tipo" selected>Seleccionar categoría</option>
+                          
                         </select>
                     </div>
     

@@ -118,6 +118,7 @@ router.put('/actualizar', async (req, res) => {
                 instagram: req.body.instagram,
                 facebook: req.body.facebook,
                 categoria_servicio: servicio.categoria_servicio,
+                estado: "activo"
             }
         }, { useFindAndModify: false, new: true }, (err, doc) => {
             res.json(doc);

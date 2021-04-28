@@ -367,6 +367,35 @@ const getDistrito = idDistito => {
 }
 
 
+const obtenerVacunas = () => {
+  let vacunas = [];
+  var inputElements = document.getElementsByClassName('checkVacunas');
+  for (let i = 0; i < inputElements.length; ++i) {
+      if (inputElements[i].checked) {
+          vacunas.push(inputElements[i].value);
+
+      }
+  }
+
+  return vacunas;
+}
+
+
+
+const obtenerPadecimientos = () => {
+  let padecimientos = [];
+  var inputElements = document.getElementsByClassName('checkPadecimientos');
+  for (let i = 0; i < inputElements.length; ++i) {
+      if (inputElements[i].checked) {
+          padecimientos.push(inputElements[i].value);
+
+      }
+  }
+
+  return padecimientos;
+}
+
+
 
 
 

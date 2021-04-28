@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const listado = `
             <div class="listado">
                 ${ listadoServiciosHtml(servicios[i].imagen, servicios[i].nombre_servicio, servicios[i].descripcion) }
-                ${ servicios[i + 1] ? listadoServiciosHtml(servicios[i].nombre_servicio, servicios[i].nombre, servicios[i].descripcion) : '' }
+                ${ servicios[i + 1] ? listadoServiciosHtml(servicios[i + 1].imagen, servicios[i + 1].nombre_servicio, servicios[i + 1].descripcion) : '' }
             </div>
         `;
 

@@ -115,7 +115,7 @@ router.put('/actualizar', (req, res) => {
   let raza = req.body.raza;
   let padecimientos = req.body.padecimientos;
   let vacunas = req.body.vacunas;
-  let vacunas_dia = req.body.vacunas_dia;
+  let vacunaDia = req.body.vacunaDia;
   let foto_mascota = req.body.foto_mascota;
   let caracteristicas = req.body.caracteristicas;
 
@@ -129,7 +129,7 @@ router.put('/actualizar', (req, res) => {
         raza: raza,
         padecimientos: padecimientos,
         vacunas: vacunas,
-        vacunas_dia: vacunas_dia,
+        vacunaDia: vacunaDia,
         foto_mascota: foto_mascota,
         caracteristicas: caracteristicas,
       },
@@ -192,6 +192,47 @@ router.delete('/eliminar_mascota', (req, res) => {
     });
 });
 
+
+router.put('/actualizar_mascotas', (req, res) => {
+  let duenno = req.body.duenno;
+  let nombre = req.body.nombre;
+  let tipo = req.body.tipo;
+  let raza = req.body.raza;
+  let padecimientos = req.body.padecimientos;
+  let vacunas = req.body.vacunas;
+  let vacunaDia = req.body.vacunaDia;
+  let foto_mascota = req.body.foto_mascota;
+  let caracteristicas = req.body.caracteristicas;
+
+  // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
+  Mascota.findOneAndUpdate(
+    {
+      $and: [
+        { duenno: req.body.duenno },
+        { nombre: req.body.nombre }
+
+      ]
+    },
+    {
+      $set: {
+        nombre: nombre,
+        tipo: tipo,
+        raza: raza,
+        padecimientos: padecimientos,
+        vacunas: vacunas,
+        vacunaDia: vacunaDia,
+        foto_mascota: foto_mascota,
+        caracteristicas: caracteristicas,
+      },
+    },
+    { useFindAndModify: false, new: true },
+    (err, doc) => {
+      res.json(doc);
+    }
+  ).catch(err => {
+    res.json({ message: err });
+  });
+});
 
 
 module.exports = router;

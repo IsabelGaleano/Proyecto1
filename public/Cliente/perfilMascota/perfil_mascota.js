@@ -92,3 +92,8 @@ window.addEventListener('load', e => {
   cargarVacunas();
   cargarPadecimientos();
 })
+
+const mascotas = () => {
+  let nombre = localStorage.getItem('data-mascotaC');
+  localStorage.setItem("nombreMascotaAc", nombre);
+}

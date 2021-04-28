@@ -26,6 +26,29 @@
 
 });*/
 
+
+const cargarCategoriasMascotas = () => {
+    fetch("http://localhost:5000/categorias_mascotas/")
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .then(
+            json => {
+                let listado;
+                for (let i = 0; i < json.length; i++) {
+                    listado = ` <option value="${json[i].nombre}">${json[i].nombre}</option>`
+                    document.getElementById("tipoAnimal").insertAdjacentHTML("beforeend", listado);
+                }
+            }
+        )
+
+}
+
+
+
+
 const api = axios.create({
     baseURL: 'http://localhost:5000/',
     timeout: 10000,
