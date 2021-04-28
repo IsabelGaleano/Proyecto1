@@ -2,6 +2,7 @@ document.querySelector('#contratarServicio').addEventListener('click', e => {
   let servicio = document.getElementById('contratarServicio');
   contratarServicio();
   solicitudProveedor();
+  notificaciones();
   Swal.fire({
     title: 'Éxito!',
     text: 'Servicio contratado',
@@ -15,7 +16,7 @@ document.querySelector('#contratarServicio').addEventListener('click', e => {
 
 const contratarServicio = () => {
   let cliente = localStorage.getItem('correo');
-  let proveedor = "luwiisabel@gmail.com"
+  let proveedor = localStorage.getItem('data-proveedorC');
   var datos = {
       proveedor: proveedor,
       cliente: cliente,
@@ -47,7 +48,7 @@ const contratarServicio = () => {
 
 const solicitudProveedor = () => {
   let cliente = localStorage.getItem('correo');
-  let proveedor = "luwiisabel@gmail.com"
+  let proveedor = localStorage.getItem('data-proveedorC');
   var datos = {
       proveedor: proveedor,
       cliente: cliente,
@@ -72,3 +73,33 @@ const solicitudProveedor = () => {
       });
 
 }
+
+
+
+const notificaciones = () => {
+
+    let proveedor = localStorage.getItem('data-proveedorC');
+    let cliente = localStorage.getItem('correo');
+    var datos = {
+        receptor: proveedor,
+        descripcion: "Ha solicitado su servicio",
+        fecha: new Date(),
+        emisor: cliente
+       
+    }
+  
+    fetch("http://localhost:5000/notificaciones/insertar", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .catch(err => {
+            response.json({ message: err })
+        });
+  
+  }

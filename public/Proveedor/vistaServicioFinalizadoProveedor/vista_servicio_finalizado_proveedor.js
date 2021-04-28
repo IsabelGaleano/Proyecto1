@@ -79,3 +79,12 @@ function initMap(lat, lng) {
   marker.setMap(map);
 
 }
+
+
+const denunciar = () => {
+  let infoCurso = localStorage.getItem('data-fin');
+  let infoCursoForm = JSON.parse(infoCurso);
+  let correo = infoCursoForm.correo;
+  localStorage.setItem('correoDenunciaC', correo);
+
+}

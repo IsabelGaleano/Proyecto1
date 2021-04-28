@@ -8,7 +8,7 @@ const listarServicio = async (idCategoria) => {
   }
 }
 
-const listadoServiciosHtml = (imagen, nombre, descripcion) => {
+const listadoServiciosHtml = (imagen, nombre, descripcion, proveedor) => {
   return `
     <div class="info-listado">
       <div class="img-categoria">
@@ -27,7 +27,7 @@ const listadoServiciosHtml = (imagen, nombre, descripcion) => {
       </div>
 
       <div class="button-ver">
-        <a class="button button-aceptar" href="../contratacionServicios/contratacion_servicio.html"> Ver más</a>
+        <a class="button button-aceptar" href="../contratacionServicios/contratacion_servicio.html" data-proveedorC = "${proveedor}" onclick="ver(this)"> Ver más</a>
       </div>
     </div>
   `;
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       for (let i = 0; i < servicios.length; i += 2) {
         const listado = `
             <div class="listado">
-                ${ listadoServiciosHtml(servicios[i].imagen, servicios[i].nombre_servicio, servicios[i].descripcion) }
-                ${ servicios[i + 1] ? listadoServiciosHtml(servicios[i + 1].imagen, servicios[i + 1].nombre_servicio, servicios[i + 1].descripcion) : '' }
+                ${ listadoServiciosHtml(servicios[i].imagen, servicios[i].nombre_servicio, servicios[i].descripcion, servicios[i].proveedor) }
+                ${ servicios[i + 1] ? listadoServiciosHtml(servicios[i + 1].imagen, servicios[i + 1].nombre_servicio, servicios[i + 1].descripcion, servicios[i + 1].proveedor) : '' }
             </div>
         `;
 
@@ -62,6 +62,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+
+const ver = (element) => {
+  const proveedor = element.getAttribute('data-proveedorC');
+  localStorage.setItem('data-proveedorC', proveedor);
+
+}
 
 
 
