@@ -33,11 +33,9 @@ const cargarListado = () => {
                                         <h4 class="titulo-categoria">${json[i].nombre}</h4>
                                     </div>
                                     <div class="button-accion">
-                                        <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
+                                        <a href="../perfilMascotaAdmi/perfil_mascota_admi.html" data-duennoClienteA = "${json[i].duenno}" data-mascotaClienteA = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-eye"></i></a>
                                     </div>
-                                    <div class="button-accion">
-                                        <a href="#"><i class="fas fa-trash"></i></a>
-                                    </div>
+                                  
                                 </div>
                             <div class="info-listado">
                                 <div class="img-categoria">
@@ -47,10 +45,7 @@ const cargarListado = () => {
                                     <h4 class="titulo-categoria">${json[i + 1].nombre}</h4>
                                 </div>
                                 <div class="button-accion">
-                                    <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
-                                </div>
-                                <div class="button-accion">
-                                    <a href="#"><i class="fas fa-trash"></i></a>
+                                    <a href="../perfilMascotaAdmi/perfil_mascota_admi.html" data-duennoClienteA = "${json[i + 1].duenno}" data-mascotaClienteA = "${json[i + 1].nombre}" onclick="ver(this)"><i class="far fa-eye"></i></a>
                                 </div>
                             </div>
                             </div>`
@@ -65,10 +60,7 @@ const cargarListado = () => {
                                         <h4 class="titulo-categoria">${json[i].nombre}</h4>
                                     </div>
                                     <div class="button-accion">
-                                        <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
-                                    </div>
-                                    <div class="button-accion">
-                                        <a href="#"><i class="fas fa-trash"></i></a>
+                                        <a href="../perfilMascotaAdmi/perfil_mascota_admi.html" data-duennoClienteA = "${json[i].duenno}" data-mascotaClienteA = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-eye"></i></a>
                                     </div>
                                 </div>`
 
@@ -155,10 +147,7 @@ const buscar = () => {
                                             <h4 class="titulo-categoria">${nombres[l]}</h4>
                                         </div>
                                         <div class="button-accion">
-                                            <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
-                                        </div>
-                                        <div class="button-accion">
-                                            <a href="#"><i class="fas fa-trash"></i></a>
+                                            <a href="../perfilMascotaAdmi/perfil_mascota_admi.html" data-duennoClienteA = "${json[i].duenno}" data-mascotaClienteA = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-eye"></i></a>
                                         </div>
                                     </div>
                                 <div class="info-listado">
@@ -169,10 +158,7 @@ const buscar = () => {
                                         <h4 class="titulo-categoria">${nombres[l + 1]}</h4>
                                     </div>
                                     <div class="button-accion">
-                                        <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
-                                    </div>
-                                    <div class="button-accion">
-                                        <a href="#"><i class="fas fa-trash"></i></a>
+                                        <a href="../perfilMascotaAdmi/perfil_mascota_admi.html" data-duennoClienteA = "${json[i + 1].duenno}" data-mascotaClienteA = "${json[i + 1].nombre}" onclick="ver(this)"><i class="far fa-eye"></i></a>
                                     </div>
                                 </div>
                                 </div>`;
@@ -186,10 +172,7 @@ const buscar = () => {
                                                 <h4 class="titulo-categoria">${nombres[l]}</h4>
                                             </div>
                                             <div class="button-accion">
-                                                <a href="../perfilMascotaAdmi/perfil_mascota_admi.html"><i class="far fa-eye"></i></a>
-                                            </div>
-                                            <div class="button-accion">
-                                                <a href="#"><i class="fas fa-trash"></i></a>
+                                                <a href="../perfilMascotaAdmi/perfil_mascota_admi.html" data-duennoClienteA = "${json[i].duenno}" data-mascotaClienteA = "${json[i].nombre}" onclick="ver(this)"><i class="far fa-eye"></i></a>
                                             </div>
                                         </div>`
                         }
@@ -199,4 +182,16 @@ const buscar = () => {
                 }
             }
         )
+}
+
+const ver = (element) => {
+    const duenno = element.getAttribute('data-duennoClienteA');
+    const nombreMascota = element.getAttribute('data-mascotaClienteA');
+    var mascota = {
+        duenno: duenno,
+        nombreMascota: nombreMascota
+    }
+    var jsonMascota = JSON.stringify(mascota);
+    localStorage.setItem("mascotaClienteA", jsonMascota);
+
 }
