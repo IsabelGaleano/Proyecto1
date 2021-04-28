@@ -185,7 +185,7 @@ const buscar = () => {
                                                     <h4 class="titulo-categoria">${nombres[l]}</h4>
                                                 </div>
                                                 <div class="button-accion">
-                                                    <a href="../perfilMascota/perfil_mascota.html"  data-nombre = "${nombres[l]}" onclick="ver(this)">i class="far fa-eye"></i></a>
+                                                    <a href="../perfilMascota/perfil_mascota.html"  data-nombre = "${nombres[l]}" onclick="ver(this)"><i class="far fa-eye"></i></a>
                                                 </div>
                                                 <div class="button-accion">
                                                     <a href="#" onclick="eliminar('${nombres[l]}')"><i class="fas fa-trash"></i></a>
