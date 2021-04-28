@@ -81,14 +81,14 @@ const cargarPerfil = () => {
 
                 let fechaNacimiento;
                 for (let i = 0; json.length > i; i++) {
-                    fechaNacimiento = obtenerFecha(json[i].fecha_nacimiento);
+                    fechaNacimiento = format(json[i].fecha_nacimiento);
                     document.getElementById('nombre').value = json[i].nombre;
                     document.getElementById('apellido1').value = json[i].apellido1;
                     document.getElementById('apellido2').value = json[i].apellido2;
                     document.getElementById('correo').value = json[i].correo;
                     document.getElementById('identificacion').value = json[i].identificacion;
                     document.getElementById('telefono').value = json[i].telefono;
-                    fechaNacimiento = obtenerFecha(json[i].fecha_nacimiento)
+                    fechaNacimiento = format(json[i].fecha_nacimiento)
                     document.getElementById('fecha_nacimiento').value = fechaNacimiento;
                     buscarTipoIdenficacion(json[i].tipo_identificacion);
                     setProvincia(json[i].provincia, json[i].canton, json[i].distrito);
@@ -263,6 +263,15 @@ const setProvincia = (nameProvincia, nameCanton, nameDistrito) => {
   
   }
   
+  function format(date) {
+    date = new Date(date);
+  
+    var day = ('0' + date.getDate()).slice(-2);
+    var month = ('0' + (date.getMonth() + 1)).slice(-2);
+    var year = date.getFullYear();
+  
+    return year + '-' + month + '-' + day;
+  }
   
 const buscarTipoIdenficacion = tipoIdentificacion => {
     var select = document.getElementById("tipo_identificacion");
