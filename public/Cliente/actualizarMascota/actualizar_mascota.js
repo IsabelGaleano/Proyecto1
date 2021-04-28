@@ -2,7 +2,8 @@ document.querySelector('#revisarMascota').addEventListener('click', e => {
     let revisar = document.getElementById("revisarMascota");
     let error = revisarForm();
     if (!error) {
-
+       
+        actualizarMascota();
         revisar.setAttribute("href", "../perfilMascota/perfil_mascota.html")
 
 
@@ -22,10 +23,9 @@ document.querySelector('#revisarMascota').addEventListener('click', e => {
 
 
 const actualizarMascota = () => {
-    var mascotaJSON = localStorage.getItem("key-data-mascotas");
-    var mascota = JSON.parse(mascotaJSON);
+    let duenno = localStorage.getItem('correo');
     var infoMascota = {
-        duenno: mascota.correo,
+        duenno: duenno,
         nombre: document.getElementById("nombre").value,
         tipo: document.getElementById("categoriaMascota").value,
         raza: document.getElementById("raza").value,
@@ -63,7 +63,6 @@ const radioValue = () => {
 }
 
 
-
 const cargarPerfil = () => {
     let duenno = localStorage.getItem('correo');
     let nombre = localStorage.getItem('nombreMascotaAc');
@@ -91,7 +90,8 @@ const cargarPerfil = () => {
                     setCategorias(json[i].tipo);
                     buscarValorVacuna(json[i].vacunaDia)
                     document.getElementById('caracteristicas').value = json[i].caracteristicas;
-
+                    //resetPadecimientos(json[i].padecimientos);
+                    //resetVacunas(json[i].vacunas);
 
                 }
 
@@ -187,6 +187,7 @@ window.addEventListener('load', e => {
     cargarPadecimientos();
     cargarCategoriasMascotas();
     cargarRazas();
+
 })
 
 
@@ -230,21 +231,6 @@ const buscarValorVacuna = valorVacuna => {
 
 }
 
-
-const radioValue = () => {
-    let radios = document.getElementsByName('vacunas');
-    let radio;
-    for (i = 0; i < radios.length; i++) {
-        if (radios[i].checked) {
-            radio = radios[i].value;
-            return radio;
-        }
-
-    }
-
-}
-
-
 const obtenerVacunas = () => {
     let vacunas = [];
     var inputElements = document.getElementsByClassName('checkVacunas');
@@ -271,5 +257,32 @@ const obtenerPadecimientos = () => {
     }
 
     return padecimientos;
+}
+
+
+
+const resetPadecimientos = padecimientos => {
+    var inputElements = document.getElementsByClassName('checkPadecimientos').value;
+    console.log(inputElements)
+    console.log(padecimientos)
+    for (let i = 0; i < inputElements.length; ++i) {
+        if (inputElements[i] == padecimientos[i]) {
+            inputElements[i].checked = true;
+
+        }
+    }
+
+
+}
+
+const resetVacunas = vacunas => {
+    var inputElements = document.getElementsByClassName('checkVacunas').value;
+    console.log(vacunas)
+    for (let i = 0; i < inputElements.length; ++i) {
+        if (inputElements[i] == vacunas[i]) {
+            inputElements[i].checked = true;
+        }
+    }
+
 }
 
