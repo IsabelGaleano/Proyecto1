@@ -1,301 +1,303 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../../pwcomponentes.css">
-        <link rel="stylesheet" href="../../Librerias/Carousel/carousel.css">
-        <link rel="stylesheet" href="../../Librerias/navProveedor/nav_proveedor.css">
-        <link rel="stylesheet" href="../../Librerias/footer/footer.css">
-        <link rel="stylesheet" href="./registro_servicio.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap"
-            rel="stylesheet">
-    </head>
 
-    <body>
-        <!-- Nav -->
-        <nav class="container-nav">
-            <div class="box-logo container-nav">
-                <a href="../landingPageProveedor/landing_page_proveedor.html">
-                    <img src="../img/logoPets.png" />
-                </a>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../pwcomponentes.css">
+    <link rel="stylesheet" href="../../Librerias/Carousel/carousel.css">
+    <link rel="stylesheet" href="../../Librerias/navProveedor/nav_proveedor.css">
+    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+    <link rel="stylesheet" href="./registro_servicio.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Nav -->
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageProveedor/landing_page_proveedor.html">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+            <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
+            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="user">
+                <a href="#"><img id="logged_user_img" src="" /></a>
+               
             </div>
-            <div class="container-nav box-anchors">
-                <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
-                <a href="#"><i class="far fa-bell"></i></a>
-                <div class="user">
-                    <a href="#"><img src="../img/andres.jpeg" /></a>
-                </div>
-                <div class="final-dropdown">
-                    <span href="opcion2" class="final-dropdown-hover">Andrés</span>
-                    <div class="final-dropdown-menu">
-                        <a href="../perfilProveedor/perfil_proveedor.html">Perfil</a>
-                        <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes
-                            pendientes</a>
-                        <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
-                        <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios
-                            anteriores</a>
-                        <a href="../listadoPagosPendientes/listado_pagos_pendientes.html">Pagos pendientes</a>
-                        <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
-                    </div>
+            <div class="final-dropdown">
+                <span href="opcion2" id="logged_user_name"  class="final-dropdown-hover"></span>
+                <div class="final-dropdown-menu">
+                    <a href="../perfilProveedor/perfil_proveedor.html">Perfil</a>
+                    <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes
+                        pendientes</a>
+                    <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
+                    <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios
+                        anteriores</a>
+                    <a href="../listadoPagosPendientes/listado_pagos_pendientes.html">Pagos pendientes</a>
+                    <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
 
-        <!-- Formulario -->
-        <h1 class="titulo">Continue con el registro de su servicio</h1>
-        <div class="wrapper formulario">
-            <div id="invalido" class="invalido ocultar">
-                <h3>Verifique que el formulario esté completo</h3>
-            </div>
+    <!-- Formulario -->
+    <h1 class="titulo">Continue con el registro de su servicio</h1>
+    <div class="wrapper formulario">
+        <div id="invalido" class="invalido ocultar">
+            <h3>Verifique que el formulario esté completo</h3>
+        </div>
 
-            <!-- Izquierda -->
-            <div class="form-izquierda float">
-                <form onsubmit="revisar()">
-                    <div class="pw-form">
-                        <p>Categoría del servicio</p>
-                        <select id="seleccionar" class="espaciar-1">
-                            <option value="none">Seleccione una categoría</option>
-                        </select>
-                    </div>
-
-                    <div class="pw-form">
-                        <p>Descripción del servicio</p>
-                        <div class="text-area">
-                            <textarea name="" id="descripcionServicio" cols="38" rows="6"
-                                class="form-validate"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="pw-form">
-                        <p>Costo del servicio</p>
-                        <input class="costo espaciar-1 form-validate" type="number" id="costo">
-                    </div>
-
-                    <div class="pw-form info-radio">
-                        <p>El servicio lo provee a nivel:</p>
-                        <label class="container">Nacional
-                            <input type="radio" checked="checked" name="nivelServicio" value="nacional">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">Cantón
-                            <input type="radio" name="nivelServicio" value="canton">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">Distrito
-                            <input type="radio" name="nivelServicio" value="distrito">
-                            <span class="checkmark"></span>
-                        </label>
-
-                    </div>
-
-                    <div class="pw-form">
-                        <p>Fotos del servicio</p>
-                    </div>
-
-                    <div class="swiper-container center" style="width:320px;height:120px;border:1px solid #BEBEBE;">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="../img/simboloImg.png">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="../img/simboloImg.png">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="../img/simboloImg.png">
-                            </div>
-                        </div>
-                    </div> <br />
-                    <div class="pw-form-inverse">
-                        <div class="upload-btn-wrapper">
-                            <button class="btn">Agregar imagen</button>
-                            <input type="file" name="myfile" id="fotoServicio" multiple />
-                        </div>
-                    </div>
-            </div>
-
-            <p class="espaciar-1">Horario del servicio</p>
-            <!-- Derecha -->
-            <div class="form-derecha float">
-
-                <div class="wrapper">
-                    <div class="dias float">
-                        Días
-                    </div>
-
-                    <div class="nombre-dia float">
-                        <input name="dia" class="checkbox" type="checkbox" value="lunes"> Lunes
-                    </div>
-
-                    <div class="hora float pw-form pw-form-hora">
-                        <input id="lunes" type="text" placeholder="8:00 AM a 5:00 PM">
-                    </div>
+        <!-- Izquierda -->
+        <div class="form-izquierda float">
+            <form onsubmit="revisar()">
+                <div class="pw-form">
+                    <p>Categoría del servicio</p>
+                    <select id="seleccionar" class="espaciar-1">
+                        <option value="none">Seleccione una categoría</option>
+                    </select>
                 </div>
-
-                <div class="wrapper">
-                    <div class="dias float">
-                        <p></p>
-                    </div>
-
-                    <div class="nombre-dia float">
-                        <input name="dia" class="checkbox" type="checkbox" value="martes"> Martes
-                    </div>
-
-                    <div class="hora float pw-form pw-form-hora">
-                        <input id="martes" type="text" placeholder="8:00 AM a 5:00 PM">
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="dias float">
-                        <p></p>
-                    </div>
-
-                    <div class="nombre-dia float">
-                        <input name="dia" class="checkbox" type="checkbox" value="miercoles"> Miércoles
-                    </div>
-
-                    <div class="hora float pw-form pw-form-hora">
-                        <input id="miercoles" type="text" placeholder="8:00 AM a 5:00 PM">
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="dias float">
-                        <p></p>
-                    </div>
-
-                    <div class="nombre-dia float">
-                        <input name="dia" class="checkbox" type="checkbox" value="jueves"> Jueves
-                    </div>
-
-                    <div class="hora float pw-form pw-form-hora">
-                        <input id="jueves" type="text" placeholder="8:00 AM a 5:00 PM">
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="dias float">
-                        <p></p>
-                    </div>
-
-                    <div class="nombre-dia float">
-                        <input name="dia" class="checkbox" type="checkbox" value="viernes"> Viernes
-                    </div>
-
-                    <div class="hora float pw-form pw-form-hora">
-                        <input id="viernes" type="text" placeholder="8:00 AM a 5:00 PM">
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="dias float">
-                        <p></p>
-                    </div>
-
-                    <div class="nombre-dia float">
-                        <input name="dia" class="checkbox" type="checkbox" value="sabado"> Sábado
-                    </div>
-
-                    <div class="hora float pw-form pw-form-hora">
-                        <input id="sabado" type="text" placeholder="8:00 AM a 5:00 PM">
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="dias float">
-                        <p></p>
-                    </div>
-
-                    <div class="nombre-dia float">
-                        <input name="dia" class="checkbox" type="checkbox" value="domingo"> Domingo
-                    </div>
-
-                    <div class="hora float espaciar-1 pw-form pw-form-hora">
-                        <input id="domingo" type="text" placeholder="8:00 AM a 5:00 PM">
-                    </div>
-                </div>
-
-                <p class="espaciar-1">Medios de contacto</p>
-
-                <div class="wrapper">
-                    <div class="logo-form float">
-                        <img src="../img/whatsapp.png">
-                    </div>
-
-                    <div class="input-redes float pw-form">
-                        <input class="espaciar-3 form-validate" type="text" id="whatsapp">
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="logo-form float">
-                        <img src="../img/instagram.png">
-                    </div>
-
-                    <div class="input-redes float pw-form">
-                        <input class="espaciar-3 form-validate" type="text" id="instagram">
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="logo-form float">
-                        <img src="../img/facebook.png">
-                    </div>
-
-                    <div class="input-redes float pw-form">
-                        <input class="espaciar-3 form-validate" type="text" id="facebook">
-                    </div>
-                </div>
-
 
                 <div class="pw-form">
-                    <a id="registrarServicio">Guardar registro</a>
+                    <p>Descripción del servicio</p>
+                    <div class="text-area">
+                        <textarea name="" id="descripcionServicio" cols="38" rows="6" class="form-validate"></textarea>
+                    </div>
                 </div>
-            </div>
+
+                <div class="pw-form">
+                    <p>Costo del servicio</p>
+                    <input class="costo espaciar-1 form-validate" type="number" id="costo">
+                </div>
+
+                <div class="pw-form info-radio">
+                    <p>El servicio lo provee a nivel:</p>
+                    <label class="container">Nacional
+                        <input type="radio" checked="checked" name="nivelServicio" value="nacional">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Cantón
+                        <input type="radio" name="nivelServicio" value="canton">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Distrito
+                        <input type="radio" name="nivelServicio" value="distrito">
+                        <span class="checkmark"></span>
+                    </label>
+
+                </div>
+
+                <div class="pw-form">
+                    <p>Fotos del servicio</p>
+                </div>
+
+                <div class="swiper-container center" style="width:320px;height:120px;border:1px solid #BEBEBE;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../img/simboloImg.png">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../img/simboloImg.png">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../img/simboloImg.png">
+                        </div>
+                    </div>
+                </div> <br />
+                <div class="pw-form-inverse">
+                    <div class="upload-btn-wrapper">
+                        <button class="btn">Agregar imagen</button>
+                        <input type="file" name="myfile" id="fotoServicio" multiple />
+                    </div>
+                </div>
         </div>
 
-        <!-- Footer -->
-        <div class="container-footer">
-            <div class="logo">
-                <img src="../img/mundoLogo.png" />
+        <p class="espaciar-1">Horario del servicio</p>
+        <!-- Derecha -->
+        <div class="form-derecha float">
+
+            <div class="wrapper">
+                <div class="dias float">
+                    Días
+                </div>
+
+                <div class="nombre-dia float">
+                    <input name="dia" class="checkbox" type="checkbox" value="lunes"> Lunes
+                </div>
+
+                <div class="hora float pw-form pw-form-hora">
+                    <input id="lunes" type="text" placeholder="8:00 AM a 5:00 PM">
+                </div>
             </div>
-            <div class="links">
-                <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
-                <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
-                <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+
+            <div class="wrapper">
+                <div class="dias float">
+                    <p></p>
+                </div>
+
+                <div class="nombre-dia float">
+                    <input name="dia" class="checkbox" type="checkbox" value="martes"> Martes
+                </div>
+
+                <div class="hora float pw-form pw-form-hora">
+                    <input id="martes" type="text" placeholder="8:00 AM a 5:00 PM">
+                </div>
             </div>
-            <div class="redes">
-                <div class="icon">
-                    <img src="../img/facebook.png" />
-                    <p>Pets World</p>
+
+            <div class="wrapper">
+                <div class="dias float">
+                    <p></p>
                 </div>
-                <div class="icon">
-                    <img src="../img/instagram.png" />
-                    <p>Pets World</p>
+
+                <div class="nombre-dia float">
+                    <input name="dia" class="checkbox" type="checkbox" value="miercoles"> Miércoles
                 </div>
-                <div class="icon">
-                    <img src="../img/whatsapp.png" />
-                    <p>+506 8564-5324</p>
+
+                <div class="hora float pw-form pw-form-hora">
+                    <input id="miercoles" type="text" placeholder="8:00 AM a 5:00 PM">
                 </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="dias float">
+                    <p></p>
+                </div>
+
+                <div class="nombre-dia float">
+                    <input name="dia" class="checkbox" type="checkbox" value="jueves"> Jueves
+                </div>
+
+                <div class="hora float pw-form pw-form-hora">
+                    <input id="jueves" type="text" placeholder="8:00 AM a 5:00 PM">
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="dias float">
+                    <p></p>
+                </div>
+
+                <div class="nombre-dia float">
+                    <input name="dia" class="checkbox" type="checkbox" value="viernes"> Viernes
+                </div>
+
+                <div class="hora float pw-form pw-form-hora">
+                    <input id="viernes" type="text" placeholder="8:00 AM a 5:00 PM">
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="dias float">
+                    <p></p>
+                </div>
+
+                <div class="nombre-dia float">
+                    <input name="dia" class="checkbox" type="checkbox" value="sabado"> Sábado
+                </div>
+
+                <div class="hora float pw-form pw-form-hora">
+                    <input id="sabado" type="text" placeholder="8:00 AM a 5:00 PM">
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="dias float">
+                    <p></p>
+                </div>
+
+                <div class="nombre-dia float">
+                    <input name="dia" class="checkbox" type="checkbox" value="domingo"> Domingo
+                </div>
+
+                <div class="hora float espaciar-1 pw-form pw-form-hora">
+                    <input id="domingo" type="text" placeholder="8:00 AM a 5:00 PM">
+                </div>
+            </div>
+
+            <p class="espaciar-1">Medios de contacto</p>
+
+            <div class="wrapper">
+                <div class="logo-form float">
+                    <img src="../img/whatsapp.png">
+                </div>
+
+                <div class="input-redes float pw-form">
+                    <input class="espaciar-3 form-validate" type="text" id="whatsapp">
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="logo-form float">
+                    <img src="../img/instagram.png">
+                </div>
+
+                <div class="input-redes float pw-form">
+                    <input class="espaciar-3 form-validate" type="text" id="instagram">
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="logo-form float">
+                    <img src="../img/facebook.png">
+                </div>
+
+                <div class="input-redes float pw-form">
+                    <input class="espaciar-3 form-validate" type="text" id="facebook">
+                </div>
+            </div>
+
+
+            <div class="pw-form">
+                <a id="registrarServicio">Guardar registro</a>
             </div>
         </div>
+    </div>
 
-        <!-- Java Script -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+    <!-- Footer -->
+    <div class="container-footer">
+        <div class="logo">
+            <img src="../img/mundoLogo.png" />
+        </div>
+        <div class="links">
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+        </div>
+        <div class="redes">
+            <div class="icon">
+                <img src="../img/facebook.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/instagram.png" />
+                <p>Pets World</p>
+            </div>
+            <div class="icon">
+                <img src="../img/whatsapp.png" />
+                <p>+506 8564-5324</p>
+            </div>
+        </div>
+    </div>
 
-        <!-- Usar en este mismo order -->
-        <script src="../../Librerias/General/cerrarSesion.js"></script>
-        <script src="../../Librerias/jwt-decode.js"></script>
-        <script src="../../Librerias/General/utils.js"></script>
+    <!-- Java Script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
 
-        <script src="./registro_servicio.js"></script>
-    </body>
+    <!-- Usar en este mismo order -->
+    <script src="../../Librerias/General/cerrarSesion.js"></script>
+    <script src="../../Librerias/jwt-decode.js"></script>
+    <script src="../../Librerias/General/utils.js"></script>
+
+    <script src="./registro_servicio.js"></script>
+    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
+</body>
+
 </html>
