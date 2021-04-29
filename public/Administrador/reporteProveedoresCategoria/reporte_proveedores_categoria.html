@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,8 @@
     <link rel="stylesheet" href="reporte_proveedores_categoria.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<body onload="cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -38,17 +40,32 @@
                     <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
                     <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
                     <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
-                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores calificados</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores
+                        calificados</a>
                 </div>
             </div>
             <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
-            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html"
+                class="final-dropdown-hover">Solicitudes</a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
+                <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
@@ -86,7 +103,7 @@
 
     <div class="container-footer">
         <div class="logo">
-            <img src="../img/mundoLogo.png"/>
+            <img src="../img/mundoLogo.png" />
         </div>
         <div class="links">
             <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
@@ -95,15 +112,15 @@
         </div>
         <div class="redes">
             <div class="icon">
-                <img src="../img/facebook.png"/>
+                <img src="../img/facebook.png" />
                 <p>Pets World</p>
             </div>
             <div class="icon">
-                <img src="../img/instagram.png"/>
+                <img src="../img/instagram.png" />
                 <p>Pets World</p>
             </div>
             <div class="icon">
-                <img src="../img/whatsapp.png"/>
+                <img src="../img/whatsapp.png" />
                 <p>+506 8564-5324</p>
             </div>
         </div>
@@ -114,9 +131,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
     <script src="../../Librerias/ExportFile/exportExcel.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js" integrity="sha512-wBcFatf7yQavHQWtf4ZEjvtVz4XkYISO96hzvejfh18tn3OrJ3sPBppH0B6q/1SHB4OKHaNNUKqOmsiTGlOM/g==" crossorigin="anonymous"></script>
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"
+        integrity="sha512-wBcFatf7yQavHQWtf4ZEjvtVz4XkYISO96hzvejfh18tn3OrJ3sPBppH0B6q/1SHB4OKHaNNUKqOmsiTGlOM/g=="
+        crossorigin="anonymous"></script>
     <script src="./reporte_proveedores_categoria.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
-    
+
 </body>
+
 </html>

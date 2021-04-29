@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarPerfil()">
+<body onload="cargarPerfil();cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -39,17 +39,32 @@
                     <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
                     <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
                     <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
-                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores calificados</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores
+                        calificados</a>
                 </div>
             </div>
             <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
-            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html"
+                class="final-dropdown-hover">Solicitudes</a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
+                <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
@@ -97,9 +112,9 @@
             </div>
 
         </div>
-        
+
         <div class="info-columna">
-           
+
             <div class="info-perfil">
                 <p><span class="titulo-info">Características especiales:</p>
             </div>
@@ -116,7 +131,7 @@
         </div>
     </div>
 
-</div>
+    </div>
     <div class="container-footer">
         <div class="logo">
             <img src="../img/mundoLogo.png" />
@@ -147,6 +162,8 @@
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="./perfil_mascota_admi.js"></script>
+
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>
 

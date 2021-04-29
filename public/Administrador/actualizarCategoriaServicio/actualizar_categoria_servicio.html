@@ -17,7 +17,7 @@
 
 </head>
 
-<body onload="cargarCategoria()">
+<body onload="cargarCategoria();cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -43,17 +43,33 @@
                     <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
                     <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
                     <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
-                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores calificados</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores
+                        calificados</a>
                 </div>
             </div>
             <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
-            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html"
+                class="final-dropdown-hover">Solicitudes</a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
+                <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
@@ -83,26 +99,26 @@
                         </div>
                     </div>
                     <div class="button-categoria">
-                        
+
                         <div class="pw-form-inverse button-margin">
                             <a href="../listadoCategoriaServicios/listado_categorias_servicios.html">Cancelar</a>
                         </div>
                         <div class="pw-form button-margin">
                             <a id="revisarCategoria">Actualizar</a>
                         </div>
-        
+
                     </div>
-                   
+
                 </div>
                 <div class="pw-form columna-info">
                     <div class="img-agregar">
                         <p>Imagen categoría</p>
-                        <img id="img_categoria_servicio" src="../../img/agregarImg.jpg"/>
+                        <img id="img_categoria_servicio" src="../../img/agregarImg.jpg" />
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
-                                <input type="file" name="myfile" id="imagen_nueva" onchange="loadImagePreview(this)"/>
-                              </div>
+                                <input type="file" name="myfile" id="imagen_nueva" onchange="loadImagePreview(this)" />
+                            </div>
                         </div>
                     </div>
 
@@ -110,7 +126,7 @@
                 </div>
 
             </div>
-            
+
 
         </div>
 
@@ -145,6 +161,8 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
+
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="./actualizar_categoria_servicio.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
