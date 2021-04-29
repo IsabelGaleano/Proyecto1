@@ -82,34 +82,31 @@
             </div>
             <div class="titulo-servicio">
                 <p class="titulo-info">Descripción del servicio</p>
-                <textarea name="descripcion" rows="6" cols="50" readonly>Peluquería exclusivamente para perros y gatos
+                <textarea name="descripcion" rows="6" cols="50" readonly id="descripcion">
                 </textarea>
             </div>
             <div class="ubicacion-servicio">
                 <p class="titulo-info">Ubicación del servicio</p>
-                <textarea name="w3review" rows="6" cols="50" readonly>Del parque de Vargas Araya 50 mts Noroeste
+                <textarea name="w3review" rows="6" cols="50" readonly id="ubicacionServicio">
                 </textarea>
             </div>
 
-            <div class="mapa-servicio">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15720.318124809437!2d-84.0484498!3d9.9273345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scr!4v1615836128481!5m2!1ses!2scr"
-                    width="375" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
+            <div class="info-perfil mapa-servicio">
+                <div id="map"></div>
             </div>
 
         </div>
 
         <div class="info-izquierda">
             <div class="titulo-servicio">
-                <p><span class="titulo-info">Nombre del servicio: </span> <span>Peluquería Cariñosita</span></p>
+                <p><span class="titulo-info">Nombre del servicio: </span> <span id="nombreServicio"> </span></p>
             </div>
 
             <div class="titulo-servicio">
-                <p><span class="titulo-info">Costo del servicio: </span> <span>$15.00</span></p>
+                <p><span class="titulo-info">Costo del servicio: </span> <span id="precioServicio"></span></p>
             </div>
             <div class="titulo-servicio">
-                <p><span class="titulo-info">Categoría del servicio: </span> <span>Estética</span></p>
+                <p><span class="titulo-info">Categoría del servicio: </span> <span id="categoria_servicio"></span></p>
             </div>
 
             <div class="nivel-nacional">
@@ -122,18 +119,17 @@
                 <p class="titulo-info">Medios de Contacto</p>
                 <div class="icon-servicio">
                     <img src="../img/instagram.png" />
-                    <p>Peluquería Cariñosita</p>
+                    <p><span id="instagram"></span></p>
                 </div>
                 <div class="icon-servicio">
                     <img src="../img/facebook.png" />
-                    <p>Peluquería Cariñosita</p>
+                    <p><span id="facebook"></span></p>
                 </div>
                 <div class="icon-servicio">
                     <img src="../img/whatsapp.png" />
-                    <p>+506 8564-5324</p>
+                    <p><span id="numeroCelular"></span></p>
                 </div>
             </div>
-
 
         </div>
         <div class="info-derecha">
@@ -141,68 +137,67 @@
             <div class="horario">
                 <div class="horario-servicio pw-">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia1" value="Lunes" checked disabled> Lunes</p>
+                        <p><input id="checkLunes" type="checkbox" name="dia1" checked disabled> Lunes</p>
                     </div>
                     <div class="valor-horario">
-                        <p>9:00 AM a 5:00 PM</p>
+                        <p><span id="horario_servicio_lunes"></span></p>
+                    </div>
+                </div>  
+
+                <div class="horario-servicio">
+                    <div class="checkbox-dia">
+                        <p><input id="checkMartes" type="checkbox" name="dia2" checked disabled> Martes</p>
+                    </div>
+                    <div class="valor-horario">
+                        <p><span id="horario_servicio_martes"></p>
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia2" value="Martes" checked disabled> Martes</p>
+                        <p><input id="checkMiercoles" type="checkbox" name="dia3" checked disabled> Miércoles</p>
                     </div>
                     <div class="valor-horario">
-                        <p>9:00 AM a 5:00 PM</p>
+                        <p><span id="horario_servicio_miercoles"></p>
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia3" value="Miercoles" checked disabled> Miércoles</p>
+                        <p><input id="checkJueves" type="checkbox" name="dia4" checked disabled> Jueves</p>
                     </div>
                     <div class="valor-horario">
-                        <p>9:00 AM a 5:00 PM</p>
+                        <p><span id="horario_servicio_jueves"></p>
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia4" value="Jueves" checked disabled> Jueves</p>
+                        <p><input id="checkViernes" type="checkbox" name="dia5" checked disabled> Viernes</p>
                     </div>
                     <div class="valor-horario">
-                        <p>9:00 AM a 5:00 PM</p>
+                        <p><span id="horario_servicio_viernes"></p>
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia5" value="Viernes" checked disabled> Viernes</p>
+                        <p><input id="checkSabado" type="checkbox" name="dia6" checked disabled> Sábado</p>
                     </div>
                     <div class="valor-horario">
-                        <p>9:00 AM a 5:00 PM</p>
+                        <p><span id="horario_servicio_sabado"></p>
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia6" value="Sábado" checked disabled> Sábado</p>
+                        <p><input id="checkDomingo" type="checkbox" name="dia7" disabled> Domingo</p>
                     </div>
                     <div class="valor-horario">
-                        <p>9:00 AM a 5:00 PM</p>
-                    </div>
-                </div>
-
-                <div class="horario-servicio">
-                    <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia7" value="Domingo" disabled> Domingo</p>
-                    </div>
-                    <div class="valor-horario">
-
+                        <p><span id="horario_servicio_domingo"></p>
                     </div>
                 </div>
             </div>
-
 
         </div>
     </div>
@@ -234,6 +229,8 @@
     </div>
 
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+    async></script>
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="perfil_servicio_proveedor.js"></script>

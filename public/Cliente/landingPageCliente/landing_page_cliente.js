@@ -26,7 +26,7 @@ const cargarListado = () => {
                       <div class="categoria">
                           <div class="img-categoria">
                               <p>${json[i].nombre}</p>
-                              <img src="./../../uploads/${json[i].imagen}" width="400" height="auto"/>
+                              <img src="${json[i].imagen}" width="400" height="auto"/>
                               <div class="capa-transparente">
                                   <a href="../listadoServicios/listado_servicios.html?id=${json[i]._id}" class="button-crear--cuenta">Ver</a>
                               </div>
