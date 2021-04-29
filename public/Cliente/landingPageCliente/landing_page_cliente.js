@@ -19,14 +19,14 @@ const cargarListado = () => {
       )
       .then(
           json => {
+            console.log(json);
               let contListado = "";
-                console.log(json);
               for (let i = 0; i < json.length; i+=4) {
                       contListado += `<div class="services" data-aos="fade-right">
                       <div class="categoria">
                           <div class="img-categoria">
                               <p>${json[i].nombre}</p>
-                              <img src="${json[i].imagen}" />
+                              <img src="./../../uploads/${json[i].imagen}" width="400" height="auto"/>
                               <div class="capa-transparente">
                                   <a href="../listadoServicios/listado_servicios.html?id=${json[i]._id}" class="button-crear--cuenta">Ver</a>
                               </div>

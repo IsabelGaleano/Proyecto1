@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarInfoProveedorPerfil()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageProveedor/landing_page_proveedor.html">
@@ -25,10 +25,11 @@
             <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
             <a href="#"><i class="far fa-bell"></i></a>
             <div class="user">
-                <a href="#"><img src="../img/andres.jpeg" /></a>
+                <a href="#"><img id="logged_user_img" src="" /></a>
+               
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" class="final-dropdown-hover">Andrés</span>
+                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes pendientes</a>
                     <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
@@ -48,7 +49,7 @@
         <div class="proveedor">
             <div class="avatar-proveedor">
                 <a href="#"><img src="../img/andres.jpeg"/></a>
-                <p class="titulo-star">Andrés Vargas Calvo</p>
+                <p class="titulo-star" id="nombrePerfil"></p>
                 <p class="titulo-star">Excelente</p>
             </div>
             <div class="estrellas">
@@ -69,16 +70,16 @@
         <div class="info-columna">
 
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-envelope"></i>Correo electrónico: </span> <span>avargasc@gmail.com</span></p>
+                <p><span class="titulo-info"><i class="far fa-envelope"></i>Correo electrónico: </span> <span id="correo"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-id-badge"></i>Tipo de identificación: </span> <span>Cédula</span></p>
+                <p><span class="titulo-info"><i class="far fa-id-badge"></i>Tipo de identificación: </span> <span id="tipo_identificacion"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-hashtag"></i>No. identificación: </span> <span>1-1678-0928</span></p>
+                <p><span class="titulo-info"><i class="fas fa-hashtag"></i>No. identificación: </span> <span id="identificacion"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span>+506 8331-2945</span></p>
+                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span id="telefono"></span></p>
             </div>
             <div class="pw-form">
                 <a href="../actualizarPerfilProveedor/actualizar_perfil_proveedor.html">Actualizar perfil</a>
@@ -88,16 +89,16 @@
         <div class="info-columna">
 
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-calendar-alt"></i>Fecha de nacimiento: </span> <span>11/01/1998</span></p>
+                <p><span class="titulo-info"><i class="far fa-calendar-alt"></i>Fecha de nacimiento: </span> <span id="fecha_nacimiento"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info">Provincia: </span> <span>San José</span></p>
+                <p><span class="titulo-info">Provincia: </span> <span id="provincia"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info">Cantón: </span> <span>Montes de Oca</span></p>
+                <p><span class="titulo-info">Cantón: </span> <span id="canton"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info">Distrito: </span> <span>Sabanilla</span></p>
+                <p><span class="titulo-info">Distrito: </span> <span id="distrito"></span></p>
             </div>
             <div class="pw-form-inverse">
                 <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
@@ -138,7 +139,8 @@
 
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
-
+    <script src="./perfil_proveedor.js"></script>
+    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>
 
 </html>

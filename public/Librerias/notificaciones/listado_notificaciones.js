@@ -23,6 +23,7 @@ const cargarNotificacionesUsuario = () => {
         )
         .then(
             json => {
+                document.getElementById('cantidadNotificacion').innerText = json.length;
                 for (let i = 0; i < json.length; i++) {
 
                     correo[i] = json[i].emisor.trim()

@@ -89,7 +89,7 @@ const cargarPerfil = () => {
         let fechaNacimiento;
         let keyProvincia;
         for (let i = 0; json.length > i; i++) {
-          fechaNacimiento = obtenerFecha(json[i].fecha_nacimiento);
+          fechaNacimiento = format(json[i].fecha_nacimiento);
           document.getElementById('nombre').value = json[i].nombre;
           document.getElementById('apellido1').value = json[i].apellido1;
           document.getElementById('apellido2').value = json[i].apellido2;
@@ -98,7 +98,7 @@ const cargarPerfil = () => {
           document.getElementById('telefono').value = json[i].telefono;
           buscarGenero(json[i].genero);
           document.getElementById('cantidad_mascotas').value = json[i].cantidad_mascotas;
-          fechaNacimiento = obtenerFecha(json[i].fecha_nacimiento)
+          fechaNacimiento = format(json[i].fecha_nacimiento)
           document.getElementById('fecha_nacimiento').value = fechaNacimiento;
           document.getElementById('direccion').value = json[i].direccion;
           buscarTipoIdenficacion(json[i].tipo_identificacion);
@@ -191,6 +191,17 @@ const obtenerFecha = (fechaNacimiento) => {
   let fecha = `${new Date(fechaNacimiento).getUTCFullYear()}-${new Date(fechaNacimiento).getUTCMonth() + 1}-${new Date(fechaNacimiento).getUTCDate()}`;
   return fecha;
 
+}
+
+
+function format(date) {
+  date = new Date(date);
+
+  var day = ('0' + date.getDate()).slice(-2);
+  var month = ('0' + (date.getMonth() + 1)).slice(-2);
+  var year = date.getFullYear();
+
+  return year + '-' + month + '-' + day;
 }
 
 const buscarTipoIdenficacion = tipoIdentificacion => {
@@ -353,6 +364,35 @@ const getDistrito = idDistito => {
     }
   }
 
+}
+
+
+const obtenerVacunas = () => {
+  let vacunas = [];
+  var inputElements = document.getElementsByClassName('checkVacunas');
+  for (let i = 0; i < inputElements.length; ++i) {
+      if (inputElements[i].checked) {
+          vacunas.push(inputElements[i].value);
+
+      }
+  }
+
+  return vacunas;
+}
+
+
+
+const obtenerPadecimientos = () => {
+  let padecimientos = [];
+  var inputElements = document.getElementsByClassName('checkPadecimientos');
+  for (let i = 0; i < inputElements.length; ++i) {
+      if (inputElements[i].checked) {
+          padecimientos.push(inputElements[i].value);
+
+      }
+  }
+
+  return padecimientos;
 }
 
 

@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body onload="cargarCategoriasMascotas()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -50,10 +50,10 @@
             <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
             <a href="#"><i class="far fa-bell"></i></a>
             <div class="user">
-                <a href="#"><img src="../img/adriana.jpeg" /></a>
+                <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" class="final-dropdown-hover">Adriana</span>
+                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
@@ -101,10 +101,10 @@
                     </div>
 
                     <div class="pw-form">
-                        <p>Seleccione la categoría:</p>
-                        <select id="tipoAnimal">
-                            <option value="gato">Gato</option>
-                            <option value="perro">Perro</option>
+                        <p>Selecciona la categoría: </p>
+                        <select name="tipo" class="form-validate" id="tipoAnimal">
+                            <option value="tipo" selected>Seleccionar categoría</option>
+                          
                         </select>
                     </div>
     
@@ -164,9 +164,8 @@
     <script src="../../Librerias/General/cerrarSesion.js"></script>
     <script src="../../Librerias/jwt-decode.js"></script>
     <script src="../../Librerias/General/utils.js"></script>
-
     <script src="./registro_vacuna.js"></script>
-
+    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>
 
 </html>

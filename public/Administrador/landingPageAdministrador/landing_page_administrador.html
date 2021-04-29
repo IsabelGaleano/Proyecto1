@@ -48,10 +48,10 @@
                 class="final-dropdown-hover">Solicitudes</a>
             <a href="#"><i class="far fa-bell"></i></a>
             <div class="user">
-                <a href="#"><img src="../img/adriana.jpeg" /></a>
+                <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" class="final-dropdown-hover">Adriana</span>
+                <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
@@ -65,19 +65,19 @@
 
     <div class="info-usuarios">
         <div class="cantidad bg-dark">
-            <h2>+2000</h2>
+            <h2 id="reporte_usuarios_registrados"></h2>
             <h3>Usuarios registrados</h3>
         </div>
         <div class="cantidad bg-red">
-            <h2>+200</h2>
+            <h2 id="reporte_proveedores_registrados"></h2>
             <h3>Proveedores</h3>
         </div>
         <div class="cantidad bg-cyan">
-            <h2>+1800</h2>
+            <h2 id="reporte_clientes_registrados"></h2>
             <h3>Clientes</h3>
         </div>
         <div class="cantidad bg-orange">
-            <h2>+2500</h2>
+            <h2 id="reporte_mascotas_registrados"></h2>
             <h3>Mascotas</h3>
         </div>
     </div>
@@ -85,7 +85,7 @@
     <div class="reportes">
         <div class="razas">
             <h2 class="titulo-reporte">Reporte razas</h2>
-            <canvas id="densityChart" width="600" height="400"></canvas>
+            <canvas id="chartReporteRazas" width="600" height="400"></canvas>
         </div>
         <div class="calificados">
             <table class="table-info">
@@ -177,7 +177,7 @@
         </div>
         <div class="proveedores-categorias">
             <h2 class="titulo-reporte">Categorías</h2>
-            <canvas id="densityChart2" width="600" height="400"></canvas>
+            <canvas id="chartReporteServicios" width="600" height="400"></canvas>
         </div>
 
     </div>
@@ -209,6 +209,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="./landing_page_administrador.js"></script>
+    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 
 
 

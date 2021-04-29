@@ -24,6 +24,9 @@ var mascotaSchema= mongoose.Schema({
     }, 
     caracteristicas: {
         type: Array
+    },
+    vacunaDia: {
+        type: String
     }
 
     

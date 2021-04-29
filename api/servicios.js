@@ -118,6 +118,7 @@ router.put('/actualizar', async (req, res) => {
                 instagram: req.body.instagram,
                 facebook: req.body.facebook,
                 categoria_servicio: servicio.categoria_servicio,
+                estado: "activo"
             }
         }, { useFindAndModify: false, new: true }, (err, doc) => {
             res.json(doc);
@@ -173,6 +174,7 @@ router.get('/buscar_categoria', (req, res) => {
                     )
                 )
                     return;
+                if (resService.categoria_servicio.trim() === '') return;
                 filteredServicesByCategory.push({ categoria_servicio: resService.categoria_servicio, cantidad: 1 });
             });
 

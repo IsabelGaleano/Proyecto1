@@ -10,8 +10,6 @@ const cargarChart = () => {
       let DATA_AMOUNT = [];
       let DATA_BACKGROUND_COLOR = [];
 
-      console.log(data);
-
       data.forEach((ele, index) => {
         // --- Excel ---
         let excelDataJSON = {
@@ -59,8 +57,6 @@ document.getElementById('descargarPDF').addEventListener('click', e => {
       return response.json();
     })
     .then(json => {
-      console.log(json);
-
       fetch(
         'http://localhost:5000/exportar_pdf/download_pdf/' + json.filename,
         {

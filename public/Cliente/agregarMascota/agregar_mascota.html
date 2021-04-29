@@ -28,10 +28,10 @@
             <a href="#">Servicios</a>
             <a href="#"><i class="far fa-bell"></i></a>
             <div class="user">
-                <a href="#"><img src="../img/diana.jpg" /></a>
+                <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" class="final-dropdown-hover">Diana</span>
+                <span href="opcion2" id="logged_user_name"  class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilCliente/perfil_cliente.html">Perfil</a>
                     <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
@@ -60,40 +60,36 @@
                 <div class="pw-form-inverse">
                     <div class="upload-btn-wrapper">
                         <button class="btn">Agregar imagen</button>
-                        <input type="file" name="myfile" />
+                        <input type="file" name="myfile" id="foto_mascota"/>
                     </div>
                 </div>
             </div>
             <div class="pw-form info">
                 <p>Nombre</p>
-                <input type="text" name="nombre" class="form-validate">
+                <input type="text" name="nombre" class="form-validate" id="nombre">
             </div>
             <div class="pw-form tipo" class="form-validate">
-                <p>Categoría animal</p>
-                <select name="tipo" class="form-validate">
-                    <option value="tipo" selected>Seleccionar tipo</option>
-                    <option value="tipo1">Gato</option>
-                    <option value="tipo2">Perro</option>
+                <p>Categoría mascota</p>
+                <select name="tipo" class="form-validate" id="categoriaMascota">
+                    <option value="tipo" selected>Seleccionar categoría</option>
+                  
                 </select>
             </div>
             <div class="pw-form raza" class="form-validate">
                 <p>Raza</p>
-                <select name="raza" class="form-validate">
+                <select name="raza" class="form-validate" id="raza">
                     <option value="raza" selected>Seleccionar raza</option>
-                    <option value="raza1">MaineCoon</option>
-                    <option value="raza2">Pastor Alemán</option>
-                    <option value="raza3">Husky</option>
-                    <option value="raza4">Siamés</option>
+                    
                 </select>
             </div>
             <div class="pw-form info-radio">
                 <p>Vacunas al día</p>
                 <label class="container">Sí
-                    <input type="radio" checked="checked" name="gender">
+                    <input type="radio" checked="checked" name="gender" value="si">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">No
-                    <input type="radio" name="gender">
+                    <input type="radio" name="gender" value="no">
                     <span class="checkmark"></span>
                 </label>
 
@@ -101,38 +97,21 @@
 
         </div>
         <div class="info-derecha">
-            <div class="vacunas pw-form-checkbox">
+            <div class="vacunas pw-form-checkbox" id="vacunas">
                 <p class="titulo-info">Vacunas: </p>
-                <p><input type="checkbox" value="vacuna"> Pentavalente</p>
-                <p><input type="checkbox" value="vacuna"> Parovirus</p>
-                <p><input type="checkbox" value="vacuna"> Moquillo</p>
-                <p><input type="checkbox" value="vacuna"> Rabia</p>
-                <p><input type="checkbox" value="vacuna"> Hepatitis</p>
-                <p><input type="checkbox" value="vacuna"> Parainfluenza</p>
-                <p><input type="checkbox" value="vacuna"> Trivalente Felina</p>
-                <p><input type="checkbox" value="vacuna"> Leucemia Felina</p>
-                <p><input type="checkbox" value="vacuna"> Triple Vírica</p>
-                <p><input type="checkbox" value="vacuna"> PIF</p>
-
+                
             </div>
       
-            <div class="padecimientos pw-form-checkbox">
+            <div class="padecimientos pw-form-checkbox" id="padecimientos">
                 <p class="titulo-info">Padecimientos: </p>
-                <p><input type="checkbox" value="padecimientos"> Insuficiencia renal</p>
-                <p><input type="checkbox" value="padecimientos"> Hipertiroidismo</p>
-                <p><input type="checkbox" value="padecimientos"> Diabetes Mellitus</p>
-                <p><input type="checkbox" value="padecimientos"> Leucemia felina</p>
-                <p><input type="checkbox" value="padecimientos"> Infección por retrovirus</p>
-                <p><input type="checkbox" value="padecimientos"> Cancér felino</p>
-                <p><input type="checkbox" value="padecimientos"> Hepatitis canina</p>
-                <p><input type="checkbox" value="padecimientos"> Rabia</p>
+                
 
             </div>
 
             <div class="pw-form">
                 <p>Características especiales</p>
                 <div class="text-area">
-                    <textarea name="" id="" cols="45" rows="6" class="form-validate"></textarea>
+                    <textarea name="" id="caracteristicas" cols="45" rows="6" class="form-validate"></textarea>
                 </div>
             </div>
 
@@ -174,7 +153,7 @@
     "></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="./agregar_mascota.js"></script>
-
+    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>
 
 </html>

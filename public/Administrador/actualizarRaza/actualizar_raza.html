@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="cargarSelect()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -49,10 +49,10 @@
             <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
             <a href="#"><i class="far fa-bell"></i></a>
             <div class="user">
-                <a href="#"><img src="../img/adriana.jpeg" /></a>
+                <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" class="final-dropdown-hover">Adriana</span>
+                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
@@ -73,12 +73,12 @@
                 <div class="columna-info">
                     <div class="pw-form">
                         <p>Nombre de la raza</p>
-                        <input type="text" name="correo" class="form-validate" id="correo">
+                        <input type="text" name="correo" class="form-validate" id="nombre">
                     </div>
                     <div class="pw-form">
                         <p>Descripción de la raza</p>
                         <div class="text-area">
-                            <textarea name="" id="" cols="30" rows="6" class="form-validate"></textarea>
+                            <textarea name="" id="descripcion" cols="30" rows="6" class="form-validate"></textarea>
                         </div>
                     </div>
                     <div class="button-raza">
@@ -96,25 +96,17 @@
                 <div class="pw-form columna-info">
                     <div class="img-agregar">
                         <p>Imagen raza</p>
-                        <img src="../../img/agregarImg.jpg"/>
+                        <img id="img_categoria_servicio" src="../../img/agregarImg.jpg"/>
                         <div class="pw-form-inverse">
                             <div class="upload-btn-wrapper">
                                 <button class="btn">Agregar imagen</button>
-                                <input type="file" name="myfile" />
+                                <input type="file" name="myfile" id="imagen_nueva" onchange="loadImagePreview(this)"/>
                               </div>
                         </div>
                     </div>
                     <div class="pw-form info-radio">
-                        <p>Categoría animal</p>
-                        <label class="container">Gato
-                            <input type="radio" checked="checked" name="gender">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">Perro
-                            <input type="radio" name="gender">
-                            <span class="checkmark"></span>
-                        </label>
-        
+                        <p>Categoría mascota</p>
+                        <select id="seleccion"></select>
                     </div>
 
                     
@@ -159,7 +151,7 @@
     "></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="./actualizar_raza.js"></script>
-
+    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>
 
 </html>

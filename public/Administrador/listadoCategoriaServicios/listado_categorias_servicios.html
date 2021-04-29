@@ -44,10 +44,10 @@
                 class="final-dropdown-hover">Solicitudes</a>
             <a href="#"><i class="far fa-bell"></i></a>
             <div class="user">
-                <a href="#"><img src="../img/adriana.jpeg" /></a>
+                <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" class="final-dropdown-hover">Adriana</span>
+                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
@@ -111,7 +111,10 @@
         </div>
     </div>
     <!--Footer-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
+    "></script>
     <script src="./listado_categorias_servicios.js"></script>
+    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>
 
 </html>

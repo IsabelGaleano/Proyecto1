@@ -71,7 +71,8 @@ app.use('/usuarios', require('./api/send_email_bloqueo_cliente'));
 app.use('/usuarios', require('./api/factura'));
 app.use('/usuarios', require('./api/send_email_contacto'));
 app.use('/exportar_pdf', require('./api/exportar_pdf'));
-
+app.use('/upload_preview', require('./api/upload_preview'));
+app.use('/usuarios', require('./api/send_email_calificar'));
 app.listen(5000, function(){
     console.log("Servidor levantado");
 });

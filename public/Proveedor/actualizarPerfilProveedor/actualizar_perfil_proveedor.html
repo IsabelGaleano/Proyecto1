@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="cargarPerfil()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageProveedor/landing_page_proveedor.html">
@@ -25,10 +25,11 @@
             <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
             <a href="#"><i class="far fa-bell"></i></a>
             <div class="user">
-                <a href="#"><img src="../img/andres.jpeg" /></a>
+                <a href="#"><img id="logged_user_img" src="" /></a>
+               
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" class="final-dropdown-hover">Andrés</span>
+                <span href="opcion2"  id="logged_user_name"  class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes pendientes</a>
                     <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
@@ -61,15 +62,15 @@
         <div class="info-columna">
             <div class="pw-form info">
                 <p>Nombre</p>
-                <input type="text" name="nombre" class="form-validate">
+                <input type="text" name="nombre" class="form-validate" id="nombre">
             </div>
             <div class="pw-form info">
                 <p>Primer apellido</p>
-                <input type="text" name="apellido1" class="form-validate">
+                <input type="text" name="apellido1" class="form-validate" id="apellido1">
             </div>
             <div class="pw-form info">
                 <p>Segundo apellido</p>
-                <input type="text" name="apellido2" class="form-validate">
+                <input type="text" name="apellido2" class="form-validate" id="apellido2">
             </div>
             <div class="pw-form info">
                 <p>Correo electrónico</p>
@@ -77,10 +78,10 @@
             </div>
             <div class="pw-form tipo-identificacion" class="form-validate">
                 <p>Tipo de identificación</p>
-                <select name="identificacion" class="form-validate" id="tipoCedula">
-                    <option value="cedulaFisica" selected>Cédula física</option>
-                    <option value="cedulaJuridica">Cédula jurídica</option>
-                    <option value="dimex">DIMEX</option>
+                <select name="identificacion" class="form-validate" id="tipo_identificacion">
+                    <option value="Cédula Física" selected>Cédula física</option>
+                    <option value="Cédula Jurídica">Cédula jurídica</option>
+                    <option value="DIMEX">DIMEX</option>
                 </select>
             </div>
             <div class="pw-form info">
@@ -93,16 +94,16 @@
         <div class="info-columna">
             <div class="pw-form info">
                 <p>Teléfono</p>
-                <input type="number" name="" class="form-validate">
+                <input type="number" name="" class="form-validate" id="telefono">
             </div>
             <div class="pw-form info">
                 <p>Fecha Nacimiento</p>
-                <input type="date" name="fecha" value="" min="1900-01-01" max="2020-12-31" id="fechaNacimiento">
+                <input type="date" name="fecha" value="" min="1900-01-01" max="2020-12-31" id="fecha_nacimiento">
             </div>
 
             <div class="pw-form provincia">
                 <p>Provincia</p>
-                <select name="provincia" class="form-validate" id="provincia" onclick="cargarProvincias()">
+                <select name="provincia" class="form-validate" id="provincia">
                   
                 </select>
                 
@@ -127,6 +128,7 @@
             <div class="pw-form">
                 <a id="revisarProveedor">Actualizar perfil</a>
             </div>
+
 
         </div>
     </div>
@@ -158,11 +160,13 @@
         </div>
     </div>
 
+
+    <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
-    <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+   
     <script src="./actualizar_perfil_proveedor.js"></script>
-
+    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 
 
 </body>

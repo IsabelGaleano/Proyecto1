@@ -81,6 +81,7 @@ const cargarPerfil = () => {
 }
 
 
+
 const obtenerFecha = (fechaNacimiento) => {
 
   fechaNacimientoNueva = new Date(fechaNacimiento);

@@ -76,22 +76,45 @@ router.delete('/eliminar', (req, res) => {
 
 
 
+// --- Multer ---
+const multer = require('multer');
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './public/uploads');
+  },
+  filename: (req, file, cb) => {
+    const fileExtension = file.mimetype.split('/')[1];
+    cb(null, Math.random().toString().substring(2) + '.' + fileExtension);
+  },
+});
 
-router.put('/actualizar', (req, res) => {
+const upload = multer({
+  storage: storage,
+  limits: {
+    fieldSize: 1024 * 1024 * 3,
+  },
+});
+// -------------------------------------------------------
+
+router.put('/actualizar', upload.single('imagen'), (req, res) => {
     let nombre = req.body.nombre;
     let descripcion = req.body.descripcion;
-    let imagen = req.body.imagen;
     let categoria = req.body.categoria;
+
+    let toUpdate = {
+        nombre,
+        descripcion,
+        categoria
+    };
+    if (req.file !== undefined) {
+        toUpdate.imagen = req.file.filename;
+    }
    
 
     // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
     Raza.findOneAndUpdate(
-        {nombre: nombre}, {$set:{
-            descripcion:descripcion,
-            imagen:imagen,
-            categoria:categoria
-        }
+        {nombre: nombre}, {$set:toUpdate
     }, 
         {useFindAndModify: false, new: true},  (err, doc) =>{
       res.json(doc);

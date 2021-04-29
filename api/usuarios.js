@@ -369,6 +369,7 @@ router.get('/buscar_tipo_min_year', (req, res) => {
     });
 });
 
+
 router.post('/cambiar_contrasenna', async (req, res) => {
     try {
         const { contrasenna, token } = req.body;
@@ -386,6 +387,78 @@ router.post('/cambiar_contrasenna', async (req, res) => {
         res.status(500).json({ message: e.message });
     }
 });
+
+
+router.get('/reporte_administrador', (req, res) => {
+    Usuario.find().exec()
+        .then(
+            function (result) {
+                
+
+                let finalRes = {
+                    usuarios: 0,
+                    proveedores: 0,
+                    clientes: 0
+                }
+
+                finalRes.usuarios = result.length;
+                result.forEach(v => {
+                    if (v.tipo_usuario === 'cliente') {
+                        finalRes.clientes++;
+                    }
+                    if (v.tipo_usuario === 'proveedor') {
+                        finalRes.proveedores++;
+                    }
+                });
+
+                res.json(finalRes);
+            }
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+        
+});
+
+
+router.put('/actualizar_proveedor', (req, res) => {
+    let correo = req.body.correo;
+    let nombre = req.body.nombre;
+    let apellido1 = req.body.apellido1;
+    let apellido2 = req.body.apellido2;
+    let provincia = req.body.provincia;
+    let canton = req.body.canton;
+    let distrito = req.body.distrito;
+    let imagen_usuario = req.body.imagen_usuario;   
+    let tipo_identificacion = req.body.tipo_identificacion;
+    let identificacion = req.body.identificacion;
+    let fecha_nacimiento = req.body.fecha_nacimiento;
+    let telefono = req.body.telefono;
+    // findOneAndUpdate - Filtro - Valores - Opciones - Función anónima
+    Usuario.findOneAndUpdate(
+        {correo: correo}, {$set:{
+            nombre:nombre, 
+            apellido1:apellido1, 
+            apellido2:apellido2, 
+            provincia:provincia,
+            canton:canton,
+            distrito:distrito,
+            imagen_usuario:imagen_usuario,
+            tipo_identificacion:tipo_identificacion,
+            identificacion:identificacion,
+            fecha_nacimiento:fecha_nacimiento,
+            telefono:telefono
+        }
+    }, 
+        {useFindAndModify: false, new: true},  (err, doc) =>{
+      res.json(doc);
+    })
+    .catch(err => {
+        res.json({ message: err })
+    });
+    
+  });
+
 
 
 module.exports = router;

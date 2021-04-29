@@ -38,13 +38,11 @@ const cargarCategoria = () => {
       .then(
         json => {
   
-          let nombre;
-          let imagen = document.getElementById('imagen_nueva');
+          let imagen = document.getElementById('img_categoria_servicio');
           for (let i = 0; json.length > i; i++) {
             document.getElementById('nombre').value = json[i].nombre;
             document.getElementById('descripcion').value = json[i].descripcion;
-            imagen.setAttribute("src", json[i].imagen);
-  
+            imagen.setAttribute('src', `./../../uploads/${json[i].imagen}`);
           }
   
   
@@ -53,25 +51,53 @@ const cargarCategoria = () => {
   }
   
 
-  const actualizarCategoria = () => {
-    var datos = {
-      nombre: document.getElementById("nombre").value,
-      descripcion: document.getElementById("descripcion").value,
-      imagen: document.getElementById("imagen_nueva").value
-    }
-  
-    fetch("http://localhost:5000/categorias_servicios/actualizar", {
-      method: 'PUT',
-      body: JSON.stringify(datos),
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(
-        response => {
-          return response.json();
-        }
-      )
-      .catch(err => {
-        response.json({ message: err })
-      });
-  
+const actualizarCategoria = () => {
+  var datos = {
+    nombre: document.getElementById('nombre').value,
+    descripcion: document.getElementById('descripcion').value,
+    imagen: document.getElementById('imagen_nueva').files[0],
+  };
+
+  const formData = new FormData();
+  for (let key in datos) {
+    formData.append(key, datos[key]);
   }
+
+  fetch('http://localhost:5000/categorias_servicios/actualizar', {
+    method: 'PUT',
+    body: formData,
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => {
+      response.json({ message: err });
+    });
+};
+
+const loadImagePreview = fileInput => {
+  var datos = {
+    imagen: fileInput.files[0],
+  };
+
+  const formData = new FormData();
+  for (let key in datos) {
+    formData.append(key, datos[key]);
+  }
+
+  fetch('http://localhost:5000/upload_preview', {
+    method: 'POST',
+    body: formData,
+  })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      const filename = data.filename;
+      let imgElement = document.getElementById('img_categoria_servicio');
+      imgElement.src = `./../../uploads_preview/${filename}`;
+    })
+    .catch(err => {
+      response.json({ message: err });
+    });
+};

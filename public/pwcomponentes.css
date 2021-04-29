@@ -33,8 +33,8 @@ body {
     border: 1px solid #000;
     width: 120px;
     color: #000;
-    font-size: 10px;
-    padding: 10px;
+    font-size: 12px;
+    padding: 0.6rem 1.3rem;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 200;
@@ -42,7 +42,7 @@ body {
     transition: .1s ease-in-out;
     transition-property: background-color, color;
     text-decoration: none;
-
+    transition: all .1s ease-in;
 }
 
 .button-sesion-equipo{
@@ -495,8 +495,27 @@ body {
 .final-dropdown-nt:hover .final-dropdown-menu-nt{
     display: block;}
       
+.loading_animation {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+}
 
-
+#cantidadNotificacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    position: absolute;
+    top: 10;
+    right: 10;
+    background-color: rgb(236, 95, 95);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    padding: 0.6rem;
+}
 
 
 

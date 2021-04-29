@@ -157,6 +157,135 @@ const enviarEmailBloqueo = correo => {
 
 
 
+const buscar = () => {
+    let busqueda = document.getElementById('buscar').value;
+    let letrasBusqueda = busqueda.split('');
+    let listado = document.getElementById('listado');
+    let tipoUsuario = "proveedor"
+    let estadoUsuario = "activo"
+    var datos = {
+        tipo_usuario: tipoUsuario,
+        estado: estadoUsuario
+    }
+
+    fetch("http://localhost:5000/usuarios/buscar_tipo_usuario", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+       
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+
+        .then(
+            json => {
+                let contListado = "";
+                let i;
+                var esBuscado = false;
+                let nombres = [];
+                let apellidos1 = [];
+                let apellidos2 = [];
+                let imagenes = [];
+                let correos = [];
+                let checkNoBuscado = false;
+                
+                if (busqueda == "") {
+                    cargarListadoRegistro()
+                } else {
+                    for (i = 0; i < json.length; i++) {
+                            let letrasNombre = json[i].nombre.split('');
+                            checkNoBuscado = false;
+
+                            for (let j = 0; j < busqueda.length; j++) {
+                                if (!checkNoBuscado) {
+                                    if (letrasNombre[j] == letrasBusqueda[j]) {
+                                        esBuscado = true;
+                                    } else {
+                                        esBuscado = false;
+                                        checkNoBuscado = true;
+                                    }
+                                }
+                            }
+                            
+                        if (esBuscado) {
+                            nombres.push(json[i].nombre);
+                            imagenes.push(json[i].imagen_usuario);
+                            apellidos1.push(json[i].apellido1);
+                            apellidos2.push(json[i].apellido2);
+                            correos.push(json[i].correo);
+                        } else {
+                            listado.innerHTML = "";
+                        }
+                    }
+
+                    for (let l = 0; l < nombres.length; l+=2) {
+                        if (nombres[l+1] != undefined) {
+
+                            contListado += `<div class="listado">
+                            <div class="info-listado">
+                                <div class="img-categoria">
+                                    <img src="${imagenes[l]}"/>
+                                </div> 
+                                <div class="descripcion-info">
+                                    <h5 class="titulo-categoria">${nombres[l]} ${apellidos1[l]} ${apellidos2[l]}</h5>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="../perfilProveedorAdmi/perfil_proveedor_admi.html" providerEmail = "${correos[l]}" onclick="lookUpProvider(this)"><i class="far fa-eye"></i></a>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="#" providerEmail = "${correos[l]}" onclick="deleteProvider(this)"><i class="fas fa-user-times"></i></i></a>
+                                </div>
+                            </div>
+        
+                            <div class="info-listado">
+                                <div class="img-categoria">
+                                    <img src="${imagenes[l+1]}" />
+                                </div>
+                                <div class="descripcion-info">
+                                    <h5 class="titulo-categoria">${nombres[l+1]} ${apellidos1[l+1]} ${apellidos2[l+1]}</h5>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="../perfilProveedorAdmi/perfil_proveedor_admi.html" providerEmail = "${correos[l]+1}" onclick="lookUpProvider(this)"><i class="far fa-eye"></i></a>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="#" providerEmail = "${correos[l+1]}" onclick="deleteProvider(this)"><i class="fas fa-user-times"></i></i></a>
+                                </div>
+                            </div>
+                        </div>`;
+                        } else {
+                            contListado += `<div class="listado">
+                            <div class="info-listado">
+                                <div class="img-categoria">
+                                    <img src="${imagenes[l]}"/>
+                                </div> 
+                                <div class="descripcion-info">
+                                    <h5 class="titulo-categoria">${nombres[l]} ${apellidos1[l]} ${apellidos2[l]}</h5>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="../perfilProveedorAdmi/perfil_proveedor_admi.html" providerEmail = "${correos[l]}" onclick="lookUpProvider(this)"><i class="far fa-eye"></i></a>
+                                </div>
+                                <div class="button-accion">
+                                    <a href="#" providerEmail = "${correos[l]}" onclick="deleteProvider(this)"><i class="fas fa-user-times"></i></i></a>
+                                </div>
+                            </div>`;
+                        }
+                    }
+                    
+                    listado.innerHTML = contListado;
+                }
+            }
+        )
+}
+
+
+
+
+
+
+
 
 
 
