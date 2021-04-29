@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="reporte_usuarios_registrados.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -43,7 +43,19 @@
             </div>
             <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
             <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+                        
+
+                    </div>
+                   
+
+                </div>
+            </div>
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
@@ -118,6 +130,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
     <script src="../../Librerias/ExportFile/exportExcel.js"></script>
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js" integrity="sha512-wBcFatf7yQavHQWtf4ZEjvtVz4XkYISO96hzvejfh18tn3OrJ3sPBppH0B6q/1SHB4OKHaNNUKqOmsiTGlOM/g==" crossorigin="anonymous"></script>
     <script src="./reporte_usuarios_registrados.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>

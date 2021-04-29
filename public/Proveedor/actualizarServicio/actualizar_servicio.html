@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body onload="cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageProveedor/landing_page_proveedor.html">
@@ -24,18 +24,33 @@
         </div>
         <div class="container-nav box-anchors">
             <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
-                
+
             </div>
             <div class="final-dropdown">
                 <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilProveedor/perfil_proveedor.html">Perfil</a>
-                    <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes pendientes</a>
+                    <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes
+                        pendientes</a>
                     <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
-                    <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios anteriores</a>
+                    <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios
+                        anteriores</a>
                     <a href="../listadoPagosPendientes/listado_pagos_pendientes.html">Pagos pendientes</a>
                     <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
@@ -47,56 +62,47 @@
         <h2>Actualizar servicio</h2>
     </div>
 
-    
+
     <div class="info-servicio">
         <div class="proveedor">
-            <div class="swiper-container center" style="width:350px;height:150px;border:1px solid #BEBEBE;">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="../img/simboloImg.png">
+            
+            <div class="img-agregar">
+                <img id="img_categoria_servicio" src="../../img/agregarImg.jpg"/>
+                <div class="pw-form-inverse">
+                    <div class="upload-btn-wrapper">
+                        <button class="btn">Agregar imagen</button>
+                        <input type="file" name="myfile" id="imagenesServicio" />
                     </div>
-                    <div class="swiper-slide">
-                        <img src="../img/simboloImg.png">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="../img/simboloImg.png">
-                    </div>
-                </div>
-            </div> <br />
-            <div class="pw-form-inverse">
-                <div class="upload-btn-wrapper">
-                    <button class="btn">Agregar imagen</button>
-                    <input type="file" name="myfile" />
                 </div>
             </div>
+           
+
+            
             <div class="pw-form">
                 <p>Descripción del servicio</p>
                 <div class="text-area">
-                    <textarea name="" id="" cols="15" rows="5" class="form-validate"></textarea>
+                    <textarea name="" id="descripcion" cols="15" rows="5" class="form-validate"></textarea>
                 </div>
             </div>
             <div class="pw-form">
                 <p>Dirección del servicio</p>
                 <div class="text-area">
-                    <textarea name="" id="" cols="15" rows="5" class="form-validate"></textarea>
+                    <textarea name="" id="direccion" cols="15" rows="5" class="form-validate"></textarea>
                 </div>
             </div>
             <div class="mapa-servicio pw-form">
                 <p>Indique la ubicación del servicio</p>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15720.318124809437!2d-84.0484498!3d9.9273345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scr!4v1615836128481!5m2!1ses!2scr"
-                    width="375" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                <div id="map"></div>
 
             </div>
-            
-            
 
         </div>
 
         <div class="info-izquierda">
             <div class="pw-form info">
                 <p>Nombre del servicio</p>
-                <input type="text" name="nombreServicio" class="form-validate">
+                <input type="text" name="nombreServicio" id="nombreServicio" class="form-validate">
             </div>
 
             <div class="pw-form">
@@ -104,27 +110,26 @@
                 <input class="form-validate" type="number" id="costo">
             </div>
             <div class="pw-form">
-                <p>Categoría del servicio</p>
-                <select id="seleccionar" class="espaciar-1">
-                    <option value="0">Seleccione una categoría</option>
-                    <option value="1">Salud</option>
-                    <option value="2">Belleza</option>
+                <p>Categoría de servicio</p>
+                <select name="categoria" class="form-validate" id="categoriaServicio">
+                    <option value="tipo" selected>Seleccionar categoría</option>
+
                 </select>
+
             </div>
 
-            
             <div class="pw-form info-radio">
                 <p>El servicio lo provee a nivel:</p>
                 <label class="container">Nacional
-                    <input type="radio" checked="checked" name="nivel">
+                    <input type="radio" checked="checked" value="nacional" name="nivel" id="nacional">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Cantón
-                    <input type="radio" name="nivel">
+                    <input type="radio" name="nivel" value="canton" id="canton">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Distrito
-                    <input type="radio" name="nivel">
+                    <input type="radio" value="distrito" name="nivel" id="distrito">
                     <span class="checkmark"></span>
                 </label>
 
@@ -133,85 +138,91 @@
                 <p>Medios de Contacto</p>
                 <div class="icon-servicio pw-form">
                     <img src="../img/instagram.png" />
-                    <input type="text" name="" class="form-validate">
+                    <input type="text" name="" id="instagram" class="form-validate">
                 </div>
                 <div class="icon-servicio pw-form">
                     <img src="../img/facebook.png" />
-                    <input type="text" name="" class="form-validate">
+                    <input type="text" name="" id="facebook" class="form-validate">
                 </div>
                 <div class="icon-servicio pw-form">
                     <img src="../img/whatsapp.png" />
-                    <input type="text" name="" class="form-validate">
+                    <input type="text" name="" id="whatsapp" class="form-validate">
                 </div>
             </div>
-            
+
         </div>
         <div>
-            
+
         </div>
         <div class="info-derecha">
             <p class="">Horario del servicio</p>
             <div class="horario">
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia1" value="Lunes" checked> Lunes</p>
+                        <p><input class="checkDias" type="checkbox" name="dia1" value="lunes" id="checkLunes"> Lunes</p>
                     </div>
                     <div class="valor-horario pw-form">
-                        <input type="text" name="">
+                        <input type="text" name="" id="horarioLunes" class="checkHorario">
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia2" value="Martes" checked> Martes</p>
+                        <p><input class="checkDias" type="checkbox" name="dia2" value="martes" id="checkMartes"> Martes
+                        </p>
                     </div>
                     <div class="valor-horario pw-form">
-                        <input type="text" name="">
+                        <input type="text" name="" id="horarioMartes"  class="checkHorario">
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia3" value="Miercoles" checked> Miércoles</p>
+                        <p><input class="checkDias" type="checkbox" name="dia3" value="miercoles" id="checkMiercoles">
+                            Miércoles</p>
                     </div>
                     <div class="valor-horario pw-form">
-                        <input type="text" name="">
+                        <input type="text" name="" id="horarioMiercoles"  class="checkHorario">
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia4" value="Jueves" checked> Jueves</p>
+                        <p><input class="checkDias" type="checkbox" name="dia4" value="jueves" id="checkJueves"> Jueves
+                        </p>
                     </div>
                     <div class="valor-horario pw-form">
-                        <input type="text" name="">
+                        <input type="text" name="" id="horarioJueves"  class="checkHorario">
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia5" value="Viernes" checked> Viernes</p>
+                        <p><input class="checkDias" type="checkbox" name="dia5" value="viernes" id="checkViernes">
+                            Viernes</p>
                     </div>
                     <div class="valor-horario pw-form">
-                        <input type="text" name="">
+                        <input type="text" name="" id="horarioViernes" class="checkHorario">
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia6" value="Sábado" checked> Sábado</p>
+                        <p><input class="checkDias" type="checkbox" name="dia6" value="sabado" id="checkSabado"> Sábado
+                        </p>
                     </div>
                     <div class="valor-horario pw-form">
-                        <input type="text" name="">
+                        <input type="text" name="" id="horarioSabado" class="checkHorario">
                     </div>
                 </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
-                        <p><input type="checkbox" name="dia7" value="Domingo"> Domingo</p>
+                        <p><input class="checkDias" type="checkbox" name="dia7" value="domingo" id="checkDomingo">
+                            Domingo</p>
                     </div>
                     <div class="valor-horario pw-form">
-                        <input type="text" name="">
+                        <input type="text" name="" id="horarioDomingo" class="checkHorario">
                     </div>
                 </div>
             </div>
@@ -223,7 +234,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <div class="container-footer">
         <div class="logo">
@@ -251,12 +262,16 @@
     </div>
 
 
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+        async></script>
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="actualizar_servicio.js"></script>
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>
 

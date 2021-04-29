@@ -15,7 +15,7 @@
 
 <body>
 
-    <body>
+    <body onload="cargarNotificacionesUsuario()">
         <nav class="container-nav">
             <div class="box-logo container-nav">
                 <a href="../landingPageCliente/landing_page_cliente.html">
@@ -23,8 +23,20 @@
                 </a>
             </div>
             <div class="container-nav box-anchors">
-                <a href="#">Servicios</a>
-                <a href="#"><i class="far fa-bell"></i></a>
+                <div class="final-dropdown-nt">
+                    <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                        <div id="cantidadNotificacion">0</div>
+                    </i>
+                    <div class="final-dropdown-menu-nt final">
+                        <div class="listado-nt-general" id="listadoNotificacion">
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
                 <div class="user">
                     <a href="#"><img id="logged_user_img" src="" /></a>
                 </div>
@@ -223,8 +235,10 @@
 
         <!-- Production version -->
         <script src="https://unpkg.com/@popperjs/core@2"></script>
-      
+
         <script src="./listado_servicios.js"></script>
+
+        <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
         <script src="./../../Librerias/LoadNav/load_nav.js"></script>
     </body>
 

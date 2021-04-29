@@ -14,6 +14,7 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
                 if (validacionCedula) {
                     registrarProveedor();
                     registrarServicio();
+                    cargarNotificacion();
                     revisar.setAttribute("href", "../../General/login/login.html")
 
                 } else {
@@ -63,6 +64,7 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
 
 const registrarProveedor = () => {
     let tipo_usuario = "proveedor"
+    let positions = getPosition();
     let imagen_usuario = "../../img/placeholder-User.jpg"
     let idProvincia = document.getElementById("provincia").value;
     let provincia = getProvincia(idProvincia);
@@ -84,9 +86,9 @@ const registrarProveedor = () => {
         provincia: provincia,
         canton: canton,
         distrito: distrito,
-        direccion: "",
-        latitud: "",
-        longitud: "",
+        direccion: document.getElementById("direccion").value,
+        latitud: positions.lat,
+        longitud: positions.lng,
         contrasenna: "",
         tipo_usuario: tipo_usuario,
         imagen_usuario: imagen_usuario,
@@ -232,3 +234,61 @@ const registrarServicio = () => {
 
 }
 
+
+const cargarNotificacion = () => {
+    let tipoUsuario = "administrador";
+    var datos = {
+        tipo_usuario: tipoUsuario
+    }
+
+    fetch("http://localhost:5000/usuarios/buscar_tipo_usuario", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .then(
+            json => {
+                for (let i = 0; i < json.length; i++) {
+                    notificaciones(json[0].correo);
+
+                }
+
+
+            }
+        )
+}
+
+
+
+
+const notificaciones = administrador => {
+
+    let proveedor = document.getElementById("correo").value;
+    var datos = {
+        receptor: administrador,
+        descripcion: "Tiene una solicitud pendiente de registro",
+        fecha: new Date(),
+        emisor: proveedor,
+
+    }
+
+    fetch("http://localhost:5000/notificaciones/insertar", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .catch(err => {
+            response.json({ message: err })
+        });
+
+}

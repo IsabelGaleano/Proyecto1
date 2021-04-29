@@ -14,14 +14,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap"
             rel="stylesheet">
 
-    </head>
-
-    <body>
-        <nav class="container-nav">
-            <div class="box-logo container-nav">
-                <a href="../landingPageAdministrador/landing_page_administrador.html">
-                    <img src="../img/logoPets.png" />
-                </a>
+<body>
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="../landingPageAdministrador/landing_page_administrador.html">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+            <div class="final-dropdown">
+                <span href="opcion2" class="final-dropdown-hover">Registros</span>
+                <div class="final-dropdown-menu">
+                    <a href="../listadoRazas/listado_razas.html">Razas</a>
+                    <a href="../listadoPadecimientos/listado_padecimientos.html">Padecimientos</a>
+                    <a href="../listadoVacunas/listado_vacunas.html">Vacunas</a>
+                    <a href="../listadoCategoriaServicios/listado_categorias_servicios.html">Categorías de servicios</a>
+                    <a href="../listadoCategoriaAnimales/listado_categorias_animales.html">Categorías de mascotas</a>
+                </div>
             </div>
             <div class="container-nav box-anchors">
                 <div class="final-dropdown">
@@ -36,33 +45,34 @@
                             mascotas</a>
                     </div>
                 </div>
-                <div class="final-dropdown margin-a">
-                    <span href="opcion2" class="final-dropdown-hover">Reportes</span>
-                    <div class="final-dropdown-menu">
-                        <a href="../reporteUsuariosRegistrados/reporte_usuarios_registrados.html">Reporte usuarios</a>
-                        <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte
-                            categorías</a>
-                        <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
-                        <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
-                        <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte
-                            proveedores calificados</a>
+            </div>
+            <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+                        
+
                     </div>
+                   
+
                 </div>
-                <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
-                <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html"
-                    class="final-dropdown-hover">Solicitudes</a>
-                <a href="#"><i class="far fa-bell"></i></a>
-                <div class="user">
-                    <a href="#"><img id="logged_user_img" src="" /></a>
-                </div>
-                <div class="final-dropdown">
-                    <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
-                    <div class="final-dropdown-menu">
-                        <a href="../listadoClientes/listado_clientes.html">Clientes</a>
-                        <a href="../listadoProveedores/listado_proveedores.html">Proveedores</a>
-                        <a href="../anuncios/anuncios.html">Anuncios</a>
-                        <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
-                    </div>
+            </div>
+
+
+            <div class="user">
+                <a href="#"><img id="logged_user_img" src="" /></a>
+            </div>
+            <div class="final-dropdown">
+                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
+                <div class="final-dropdown-menu">
+                    <a href="../listadoClientes/listado_clientes.html">Clientes</a>
+                    <a href="../listadoProveedores/listado_proveedores.html">Proveedores</a>
+                    <a href="../anuncios/anuncios.html">Anuncios</a>
+                    <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </nav>
@@ -117,6 +127,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
         <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+        <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
         <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 
         <!-- Usar en este mismo order -->

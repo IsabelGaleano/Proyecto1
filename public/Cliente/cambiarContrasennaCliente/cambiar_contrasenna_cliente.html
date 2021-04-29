@@ -14,14 +14,31 @@
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap"
             rel="stylesheet">
 
-    </head>
+<body>
+    <nav class="container-nav">
+        <div class="box-logo container-nav">
+            <a href="#">
+                <img src="../img/logoPets.png" />
+            </a>
+        </div>
+        <div class="container-nav box-anchors">
+           
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+                        
 
-    <body>
-        <nav class="container-nav">
-            <div class="box-logo container-nav">
-                <a href="#">
-                    <img src="../img/logoPets.png" />
-                </a>
+                    </div>
+                   
+
+                </div>
+            </div>
+
+            <div class="user">
+                <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="container-nav box-anchors">
                 <a href="#">Servicios</a>
@@ -97,13 +114,14 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
         <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+        <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
         <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 
         <!-- Usar en este mismo order -->
         <script src="../../Librerias/General/cerrarSesion.js"></script>
         <script src="../../Librerias/jwt-decode.js"></script>
         <script src="../../Librerias/General/utils.js"></script>
-        
+
         <script src="./cambiar_contrasenna_cliente.js"></script>
     </body>
 </html>

@@ -1,3 +1,4 @@
+
 document.querySelector('#revisarDenuncia').addEventListener('click', e => {
     let revisar = document.getElementById("revisarDenuncia");
     let error = revisarForm();
@@ -11,6 +12,7 @@ document.querySelector('#revisarDenuncia').addEventListener('click', e => {
 
         })
         registrarDenuncia();
+        cargarNotificacion();
         revisar.setAttribute("href", "../landingPageCliente/landing_page_cliente.html")
 
 
@@ -33,7 +35,7 @@ document.querySelector('#revisarDenuncia').addEventListener('click', e => {
 const registrarDenuncia = () => {
     let denunciante = localStorage.getItem('correo');
     //Aquí se extrae el correo del denunciado con localstorage pero por ahora será quemado
-    let denunciado = "luwiisabel@gmail.com"
+    let denunciado = localStorage.getItem('correoDenunciaP');
     var datos = {
         denunciante: denunciante,
         denunciado: denunciado,
@@ -58,6 +60,66 @@ const registrarDenuncia = () => {
 
 }
 
+
+const cargarNotificacion = () => {
+    let tipoUsuario = "administrador";
+    var datos = {
+        tipo_usuario: tipoUsuario
+    }
+
+    fetch("http://localhost:5000/usuarios/buscar_tipo_usuario", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .then(
+            
+            json => {
+                console.log(json);
+                for (let i = 0; i < json.length; i++) {
+                    notificaciones(json[0].correo);
+
+                }
+
+
+            }
+        )
+}
+
+
+
+
+const notificaciones = administrador => {
+
+    let cliente = localStorage.getItem('correo');
+    var datos = {
+        receptor: administrador,
+        descripcion: "Ha realizado una denuncia",
+        fecha: new Date(),
+        emisor: cliente
+
+    }
+
+    fetch("http://localhost:5000/notificaciones/insertar", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .catch(err => {
+            response.json({ message: err })
+        });
+
+}
 
 
 

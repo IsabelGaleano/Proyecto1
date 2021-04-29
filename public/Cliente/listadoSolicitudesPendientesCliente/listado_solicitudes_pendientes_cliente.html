@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarListadoUsuario()">
+<body onload="cargarListadoUsuario();cargarNotificacionesUsuario()">
 
     <body>
         <nav class="container-nav">
@@ -23,8 +23,21 @@
                 </a>
             </div>
             <div class="container-nav box-anchors">
-                <a href="#">Servicios</a>
-                <a href="#"><i class="far fa-bell"></i></a>
+                <div class="final-dropdown-nt">
+                    <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                        <div id="cantidadNotificacion">0</div>
+                    </i>
+                    <div class="final-dropdown-menu-nt final">
+                        <div class="listado-nt-general" id="listadoNotificacion">
+                            
+    
+                        </div>
+                       
+    
+                    </div>
+                </div>
+    
+    
                 <div class="user">
                     <a href="#"><img id="logged_user_img" src="" /></a>
                 </div>
@@ -83,6 +96,7 @@
             </div>
         </div>
         <script src="./listado_solicitudes_pendientes_cliente.js"></script>
+        <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
         <script src="./../../Librerias/LoadNav/load_nav.js"></script>
     </body>
 </html>

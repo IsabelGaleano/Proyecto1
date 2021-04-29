@@ -4,6 +4,9 @@ var anuncioSchema= mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     imagen: {
         type: String
+    },
+    nombre: {
+        type: String
     }
 
     

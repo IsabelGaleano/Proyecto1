@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarProveedor()">
+<body onload="cargarProveedor();cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -44,7 +44,20 @@
             </div>
             <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
             <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+                        
+
+                    </div>
+                   
+
+                </div>
+            </div>
+
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
@@ -98,7 +111,7 @@
                 <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span id="telefono"></span></p>
             </div>
             <div class="pw-form-inverse">
-                <a href="../perfilServicioAdmi/perfil_servicio_admi.html">Servicio</a>
+                <a href="../perfilServicioAdmi/perfil_servicio_admi.html" onclick="servicio()">Servicio</a>
             </div>
 
         </div>
@@ -156,6 +169,7 @@
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="../contratacionServicios/contratacion_servicios.js"></script>
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
     <script src="./perfil_proveedor_admi.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>

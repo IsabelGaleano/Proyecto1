@@ -139,8 +139,7 @@ const notificaciones = cliente => {
       receptor: correo,
       descripcion: "Ha finalizado su servicio",
       fecha: new Date(),
-      emisor: proveedor,
-     
+      emisor: proveedor
   }
 
   fetch("http://localhost:5000/notificaciones/insertar", {

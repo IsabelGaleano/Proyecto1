@@ -10,7 +10,8 @@ const cambiarContrasenna = async (contrasenna, token) => {
 document.addEventListener("DOMContentLoaded", () => {
     try {
         const revisar = document.getElementById("actualizar");
-
+        cargarNotificacionesUsuario();
+        
         revisar.addEventListener("click", async () => {
             const error = revisarForm();
             const token = localStorage.getItem('token');

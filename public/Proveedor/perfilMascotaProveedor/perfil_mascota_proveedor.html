@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="perfil_mascota_proveedor.css">
 </head>
 
-<body onload="cargarPerfil()">
+<body onload="cargarPerfil();cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="#">
@@ -22,13 +22,26 @@
         </div>
         <div class="container-nav box-anchors">
             <a href="../perfilServicio/perfil_servicio.html">Servicio</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
-             
+
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" id="logged_user_name"  class="final-dropdown-hover"></span>
+                <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilProveedor/perfil_proveedor.html">Perfil</a>
                     <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes
@@ -85,7 +98,7 @@
             <div class="text-area">
                 <textarea name="" id="caracteristicas" cols="46" rows="4" readonly></textarea>
             </div>
-           
+
             <div class="padecimientos pw-form-checkbox" id="padecimientos">
                 <p class="titulo-info">Padecimientos: </p>
 
@@ -123,10 +136,11 @@
     </div>
 
 
-
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="../contratacionServicios/contratacion_servicios.js"></script>
+
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
     <script src="./perfil_mascota_proveedor.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>

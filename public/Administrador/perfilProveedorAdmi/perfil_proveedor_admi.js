@@ -49,3 +49,8 @@ const obtenerFecha = (fechaNacimiento) => {
   let fecha = `${day}/${month}/${year}`;
   return fecha;
 }
+
+const servicio = () => {
+  let correo = localStorage.getItem('providerEmail');
+  localStorage.setItem('data-correoServicioA', correo);
+}

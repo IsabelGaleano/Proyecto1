@@ -11,7 +11,7 @@
             rel="stylesheet">
     </head>
 
-    <body>
+    <body onload="cargarNotificacionesUsuario()">
         <!--Navegador-->
         <nav class="container-nav">
             <div class="box-logo container-nav">
@@ -47,7 +47,21 @@
                 <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
                 <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html"
                     class="final-dropdown-hover">Solicitudes</a>
-                <a href="#"><i class="far fa-bell"></i></a>
+                    <div class="final-dropdown-nt">
+                        <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                            <div id="cantidadNotificacion">0</div>
+                        </i>
+                        <div class="final-dropdown-menu-nt final">
+                            <div class="listado-nt-general" id="listadoNotificacion">
+                                
+        
+                            </div>
+                           
+        
+                        </div>
+                    </div>
+        
+        
                 <div class="user">
                     <a href="#"><img id="logged_user_img" src="" /></a>
                 </div>
@@ -78,8 +92,8 @@
         <div class="filtro pw-form">
             <label for="tipo">Seleccione el tipo </label>
             <select id="tipoMascota">
-                <option value="gato">Gato</option>
-                <option value="perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Perro">Perro</option>
             </select>
         </div>
 
@@ -133,6 +147,7 @@
         <script src="../../Librerias/jwt-decode.js"></script>
         <script src="../../Librerias/General/utils.js"></script>
         <script src="./listado_vacunas.js"></script>
+        <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
         <script src="./../../Librerias/LoadNav/load_nav.js"></script>
     </body>
 

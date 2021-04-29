@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarUsuario()">
+<body onload="cargarUsuario();cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="#">
@@ -22,8 +22,19 @@
             </a>
         </div>
         <div class="container-nav box-anchors">
-            <a href="#">Servicios</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+                        
+
+                    </div>
+                   
+
+                </div>
+            </div>
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
               
@@ -133,6 +144,7 @@
     async></script>
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
     <script src="./vista_servicio_curso_cliente.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 </body>

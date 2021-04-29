@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarPerfil()">
+<body onload="cargarPerfil();cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -39,17 +39,32 @@
                     <a href="../reporteProveedoresCategoria/reporte_proveedores_categoria.html">Reporte categorías</a>
                     <a href="../reporteMascotasRaza/reporte_mascotas_raza.html">Reporte razas</a>
                     <a href="../reporteMascotasTipo/reporte_mascotas_tipo.html">Reporte categoría mascotas</a>
-                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores calificados</a>
+                    <a href="../reporteProveedoresCalificados/reporte_proveedores_calificados.html">Reporte proveedores
+                        calificados</a>
                 </div>
             </div>
             <a href="../listadoDenuncias/listado_denuncias.html" class="final-dropdown-hover">Denuncias</a>
-            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html" class="final-dropdown-hover">Solicitudes</a>
-            <a href="#"><i class="far fa-bell"></i></a>
+            <a href="../listadoSolicitudesRegistro/listado_solicitudes_registro.html"
+                class="final-dropdown-hover">Solicitudes</a>
+            <div class="final-dropdown-nt">
+                <i class="far fa-bell final-dropdown-hover-nt" id="iconNt">
+                    <div id="cantidadNotificacion">0</div>
+                </i>
+                <div class="final-dropdown-menu-nt final">
+                    <div class="listado-nt-general" id="listadoNotificacion">
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
             </div>
             <div class="final-dropdown">
-                <span href="opcion2"  id="logged_user_name" class="final-dropdown-hover"></span>
+                <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilAdministrador/perfil_administrador.html">Perfil</a>
                     <a href="../listadoClientes/listado_clientes.html">Clientes</a>
@@ -68,7 +83,7 @@
     <div class="info-servicio">
         <div class="cliente">
             <div class="avatar-cliente">
-                <a href="../../index.html"><img  id="imagen_usuario" /></a>
+                <a href="../../index.html"><img id="imagen_usuario" /></a>
                 <p class="titulo-info" id="nombre"></p>
             </div>
 
@@ -77,28 +92,36 @@
         <div class="info-columna">
 
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-envelope"></i>Correo electrónico: </span> <span id="correo"></span></p>
+                <p><span class="titulo-info"><i class="far fa-envelope"></i>Correo electrónico: </span> <span
+                        id="correo"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-id-badge"></i>Tipo identificación: </span> <span id="tipo_identificacion"></span></p>
+                <p><span class="titulo-info"><i class="far fa-id-badge"></i>Tipo identificación: </span> <span
+                        id="tipo_identificacion"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-hashtag"></i>No. identificación: </span> <span id="identificacion"></span></p>
+                <p><span class="titulo-info"><i class="fas fa-hashtag"></i>No. identificación: </span> <span
+                        id="identificacion"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span id="telefono"></span></p>
+                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span id="telefono"></span>
+                </p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-venus-mars"></i>Genero: </span> <span id="genero"></span></p>
+                <p><span class="titulo-info"><i class="fas fa-venus-mars"></i>Genero: </span> <span id="genero"></span>
+                </p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-paw"></i>Cantidad de Mascotas: </span> <span id="cantidad_mascotas"></span></p>
+                <p><span class="titulo-info"><i class="fas fa-paw"></i>Cantidad de Mascotas: </span> <span
+                        id="cantidad_mascotas"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="far fa-calendar-alt"></i>Fecha nacimiento: </span> <span id="fecha_nacimiento"></span></p>
+                <p><span class="titulo-info"><i class="far fa-calendar-alt"></i>Fecha nacimiento: </span> <span
+                        id="fecha_nacimiento"></span></p>
             </div>
             <div class="pw-form-inverse">
-                <a href="../listadoMascotasAdmi/listado_mascotas_admi.html" id="mascotas" onclick="mascotas()">Mascotas</a>
+                <a href="../listadoMascotasAdmi/listado_mascotas_admi.html" id="mascotas"
+                    onclick="mascotas()">Mascotas</a>
             </div>
             <div class="pw-form-inverse">
                 <a href="../bitacoraAcciones/bitacora_acciones.html">Bitácora de acciones</a>
@@ -123,7 +146,7 @@
             <div class="info-perfil">
                 <p><span class="titulo-info">Distrito: </span> <span id="distrito">San Pedro</span></p>
             </div>
-           
+
 
         </div>
     </div>
@@ -156,8 +179,11 @@
     </div>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
-    async></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+        async></script>
+
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="./perfil_cliente_admi.js"></script>

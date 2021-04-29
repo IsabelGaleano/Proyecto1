@@ -110,3 +110,9 @@ function initMap(lat, lng) {
   marker.setMap(map);
 
 }
+
+const denunciar = () => {
+  let correo = localStorage.getItem('data-solicitudFin');
+  localStorage.setItem('correoDenunciaP', correo);
+
+}

@@ -20,6 +20,8 @@ document.querySelector('#revisar').addEventListener('click', e => {
             });
             estadoPago();
             enviarEmailFactura();
+            notificaciones();
+            notificacionesPagoProveedor();
             revisar.setAttribute("href", "../listadoPagosPendientes/listado_pagos_pendientes_cliente.html")
         }
 
@@ -118,3 +120,62 @@ const enviarEmailFactura = () => {
 
 }
 
+
+const notificaciones = () => {
+
+    let cliente = localStorage.getItem('correo');
+    let proveedor = localStorage.getItem('data-correo-pago');
+    var datos = {
+        receptor: cliente,
+        descripcion: "Tiene un servicio en curso",
+        fecha: new Date(),
+        emisor: proveedor,
+       
+    }
+  
+    fetch("http://localhost:5000/notificaciones/insertar", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .catch(err => {
+            response.json({ message: err })
+        });
+  
+  }
+
+
+  
+
+const notificacionesPagoProveedor = () => {
+
+    let cliente = localStorage.getItem('correo');
+    let proveedor = localStorage.getItem('data-correo-pago');
+    var datos = {
+        receptor: proveedor,
+        descripcion: "Ha pagado su servicio",
+        fecha: new Date(),
+        emisor: cliente,
+       
+    }
+  
+    fetch("http://localhost:5000/notificaciones/insertar", {
+        method: 'POST',
+        body: JSON.stringify(datos),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .catch(err => {
+            response.json({ message: err })
+        });
+  
+  }
