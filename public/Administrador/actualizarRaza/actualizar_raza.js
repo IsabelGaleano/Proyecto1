@@ -58,8 +58,10 @@ const cargarRaza = () => {
       for (let i = 0; json.length > i; i++) {
         document.getElementById('nombre').value = json[i].nombre;
         document.getElementById('descripcion').value = json[i].descripcion;
-        imagen.setAttribute('src', json[i].imagen);
-        imagen.setAttribute('src', `./../../uploads/${json[i].imagen}`);
+        document.getElementById('img_categoria_servicio').src = json[i]?.imagen
+          ? json[i].imagen
+          : '../../img/agregarImg.jpg';
+        document.getElementById('seleccion').value = json[i].categoria;
       }
     });
 };
@@ -68,20 +70,16 @@ const actualizarRaza = () => {
   var datos = {
     nombre: document.getElementById('nombre').value,
     descripcion: document.getElementById('descripcion').value,
-    imagen: document.getElementById('imagen_nueva').files[0],
+    imagen: document.getElementById('img_categoria_servicio').src,
     categoria: document.getElementById('seleccion').value,
   };
-
-  const formData = new FormData();
-  for (let key in datos) {
-    formData.append(key, datos[key]);
-  }
 
   insertarAccion();
 
   fetch('http://localhost:5000/razas/actualizar', {
     method: 'PUT',
-    body: formData,
+    body: JSON.stringify(datos),
+    headers: { 'Content-Type': 'application/json' },
   })
     .then(response => {
       return response.json();
@@ -110,53 +108,15 @@ const insertarAccion = () => {
   });
 };
 
-const actualizarCategoria = () => {
-  var datos = {
-    nombre: document.getElementById('nombre').value,
-    descripcion: document.getElementById('descripcion').value,
-    imagen: document.getElementById('imagen_nueva').files[0],
-  };
+const imgPreview = async (e) => {
+  try {
+      const img = e.files[0];
 
-  const formData = new FormData();
-  for (let key in datos) {
-    formData.append(key, datos[key]);
+      if (img) {
+          const base64Img = await toBase64(img);
+          document.getElementById('img_categoria_servicio').src = base64Img;
+      }
+  } catch (e) {
+      throw e;
   }
-
-  fetch('http://localhost:5000/categorias_servicios/actualizar', {
-    method: 'PUT',
-    body: formData,
-  })
-    .then(response => {
-      return response.json();
-    })
-    .catch(err => {
-      response.json({ message: err });
-    });
-};
-
-const loadImagePreview = fileInput => {
-  var datos = {
-    imagen: fileInput.files[0],
-  };
-
-  const formData = new FormData();
-  for (let key in datos) {
-    formData.append(key, datos[key]);
-  }
-
-  fetch('http://localhost:5000/upload_preview', {
-    method: 'POST',
-    body: formData,
-  })
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      const filename = data.filename;
-      let imgElement = document.getElementById('img_categoria_servicio');
-      imgElement.src = `./../../uploads_preview/${filename}`;
-    })
-    .catch(err => {
-      response.json({ message: err });
-    });
 };

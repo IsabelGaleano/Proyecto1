@@ -33,3 +33,8 @@ const cargarPerfil = () => {
       }
     )
 }
+
+const servicio = () => {
+  let correo = localStorage.getItem('data-proveedorSP');
+  localStorage.setItem('data-correoServicio', correo);
+}

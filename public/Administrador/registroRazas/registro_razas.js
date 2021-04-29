@@ -31,14 +31,14 @@ const insertarRaza = () => {
     var datos = {
         nombre: document.getElementById("nombre").value,
         descripcion: document.getElementById("descripcion").value,
-        imagen: document.getElementById("imagen").value,
+        imagen: document.getElementById('img_categoria_servicio').src,
         categoria: document.getElementById("categoria").value
     }
 
     fetch("http://localhost:5000/razas/insertar", {
         method: 'POST',
         body: JSON.stringify(datos),
-        headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
     })
         .then(
             response => {
@@ -48,3 +48,16 @@ const insertarRaza = () => {
     
 
 }
+
+const imgPreview = async e => {
+    try {
+      const img = e.files[0];
+  
+      if (img) {
+        const base64Img = await toBase64(img);
+        document.getElementById('img_categoria_servicio').src = base64Img;
+      }
+    } catch (e) {
+      throw e;
+    }
+  };

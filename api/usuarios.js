@@ -374,7 +374,8 @@ router.post('/cambiar_contrasenna', async (req, res) => {
     try {
         const { contrasenna, token } = req.body;
         const decoded = jwt.verify(token, TOKEN_SECRET);
-        const doc = await Usuario.findOneAndUpdate({ correo: decoded.email }, { contrasenna }, { new: true});
+        console.log(decoded)
+        const doc = await Usuario.findOneAndUpdate({ correo: decoded.email || decoded.correo }, { contrasenna }, { new: true});
 
         if (!doc) {
             res.status(401).json({ message: "usuario invalido", success: false });
