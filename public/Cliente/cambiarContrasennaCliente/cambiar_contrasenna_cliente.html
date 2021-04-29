@@ -1,99 +1,109 @@
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar contraseña</title>
-    <link rel="stylesheet" href="cambiar_contrasenna_cliente.css">
-    <link rel="stylesheet" href="../../pwcomponentes.css">
-    <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../Librerias/navCliente/nav_cliente.css">
-    <link rel="stylesheet" href="../../Librerias/footer/footer.css">
-    <link rel="stylesheet" href="../../Librerias/petsworld.css">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
-    
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Actualizar contraseña</title>
+        <link rel="stylesheet" href="cambiar_contrasenna_cliente.css">
+        <link rel="stylesheet" href="../../pwcomponentes.css">
+        <script src="https://kit.fontawesome.com/a623380e72.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../../Librerias/navCliente/nav_cliente.css">
+        <link rel="stylesheet" href="../../Librerias/footer/footer.css">
+        <link rel="stylesheet" href="../../Librerias/petsworld.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap"
+            rel="stylesheet">
 
-<body>
-    <nav class="container-nav">
-        <div class="box-logo container-nav">
-            <a href="#">
-                <img src="../img/logoPets.png" />
-            </a>
-        </div>
-        <div class="container-nav box-anchors">
-            <a href="#">Servicios</a>
-            <a href="#"><i class="far fa-bell"></i></a>
-            <div class="user">
-                <a href="#"><img id="logged_user_img" src="" /></a>
+    </head>
+
+    <body>
+        <nav class="container-nav">
+            <div class="box-logo container-nav">
+                <a href="#">
+                    <img src="../img/logoPets.png" />
+                </a>
             </div>
-            <div class="final-dropdown">
-                <span href="opcion2" id="logged_user_name"  class="final-dropdown-hover"></span>
-                <div class="final-dropdown-menu">
-                    <a href="../perfilCliente/perfil_cliente.html">Perfil</a>
-                    <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
-                    <a href="../listadoSolicitudesPendientesCliente/listado_solicitudes_pendientes_cliente.html">Solicitudes pendientes</a>
-                    <a href="../listadoServiciosCursoCliente/listado_servicios_curso_cliente.html">Servicios en curso</a>
-                    <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes anteriores</a>
-                    <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
-                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+            <div class="container-nav box-anchors">
+                <a href="#">Servicios</a>
+                <a href="#"><i class="far fa-bell"></i></a>
+                <div class="user">
+                    <a href="#"><img id="logged_user_img" src="" /></a>
+                </div>
+                <div class="final-dropdown">
+                    <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
+                    <div class="final-dropdown-menu">
+                        <a href="../perfilCliente/perfil_cliente.html">Perfil</a>
+                        <a href="../listadoMascotas/listado_mascotas.html">Mascotas</a>
+                        <a href="../listadoSolicitudesPendientesCliente/listado_solicitudes_pendientes_cliente.html">Solicitudes
+                            pendientes</a>
+                        <a href="../listadoServiciosCursoCliente/listado_servicios_curso_cliente.html">Servicios en
+                            curso</a>
+                        <a href="../listadoSolicitudesAnteriores/listado_solicitudes_anteriores_cliente.html">Solicitudes
+                            anteriores</a>
+                        <a href="../listadoPagosPendientes/listado_pagos_pendientes_cliente.html">Pagos pendientes</a>
+                        <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="pw-titulo-categoria">
+            <h2>Actualizar contraseña </h2>
+        </div>
+        <div class="perfil-administrador">
+
+            <div class="info-admi">
+                <div class="pw-form info">
+                    <p>Nueva contraseña</p>
+                    <input id="contrasenna" type="password" name="nombre" class="form-validate">
+                </div>
+                <div class="pw-form info">
+                    <p>Confirmar contraseña</p>
+                    <input id="contrasennaConfirm" type="password" name="apellido1" class="form-validate">
+                </div>
+
+                <div class="pw-form font">
+                    <a id="actualizar">Actualizar contraseña</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-footer">
+            <div class="logo">
+                <img src="../img/mundoLogo.png" />
+            </div>
+            <div class="links">
+                <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
+                <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
+                <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
+            </div>
+            <div class="redes">
+                <div class="icon">
+                    <img src="../img/facebook.png" />
+                    <p>Pets World</p>
+                </div>
+                <div class="icon">
+                    <img src="../img/instagram.png" />
+                    <p>Pets World</p>
+                </div>
+                <div class="icon">
+                    <img src="../img/whatsapp.png" />
+                    <p>+506 8564-5324</p>
                 </div>
             </div>
         </div>
-    </nav>
-    
-    <div class="pw-titulo-categoria">
-        <h2>Actualizar contraseña </h2>
-    </div>
-    <div class="perfil-administrador">
-       
-        <div class="info-admi">
-            <div class="pw-form info">
-                <p>Nueva contraseña</p>
-                <input type="password" name="nombre" class="form-validate">
-            </div>
-            <div class="pw-form info">
-                <p>Confirmar contraseña</p>
-                <input type="password" name="apellido1" class="form-validate">
-            </div>
-           
-            <div class="pw-form font">
-                <a id="revisarAdmin">Actualizar contraseña</a>
-            </div>
-        </div>
 
-    </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+        <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
+        <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 
-    <div class="container-footer">
-        <div class="logo">
-            <img src="../img/mundoLogo.png"/>
-        </div>
-        <div class="links">
-            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Creadores</a></p>
-            <p><a href="../../General/landingPageEquipo/landing_page_equipo.html">Sobre Nosotros</a></p>
-            <p><a href="../../General/contacto/contacto.html">Contacto</a></p>
-        </div>
-        <div class="redes">
-            <div class="icon">
-                <img src="../img/facebook.png"/>
-                <p>Pets World</p>
-            </div>
-            <div class="icon">
-                <img src="../img/instagram.png"/>
-                <p>Pets World</p>
-            </div>
-            <div class="icon">
-                <img src="../img/whatsapp.png"/>
-                <p>+506 8564-5324</p>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
-    "></script>
-    <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
-    <script src="./actualizacion_perfil_administrador.js"></script>
-    <script src="./../../Librerias/LoadNav/load_nav.js"></script>
-</body>
-
+        <!-- Usar en este mismo order -->
+        <script src="../../Librerias/General/cerrarSesion.js"></script>
+        <script src="../../Librerias/jwt-decode.js"></script>
+        <script src="../../Librerias/General/utils.js"></script>
+        
+        <script src="./cambiar_contrasenna_cliente.js"></script>
+    </body>
 </html>
