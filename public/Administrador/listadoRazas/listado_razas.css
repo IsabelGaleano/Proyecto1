@@ -144,3 +144,7 @@ div{
     max-height: 400px;
     margin:  20px 0;
 }
+
+.fa-user-times {
+    color: black;
+}
