@@ -64,6 +64,7 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
 
 const registrarProveedor = () => {
     let tipo_usuario = "proveedor"
+    let positions = getPosition();
     let imagen_usuario = "../../img/placeholder-User.jpg"
     let idProvincia = document.getElementById("provincia").value;
     let provincia = getProvincia(idProvincia);
@@ -85,9 +86,9 @@ const registrarProveedor = () => {
         provincia: provincia,
         canton: canton,
         distrito: distrito,
-        direccion: "",
-        latitud: "",
-        longitud: "",
+        direccion: document.getElementById("direccion").value,
+        latitud: positions.lat,
+        longitud: positions.lng,
         contrasenna: "",
         tipo_usuario: tipo_usuario,
         imagen_usuario: imagen_usuario,
