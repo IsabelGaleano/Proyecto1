@@ -30,13 +30,13 @@ const insertarInfo = () => {
     var infoCatServicio = {
         nombre: document.getElementById("nombre").value,
         descripcion: document.getElementById("descripcion").value,
-        imagen: document.getElementById("imagen").value
+        imagen: document.getElementById('img_categoria_servicio').src
     }
 
     fetch("http://localhost:5000/categorias_servicios/insertar", {
         method: 'POST',
         body: JSON.stringify(infoCatServicio),
-        headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
     })
         .then(
             respuesta => {
@@ -44,3 +44,16 @@ const insertarInfo = () => {
             }
         );
 }
+
+const imgPreview = async e => {
+    try {
+      const img = e.files[0];
+  
+      if (img) {
+        const base64Img = await toBase64(img);
+        document.getElementById('img_categoria_servicio').src = base64Img;
+      }
+    } catch (e) {
+      throw e;
+    }
+  };
