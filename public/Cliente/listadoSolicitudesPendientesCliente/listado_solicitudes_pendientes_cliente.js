@@ -79,7 +79,7 @@ const cargarListado = (correo, fechas) => {
                                 </div>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../perfilProveedorCliente/perfil_proveedor_cliente.html">
+                                <a class="button button-aceptar" href="../perfilProveedorCliente/perfil_proveedor_cliente.html" data-proveedorSP = "${json[i].proveedor}" onclick="ver(this)">
                                     Ver más</a>
                             </div>
                         </div>
@@ -98,7 +98,7 @@ const cargarListado = (correo, fechas) => {
                                 </div>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../perfilProveedorCliente/perfil_proveedor_cliente.html"> Ver
+                                <a class="button button-aceptar" href="../perfilProveedorCliente/perfil_proveedor_cliente.html"  data-proveedorSP = "${json[i+1].proveedor}" onclick="ver(this)"> Ver
                                     más</a>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ const cargarListado = (correo, fechas) => {
                                 </div>
                             </div>
                             <div class="button-ver">
-                                <a class="button button-aceptar" href="../perfilProveedorCliente/perfil_proveedor_cliente.html">
+                                <a class="button button-aceptar" href="../perfilProveedorCliente/perfil_proveedor_cliente.html"  data-proveedorSP = "${json[i].proveedor}" onclick="ver(this)">
                                     Ver más</a>
                             </div>
                         </div>         
@@ -138,4 +138,11 @@ const cargarListado = (correo, fechas) => {
             }
         )
 
+}
+
+const ver = (element) => {
+    const correo = element.getAttribute('data-proveedorSP');
+    localStorage.setItem('data-proveedorSP', correo);
+
+  
 }

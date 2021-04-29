@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarNotificacionesUsuario()">
+<body onload="cargarNotificacionesUsuario();cargarPerfil()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageCliente/landing_page_cliente.html">
@@ -65,7 +65,7 @@
         <div class="proveedor">
             <div class="avatar-proveedor">
                 <a href="#"><img src="../../Proveedor/img/andres.jpeg" /></a>
-                <p class="titulo-info">Andrés Vargas Calvo</p>
+                <p class="titulo-info" id="nombre"></p>
                 <p class="titulo-info">Excelente</p>
             </div>
             <div class="estrellas">
@@ -87,18 +87,18 @@
 
             <div class="info-perfil">
                 <p><span class="titulo-info"><i class="far fa-envelope"></i>Correo electrónico: </span>
-                    <span>avargasc@gmail.com</span></p>
+                    <span id="correo"></span></p>
             </div>
             <div class="info-perfil">
                 <p><span class="titulo-info"><i class="far fa-id-badge"></i>Tipo de identificación: </span>
-                    <span>Cédula</span></p>
+                    <span id="tipo_identificacion"></span></p>
             </div>
             <div class="info-perfil">
                 <p><span class="titulo-info"><i class="fas fa-hashtag"></i>No. identificación: </span>
-                    <span>1-1678-0928</span></p>
+                    <span id="identificacion"></span></p>
             </div>
             <div class="info-perfil">
-                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span>+506 8331-2945</span>
+                <p><span class="titulo-info"><i class="fas fa-phone"></i>Teléfono: </span> <span id="telefono"></span>
                 </p>
             </div>
             <div class="pw-form-inverse">
@@ -139,6 +139,7 @@
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
 
     <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
+    <script src="./perfil_proveedor_cliente.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
 
 </body>

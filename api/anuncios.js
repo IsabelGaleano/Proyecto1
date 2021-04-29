@@ -73,8 +73,6 @@ router.delete('/eliminar', (req, res) => {
 
 
 
-
-
 router.put('/actualizar', (req, res) => {
     let imagen = req.body.imagen;
   
