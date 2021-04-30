@@ -459,6 +459,27 @@ router.put('/actualizar_proveedor', (req, res) => {
     
   });
 
+  router.get('/servicios_posiciones', (req, res) => {
+    Usuario.find().exec()
+    .then(
+        function (result) {
+            let posiciones = [];
 
+                result.forEach(usuario => {
+                    if (!(usuario.latitud && usuario.longitud && usuario.tipo_usuario === 'proveedor')) return;
+                     posiciones.push({
+                        correo: usuario.correo,
+                        latitud: usuario.latitud,
+                        longitud: usuario.longitud
+                    });
+                });
+
+                res.json(posiciones);
+        }
+    )
+    .catch(err => {
+        res.json({ message: err })
+    });
+});
 
 module.exports = router;
