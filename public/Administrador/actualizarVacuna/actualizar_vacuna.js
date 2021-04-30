@@ -26,7 +26,7 @@ const actualizarVacuna = async (vacuna) => {
 const setDefaults = (vacuna) => {
     document.getElementById('nombre').value = vacuna.nombre;
     document.getElementById('descripcion').value = vacuna.descripcion;
-    document.getElementById(vacuna.categoria).checked = true;
+    document.getElementById('tipoAnimal').value = vacuna.categoria;
     document.getElementById('imgVacuna').src = vacuna?.imagen ? vacuna.imagen : '../../img/agregarImg.jpg';
 };
 
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const error = revisarForm();
             const nombre = document.getElementById('nombre').value;
             const descripcion = document.getElementById('descripcion').value;
-            const categoria = document.querySelector('input[name="categoriaAnimal"]:checked').value;
+            const categoria = document.getElementById('tipoAnimal').value;
             const imagen = document.getElementById('imgVacuna').src;
 
             if (!error) {
@@ -118,3 +118,24 @@ document.addEventListener('DOMContentLoaded', async () => {
       return respuesta.json();
     });
   };
+
+
+  
+const cargarCategoriasMascotas = () => {
+    fetch("http://localhost:5000/categorias_mascotas/")
+        .then(
+            response => {
+                return response.json();
+            }
+        )
+        .then(
+            json => {
+                let listado;
+                for (let i = 0; i < json.length; i++) {
+                    listado = ` <option value="${json[i].nombre}">${json[i].nombre}</option>`
+                    document.getElementById("tipoAnimal").insertAdjacentHTML("beforeend", listado);
+                }
+            }
+        )
+
+}

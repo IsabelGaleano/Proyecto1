@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (e.target && e.target.id == 'eliminarVacuna') {
                 const id = e.target.getAttribute('vacuna-id');
                 
-                
+                await eliminarVacuna(id);
             
                 Swal.fire({
                     title: '¿Está seguro?',
@@ -129,18 +129,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Sí, eliminarlo!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire(
-                            'Eliminado',
-                            'La vacuna ha sido eliminada.',
-                            'success'
-                        )
-                        await eliminarVacuna(id);
-                        await renderVacunas(categoriaDefault);
+                });
+
+                await renderVacunas(categoriaDefault);
             
-                    }
-                })
 
 
                 
