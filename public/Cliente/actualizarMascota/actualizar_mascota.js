@@ -2,7 +2,7 @@ document.querySelector('#revisarMascota').addEventListener('click', e => {
     let revisar = document.getElementById("revisarMascota");
     let error = revisarForm();
     if (!error) {
-       
+
         actualizarMascota();
         revisar.setAttribute("href", "../perfilMascota/perfil_mascota.html")
 
@@ -31,7 +31,7 @@ const actualizarMascota = () => {
         raza: document.getElementById("raza").value,
         padecimientos: obtenerPadecimientos(),
         vacunas: obtenerVacunas(),
-        foto_mascota: document.getElementById("foto_mascota").value,
+        foto_mascota: document.getElementById("imagenMascota").src,
         caracteristicas: document.getElementById("caracteristicas").value,
         vacunaDia: radioValue()
     }
@@ -88,7 +88,10 @@ const cargarPerfil = () => {
                     document.getElementById('nombre').value = json[i].nombre;
                     setRazas(json[i].raza);
                     setCategorias(json[i].tipo);
-                    buscarValorVacuna(json[i].vacunaDia)
+                    buscarValorVacuna(json[i].vacunaDia);
+                    document.getElementById('imagenMascota').src = json[i]?.foto_mascota
+                        ? json[i].foto_mascota
+                        : '../../img/placeholderPets.jpg';
                     document.getElementById('caracteristicas').value = json[i].caracteristicas;
                     //resetPadecimientos(json[i].padecimientos);
                     //resetVacunas(json[i].vacunas);
@@ -285,4 +288,19 @@ const resetVacunas = vacunas => {
     }
 
 }
+
+
+const imgPreview = async (e) => {
+    try {
+        const img = e.files[0];
+  
+        if (img) {
+            const base64Img = await toBase64(img);
+            document.getElementById('imagenMascota').src = base64Img;
+        }
+    } catch (e) {
+        throw e;
+    }
+  };
+  
 

@@ -61,13 +61,13 @@
     <div class="info-servicio">
         <div class="proveedor">
             <div class="avatar-proveedor">
-                <a href="#"><img src="../img/andres.jpeg"/></a>
+                <a href="#"><img src="../../img/placeholder-User.jpg" id="imagenUsuario"/></a>
                
             </div>
             <div class="pw-form-inverse">
                 <div class="upload-btn-wrapper">
                     <button class="btn">Agregar imagen</button>
-                    <input type="file" name="myfile" />
+                    <input type="file" name="myfile" id="imagenInput" accept="accept=image/x-png,image/jpeg" onchange="imgPreview(this)" />
                   </div>
             </div>
         </div>
@@ -173,7 +173,7 @@
         </div>
     </div>
 
-
+    <script src="../../Librerias/General/utils.js"></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>

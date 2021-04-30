@@ -67,12 +67,12 @@
         <div class="info-izquierda">
             <div class="cargar-img">
                 <div class="avatar">
-                    <a href="../../index.html"><img src="../../img/placeholder-image (1).png" /></a>
+                    <a href="../../index.html"><img src="../../img/placeholder-image (1).png" id="imagenMascota" /></a>
                 </div>
                 <div class="pw-form-inverse">
                     <div class="upload-btn-wrapper">
                         <button class="btn">Agregar imagen</button>
-                        <input type="file" name="myfile" id="foto_mascota" />
+                        <input type="file" name="myfile" id="imagenInput" accept="image/x-png,image/jpeg" onchange="imgPreview(this)"/>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@
     "></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="./agregar_mascota.js"></script>
-
+    <script src="../../Librerias/General/utils.js"></script>
     <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
 
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>

@@ -49,8 +49,8 @@ const registroMascotas = () => {
         if (contador == cantidad) {
             revisar.setAttribute("href", "../../General/login/login.html");
         }
-       
-    } 
+
+    }
 }
 
 
@@ -64,7 +64,7 @@ const insertarInfo = () => {
         raza: document.getElementById("raza").value,
         padecimientos: obtenerPadecimientos(),
         vacunas: obtenerVacunas(),
-        foto_mascota: document.getElementById("foto_mascota").value,
+        foto_mascota: document.getElementById("imagenMascota").src,
         caracteristicas: document.getElementById("caracteristicas").value,
     }
 
@@ -98,6 +98,20 @@ const cargarVacunas = () => {
         )
 
 }
+
+
+const imgPreview = async e => {
+    try {
+      const img = e.files[0];
+  
+      if (img) {
+        const base64Img = await toBase64(img);
+        document.getElementById('imagenMascota').src = base64Img;
+      }
+    } catch (e) {
+      throw e;
+    }
+  };
 
 
 

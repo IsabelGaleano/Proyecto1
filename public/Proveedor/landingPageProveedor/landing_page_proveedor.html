@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarNotificacionesUsuario()">
+<body onload="cargarNotificacionesUsuario();cargarInfoProveedorPerfil()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="#">
@@ -74,8 +74,8 @@
 
     <div class="proveedor">
         <div class="avatar-proveedor">
-            <a href="#"><img src="../img/andres.jpeg" /></a>
-            <p class="titulo-info">Andres Vargas Calvo</p>
+            <a href="#"><img id="imagenUsuario" /></a>
+            <p class="titulo-info" id="nombre"></p>
             <p class="titulo-info">Excelente</p>
         </div>
         <div class="estrellas">

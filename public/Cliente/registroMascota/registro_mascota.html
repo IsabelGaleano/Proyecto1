@@ -41,12 +41,12 @@
         <div class="info-izquierda">
             <div class="cargar-img">
                 <div class="avatar">
-                    <a href="../../index.html"><img src="../../img/placeholder-image (1).png" /></a>
+                    <a href="../../index.html"><img src="../../img/placeholder-image (1).png" id="imagenMascota" /></a>
                 </div>
                 <div class="pw-form-inverse">
                     <div class="upload-btn-wrapper">
                         <button class="btn">Agregar imagen</button>
-                        <input type="file" name="myfile" id="foto_mascota" />
+                        <input type="file" name="myfile" id="imagenInput" accept="image/x-png,image/jpeg" onchange="imgPreview(this)"/>
                       </div>
                 </div>
             </div>
@@ -142,6 +142,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
+    <script src="../../Librerias/General/utils.js"></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="./registro_mascota.js"></script>
 

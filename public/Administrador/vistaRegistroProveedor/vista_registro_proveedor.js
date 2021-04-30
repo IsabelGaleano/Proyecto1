@@ -32,6 +32,7 @@ const cargarProveedorInfo = () => {
             document.getElementById('apellido1').innerText = json[i].apellido1;
             document.getElementById('apellido2').innerText = json[i].apellido2;
             document.getElementById('direccion').innerText = json[i].direccion;
+            initMap(json[i].latitud, json[i].longitud);
           }
         }
       )
@@ -183,3 +184,26 @@ const activarProveedor = () => {
     return fecha
 
   }
+
+
+// Initialize and add the map
+function initMap(lat, lng) {
+  var myLatlng = new google.maps.LatLng(lat, lng);
+  var mapOptions = {
+    zoom: 4,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  marker = new google.maps.Marker({
+    position: myLatlng,
+    title: "Hello World!",
+    map: map,
+    draggable: true
+  });
+
+
+  // To add the marker to the map, call setMap();
+  marker.setMap(map);
+
+}

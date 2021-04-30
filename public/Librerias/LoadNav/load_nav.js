@@ -10,6 +10,6 @@ fetch('http://localhost:5000/usuarios/buscar', {
 })
   .then(res => res.json())
   .then(data => {
-    element_img.src = './../../uploads/' + data[0].imagen_usuario;
+    element_img.src = data[0].imagen_usuario;
     element_name.innerText = data[0].nombre;
   });

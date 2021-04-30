@@ -5,7 +5,7 @@ document.querySelector('#revisarServicio').addEventListener('click', e => {
   if (!error) {
 
     actualizarServicio();
-    //revisar.setAttribute("href", "../perfilProveedor/perfil_proveedor.html")
+    revisar.setAttribute("href", "../perfilProveedor/perfil_proveedor.html")
 
 
   } else {

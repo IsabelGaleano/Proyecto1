@@ -54,6 +54,7 @@ div{
 .buttons-export {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 
 }
 
@@ -66,3 +67,4 @@ div{
 .titulo-exportar h4 {
     margin: 0;
 }
+

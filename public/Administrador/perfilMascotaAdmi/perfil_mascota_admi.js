@@ -31,6 +31,7 @@ const cargarPerfil = () => {
           document.getElementById('raza').innerText = json[i].raza;
           document.getElementById('tipo').innerText = json[i].tipo;
           document.getElementById('caracteristicas').innerText = json[i].caracteristicas;
+          document.getElementById('imagenMascota').src = json[i].foto_mascota
          
         }
         resetVacunas(vacunas);

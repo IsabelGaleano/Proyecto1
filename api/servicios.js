@@ -117,7 +117,7 @@ router.put('/actualizar', async (req, res) => {
                 whatsapp: req.body.whatsapp,
                 instagram: req.body.instagram,
                 facebook: req.body.facebook,
-                categoria_servicio: servicio.categoria_servicio,
+                categoria_servicio: req.body.categoria_servicio,
                 estado: "activo"
             }
         }, { useFindAndModify: false, new: true }, (err, doc) => {

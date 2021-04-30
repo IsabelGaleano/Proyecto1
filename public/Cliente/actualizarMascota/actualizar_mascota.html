@@ -61,12 +61,12 @@
     <div class="info-servicio">
         <div class="proveedor">
             <div class="avatar-proveedor">
-                <a href="#"><img src="../img/puyo1.jpg" id="foto_mascota" /></a>
+                <a href="#"><img src="../../img/placeholderPets.jpg" id="imagenMascota" /></a>
             </div>
             <div class="pw-form-inverse">
                 <div class="upload-btn-wrapper">
                     <button class="btn">Agregar imagen</button>
-                    <input type="file" name="myfile" />
+                    <input type="file" name="myfile" id="imagenInput" accept="image/x-png,image/jpeg" onchange="imgPreview(this)"/>
                   </div>
             </div>
 
@@ -159,6 +159,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
+    <script src="../../Librerias/General/utils.js"></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="./actualizar_mascota.js"></script>
     <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>

@@ -30,6 +30,7 @@ const cargarInfoProveedorPerfil = () => {
           document.getElementById('provincia').innerText = json[i].provincia;
           document.getElementById('canton').innerText = json[i].canton;
           document.getElementById('distrito').innerText = json[i].distrito;
+          document.getElementById('imagenUsuario').src = json[i].imagen_usuario
         }
       }
     )

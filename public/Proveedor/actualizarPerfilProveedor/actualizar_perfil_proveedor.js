@@ -16,7 +16,7 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
                     revisar.setAttribute("href", "../perfilProveedor/perfil_proveedor.html")
 
                 } else {
-                    
+
                     Swal.fire({
                         title: 'Error!',
                         text: 'Cédula incorrecta',
@@ -92,7 +92,9 @@ const cargarPerfil = () => {
                     document.getElementById('fecha_nacimiento').value = fechaNacimiento;
                     buscarTipoIdenficacion(json[i].tipo_identificacion);
                     setProvincia(json[i].provincia, json[i].canton, json[i].distrito);
-
+                    document.getElementById('imagenUsuario').src = json[i]?.imagen_usuario
+                        ? json[i].imagen_usuario
+                        : '../../img/placeholder-User.jpg';
                 }
 
 
@@ -127,7 +129,8 @@ const actualizarProveedor = () => {
         fecha_nacimiento: fecha_nacimiento,
         provincia: provincia,
         canton: canton,
-        distrito: distrito
+        distrito: distrito,
+        imagen_usuario: document.getElementById('imagenUsuario').src
     }
 
     fetch("http://localhost:5000/usuarios/actualizar_proveedor", {
@@ -195,94 +198,109 @@ const obtenerFecha = (fechaNacimiento) => {
 
     let fecha = `${new Date(fechaNacimiento).getUTCFullYear()}-${new Date(fechaNacimiento).getUTCMonth() + 1}-${new Date(fechaNacimiento).getUTCDate()}`;
     return fecha;
-  
-  }
-  
 
-  
+}
+
+
+
 const setProvincia = (nameProvincia, nameCanton, nameDistrito) => {
     fetch('https://ubicaciones.paginasweb.cr/provincias.json')
-      .then(res => res.json())
-      .then(data => {
-        let provincias = document.getElementById('provincia');//Obtengo el elemento select
-  
-        for (const [key, value] of Object.entries(data)) {
-  
-          if (value === nameProvincia) { //Aquí comparo si el valor (que es el nombre de la provincia) es igual al valor que paso por parametros
-            provincias.selectedIndex = key - 1;
-  
-          }
-        }
-        setCanton(nameCanton, nameDistrito);
-      });
-  
-  }
-  
-  
-  const setCanton = (nameCanton, nameDistrito) => {
+        .then(res => res.json())
+        .then(data => {
+            let provincias = document.getElementById('provincia');//Obtengo el elemento select
+
+            for (const [key, value] of Object.entries(data)) {
+
+                if (value === nameProvincia) { //Aquí comparo si el valor (que es el nombre de la provincia) es igual al valor que paso por parametros
+                    provincias.selectedIndex = key - 1;
+
+                }
+            }
+            setCanton(nameCanton, nameDistrito);
+        });
+
+}
+
+
+const setCanton = (nameCanton, nameDistrito) => {
     let provincia = document.getElementById('provincia').value;
     let url = "https://ubicaciones.paginasweb.cr/provincia/" + provincia + "/cantones.json";
     fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        let cantones = document.getElementById('canton');//Obtengo el elemento select
-        for (const [key, value] of Object.entries(data)) {
-  
-          if (value === nameCanton) {
-            cantones.selectedIndex = key - 1;
-            let linea = "<option value='" + key + "' selected>" + value + "</option>";
-            cantones.insertAdjacentHTML('beforeend', linea)
-  
-          }
-        }
-        setDistrito(nameDistrito);
-  
-      });
-  
-  }
-  
-  const setDistrito = nameDistrito => {
+        .then(res => res.json())
+        .then(data => {
+            let cantones = document.getElementById('canton');//Obtengo el elemento select
+            for (const [key, value] of Object.entries(data)) {
+
+                if (value === nameCanton) {
+                    cantones.selectedIndex = key - 1;
+                    let linea = "<option value='" + key + "' selected>" + value + "</option>";
+                    cantones.insertAdjacentHTML('beforeend', linea)
+
+                }
+            }
+            setDistrito(nameDistrito);
+
+        });
+
+}
+
+const setDistrito = nameDistrito => {
     let provincia = document.getElementById('provincia').value;
     let canton = document.getElementById('canton').value;
-    let url = "https://ubicaciones.paginasweb.cr/provincia/" + provincia + "/canton/" +canton +"/distritos.json"
+    let url = "https://ubicaciones.paginasweb.cr/provincia/" + provincia + "/canton/" + canton + "/distritos.json"
     fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        let distritos = document.getElementById('distrito');//Obtengo el elemento select
-        for (const [key, value] of Object.entries(data)) {
-  
-          if (value === nameDistrito) {
-            distritos.selectedIndex = key -1;
-            let linea = "<option value='" + key + "' selected>" + value + "</option>";
-            distritos.insertAdjacentHTML('beforeend', linea)
-  
-          }
-        }
-  
-      });
-  
-  }
-  
-  function format(date) {
+        .then(res => res.json())
+        .then(data => {
+            let distritos = document.getElementById('distrito');//Obtengo el elemento select
+            for (const [key, value] of Object.entries(data)) {
+
+                if (value === nameDistrito) {
+                    distritos.selectedIndex = key - 1;
+                    let linea = "<option value='" + key + "' selected>" + value + "</option>";
+                    distritos.insertAdjacentHTML('beforeend', linea)
+
+                }
+            }
+
+        });
+
+}
+
+function format(date) {
     date = new Date(date);
-  
+
     var day = ('0' + date.getDate()).slice(-2);
     var month = ('0' + (date.getMonth() + 1)).slice(-2);
     var year = date.getFullYear();
-  
+
     return year + '-' + month + '-' + day;
-  }
-  
+}
+
 const buscarTipoIdenficacion = tipoIdentificacion => {
     var select = document.getElementById("tipo_identificacion");
     for (let i = 1; i < select.length; i++) {
-      if (select.options[i].text == tipoIdentificacion) {
-  
-        select.selectedIndex = i;
-  
-  
-  
-      }
+        if (select.options[i].text == tipoIdentificacion) {
+
+            select.selectedIndex = i;
+
+
+
+        }
     }
-  }
+}
+
+
+
+const imgPreview = async (e) => {
+    try {
+        const img = e.files[0];
+  
+        if (img) {
+            const base64Img = await toBase64(img);
+            document.getElementById('imagenUsuario').src = base64Img;
+        }
+    } catch (e) {
+        throw e;
+    }
+  };
   

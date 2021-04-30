@@ -16,8 +16,7 @@ const listadoServiciosHtml = (imagen, nombre, descripcion, proveedor) => {
       </div>
       <div class="descripcion-info">
         <h4 class="margin-bottom">${nombre}</h4>
-        <p class="margin-top">${descripcion}</p>
-        <div class="estrellas">
+        <div class="estrellasp">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -69,5 +68,9 @@ const ver = (element) => {
 
 }
 
+const cargarNombreCategoria = () => {
+    let nombre =  localStorage.getItem('data-nombreCategoria');
+    document.getElementById('nombreCategoria').innerText = nombre;
+}
 
 

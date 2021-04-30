@@ -132,9 +132,7 @@
                 </div>
                 <div class="mapa-servicio pw-form">
                     <p>Ubicación del servicio</p>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15720.318124809437!2d-84.0484498!3d9.9273345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scr!4v1615836128481!5m2!1ses!2scr"
-                        width="375" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div id="map"></div>
 
                 </div>
             </div>
@@ -167,6 +165,9 @@
         </div>
     </div>
 
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+    async></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
     <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
