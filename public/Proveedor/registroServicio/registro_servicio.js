@@ -31,6 +31,19 @@ const registrarServicio = async (servicio) => {
     }
 }
 
+const imgPreview = async (e) => {
+    try {
+        const img = e.target.files[0];
+
+        if (img) {
+            const base64Img = await toBase64(img);
+            document.getElementById('imgServicio').src = base64Img;
+        }
+    } catch (e) {
+        throw e;
+    }
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
     try {
     // Verificar si el current user esta autorizado
@@ -66,6 +79,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (usuarioActual?.estado !== 'activo') {
         sinAutorizacionMsj('Su solicitud aun esta pendiente');
     }
+
+    fotoServicio.addEventListener('input', imgPreview); 
     
     registrarServicioBtn.addEventListener("click", async (e) => {
         try {
@@ -74,6 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const dias = [...document.querySelectorAll('.checkbox:checked')].map((e) => e.value);
                 const horario = dias.map((dia) => document.getElementById(dia).value);
                 const fotoServicioBase64 = await Promise.all([...fotoServicio.files].map(async (file) => await toBase64(file)));
+                 
                 const proveedor = localStorage.getItem('correo');
 
                 if (dias.length > 0 && horario.length > 0) {
