@@ -65,7 +65,7 @@ const renderVacunas = async (categoria) => {
             const listado = `
                 <div class="listado">
                     ${ vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) }
-                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) : '' }
+                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i + 1].imagen, vacunas[i + 1].nombre, vacunas[i].categoria, vacunas[i + 1]._id) : '' }
                 </div>
             `;
 
@@ -99,6 +99,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const id = e.target.getAttribute('vacuna-id');
                 
                 await eliminarVacuna(id);
+                Swal.fire({
+                    title: '¿Está seguro?',
+                    text: "¡No podrá revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminarlo!'
+                }) 
+
                 await renderVacunas(categoriaDefault);
             }
          });
