@@ -68,7 +68,7 @@
     <div class="info-servicio">
         <div class="proveedor">
             <div class="avatar-proveedor">
-                <a href="../../index.html"><img id="imagenUsuario"/></a>
+                <a href="../../index.html"><img id="imagenUsuario" /></a>
                 <p class="titulo-info">Proveedor: <span id="nombre"></span> </p>
                 <p class="titulo-info">Excelente</p>
             </div>
@@ -95,22 +95,10 @@
                 <p><span class="titulo-info">Costo del servicio: </span> <span id="precioServicio"></span></p>
             </div>
 
-            <div class="carousel">
-                <h3>Fotos del servicio</h3>
-                <div class="swiper-container center" style="width:400px;height:200px;border:1px solid #BEBEBE;">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="../img/estetica1.jpg">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../img/estetica2.jpg">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../img/estetica1.jpg">
-                        </div>
-                    </div>
-                </div>
+            <div class="img-agregar">
+                <img id="imagenServicio" />
             </div>
+
             <div class="nivel-nacional">
                 <p class="titulo-info">El servicio lo provee a nivel: </p>
                 <p><input type="radio" name="nivel" value="Nacional" checked disabled> Nacional</p>
@@ -124,7 +112,7 @@
                 </textarea>
             </div>
 
-           
+
         </div>
         <div class="info-derecha">
             <p class="titulo-info">Horario del servicio</p>
@@ -136,7 +124,7 @@
                     <div class="valor-horario">
                         <p><span id="horario_servicio_lunes"></span></p>
                     </div>
-                </div>  
+                </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
@@ -236,8 +224,9 @@
             </div>
         </div>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
-    async></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+        async></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>

@@ -3,7 +3,9 @@ let apellido1Proveedor;
 let apellido2Proveedor;
 let direccion;
 let categoria_servicio;
-
+let latitud;
+let longitud;
+let imagenUsuario;
 const cargarUsuario = () => {
   let correo = localStorage.getItem('data-solicitudFin');
   //let infoCursoForm = JSON.parse(infoCurso);
@@ -28,7 +30,10 @@ const cargarUsuario = () => {
         apellido1Proveedor = json[0].apellido1;
         apellido2Proveedor = json[0].apellido2;
         direccion = json[0].direccion;
-        categoria_servicio = json[0].categoria_servicio
+        categoria_servicio = json[0].categoria_servicio;
+        latitud = json[0].latitud;
+        longitud = json[0].longitud;
+        imagenUsuario = json[0].imagen_usuario;
         cargarPerfil();
       }
     )
@@ -57,18 +62,16 @@ const cargarPerfil = () => {
     )
     .then(
       json => {
-        let imagen_usuario = document.getElementById('imagen_usuario');
-        // let fechaServicio;
-        // fechaServicio = obtenerFecha(fecha);
+   
+
         let nombre = `${nombreProveedor} ${apellido1Proveedor} ${apellido2Proveedor}`
         document.getElementById('nombre_servicio').innerText = json.nombre_servicio;
         document.getElementById('costo').innerText = json.costo;
         document.getElementById('categoria_servicio').innerText = json.categoria_servicio;
-        //document.getElementById('fechaServicio').innerText = fechaServicio
-        document.getElementById('direccion').innerText = json.direccion;
+        document.getElementById('direccion').innerText = direccion;
         document.getElementById('nombre').innerText = nombre;
-        imagen_usuario.setAttribute("src", json.imagen_usuario);
-        initMap(json[i].latitud, json[i].longitud);
+        document.getElementById('imagenUsuario').src = imagenUsuario;
+        initMap(latitud, longitud);
 
       }
     )

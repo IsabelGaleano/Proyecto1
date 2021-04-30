@@ -88,3 +88,10 @@ const denunciar = () => {
   localStorage.setItem('correoDenunciaC', correo);
 
 }
+
+const  mascotas = () => {
+  let infoCurso = localStorage.getItem('data-fin');
+  let infoCursoForm = JSON.parse(infoCurso);
+  let correo = infoCursoForm.correo;
+  localStorage.setItem('data-correo', correo);
+}

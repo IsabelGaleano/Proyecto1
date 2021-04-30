@@ -73,7 +73,7 @@ const cargarListado = (correo, fechas) => {
                         listado = `<div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <a href="../perfilClienteProveedor/perfil_cliente_proveedor.html" data-correo = "${json[i].correo}" onclick="ver(this)"> <img src="../../img/man1.jpg" /></a>
+                                <a href="../perfilClienteProveedor/perfil_cliente_proveedor.html" data-correo = "${json[i].correo}" onclick="ver(this)"> <img src="${json[i].imagen_usuario}" /></a>
                                
                             </div>
                             <div class="descripcion-info">
@@ -88,7 +88,7 @@ const cargarListado = (correo, fechas) => {
                         </div>
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <a href="../perfilClienteProveedor/perfil_cliente_proveedor.html" data-correo = "${json[i + 1].correo}" onclick="ver(this)"> <img src="../../img/man1.jpg" /></a>
+                                <a href="../perfilClienteProveedor/perfil_cliente_proveedor.html" data-correo = "${json[i + 1].correo}" onclick="ver(this)"> <img src="${json[i + 1].imagen_usuario}" /></a>
                                
                             </div>
                             <div class="descripcion-info">
@@ -110,7 +110,7 @@ const cargarListado = (correo, fechas) => {
                         listado = `<div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <a href="../perfilClienteProveedor/perfil_cliente_proveedor.html" data-correo = "${json[i].correo}" onclick="ver(this)"> <img src="../../img/man1.jpg" /></a>
+                                <a href="../perfilClienteProveedor/perfil_cliente_proveedor.html" data-correo = "${json[i].correo}" onclick="ver(this)"> <img src="${json[i].imagen_usuario}" /></a>
                                
                                 </div>
                                 <div class="descripcion-info">

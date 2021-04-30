@@ -17,7 +17,7 @@
 <body onload="cargarUsuario();cargarNotificacionesUsuario()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
-            <a href="#">
+            <a href="../landingPageCliente/landing_page_cliente.html">
                 <img src="../img/logoPets.png" />
             </a>
         </div>
@@ -65,7 +65,7 @@
     <div class="info-servicio">
         <div class="cliente">
             <div class="avatar-cliente">
-                <a href="../../index.html"><img id="imagen_usuario" /></a>
+                <a href="../../index.html"><img id="imagenUsuario"/></a>
                 <p class="titulo-info" id="nombre"></p>
                 <div class="pw-form">
                     <a href="../denunciaCliente/denuncia_cliente.html" onclick="denunciar()">Denunciar</a>
@@ -86,24 +86,6 @@
             <div class="titulo-servicio">
                 <p><span class="titulo-info">Categoría del servicio: </span> <span id="categoria_servicio"></span></p>
             </div>
-            <div class="info-perfil">
-                <p><span class="titulo-info">Fecha del servicio: </span> <span id="fechaServicio"></span></p>
-            </div>
-
-            <div class="pw-form info">
-
-                <p class="pw-form-p">Hora de inicio:</p>
-                <input type="time" name="telefono" class="form-validate" disabled>
-            </div>
-            <div class="pw-form info">
-                <p>Hora de fin:</p>
-                <input type="time" name="telefono" class="form-validate" disabled>
-            </div>
-
-
-        </div>
-    
-        <div class="info-columna">
             <div class="pw-form info">
                 <p>Calificación dada</p>
                 <div class="estrellas">
@@ -122,6 +104,11 @@
                 <span><textarea class="text-area" name="" id="direccion" cols="30" rows="6"
                         readonly></textarea>
             </div>
+
+        </div>
+    
+        <div class="info-columna">
+            
             <div class="info-perfil">
                 <div id="map"></div>
             </div>

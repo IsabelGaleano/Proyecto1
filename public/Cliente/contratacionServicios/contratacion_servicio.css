@@ -153,3 +153,9 @@ div{
     width: 100%;
     /* The width is the width of the web page */
   }
+
+  
+  .img-agregar img{
+    width: 300px;
+
+}

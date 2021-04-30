@@ -109,14 +109,10 @@ const actualizarEstado = () => {
   let correo = infoCursoForm.correo;
   let proveedor = localStorage.getItem('correo');
   let cliente = correo;
-  let fechaInicio = document.getElementById('horaInicio').value;
-  let fechaFin = document.getElementById('horaFin').value;
   var datos = {
     proveedor: proveedor,
     cliente: cliente,
     estado: "finalizado",
-    fechaInicio: fechaInicio,
-    fechaFin: fechaFin
   }
 
   fetch("http://localhost:5000/solicitudes/actualizar_solicitudes_curso", {
@@ -197,6 +193,8 @@ const cargarServicio = () => {
 window.addEventListener('load', e => {
   cargarPerfil();
 })
+
+
 const enviarEmail = (proveedor, nombreServicio) => {
   let infoCurso = localStorage.getItem('data-cliente-curso');
   let infoCursoForm = JSON.parse(infoCurso);

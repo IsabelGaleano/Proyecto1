@@ -8,11 +8,11 @@ const listarServicio = async (idCategoria) => {
   }
 }
 
-const listadoServiciosHtml = (imagen, nombre, descripcion, proveedor) => {
+const listadoServiciosHtml = (imagen, nombre, descripcion, proveedor, imagenes_servicio) => {
   return `
     <div class="info-listado">
       <div class="img-categoria">
-        <img src="${imagen || '../img/estetica4.PNG'}" />
+        <img src="${imagenes_servicio[0]}" />
       </div>
       <div class="descripcion-info">
         <h4 class="margin-bottom">${nombre}</h4>
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       for (let i = 0; i < servicios.length; i += 2) {
         const listado = `
             <div class="listado">
-                ${ listadoServiciosHtml(servicios[i].imagen, servicios[i].nombre_servicio, servicios[i].descripcion, servicios[i].proveedor) }
-                ${ servicios[i + 1] ? listadoServiciosHtml(servicios[i + 1].imagen, servicios[i + 1].nombre_servicio, servicios[i + 1].descripcion, servicios[i + 1].proveedor) : '' }
+                ${ listadoServiciosHtml(servicios[i].imagen, servicios[i].nombre_servicio, servicios[i].descripcion, servicios[i].proveedor, servicios[i].imagenes_servicio) }
+                ${ servicios[i + 1] ? listadoServiciosHtml(servicios[i + 1].imagen, servicios[i + 1].nombre_servicio, servicios[i + 1].descripcion, servicios[i + 1].proveedor, servicios[i + 1].imagenes_servicio) : '' }
             </div>
         `;
 

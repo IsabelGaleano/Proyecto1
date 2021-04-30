@@ -3,7 +3,9 @@ let apellido1Proveedor;
 let apellido2Proveedor;
 let direccion;
 let categoria_servicio;
-
+let imagenUsuario;
+let longitud;
+let latitud;
 const cargarUsuario = () => {
   let infoCurso = localStorage.getItem('data-cursoServicio');
   let infoCursoForm = JSON.parse(infoCurso);
@@ -30,7 +32,9 @@ const cargarUsuario = () => {
         apellido2Proveedor = json[0].apellido2;
         direccion = json[0].direccion;
         categoria_servicio = json[0].categoria_servicio
-
+        imagenUsuario = json[0].imagen_usuario;
+        latitud = json[0].latitud;
+        longitud = json[0].longitud;
         cargarPerfil();
       }
     )
@@ -60,7 +64,7 @@ const cargarPerfil = () => {
     )
     .then(
       json => {
-        let imagen_usuario = document.getElementById('imagen_usuario');
+      
         let fechaServicio;
         fechaServicio = obtenerFecha(fecha);
 
@@ -69,10 +73,10 @@ const cargarPerfil = () => {
         document.getElementById('costo').innerText = json.costo;
         document.getElementById('categoria_servicio').innerText = json.categoria_servicio;
         document.getElementById('fechaServicio').innerText = fechaServicio
-        document.getElementById('direccion').innerText = json.direccion;
+        document.getElementById('direccion').innerText = direccion;
         document.getElementById('nombre').innerText = nombre;
-        imagen_usuario.setAttribute("src", json.imagen_usuario);
-        initMap(json[i].latitud, json[i].longitud);
+        document.getElementById('imagenUsuario').src = imagenUsuario;
+        initMap(latitud, longitud);
 
 
 
@@ -80,6 +84,28 @@ const cargarPerfil = () => {
     )
 }
 
+
+// Initialize and add the map
+function initMap(lat, lng) {
+  var myLatlng = new google.maps.LatLng(lat, lng);
+  var mapOptions = {
+    zoom: 4,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    title: "Hello World!",
+    map: map,
+    draggable: true
+  });
+
+
+  // To add the marker to the map, call setMap();
+  marker.setMap(map);
+
+}
 
 
 const obtenerFecha = (fechaNacimiento) => {

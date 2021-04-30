@@ -86,7 +86,7 @@ const renderVacunas = async (categoria) => {
             const listado = `
                 <div class="listado">
                     ${ vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) }
-                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i].imagen, vacunas[i].nombre, vacunas[i].categoria, vacunas[i]._id) : '' }
+                    ${ vacunas[i + 1] ? vacunaHtml(vacunas[i + 1].imagen, vacunas[i + 1].nombre, vacunas[i].categoria, vacunas[i + 1]._id) : '' }
                 </div>
             `;
 
@@ -119,8 +119,31 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (e.target && e.target.id == 'eliminarVacuna') {
                 const id = e.target.getAttribute('vacuna-id');
                 
-                await eliminarVacuna(id);
-                await renderVacunas(categoriaDefault);
+                
+            
+                Swal.fire({
+                    title: '¿Está seguro?',
+                    text: "¡No podrá revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminarlo!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'Eliminado',
+                            'La vacuna ha sido eliminada.',
+                            'success'
+                        )
+                        await eliminarVacuna(id);
+                        await renderVacunas(categoriaDefault);
+            
+                    }
+                })
+
+
+                
             }
          });
 

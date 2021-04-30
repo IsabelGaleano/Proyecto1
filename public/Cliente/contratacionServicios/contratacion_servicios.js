@@ -13,14 +13,6 @@ document.querySelector('#contratarServicio').addEventListener('click', e => {
  
 })
 
-var swiper = new Swiper(".swiper-container", {
-    speed: 1500,
-    loop: true,
-    // autoplay: {
-    //     delay: 500
-    // },
-    plugins: [SwiperPluginAutoPlay]
-  });
   
   const cargarServicio = () => {
     let proveedor = localStorage.getItem('data-proveedorC');
@@ -49,6 +41,7 @@ var swiper = new Swiper(".swiper-container", {
           document.getElementById('numeroCelular').innerText = json.whatsapp;
           document.getElementById('instagram').innerText = json.instagram;
           document.getElementById('facebook').innerText = json.facebook;
+          document.getElementById('imagenServicio').src = json.imagenes_servicio[0];
           //document.getElementById('categoria_servicio').innerText = json.categoria_servicio
           cargarHorarios(json.horario_servicio)
   

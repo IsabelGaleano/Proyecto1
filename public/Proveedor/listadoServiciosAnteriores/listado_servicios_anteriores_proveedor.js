@@ -78,7 +78,7 @@ const cargarListado = (correo, fechas) => {
                         listado = `<div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../../img/man7.jpeg" />
+                                <img src="${json[i].imagen_usuario}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i].nombre} ${json[i].apellido1} ${json[i].apellido2}</h4>
@@ -94,7 +94,7 @@ const cargarListado = (correo, fechas) => {
                         </div>
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../../img/mujer7.jpg" />
+                                <img src="${json[i + 1].imagen_usuario}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i + 1].nombre} ${json[i + 1].apellido1} ${json[i + 1].apellido2}</h4>
@@ -117,7 +117,7 @@ const cargarListado = (correo, fechas) => {
                         listado = `<div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../../img/man7.jpeg" />
+                                <img src="${json[i].imagen_usuario}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i].nombre} ${json[i].apellido1} ${json[i].apellido2}</h4>

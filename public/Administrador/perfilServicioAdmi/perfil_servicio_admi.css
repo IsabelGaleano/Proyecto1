@@ -116,7 +116,7 @@ div{
     padding-top: 5px;
 }
 
-.fas {
+.fa-star {
     padding: 2px;
     font-size: 20px;
     color: rgb(245, 232, 48);
@@ -161,3 +161,8 @@ div{
     width: 100%;
     /* The width is the width of the web page */
   }
+
+  .img-agregar img{
+    width: 300px;
+
+}

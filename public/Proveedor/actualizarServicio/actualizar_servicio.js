@@ -22,6 +22,7 @@ document.querySelector('#revisarServicio').addEventListener('click', e => {
 });
 
 
+
 const cargarServicio = () => {
   let correo = localStorage.getItem('correo');
   var datos = {
@@ -330,7 +331,6 @@ const buscarNivel = nivel => {
   }
 
 }
-
 
 const insertarAccion = () => {
   let correo = localStorage.getItem('correo');

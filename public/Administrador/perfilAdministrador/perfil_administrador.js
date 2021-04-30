@@ -40,5 +40,10 @@ const cargarPerfil = () => {
   }
   
   
+
+const bitacora = () => {
+  let correo = localStorage.getItem('correo');
+  localStorage.setItem('data-correoBitacora', correo);
+}
   
   

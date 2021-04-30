@@ -56,6 +56,7 @@ const cargarListado = (correo, fechas) => {
         .then(
             json => {
                 let listado;
+                console.log(json)
                 for (let i = 0; i < json.length; i += 2) {
 
 
@@ -75,7 +76,7 @@ const cargarListado = (correo, fechas) => {
                         listado = ` <div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../img/estetica4.PNG" />
+                                <img src="${json[i].imagenes_servicio[0]}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i].nombre_servicio}</h4>
@@ -89,7 +90,7 @@ const cargarListado = (correo, fechas) => {
                         </div>
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../img/estetica5.jpg" />
+                                <img src="${json[i + 1].imagenes_servicio[0]}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i + 1].nombre_servicio}</h4>
@@ -111,7 +112,7 @@ const cargarListado = (correo, fechas) => {
                         listado = ` <div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../img/estetica4.PNG" />
+                                <img src="${json[i].imagenes_servicio[0]}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i].nombre_servicio}</h4>
@@ -159,7 +160,7 @@ const servicioHTML = (json) => {
             listado = ` <div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../img/estetica4.PNG" />
+                                <img src="${json[i].imagenes_servicio[0]}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i].nombre_servicio}</h4>
@@ -173,7 +174,7 @@ const servicioHTML = (json) => {
                         </div>
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../img/estetica5.jpg" />
+                                <img src="${json[i + 1].imagenes_servicio[0]}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i + 1].nombre_servicio}</h4>
@@ -195,7 +196,7 @@ const servicioHTML = (json) => {
             listado = ` <div class="listado">
                         <div class="info-listado">
                             <div class="img-categoria">
-                                <img src="../img/estetica4.PNG" />
+                                <img src="${json[i].imagenes_servicio[0]}" />
                             </div>
                             <div class="descripcion-info">
                                 <h4 class="margin-bottom">${json[i].nombre_servicio}</h4>
