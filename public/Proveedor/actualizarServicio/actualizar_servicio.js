@@ -52,9 +52,31 @@ const cargarServicio = () => {
         cargarHorarios(json.horario_servicio, json.dias_servicio)
         buscarNivel(json.nivel_servicio);
 
+        document.getElementById('imagenServicio').src = json?.imagenes_servicio[0]
+          ? json.imagenes_servicio[0]
+          : '../../img/agregarImg.jpg';
+
+
+
+
+
       }
     )
 }
+
+
+const imgPreview = async (e) => {
+  try {
+    const img = e.files[0];
+
+    if (img) {
+      const base64Img = await toBase64(img);
+      document.getElementById('imagenServicio').src = base64Img;
+    }
+  } catch (e) {
+    throw e;
+  }
+};
 
 
 const cargarHorarios = (horario_servicio, dias_servicio) => {
@@ -206,7 +228,6 @@ const actualizarServicio = () => {
   let costo = document.getElementById('costo').value;
   let dias_servicio = obtenerDias();
   let horario_servicio = obtenerHorarios();
-  let imagenes_servicio = document.getElementById('imagenesServicio').value;
   let whatsapp = document.getElementById('whatsapp').value;
   let facebook = document.getElementById('facebook').value;
   let instagram = document.getElementById('instagram').value;
@@ -219,14 +240,14 @@ const actualizarServicio = () => {
     costo: costo,
     dias_servicio: dias_servicio,
     horario_servicio: horario_servicio,
-    imagenes_servicio: imagenes_servicio,
     whatsapp: whatsapp,
     facebook: facebook,
     instagram: instagram,
     latitud: positions.lat,
     longitud: positions.lng,
     categoria_servicio: categoriaServicio,
-    estado: "activo"
+    estado: "activo",
+    imagenes_servicio: document.getElementById('imagenServicio').src
   }
   insertarAccion();
   fetch("http://localhost:5000/servicios/actualizar", {
@@ -272,7 +293,7 @@ const obtenerDias = () => {
 const obtenerHorarios = () => {
   let horario_servicio = [];
   var inputElements = document.getElementsByClassName('checkDias');
-  let inputHorarios =  document.getElementsByClassName('checkHorario');
+  let inputHorarios = document.getElementsByClassName('checkHorario');
   for (let i = 0; i < inputElements.length; ++i) {
 
     if (inputElements[i].checked) {
@@ -289,7 +310,7 @@ const getPosition = () => {
   let lat = marker.getPosition().lat();
   let lng = marker.getPosition().lng();
   return {
-      lat, lng
+    lat, lng
   }
 
 }
@@ -299,7 +320,7 @@ const buscarNivel = nivel => {
   let nacional = document.getElementById('nacional');
   let canton = document.getElementById('canton');
   let distrito = document.getElementById('distrito');
-  
+
   if (nacional.value === nivel) {
     nacional.checked = true;
   } else if (canton.value === nivel) {

@@ -36,7 +36,7 @@ const registroMascotas = () => {
         document.getElementById('raza').value = "";
         resetPadecimientos();
         resetVacunas();
-        document.getElementById('foto_mascota').value = "";
+        document.getElementById('imagenMascota').src = "../../img/placeholder-image (1).png";
         document.getElementById('caracteristicas').value = "";
         Swal.fire({
             position: 'top-end',

@@ -67,11 +67,11 @@
         <div class="proveedor">
             
             <div class="img-agregar">
-                <img id="img_categoria_servicio" src="../../img/agregarImg.jpg"/>
+                <img id="imagenServicio" src="../../img/agregarImg.jpg"/>
                 <div class="pw-form-inverse">
                     <div class="upload-btn-wrapper">
                         <button class="btn">Agregar imagen</button>
-                        <input type="file" name="myfile" id="imagenesServicio" />
+                        <input type="file" name="myfile" id="imagenInput" accept="image/x-png,image/jpeg" onchange="imgPreview(this)"/>
                     </div>
                 </div>
             </div>
@@ -262,6 +262,7 @@
     </div>
 
 
+    <script src="../../Librerias/General/utils.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
         async></script>

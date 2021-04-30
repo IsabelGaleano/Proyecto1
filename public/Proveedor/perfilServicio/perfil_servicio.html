@@ -29,25 +29,27 @@
                 </i>
                 <div class="final-dropdown-menu-nt final">
                     <div class="listado-nt-general" id="listadoNotificacion">
-                        
+
 
                     </div>
-                   
+
 
                 </div>
             </div>
 
             <div class="user">
                 <a href="#"><img id="logged_user_img" src="" /></a>
-               
+
             </div>
             <div class="final-dropdown">
-                <span href="opcion2" id="logged_user_name"  class="final-dropdown-hover"></span>
+                <span href="opcion2" id="logged_user_name" class="final-dropdown-hover"></span>
                 <div class="final-dropdown-menu">
                     <a href="../perfilProveedor/perfil_proveedor.html">Perfil</a>
-                    <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes pendientes</a>
+                    <a href="../solicitudesServiciosPendientes/listado_solicitudes_pendientes_proveedor.html">Solicitudes
+                        pendientes</a>
                     <a href="../listadoServiciosCurso/listado_servicios_curso.html">Servicios en curso</a>
-                    <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios anteriores</a>
+                    <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios
+                        anteriores</a>
                     <a href="../listadoPagosPendientes/listado_pagos_pendientes.html">Pagos pendientes</a>
                     <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
@@ -59,26 +61,11 @@
         <h2>Perfil servicio</h2>
     </div>
 
-    
+
     <div class="info-servicio">
         <div class="proveedor">
-            
-            
-            <div class="carousel">
-                <h3>Fotos del servicio</h3>
-                <div class="swiper-container center" style="width:400px;height:200px;border:1px solid #BEBEBE;">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="../img/estetica1.jpg">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../img/estetica2.jpg">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../img/estetica1.jpg">
-                        </div>
-                    </div>
-                </div>
+            <div class="img-agregar">
+                <img id="imagenServicio"/>
             </div>
             <div class="titulo-servicio">
                 <p class="titulo-info">Descripción del servicio</p>
@@ -93,7 +80,7 @@
             <div class="info-perfil mapa-servicio">
                 <div id="map"></div>
             </div>
-            
+
 
         </div>
 
@@ -101,14 +88,14 @@
             <div class="titulo-servicio">
                 <p><span class="titulo-info">Nombre del servicio: </span> <span id="nombreServicio"></span></p>
             </div>
-            
+
             <div class="titulo-servicio">
                 <p><span class="titulo-info">Costo del servicio: </span> <span id="precioServicio"></span></p>
             </div>
             <div class="titulo-servicio">
                 <p><span class="titulo-info">Categoría del servicio: </span> <span id="categoria_servicio"></span></p>
             </div>
-            
+
             <div class="nivel-nacional">
                 <p class="titulo-info">El servicio lo provee a nivel: </p>
                 <p><input type="radio" name="nivel" value="Nacional" checked disabled> Nacional</p>
@@ -130,7 +117,7 @@
                     <p><span id="numeroCelular"></span></p>
                 </div>
             </div>
-            
+
         </div>
         <div class="info-derecha">
             <p class="titulo-info">Horario del servicio</p>
@@ -142,7 +129,7 @@
                     <div class="valor-horario">
                         <p><span id="horario_servicio_lunes"></span></p>
                     </div>
-                </div>  
+                </div>
 
                 <div class="horario-servicio">
                     <div class="checkbox-dia">
@@ -206,7 +193,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <div class="container-footer">
         <div class="logo">
@@ -233,11 +220,12 @@
         </div>
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
-    async></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0tehN3PsC0J9VIPA0k6JoOhz-MaF9Lh4&callback=initMap&libraries=&v=weekly"
+        async></script>
     <script src="https://unpkg.com/tiny-swiper@latest/lib/index.full.js"></script>
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
-    <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
+    <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
     <script src="./perfil_servicio.js"></script>
 </body>

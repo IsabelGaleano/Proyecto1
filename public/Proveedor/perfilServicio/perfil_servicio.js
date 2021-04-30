@@ -1,11 +1,4 @@
-var swiper = new Swiper(".swiper-container", {
-  speed: 1500,
-  loop: true,
-  // autoplay: {
-  //     delay: 500
-  // },
-  plugins: [SwiperPluginAutoPlay]
-});
+
 
 const cargarServicio = () => {
   let correo = localStorage.getItem('correo');
@@ -34,12 +27,20 @@ const cargarServicio = () => {
         document.getElementById('numeroCelular').innerText = json.whatsapp;
         document.getElementById('instagram').innerText = json.instagram;
         document.getElementById('facebook').innerText = json.facebook;
-        document.getElementById('categoria_servicio').innerText = json.categoria_servicio
+        document.getElementById('categoria_servicio').innerText = json.categoria_servicio;
+
+        
+          document.getElementById('imagenServicio').src = json.imagenes_servicio[0];
+
+        
+
         cargarHorarios(json.horario_servicio)
 
       }
     )
 }
+
+
 
 const cargarHorarios = horario_servicio => {
   let lunes = document.getElementById('checkLunes');
