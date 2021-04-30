@@ -21,6 +21,18 @@ document.querySelector('#revisarServicio').addEventListener('click', e => {
 
 });
 
+const imgPreview = async (e) => {
+  try {
+      const img = e.target.files[0];
+
+      if (img) {
+          const base64Img = await toBase64(img);
+          document.getElementById('imgServicio').src = base64Img;
+      }
+  } catch (e) {
+      throw e;
+  }
+};
 
 const cargarServicio = () => {
   let correo = localStorage.getItem('correo');
@@ -309,3 +321,10 @@ const buscarNivel = nivel => {
   }
 
 }
+
+// docucmento
+ 
+document.addEventListener("DOMContentLoaded", () => {
+  const imagenes_servicio = document.getElementById('imagenesServicio');
+  imagenes_servicio.addEventListener('change', imgPreview);
+});

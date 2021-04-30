@@ -52,7 +52,7 @@
                     <a href="../listadoServiciosAnteriores/listado_servicios_anteriores_proveedor.html">Servicios
                         anteriores</a>
                     <a href="../listadoPagosPendientes/listado_pagos_pendientes.html">Pagos pendientes</a>
-                    <a href="../../General/login/login.html">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                    <a id="cerrarSesion">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
         <div class="proveedor">
             
             <div class="img-agregar">
-                <img id="img_categoria_servicio" src="../../img/agregarImg.jpg"/>
+                <img id="imgServicio" src="../../img/agregarImg.jpg"/>
                 <div class="pw-form-inverse">
                     <div class="upload-btn-wrapper">
                         <button class="btn">Agregar imagen</button>
@@ -269,6 +269,12 @@
     <script src="https://unpkg.com/tiny-swiper@2.1.0/lib/modules/autoPlay.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
+
+     <!-- Usar en este mismo order -->
+     <script src="../../Librerias/General/cerrarSesion.js"></script>
+     <script src="../../Librerias/jwt-decode.js"></script>
+     <script src="../../Librerias/General/utils.js"></script>
+     
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="actualizar_servicio.js"></script>
     <script src="../../Librerias/notificaciones/listado_notificaciones.js"></script>
