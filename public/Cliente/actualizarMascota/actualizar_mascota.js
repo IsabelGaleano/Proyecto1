@@ -35,7 +35,7 @@ const actualizarMascota = () => {
         caracteristicas: document.getElementById("caracteristicas").value,
         vacunaDia: radioValue()
     }
-
+    insertarAccion();
     fetch("http://localhost:5000/mascotas/actualizar_mascotas", {
         method: 'PUT',
         body: JSON.stringify(infoMascota),
@@ -304,3 +304,22 @@ const imgPreview = async (e) => {
   };
   
 
+
+  const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Actualizar mascota',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };

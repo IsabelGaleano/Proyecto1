@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('correo', data.correo);
-
                 const role = data.role.toLowerCase();
 
                 if (role == 'proveedor') {
@@ -51,3 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, false);
 });
+
+
+
+const insertarAccion = () => {
+    let correo = document.getElementById('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Iniciar sesión',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };

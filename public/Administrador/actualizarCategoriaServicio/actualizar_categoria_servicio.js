@@ -49,7 +49,7 @@ const actualizarCategoria = () => {
     descripcion: document.getElementById('descripcion').value,
     imagen: document.getElementById('img_categoria_servicio').src,
   };
-
+  insertarAccion();
   fetch('http://localhost:5000/categorias_servicios/actualizar', {
     method: 'PUT',
     body: JSON.stringify(datos),
@@ -74,4 +74,23 @@ const imgPreview = async (e) => {
   } catch (e) {
       throw e;
   }
+};
+
+const insertarAccion = () => {
+  let correo = localStorage.getItem('correo');
+
+  let hoy = new Date();
+  var infoAccion = {
+    usuario: correo,
+    accion: 'Actualizar categoría de servicios',
+    fecha: hoy,
+  };
+
+  fetch('http://localhost:5000/acciones/insertar', {
+    method: 'POST',
+    body: JSON.stringify(infoAccion),
+    headers: { 'Content-Type': 'application/json' },
+  }).then(respuesta => {
+    return respuesta.json();
+  });
 };

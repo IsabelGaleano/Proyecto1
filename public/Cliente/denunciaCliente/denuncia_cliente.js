@@ -12,7 +12,6 @@ document.querySelector('#revisarDenuncia').addEventListener('click', e => {
 
         })
         registrarDenuncia();
-        cargarNotificacion();
         revisar.setAttribute("href", "../landingPageCliente/landing_page_cliente.html")
 
 
@@ -43,7 +42,8 @@ const registrarDenuncia = () => {
         motivo: document.getElementById('motivo').value,
         categoria: "proveedor"
     }
-
+    insertarAccion();
+    cargarNotificacion();
     fetch("http://localhost:5000/denuncias/insertar", {
         method: 'POST',
         body: JSON.stringify(datos),
@@ -120,6 +120,28 @@ const notificaciones = administrador => {
         });
 
 }
+
+
+
+const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Denunciar proveedor',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };
+
 
 
 

@@ -5,7 +5,6 @@ document.querySelector('#revisarDenuncia').addEventListener('click', e => {
 
        
         registrarDenuncia();
-        cargarNotificacion();
         Swal.fire({
             title: 'Éxito!',
             text: 'Denuncia enviada',
@@ -13,8 +12,8 @@ document.querySelector('#revisarDenuncia').addEventListener('click', e => {
             confirmButtonText: 'Aceptar',
             timer: 1500
         })
-       
-        setTimeout(cambio(), 6000);
+        revisar.setAttribute("href", "../landingPageProveedor/landing_page_proveedor.html")
+     
 
     } else {
         Swal.fire({
@@ -29,11 +28,7 @@ document.querySelector('#revisarDenuncia').addEventListener('click', e => {
 
 });
 
-const cambio = () => {
-    let revisar = document.getElementById("revisarDenuncia");
-    revisar.setAttribute("href", "../landingPageProveedor/landing_page_proveedor.html")
 
-}
 
 
 const registrarDenuncia = () => {
@@ -47,7 +42,8 @@ const registrarDenuncia = () => {
         motivo: document.getElementById('motivo').value,
         categoria: "cliente"
     }
-
+    cargarNotificacion();
+    insertarAccion();
     fetch("http://localhost:5000/denuncias/insertar", {
         method: 'POST',
         body: JSON.stringify(datos),
@@ -124,6 +120,27 @@ const notificaciones = administrador => {
         });
 
 }
+
+
+const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Denunciar cliente',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };
+
 
 
 

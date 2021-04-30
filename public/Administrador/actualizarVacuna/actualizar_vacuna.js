@@ -16,6 +16,7 @@ const cargarVacuna = async (idVacuna) => {
 const actualizarVacuna = async (vacuna) => {
     try {
         const { data } = await api.put('/vacunas/actualizar', { ...vacuna });
+        insertarAccion();
         return data;
     } catch (e) {
         throw e;
@@ -97,3 +98,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
   });
+
+
+  const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Actualizar vacuna',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };

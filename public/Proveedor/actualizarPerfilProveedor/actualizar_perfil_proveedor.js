@@ -13,6 +13,7 @@ document.querySelector('#revisarProveedor').addEventListener('click', e => {
             if (validar) {
                 if (validacionCedula) {
                     actualizarProveedor();
+                    insertarAccion();
                     revisar.setAttribute("href", "../perfilProveedor/perfil_proveedor.html")
 
                 } else {
@@ -302,5 +303,26 @@ const imgPreview = async (e) => {
     } catch (e) {
         throw e;
     }
+  };
+
+
+  
+  const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Actualizar perfil',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
   };
   

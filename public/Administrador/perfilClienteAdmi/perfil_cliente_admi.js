@@ -88,6 +88,10 @@ const mascotas = () => {
 }
 
 
+const bitacora = () => {
+  let correo = localStorage.getItem('data-correo');
+  localStorage.setItem('data-correoBitacora', correo);
+}
 
 
 

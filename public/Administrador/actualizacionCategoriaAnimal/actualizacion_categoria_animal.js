@@ -49,6 +49,7 @@ const actualizarCategoria = (e) => {
     imagen: document.getElementById('img_categoria_servicio').src
   };
 
+  insertarAccion();
   fetch('http://localhost:5000/categorias_mascotas/actualizar', {
     method: 'PUT',
     body: JSON.stringify(datos),
@@ -60,6 +61,26 @@ const actualizarCategoria = (e) => {
     .catch(err => {
       response.json({ message: err });
     });
+};
+
+
+const insertarAccion = () => {
+  let correo = localStorage.getItem('correo');
+
+  let hoy = new Date();
+  var infoAccion = {
+    usuario: correo,
+    accion: 'Actualizar categoría de mascotas',
+    fecha: hoy,
+  };
+
+  fetch('http://localhost:5000/acciones/insertar', {
+    method: 'POST',
+    body: JSON.stringify(infoAccion),
+    headers: { 'Content-Type': 'application/json' },
+  }).then(respuesta => {
+    return respuesta.json();
+  });
 };
 
 const imgPreview = async (e) => {

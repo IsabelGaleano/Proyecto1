@@ -261,11 +261,32 @@ const eliminar = (correo) => {
           )
           deleteProvider(correo);
           enviarEmailRechazo(correo);
+          insertarAccion();
         }
       })
 }
 
 
+
+
+const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Rechazar proveedor',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };
 
 const deleteProvider = (correo) => {
     var datos = {

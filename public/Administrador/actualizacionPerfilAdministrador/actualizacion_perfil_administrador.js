@@ -46,7 +46,9 @@ const cargarPerfil = () => {
                     document.getElementById('apellido2').value = json[i].apellido2;
                     document.getElementById('correo').value = json[i].correo;
                     document.getElementById('telefono').value = json[i].telefono;
-                    imagen_usuario.setAttribute("src", json[i].imagen_usuario);
+                    imagen_usuario.setAttribute("src", json[i]?.imagen_usuario
+                    ? json[i].imagen_usuario
+                    : '../../img/agregarImg.jpg');
                 }
 
 
@@ -63,10 +65,10 @@ const actualizarUsuario = () => {
         apellido2: document.getElementById("apellido2").value,
         correo: document.getElementById("correo").value,
         telefono: document.getElementById("telefono").value,
-        imagen_usuario: document.getElementById("imagen_usuario").value
+        imagen_usuario: document.getElementById('imagen_usuario').src,
 
     }
-
+    insertarAccion();
     fetch("http://localhost:5000/usuarios/actualizar", {
         method: 'PUT',
         body: JSON.stringify(datos),
@@ -83,4 +85,35 @@ const actualizarUsuario = () => {
 
 }
 
+const imgPreview = async (e) => {
+    try {
+        const img = e.files[0];
+  
+        if (img) {
+            const base64Img = await toBase64(img);
+            document.getElementById('imagen_usuario').src = base64Img;
+        }
+    } catch (e) {
+        throw e;
+    }
+  };
+  
 
+  const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Actualizar perfil',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };

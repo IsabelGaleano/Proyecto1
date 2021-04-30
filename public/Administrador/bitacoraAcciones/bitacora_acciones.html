@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="bitacora_acciones.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap" rel="stylesheet">
 </head>
-<body onload="cargarNotificacionesUsuario()">
+<body onload="cargarNotificacionesUsuario();cargarListado()">
     <nav class="container-nav">
         <div class="box-logo container-nav">
             <a href="../landingPageAdministrador/landing_page_administrador.html">
@@ -80,54 +80,8 @@
 
     <div class="tablas-informativas">
         <div class="reporte-tabla">
-            <table class="table-info">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Acción</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                </tr>
-
-                <tr>
-                    <td>Isabel Galeano Hernández</td>
-                    <td>Iniciar sesión</td>
-                    <td>09/03/2021</td>
-                    <td>12:20 PM</td>
-                </tr>
-
-                <tr>
-                    <td>Isabel Galeano Hernández</td>
-                    <td>Cerrar sesión</td>
-                    <td>09/03/2021</td>
-                    <td>12:20 PM</td>
-                </tr>
-
-                <tr>
-                    <td>Isabel Galeano Hernández</td>
-                    <td>Contrató un servicio</td>
-                    <td>09/03/2021</td>
-                    <td>12:20 PM</td>
-                </tr>
-
-                <tr>
-                    <td>Isabel Galeano Hernández</td>
-                    <td>Ejecutó un pago</td>
-                    <td>09/04/2021</td>
-                    <td>12:20 PM</td>
-                </tr>
-                <tr>
-                    <td>Isabel Galeano Hernández</td>
-                    <td>Actualizó su perfil</td>
-                    <td>09/04/2021</td>
-                    <td>12:20 PM</td>
-                </tr>
-                <tr>
-                    <td>Isabel Galeano Hernández</td>
-                    <td>Eliminó una mascota</td>
-                    <td>09/04/2021</td>
-                    <td>12:20 PM</td>
-                </tr>
-
+            <table class="table-info" id="listado">
+               
             </table>
 
         </div>
@@ -163,6 +117,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="./reporte_proveedores_calificados.js"></script>
     <script src="./../../Librerias/LoadNav/load_nav.js"></script>
+    <script src="./bitacora_acciones.js"></script>
     
 </body>
 </html>

@@ -1,10 +1,10 @@
 
-let correo;
+
 
 const cargarPerfil = () => {
   let infoCurso = localStorage.getItem('data-cliente-curso');
   let infoCursoForm = JSON.parse(infoCurso);
-  correo = infoCursoForm.correo;
+  let correo = infoCursoForm.correo;
   let fecha = infoCursoForm.fecha;
   var datos = {
     correo: correo
@@ -104,6 +104,9 @@ const setAttribute = () => {
 
 
 const actualizarEstado = () => {
+  let infoCurso = localStorage.getItem('data-cliente-curso');
+  let infoCursoForm = JSON.parse(infoCurso);
+  let correo = infoCursoForm.correo;
   let proveedor = localStorage.getItem('correo');
   let cliente = correo;
   let fechaInicio = document.getElementById('horaInicio').value;
@@ -133,7 +136,10 @@ const actualizarEstado = () => {
 }
 
 
-const notificaciones = cliente => {
+const notificaciones = () => {
+  let infoCurso = localStorage.getItem('data-cliente-curso');
+  let infoCursoForm = JSON.parse(infoCurso);
+  let correo = infoCursoForm.correo;
   let proveedor = localStorage.getItem('correo');
   var datos = {
       receptor: correo,
@@ -161,9 +167,9 @@ const notificaciones = cliente => {
 
 
 const cargarServicio = () => {
-  let correo = localStorage.getItem('data-correo');
+  let proveedor = localStorage.getItem('data-correo');
   var datos = {
-    proveedor: correo
+    proveedor: proveedor
   }
   fetch("http://localhost:5000/servcio/buscar_servicios_proveedores", {
     method: 'POST',
@@ -186,7 +192,15 @@ const cargarServicio = () => {
     )
 }
 
+
+
+window.addEventListener('load', e => {
+  cargarPerfil();
+})
 const enviarEmail = (proveedor, nombreServicio) => {
+  let infoCurso = localStorage.getItem('data-cliente-curso');
+  let infoCursoForm = JSON.parse(infoCurso);
+  let correo = infoCursoForm.correo;
   let datos = {
       correo: correo,
       proveedor: proveedor,

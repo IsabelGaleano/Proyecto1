@@ -228,7 +228,7 @@ const actualizarServicio = () => {
     categoria_servicio: categoriaServicio,
     estado: "activo"
   }
-
+  insertarAccion();
   fetch("http://localhost:5000/servicios/actualizar", {
     method: 'PUT',
     body: JSON.stringify(datos),
@@ -309,3 +309,23 @@ const buscarNivel = nivel => {
   }
 
 }
+
+
+const insertarAccion = () => {
+  let correo = localStorage.getItem('correo');
+
+  let hoy = new Date();
+  var infoAccion = {
+    usuario: correo,
+    accion: 'Actualizar servicio',
+    fecha: hoy,
+  };
+
+  fetch('http://localhost:5000/acciones/insertar', {
+    method: 'POST',
+    body: JSON.stringify(infoAccion),
+    headers: { 'Content-Type': 'application/json' },
+  }).then(respuesta => {
+    return respuesta.json();
+  });
+};

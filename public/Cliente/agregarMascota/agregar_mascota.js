@@ -171,7 +171,7 @@ const insertarInfo = () => {
         foto_mascota: document.getElementById("imagenMascota").src,
         caracteristicas: document.getElementById("caracteristicas").value,
     }
-
+    insertarAccion();
     fetch("http://localhost:5000/mascotas/insertar", {
         method: 'POST',
         body: JSON.stringify(infoMascota),
@@ -196,4 +196,25 @@ const imgPreview = async e => {
     } catch (e) {
       throw e;
     }
+  };
+
+
+  
+const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Añadir mascota',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
   };

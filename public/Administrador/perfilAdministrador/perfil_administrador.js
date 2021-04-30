@@ -24,7 +24,9 @@ const cargarPerfil = () => {
             document.getElementById('correo').innerText = json[i].correo;
             document.getElementById('telefono').innerText = json[i].telefono;
             document.getElementById('nombre').innerText = nombre;
-          
+            document.getElementById('imagen_usuario').src = json[i]?.imagen_usuario
+            ? json[i].imagen_usuario
+            : '../../img/agregarImg.jpg';
             
           }
         

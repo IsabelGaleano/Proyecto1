@@ -278,6 +278,7 @@ const eliminar = nombre => {
 }
 
 
+
 const deletePadecimiento = nombre => {
     var datos = {
         nombre: nombre,

@@ -22,6 +22,7 @@ document.querySelector('#revisar').addEventListener('click', e => {
             enviarEmailFactura();
             notificaciones();
             notificacionesPagoProveedor();
+            insertarAccion();
             revisar.setAttribute("href", "../listadoPagosPendientes/listado_pagos_pendientes_cliente.html")
         }
 
@@ -179,3 +180,22 @@ const notificacionesPagoProveedor = () => {
         });
   
   }
+
+  const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Pagar servicio',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };

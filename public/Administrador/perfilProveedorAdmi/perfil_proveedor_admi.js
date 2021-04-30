@@ -53,4 +53,10 @@ const obtenerFecha = (fechaNacimiento) => {
 const servicio = () => {
   let correo = localStorage.getItem('providerEmail');
   localStorage.setItem('data-correoServicioA', correo);
+  
+}
+
+const bitacora = () => {
+  let correo = localStorage.getItem('providerEmail');
+  localStorage.setItem('data-correoBitacora', correo);
 }

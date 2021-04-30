@@ -9,7 +9,7 @@ document.querySelector('#contratarServicio').addEventListener('click', e => {
     icon: 'success',
     confirmButtonText: 'Aceptar'
 })
-  servicio.setAttribute("href", "../listadoServicios/listado_servicios.html")
+  servicio.setAttribute("href", "../landingPageCliente/landing_page_cliente.html")
  
 })
 
@@ -145,6 +145,7 @@ var swiper = new Swiper(".swiper-container", {
             nombre = `${json[i].nombre} ${json[i].apellido1} ${json[i].apellido2}`;
             document.getElementById('nombre').innerText = nombre;
             document.getElementById('ubicacionServicio').innerText = json[0].direccion;
+            document.getElementById('imagenUsuario').src = json[0].imagen_usuario;
             initMap(json[0].latitud, json[0].longitud);
           }
         }
@@ -191,7 +192,7 @@ const contratarServicio = () => {
       fechaFin: new Date()
      
   }
-
+  insertarAccion();
   fetch("http://localhost:5000/solicitudes/insertar", {
       method: 'POST',
       body: JSON.stringify(datos),
@@ -267,3 +268,23 @@ const notificaciones = () => {
         });
   
   }
+
+  
+  const insertarAccion = () => {
+    let correo = localStorage.getItem('correo');
+  
+    let hoy = new Date();
+    var infoAccion = {
+      usuario: correo,
+      accion: 'Contratar servicio',
+      fecha: hoy,
+    };
+  
+    fetch('http://localhost:5000/acciones/insertar', {
+      method: 'POST',
+      body: JSON.stringify(infoAccion),
+      headers: { 'Content-Type': 'application/json' },
+    }).then(respuesta => {
+      return respuesta.json();
+    });
+  };

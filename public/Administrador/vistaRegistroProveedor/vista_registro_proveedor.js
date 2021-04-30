@@ -51,6 +51,7 @@ const aceptarProveedor = () => {
         timer: 1500
       })
       setTimeout(setAceptar(), 5000);
+      accionAceptar();
     
   }
   const setAceptar = () => {
@@ -100,6 +101,7 @@ const eliminar = () => {
           )
           deleteProvider(correo);
           enviarEmailRechazo(correo);
+          insertarAccion();
           eliminar.setAttribute("href", "../listadoSolicitudesRegistro/listado_solicitudes_registro.html");
         }
       })
@@ -207,3 +209,44 @@ function initMap(lat, lng) {
   marker.setMap(map);
 
 }
+
+
+const accionAceptar = () => {
+  let correo = localStorage.getItem('correo');
+
+  let hoy = new Date();
+  var infoAccion = {
+    usuario: correo,
+    accion: 'Aceptar proveedor',
+    fecha: hoy,
+  };
+
+  fetch('http://localhost:5000/acciones/insertar', {
+    method: 'POST',
+    body: JSON.stringify(infoAccion),
+    headers: { 'Content-Type': 'application/json' },
+  }).then(respuesta => {
+    return respuesta.json();
+  });
+};
+
+
+const insertarAccion = () => {
+  let correo = localStorage.getItem('correo');
+
+  let hoy = new Date();
+  var infoAccion = {
+    usuario: correo,
+    accion: 'Rechazar proveedor',
+    fecha: hoy,
+  };
+
+  fetch('http://localhost:5000/acciones/insertar', {
+    method: 'POST',
+    body: JSON.stringify(infoAccion),
+    headers: { 'Content-Type': 'application/json' },
+  }).then(respuesta => {
+    return respuesta.json();
+  });
+};
+
