@@ -185,4 +185,31 @@ router.get('/buscar_categoria', (req, res) => {
         });
 });
 
+router.post('/service_names', (req, res) => {
+    const data = req.body.data;
+    Servicio.find().exec()
+        .then(
+            function (result) {
+                let serviceNames = [];
+
+                data.forEach(incomingData => {
+                    result.forEach((service, index) => {
+                        if (incomingData.correo === service.proveedor && service.estado === 'activo') {
+                            serviceNames.push({
+                                ...data[index],
+                                servicio: service.nombre_servicio
+                            });
+                        }
+                    });
+                });
+
+                res.json(serviceNames);
+            }
+        )
+        .catch(err => {
+            res.json({ message: err })
+        });
+
+});
+
 module.exports = router;

@@ -103,7 +103,9 @@ const cargarPerfil = () => {
           document.getElementById('direccion').value = json[i].direccion;
           buscarTipoIdenficacion(json[i].tipo_identificacion);
           setProvincia(json[i].provincia, json[i].canton,json[i].distrito);
-          imagen_usuario.setAttribute("src", json[i].imagen_usuario);
+          imagen_usuario.setAttribute("src", json[i]?.imagen_usuario
+          ? json[i].imagen_usuario
+          : '../../img/agregarImg.jpg');
           initMap(json[i].latitud, json[i].longitud);
 
         }
@@ -118,7 +120,7 @@ const actualizarUsuario = () => {
   let positions = getPosition();
   let radio = radioValue();
   let tipo_usuario = "cliente"
-  let imagen_usuario = "../../img/placeholder-User.jpg"
+  let imagen_usuario = document.getElementById('imagen_usuario').src
   let idProvincia = document.getElementById("provincia").value;
   let provincia = getProvincia(idProvincia);
   let idCanton = document.getElementById("canton").value;
@@ -143,7 +145,7 @@ const actualizarUsuario = () => {
     latitud: positions.lat,
     longitud: positions.lng,
     tipo_usuario: tipo_usuario,
-    imagen_usuario, imagen_usuario,
+    imagen_usuario: imagen_usuario,
     promedio_calificacion: null,
     estado: null
   }
@@ -395,6 +397,18 @@ const obtenerPadecimientos = () => {
   return padecimientos;
 }
 
+const imgPreview = async (e) => {
+  try {
+      const img = e.files[0];
+
+      if (img) {
+          const base64Img = await toBase64(img);
+          document.getElementById('imagen_usuario').src = base64Img;
+      }
+  } catch (e) {
+      throw e;
+  }
+};
 
 
 

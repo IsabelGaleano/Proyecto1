@@ -79,13 +79,13 @@
     <div class="perfil-administrador">
         <div class="administrador">
             <div class="avatar-administrador">
-                <a href=""><img id="imagen_usuario" /></a>
+                <a href=""><img id="imagen_usuario" src="../../img/agregarImg.jpg"/></a>
             </div>
             <div class="img-agregar">
                 <div class="pw-form-inverse">
                     <div class="upload-btn-wrapper">
                         <button class="btn">Agregar imagen</button>
-                        <input type="file" name="myfile" id="imagen_nueva" />
+                        <input type="file" name="myfile" id="imagenInput" accept="image/x-png,image/jpeg" onchange="imgPreview(this)"/>
                       </div>
                 </div>
             </div>
@@ -148,6 +148,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js
     "></script>
+    <script src="../../Librerias/General/utils.js"></script>
     <script src="../../Librerias/notificaciones/listado_notificaciones.js" ></script>
     <script src="../../Librerias/revisionFormulario/revision_formulario_registros.js"></script>
     <script src="./actualizacion_perfil_administrador.js"></script>
